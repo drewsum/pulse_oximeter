@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -258,6 +259,7 @@ AR Path="/5CB6F1ED/5EC1A081" Ref="C?"  Part="1"
 AR Path="/5E939CFF/5EC1A081" Ref="C?"  Part="1" 
 AR Path="/5E9E0E87/5EC1A081" Ref="C?"  Part="1" 
 AR Path="/5EAE2D66/5EC1A081" Ref="C?"  Part="1" 
+AR Path="/5EAE3021/5EC1A081" Ref="C?"  Part="1" 
 F 0 "C?" H 4855 3220 50  0000 L CNN
 F 1 "0.1uF" H 4855 3020 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 4868 2970 50  0001 C CNN

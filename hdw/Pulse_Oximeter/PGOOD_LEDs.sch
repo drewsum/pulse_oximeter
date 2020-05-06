@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -739,66 +740,6 @@ $EndComp
 Text GLabel 2680 4370 0    50   Input ~ 0
 POS5_USB_PGOOD
 $Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E4A38CE
-P 4980 2870
-AR Path="/5CB7A8BC/5E4A38CE" Ref="U?"  Part="1" 
-AR Path="/5CB7A8C3/5E4A38CE" Ref="U?"  Part="1" 
-AR Path="/5EAE4ADE/5E4A38CE" Ref="U?"  Part="1" 
-F 0 "U?" H 5040 3020 50  0000 L CNN
-F 1 "74LVC1G97" H 5040 2720 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 5030 2870 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 5030 2870 50  0001 C CNN
-F 4 "296-15582-1-ND" H 4980 2870 50  0001 C CNN "Digi-Key PN"
-	1    4980 2870
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E4A4421
-P 6980 2870
-AR Path="/5CB7A8BC/5E4A4421" Ref="U?"  Part="1" 
-AR Path="/5CB7A8C3/5E4A4421" Ref="U?"  Part="1" 
-AR Path="/5EAE4ADE/5E4A4421" Ref="U?"  Part="1" 
-F 0 "U?" H 7040 3020 50  0000 L CNN
-F 1 "74LVC1G97" H 7040 2720 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 7030 2870 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 7030 2870 50  0001 C CNN
-F 4 "296-15582-1-ND" H 6980 2870 50  0001 C CNN "Digi-Key PN"
-	1    6980 2870
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E4A5210
-P 8980 2870
-AR Path="/5CB7A8BC/5E4A5210" Ref="U?"  Part="1" 
-AR Path="/5CB7A8C3/5E4A5210" Ref="U?"  Part="1" 
-AR Path="/5EAE4ADE/5E4A5210" Ref="U?"  Part="1" 
-F 0 "U?" H 9040 3020 50  0000 L CNN
-F 1 "74LVC1G97" H 9040 2720 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 9030 2870 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 9030 2870 50  0001 C CNN
-F 4 "296-15582-1-ND" H 8980 2870 50  0001 C CNN "Digi-Key PN"
-	1    8980 2870
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E4A7AA3
-P 2980 4370
-AR Path="/5CB7A8BC/5E4A7AA3" Ref="U?"  Part="1" 
-AR Path="/5CB7A8C3/5E4A7AA3" Ref="U?"  Part="1" 
-AR Path="/5EAE4ADE/5E4A7AA3" Ref="U?"  Part="1" 
-F 0 "U?" H 3040 4520 50  0000 L CNN
-F 1 "74LVC1G97" H 3040 4220 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 3030 4370 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 3030 4370 50  0001 C CNN
-F 4 "296-15582-1-ND" H 2980 4370 50  0001 C CNN "Digi-Key PN"
-	1    2980 4370
-	1    0    0    -1  
-$EndComp
-$Comp
 L Regulator_Linear:TPS71533__SC70 U?
 U 1 1 5E4D26A0
 P 1990 1950
@@ -824,19 +765,4 @@ Wire Wire Line
 Connection ~ 2570 1950
 Wire Wire Line
 	2570 1950 2980 1950
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E4A29B8
-P 2980 2870
-AR Path="/5CB7A8BC/5E4A29B8" Ref="U?"  Part="1" 
-AR Path="/5CB7A8C3/5E4A29B8" Ref="U?"  Part="1" 
-AR Path="/5EAE4ADE/5E4A29B8" Ref="U?"  Part="1" 
-F 0 "U?" H 3040 3020 50  0000 L CNN
-F 1 "74LVC1G97" H 3040 2720 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 3030 2870 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 3030 2870 50  0001 C CNN
-F 4 "296-15582-1-ND" H 2980 2870 50  0001 C CNN "Digi-Key PN"
-	1    2980 2870
-	1    0    0    -1  
-$EndComp
 $EndSCHEMATC

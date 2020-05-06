@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -149,7 +150,7 @@ $EndComp
 NoConn ~ 3360 5310
 NoConn ~ 3360 5510
 NoConn ~ 3360 5610
-Text Notes 4280 4510 0    250  ~ 50
+Text Notes 5170 4510 0    250  ~ 50
 VERIFY PINOUT
 $Comp
 L Custom_Library:PIC32MZ0512EFE064T-I_PT U?
@@ -163,4 +164,30 @@ F 4 "PIC32MZ0512EFE064T-I/PTCT-ND" H 5460 3560 50  0001 C CNN "Digi-Key PN"
 	1    5460 3560
 	1    0    0    -1  
 $EndComp
+Text GLabel 7560 3310 2    50   Output ~ 0
+LCD_BACKLIGHT_PWM
+Text GLabel 3360 3010 0    50   Output ~ 0
+LCD_PMP_RS
+Text GLabel 3360 4610 0    50   Output ~ 0
+LCD_PMP_R_W
+Text GLabel 3360 4510 0    50   Output ~ 0
+LCD_PMP_E
+Text GLabel 7560 1210 2    50   Output ~ 0
+LCD_PMP_DB0
+Text GLabel 7560 1310 2    50   Output ~ 0
+LCD_PMP_DB1
+Text GLabel 7560 1410 2    50   Output ~ 0
+LCD_PMP_DB2
+Text GLabel 7560 1510 2    50   Output ~ 0
+LCD_PMP_DB3
+Text GLabel 7560 1610 2    50   Output ~ 0
+LCD_PMP_DB4
+Text GLabel 7560 1710 2    50   Output ~ 0
+LCD_PMP_DB5
+Text GLabel 7560 1810 2    50   Output ~ 0
+LCD_PMP_DB6
+Text GLabel 7560 1910 2    50   Output ~ 0
+LCD_PMP_DB7
+Text GLabel 3360 3510 0    50   Output ~ 0
+MCU_REFCLK
 $EndSCHEMATC

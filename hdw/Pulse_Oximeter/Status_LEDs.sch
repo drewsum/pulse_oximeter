@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -1017,78 +1018,6 @@ F 3 "" H 4400 4320 50  0001 C CNN
 	1    4400 4320
 	1    0    0    -1  
 $EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E499235
-P 2400 2220
-F 0 "U?" H 2460 2370 50  0000 L CNN
-F 1 "74LVC1G97" H 2460 2070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2450 2220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 2450 2220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 2400 2220 50  0001 C CNN "Digi-Key PN"
-	1    2400 2220
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E499F9B
-P 4400 2220
-F 0 "U?" H 4460 2370 50  0000 L CNN
-F 1 "74LVC1G97" H 4460 2070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4450 2220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 4450 2220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 4400 2220 50  0001 C CNN "Digi-Key PN"
-	1    4400 2220
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E49A9B3
-P 6400 2220
-F 0 "U?" H 6460 2370 50  0000 L CNN
-F 1 "74LVC1G97" H 6460 2070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 6450 2220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 6450 2220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 6400 2220 50  0001 C CNN "Digi-Key PN"
-	1    6400 2220
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E49B430
-P 8400 2220
-F 0 "U?" H 8460 2370 50  0000 L CNN
-F 1 "74LVC1G97" H 8460 2070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 8450 2220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 8450 2220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 8400 2220 50  0001 C CNN "Digi-Key PN"
-	1    8400 2220
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E49BF58
-P 6400 4220
-F 0 "U?" H 6460 4370 50  0000 L CNN
-F 1 "74LVC1G97" H 6460 4070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 6450 4220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 6450 4220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 6400 4220 50  0001 C CNN "Digi-Key PN"
-	1    6400 4220
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5E49CDEC
-P 4400 4220
-F 0 "U?" H 4460 4370 50  0000 L CNN
-F 1 "74LVC1G97" H 4460 4070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4450 4220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 4450 4220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 4400 4220 50  0001 C CNN "Digi-Key PN"
-	1    4400 4220
-	1    0    0    -1  
-$EndComp
 Text GLabel 3770 4220 0    50   Input ~ 0
 CPU_Exception_LED
 Text GLabel 7770 2220 0    50   Input ~ 0
@@ -1257,18 +1186,6 @@ F 1 "GND" H 2400 4170 50  0000 C CNN
 F 2 "" H 2400 4320 50  0001 C CNN
 F 3 "" H 2400 4320 50  0001 C CNN
 	1    2400 4320
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_NOT U?
-U 1 1 5EB97ACE
-P 2400 4220
-F 0 "U?" H 2460 4370 50  0000 L CNN
-F 1 "74LVC1G97" H 2460 4070 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2450 4220 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 2450 4220 50  0001 C CNN
-F 4 "296-15582-1-ND" H 2400 4220 50  0001 C CNN "Digi-Key PN"
-	1    2400 4220
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

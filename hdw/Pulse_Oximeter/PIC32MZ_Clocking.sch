@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -563,4 +564,23 @@ F 3 "" H 4530 4210 50  0001 C CNN
 	1    4530 4210
 	1    0    0    -1  
 $EndComp
+$Comp
+L Custom_Library:TP TP?
+U 1 1 5EBAE156
+P 2550 4610
+AR Path="/5C1D5CD8/5EBAE156" Ref="TP?"  Part="1" 
+AR Path="/5C1D5C9E/5EBAE156" Ref="TP?"  Part="1" 
+AR Path="/5CB6F1ED/5EBAE156" Ref="TP?"  Part="1" 
+AR Path="/5E939CFF/5EBAE156" Ref="TP?"  Part="1" 
+AR Path="/5E9E0E87/5EBAE156" Ref="TP?"  Part="1" 
+AR Path="/5EAE2D66/5EBAE156" Ref="TP?"  Part="1" 
+F 0 "TP?" H 2550 4760 50  0000 C CNN
+F 1 "TP" H 2550 4760 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 2550 4610 60  0001 C CNN
+F 3 "" H 2550 4610 60  0000 C CNN
+	1    2550 4610
+	1    0    0    -1  
+$EndComp
+Text GLabel 2550 4610 3    50   UnSpc ~ 0
+MCU_REFCLK
 $EndSCHEMATC
