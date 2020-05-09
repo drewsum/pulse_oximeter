@@ -521,7 +521,7 @@ $EndComp
 $Comp
 L Custom_Library:TP TP?
 U 1 1 5EBAE156
-P 3170 5190
+P 3500 5190
 AR Path="/5C1D5CD8/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5C1D5C9E/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5CB6F1ED/5EBAE156" Ref="TP?"  Part="1" 
@@ -529,14 +529,14 @@ AR Path="/5E939CFF/5EBAE156" Ref="TP?"  Part="1"
 AR Path="/5E9E0E87/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5EAE2D66/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5EAE2F15/5EBAE156" Ref="TP?"  Part="1" 
-F 0 "TP?" V 3170 5340 50  0000 L CNN
-F 1 "TP" H 3170 5340 50  0001 C CNN
-F 2 "Custom Footprints Library:Test_Point" H 3170 5190 60  0001 C CNN
-F 3 "" H 3170 5190 60  0000 C CNN
-	1    3170 5190
+F 0 "TP?" V 3500 5340 50  0000 L CNN
+F 1 "TP" H 3500 5340 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 3500 5190 60  0001 C CNN
+F 3 "" H 3500 5190 60  0000 C CNN
+	1    3500 5190
 	0    1    1    0   
 $EndComp
-Text GLabel 3170 5190 0    50   UnSpc ~ 0
+Text GLabel 3170 5190 0    50   Input ~ 0
 PIC32MZ_REFCLK1
 $Comp
 L Custom_Library:R_Custom R?
@@ -571,5 +571,48 @@ F 6 "1/16W" V 6410 2700 50  0000 C CNN "Wattage"
 F 7 "541-3964-1-ND" H 6410 3100 60  0001 C CNN "Digi-Key PN"
 	1    6110 2700
 	0    -1   -1   0   
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB723DB
+P 3420 5420
+AR Path="/5BAAE1F3/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5BAAE1DC/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5BAAE16C/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5BB844FD/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5BF346B3/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5CAD2D97/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5CB7A8BC/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5E01BCC3/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5E697952/5EB723DB" Ref="R?"  Part="1" 
+AR Path="/5EAE2F15/5EB723DB" Ref="R?"  Part="1" 
+F 0 "R?" H 3360 5420 50  0000 R CNN
+F 1 "10k" V 3420 5420 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 3420 5420 50  0001 C CNN
+F 3 "" H 3420 5420 50  0001 C CNN
+F 4 "0402" H 3490 5500 50  0000 L CNN "display_footprint"
+F 5 "1%" H 3490 5420 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 3490 5350 50  0000 L CNN "Wattage"
+F 7 "RMCF0402FT10K0CT-ND" H 3420 5420 50  0001 C CNN "Digi-Key PN"
+	1    3420 5420
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 5190 3420 5190
+Wire Wire Line
+	3420 5190 3420 5270
+Wire Wire Line
+	3420 5190 3170 5190
+Connection ~ 3420 5190
+$Comp
+L power:GND #PWR?
+U 1 1 5EB74E9C
+P 3420 5570
+F 0 "#PWR?" H 3420 5320 50  0001 C CNN
+F 1 "GND" H 3420 5420 50  0000 C CNN
+F 2 "" H 3420 5570 50  0001 C CNN
+F 3 "" H 3420 5570 50  0001 C CNN
+	1    3420 5570
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

@@ -192,6 +192,96 @@ Text GLabel 3360 3510 0    50   Output ~ 0
 PIC32MZ_REFCLK
 Text GLabel 7560 3210 2    50   Output ~ 0
 PIC32MZ_REFCLK1
-Text Notes 5180 5380 0    250  ~ 50
-DON'T FORGET I2C PULLUPS
+Text GLabel 9670 2710 2    50   Output ~ 0
+I2C_SCL
+Text GLabel 9670 2610 2    50   BiDi ~ 0
+I2C_SDA
+Wire Wire Line
+	7560 2610 8780 2610
+Wire Wire Line
+	7560 2710 9370 2710
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB7DAD1
+P 9370 2380
+AR Path="/5BB27BA3/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5EB7DAD1" Ref="R?"  Part="1" 
+F 0 "R?" H 9290 2380 50  0000 R CNN
+F 1 "10k" V 9370 2380 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 9370 2380 50  0001 C CNN
+F 3 "" H 9370 2380 50  0001 C CNN
+F 4 "0402" H 9470 2460 50  0000 L CNN "display_footprint"
+F 5 "1%" H 9470 2380 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 9480 2300 50  0000 L CNN "Wattage"
+	1    9370 2380
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EB7DAD7
+P 9370 2230
+F 0 "#PWR?" H 9370 2080 50  0001 C CNN
+F 1 "+3.3V" H 9370 2370 50  0000 C CNN
+F 2 "" H 9370 2230 50  0001 C CNN
+F 3 "" H 9370 2230 50  0001 C CNN
+	1    9370 2230
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB7DEAB
+P 8780 2380
+AR Path="/5BB27BA3/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5EB7DEAB" Ref="R?"  Part="1" 
+F 0 "R?" H 8700 2380 50  0000 R CNN
+F 1 "10k" V 8780 2380 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 8780 2380 50  0001 C CNN
+F 3 "" H 8780 2380 50  0001 C CNN
+F 4 "0402" H 8880 2460 50  0000 L CNN "display_footprint"
+F 5 "1%" H 8880 2380 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 8890 2300 50  0000 L CNN "Wattage"
+	1    8780 2380
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EB7DEB5
+P 8780 2230
+F 0 "#PWR?" H 8780 2080 50  0001 C CNN
+F 1 "+3.3V" H 8780 2370 50  0000 C CNN
+F 2 "" H 8780 2230 50  0001 C CNN
+F 3 "" H 8780 2230 50  0001 C CNN
+	1    8780 2230
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8780 2530 8780 2610
+Connection ~ 8780 2610
+Wire Wire Line
+	8780 2610 9670 2610
+Wire Wire Line
+	9370 2530 9370 2710
+Connection ~ 9370 2710
+Wire Wire Line
+	9370 2710 9670 2710
 $EndSCHEMATC
