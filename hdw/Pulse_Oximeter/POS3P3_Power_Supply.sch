@@ -796,6 +796,7 @@ F 0 "Q?" H 4490 7565 50  0000 L CNN
 F 1 "BSS214NW" H 4490 7490 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 4490 7415 50  0001 L CIN
 F 3 "https://www.infineon.com/dgdl/Infineon-BSS214NW-DS-v02_02-en.pdf?fileId=db3a30431b3e89eb011b695aebc01bde" H 4290 7490 50  0001 L CNN
+F 4 "BSS214NWH6327XTSA1CT-ND" H 4290 7490 50  0001 C CNN "Digi-Key PN"
 	1    4290 7490
 	1    0    0    -1  
 $EndComp
@@ -844,23 +845,6 @@ Connection ~ 4390 7210
 Wire Wire Line
 	4390 7210 4390 7290
 $Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EB46F8D
-P 3680 6980
-AR Path="/5EAE2F97/5EB46F8D" Ref="C?"  Part="1" 
-AR Path="/5EAE2D8A/5EB46F8D" Ref="C?"  Part="1" 
-F 0 "C?" H 3705 7080 50  0000 L CNN
-F 1 "4.7uF" H 3705 6880 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 3718 6830 50  0001 C CNN
-F 3 "" H 3705 7080 50  0001 C CNN
-F 4 "0402" H 3530 7080 50  0000 R CNN "display_footprint"
-F 5 "6.3V" H 3530 6980 50  0000 R CNN "Voltage"
-F 6 "X7R" H 3530 6880 50  0000 R CNN "Dielectric"
-F 7 "1276-2972-1-ND" H 4105 7480 60  0001 C CNN "Digi-Key PN"
-	1    3680 6980
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5EB47981
 P 3680 7130
@@ -904,4 +888,47 @@ F 3 "" H 3680 6370 50  0001 C CNN
 $EndComp
 Text GLabel 2280 6700 2    50   Output ~ 0
 POS3P3_RUN
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB895CA
+P 2130 6700
+AR Path="/5EAE2D66/5EB895CA" Ref="R?"  Part="1" 
+AR Path="/5EAE2D8A/5EB895CA" Ref="R?"  Part="1" 
+F 0 "R?" V 2030 6700 50  0000 C CNN
+F 1 "10" V 2130 6700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2130 6700 50  0001 C CNN
+F 3 "" H 2130 6700 50  0001 C CNN
+F 4 "" H 2430 7100 60  0001 C CNN "Digi-Key PN"
+F 5 "0402" V 2230 6700 50  0000 C CNN "display_footprint"
+F 6 "1%" V 2330 6700 50  0000 C CNN "Tolerance"
+F 7 "1/16W" V 2430 6700 50  0000 C CNN "Wattage"
+	1    2130 6700
+	0    1    1    0   
+$EndComp
+Text GLabel 1980 6700 0    50   Input ~ 0
+POS12_PGOOD
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5EBB9A75
+P 3680 6980
+AR Path="/5CB7718D/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5E697934/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5EAE3021/5EBB9A75" Ref="C?"  Part="1" 
+AR Path="/5EAE2D8A/5EBB9A75" Ref="C?"  Part="1" 
+F 0 "C?" H 3705 7080 50  0000 L CNN
+F 1 "10uF" H 3705 6880 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 3718 6830 50  0001 C CNN
+F 3 "" H 3705 7080 50  0001 C CNN
+F 4 "0402" H 3530 7080 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 3530 6980 50  0000 R CNN "Voltage"
+F 6 "X5R" H 3530 6880 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 3680 6980 50  0001 C CNN "Digi-Key PN"
+	1    3680 6980
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

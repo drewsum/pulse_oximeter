@@ -84,7 +84,7 @@ Wire Wire Line
 Wire Wire Line
 	4810 880  4810 960 
 Text GLabel 3360 5910 0    40   Input ~ 0
-~MCLR
+~PIC32MZ_MCLR
 $Comp
 L power:GND #PWR?
 U 1 1 5CB14B21
@@ -101,15 +101,15 @@ Wire Wire Line
 Wire Wire Line
 	3250 5410 3360 5410
 Text GLabel 3360 3410 0    50   Input ~ 0
-MCU_POSC
+PIC32MZ_POSC_EC
 Text GLabel 3360 3610 0    50   Input ~ 0
-MCU_SOSC
+PIC32MZ_SOSC
 Text GLabel 3360 2210 0    50   BiDi ~ 0
-ICSPDAT
+PIC32MZ_ICSPDAT
 Text GLabel 3360 2110 0    50   Input ~ 0
-ICSPCLK
+PIC32MZ_ICSPCLK
 Text GLabel 3360 3710 0    50   Output ~ 0
-MCU_POSC_Enable
+PIC32MZ_POSC_EC_Enable
 Text GLabel 3360 4310 0    50   Input ~ 0
 USB_UART_RX
 Text GLabel 3360 4410 0    50   Output ~ 0
@@ -189,5 +189,7 @@ LCD_PMP_DB6
 Text GLabel 7560 1910 2    50   Output ~ 0
 LCD_PMP_DB7
 Text GLabel 3360 3510 0    50   Output ~ 0
-MCU_REFCLK
+PIC32MZ_REFCLK
+Text GLabel 7560 3210 2    50   Output ~ 0
+PIC32MZ_REFCLK1
 $EndSCHEMATC

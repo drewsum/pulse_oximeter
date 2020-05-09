@@ -582,24 +582,6 @@ Wire Wire Line
 Connection ~ 1460 1950
 $Comp
 L Custom_Library:C_Custom C?
-U 1 1 5E1765D3
-P 2570 2180
-AR Path="/5A0BC776/5E1765D3" Ref="C?"  Part="1" 
-AR Path="/5CB7A8C3/5E1765D3" Ref="C?"  Part="1" 
-AR Path="/5EAE4ADE/5E1765D3" Ref="C?"  Part="1" 
-F 0 "C?" H 2595 2280 50  0000 L CNN
-F 1 "4.7uF" H 2595 2080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 2608 2030 50  0001 C CNN
-F 3 "" H 2595 2280 50  0001 C CNN
-F 4 "0805" H 2420 2280 50  0000 R CNN "display_footprint"
-F 5 "16V" H 2420 2180 50  0000 R CNN "Voltage"
-F 6 "X7R" H 2420 2080 50  0000 R CNN "Dielectric"
-F 7 "1276-2970-1-ND" H -3330 -2380 50  0001 C CNN "Digi-Key PN"
-	1    2570 2180
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:C_Custom C?
 U 1 1 5E1829A4
 P 2870 3680
 AR Path="/5BAAE1F3/5E1829A4" Ref="C?"  Part="1" 
@@ -765,4 +747,88 @@ Wire Wire Line
 Connection ~ 2570 1950
 Wire Wire Line
 	2570 1950 2980 1950
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBA890C
+P 2980 2870
+F 0 "U?" H 3080 3020 50  0000 L CNN
+F 1 "74LVC1G06" H 3080 2770 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 2980 2920 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 2980 2870 50  0001 C CNN
+F 4 "296-8484-1-ND" H 2980 2870 50  0001 C CNN "Digi-Key PN"
+	1    2980 2870
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBAD160
+P 4980 2870
+F 0 "U?" H 5080 3020 50  0000 L CNN
+F 1 "74LVC1G06" H 5080 2770 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 4980 2920 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 4980 2870 50  0001 C CNN
+F 4 "296-8484-1-ND" H 4980 2870 50  0001 C CNN "Digi-Key PN"
+	1    4980 2870
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBADD05
+P 6980 2870
+F 0 "U?" H 7080 3020 50  0000 L CNN
+F 1 "74LVC1G06" H 7080 2770 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 6980 2920 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 6980 2870 50  0001 C CNN
+F 4 "296-8484-1-ND" H 6980 2870 50  0001 C CNN "Digi-Key PN"
+	1    6980 2870
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBAE6FA
+P 8980 2870
+F 0 "U?" H 9080 3020 50  0000 L CNN
+F 1 "74LVC1G06" H 9080 2770 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 8980 2920 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 8980 2870 50  0001 C CNN
+F 4 "296-8484-1-ND" H 8980 2870 50  0001 C CNN "Digi-Key PN"
+	1    8980 2870
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBAEFAB
+P 2980 4370
+F 0 "U?" H 3080 4520 50  0000 L CNN
+F 1 "74LVC1G06" H 3080 4270 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 2980 4420 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 2980 4370 50  0001 C CNN
+F 4 "296-8484-1-ND" H 2980 4370 50  0001 C CNN "Digi-Key PN"
+	1    2980 4370
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5EBBADED
+P 2570 2180
+AR Path="/5CB7718D/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5E697934/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5EAE3021/5EBBADED" Ref="C?"  Part="1" 
+AR Path="/5EAE4ADE/5EBBADED" Ref="C?"  Part="1" 
+F 0 "C?" H 2595 2280 50  0000 L CNN
+F 1 "10uF" H 2595 2080 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 2608 2030 50  0001 C CNN
+F 3 "" H 2595 2280 50  0001 C CNN
+F 4 "0402" H 2420 2280 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 2420 2180 50  0000 R CNN "Voltage"
+F 6 "X5R" H 2420 2080 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 2570 2180 50  0001 C CNN "Digi-Key PN"
+	1    2570 2180
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

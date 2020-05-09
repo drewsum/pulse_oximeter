@@ -38,7 +38,7 @@ F 3 "" H 5510 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 6810 2700 2    50   Output ~ 0
-MCU_POSC
+PIC32MZ_POSC_EC
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5E021EF5
@@ -159,7 +159,7 @@ Connection ~ 4960 2700
 Wire Wire Line
 	4660 2700 4960 2700
 Text GLabel 4660 2700 0    50   Input ~ 0
-MCU_POSC_Enable
+PIC32MZ_POSC_EC_Enable
 $Comp
 L power:GND #PWR?
 U 1 1 5E03ADCE
@@ -297,7 +297,7 @@ F 3 "" H 5510 5490 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 6810 5190 2    50   Output ~ 0
-MCU_SOSC
+PIC32MZ_SOSC
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5E0562A6
@@ -567,20 +567,21 @@ $EndComp
 $Comp
 L Custom_Library:TP TP?
 U 1 1 5EBAE156
-P 2550 4610
+P 2460 4680
 AR Path="/5C1D5CD8/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5C1D5C9E/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5CB6F1ED/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5E939CFF/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5E9E0E87/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5EAE2D66/5EBAE156" Ref="TP?"  Part="1" 
-F 0 "TP?" H 2550 4760 50  0000 C CNN
-F 1 "TP" H 2550 4760 50  0001 C CNN
-F 2 "Custom Footprints Library:Test_Point" H 2550 4610 60  0001 C CNN
-F 3 "" H 2550 4610 60  0000 C CNN
-	1    2550 4610
-	1    0    0    -1  
+AR Path="/5EAE2F15/5EBAE156" Ref="TP?"  Part="1" 
+F 0 "TP?" V 2460 4830 50  0000 L CNN
+F 1 "TP" H 2460 4830 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 2460 4680 60  0001 C CNN
+F 3 "" H 2460 4680 60  0000 C CNN
+	1    2460 4680
+	0    1    1    0   
 $EndComp
-Text GLabel 2550 4610 3    50   UnSpc ~ 0
-MCU_REFCLK
+Text GLabel 2460 4680 0    50   UnSpc ~ 0
+PIC32MZ_REFCLK1
 $EndSCHEMATC

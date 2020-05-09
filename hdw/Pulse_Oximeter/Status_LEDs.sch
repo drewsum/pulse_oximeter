@@ -1188,4 +1188,102 @@ F 3 "" H 2400 4320 50  0001 C CNN
 	1    2400 4320
 	1    0    0    -1  
 $EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB3661
+P 2400 2220
+AR Path="/5EAE4ADE/5EBB3661" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB3661" Ref="U?"  Part="1" 
+F 0 "U?" H 2500 2370 50  0000 L CNN
+F 1 "74LVC1G06" H 2500 2120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 2400 2270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 2400 2220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 2400 2220 50  0001 C CNN "Digi-Key PN"
+	1    2400 2220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB3BCA
+P 4400 2220
+AR Path="/5EAE4ADE/5EBB3BCA" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB3BCA" Ref="U?"  Part="1" 
+F 0 "U?" H 4500 2370 50  0000 L CNN
+F 1 "74LVC1G06" H 4500 2120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 4400 2270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 4400 2220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 4400 2220 50  0001 C CNN "Digi-Key PN"
+	1    4400 2220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB465B
+P 6400 2220
+AR Path="/5EAE4ADE/5EBB465B" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB465B" Ref="U?"  Part="1" 
+F 0 "U?" H 6500 2370 50  0000 L CNN
+F 1 "74LVC1G06" H 6500 2120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 6400 2270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 6400 2220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 6400 2220 50  0001 C CNN "Digi-Key PN"
+	1    6400 2220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB4E70
+P 8400 2220
+AR Path="/5EAE4ADE/5EBB4E70" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB4E70" Ref="U?"  Part="1" 
+F 0 "U?" H 8500 2370 50  0000 L CNN
+F 1 "74LVC1G06" H 8500 2120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 8400 2270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 8400 2220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 8400 2220 50  0001 C CNN "Digi-Key PN"
+	1    8400 2220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB56C7
+P 4400 4220
+AR Path="/5EAE4ADE/5EBB56C7" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB56C7" Ref="U?"  Part="1" 
+F 0 "U?" H 4500 4370 50  0000 L CNN
+F 1 "74LVC1G06" H 4500 4120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 4400 4270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 4400 4220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 4400 4220 50  0001 C CNN "Digi-Key PN"
+	1    4400 4220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB64EE
+P 6400 4220
+AR Path="/5EAE4ADE/5EBB64EE" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB64EE" Ref="U?"  Part="1" 
+F 0 "U?" H 6500 4370 50  0000 L CNN
+F 1 "74LVC1G06" H 6500 4120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 6400 4270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 6400 4220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 6400 4220 50  0001 C CNN "Digi-Key PN"
+	1    6400 4220
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G06_Power U?
+U 1 1 5EBB6CE5
+P 2400 4220
+AR Path="/5EAE4ADE/5EBB6CE5" Ref="U?"  Part="1" 
+AR Path="/5EAE4AE4/5EBB6CE5" Ref="U?"  Part="1" 
+F 0 "U?" H 2500 4370 50  0000 L CNN
+F 1 "74LVC1G06" H 2500 4120 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-353_SC-70-5" H 2400 4270 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf" H 2400 4220 50  0001 C CNN
+F 4 "296-8484-1-ND" H 2400 4220 50  0001 C CNN "Digi-Key PN"
+	1    2400 4220
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

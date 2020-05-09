@@ -78,36 +78,6 @@ Wire Wire Line
 Wire Wire Line
 	4360 4580 4360 4660
 $Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EBB926B
-P 5780 3510
-F 0 "C?" H 5805 3610 50  0000 L CNN
-F 1 "C_Custom" H 5805 3410 50  0000 L CNN
-F 2 "" H 5818 3360 50  0001 C CNN
-F 3 "" H 5805 3610 50  0001 C CNN
-F 4 "Foot" H 5630 3610 50  0000 R CNN "display_footprint"
-F 5 "V" H 5630 3510 50  0000 R CNN "Voltage"
-F 6 "Er" H 5630 3410 50  0000 R CNN "Dielectric"
-F 7 "PN" H 6205 4010 60  0001 C CNN "Digi-Key PN"
-	1    5780 3510
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EBBA073
-P 6430 3510
-F 0 "C?" H 6455 3610 50  0000 L CNN
-F 1 "C_Custom" H 6455 3410 50  0000 L CNN
-F 2 "" H 6468 3360 50  0001 C CNN
-F 3 "" H 6455 3610 50  0001 C CNN
-F 4 "Foot" H 6280 3610 50  0000 R CNN "display_footprint"
-F 5 "V" H 6280 3510 50  0000 R CNN "Voltage"
-F 6 "Er" H 6280 3410 50  0000 R CNN "Dielectric"
-F 7 "PN" H 6855 4010 60  0001 C CNN "Digi-Key PN"
-	1    6430 3510
-	1    0    0    -1  
-$EndComp
-$Comp
 L Custom_Library:TPS7A91 U?
 U 1 1 5EBC32A5
 P 5040 4030
@@ -175,21 +145,6 @@ F 6 "1/16W" H 3150 3430 50  0000 L CNN "Wattage"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EBC7C91
-P 4360 3510
-F 0 "C?" H 4385 3610 50  0000 L CNN
-F 1 "C_Custom" H 4385 3410 50  0000 L CNN
-F 2 "" H 4398 3360 50  0001 C CNN
-F 3 "" H 4385 3610 50  0001 C CNN
-F 4 "Foot" H 4210 3610 50  0000 R CNN "display_footprint"
-F 5 "V" H 4210 3510 50  0000 R CNN "Voltage"
-F 6 "Er" H 4210 3410 50  0000 R CNN "Dielectric"
-F 7 "PN" H 4785 4010 60  0001 C CNN "Digi-Key PN"
-	1    4360 3510
-	1    0    0    -1  
-$EndComp
-$Comp
 L Custom_Library:R_Custom R?
 U 1 1 5EBC99AE
 P 3040 4210
@@ -241,19 +196,6 @@ Wire Wire Line
 	3040 3880 3040 3660
 Wire Wire Line
 	3040 3980 3040 4060
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5EBCCCA8
-P 3040 3200
-F 0 "#PWR?" H 3040 3050 50  0001 C CNN
-F 1 "+3.3V" H 3040 3340 50  0000 C CNN
-F 2 "" H 3040 3200 50  0001 C CNN
-F 3 "" H 3040 3200 50  0001 C CNN
-	1    3040 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3040 3200 3040 3360
 Text GLabel 2960 3880 0    50   Output ~ 0
 OS1P8_PGOOD
 Text GLabel 2960 3980 0    50   Input ~ 0
@@ -431,7 +373,7 @@ AR Path="/5E9E0E87/5EBE93DF" Ref="R?"  Part="1"
 AR Path="/5EAE2D66/5EBE93DF" Ref="R?"  Part="1" 
 AR Path="/5EAE2E5F/5EBE93DF" Ref="R?"  Part="1" 
 F 0 "R?" H 7220 3510 50  0000 R CNN
-F 1 "R" V 7300 3510 50  0000 C CNN
+F 1 "1.87k" V 7300 3510 40  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 7300 3510 50  0001 C CNN
 F 3 "" H 7300 3510 50  0001 C CNN
 F 4 "0402" H 7400 3590 50  0000 L CNN "display_footprint"
@@ -464,7 +406,7 @@ AR Path="/5E9E0E87/5EBEA0E2" Ref="R?"  Part="1"
 AR Path="/5EAE2D66/5EBEA0E2" Ref="R?"  Part="1" 
 AR Path="/5EAE2E5F/5EBEA0E2" Ref="R?"  Part="1" 
 F 0 "R?" H 7220 4110 50  0000 R CNN
-F 1 "R" V 7300 4110 50  0000 C CNN
+F 1 "1.5k" V 7300 4110 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 7300 4110 50  0001 C CNN
 F 3 "" H 7300 4110 50  0001 C CNN
 F 4 "0402" H 7400 4190 50  0000 L CNN "display_footprint"
@@ -620,4 +562,84 @@ Connection ~ 3040 3880
 Wire Wire Line
 	4640 3980 3040 3980
 Connection ~ 3040 3980
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5EB8DDAD
+P 4360 3510
+AR Path="/5CB7718D/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5E697934/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5EB8DDAD" Ref="C?"  Part="1" 
+AR Path="/5EAE2E5F/5EB8DDAD" Ref="C?"  Part="1" 
+F 0 "C?" H 4385 3610 50  0000 L CNN
+F 1 "10uF" H 4385 3410 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 4398 3360 50  0001 C CNN
+F 3 "" H 4385 3610 50  0001 C CNN
+F 4 "0402" H 4210 3610 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 4210 3510 50  0000 R CNN "Voltage"
+F 6 "X5R" H 4210 3410 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 4360 3510 50  0001 C CNN "Digi-Key PN"
+	1    4360 3510
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5EB8E55F
+P 6430 3510
+AR Path="/5CB7718D/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5E697934/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5EB8E55F" Ref="C?"  Part="1" 
+AR Path="/5EAE2E5F/5EB8E55F" Ref="C?"  Part="1" 
+F 0 "C?" H 6455 3610 50  0000 L CNN
+F 1 "10uF" H 6455 3410 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 6468 3360 50  0001 C CNN
+F 3 "" H 6455 3610 50  0001 C CNN
+F 4 "0402" H 6280 3610 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 6280 3510 50  0000 R CNN "Voltage"
+F 6 "X5R" H 6280 3410 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 6430 3510 50  0001 C CNN "Digi-Key PN"
+	1    6430 3510
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5EB8EF89
+P 5780 3510
+AR Path="/5CB7718D/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5E697934/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5EB8EF89" Ref="C?"  Part="1" 
+AR Path="/5EAE2E5F/5EB8EF89" Ref="C?"  Part="1" 
+F 0 "C?" H 5805 3610 50  0000 L CNN
+F 1 "10uF" H 5805 3410 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 5818 3360 50  0001 C CNN
+F 3 "" H 5805 3610 50  0001 C CNN
+F 4 "0402" H 5630 3610 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 5630 3510 50  0000 R CNN "Voltage"
+F 6 "X5R" H 5630 3410 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 5780 3510 50  0001 C CNN "Digi-Key PN"
+	1    5780 3510
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EBBDFFE
+P 3040 3360
+F 0 "#PWR?" H 3040 3210 50  0001 C CNN
+F 1 "+3.3V" H 3040 3500 50  0000 C CNN
+F 2 "" H 3040 3360 50  0001 C CNN
+F 3 "" H 3040 3360 50  0001 C CNN
+	1    3040 3360
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
