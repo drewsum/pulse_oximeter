@@ -154,21 +154,6 @@ F 3 "" H 5020 2970 50  0001 C CNN
 	1    5020 2770
 	1    0    0    -1  
 $EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5BC190FF
-P 6860 2250
-F 0 "R?" V 6760 2250 50  0000 C CNN
-F 1 "100" V 6860 2250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 6860 2250 50  0001 C CNN
-F 3 "" H 6860 2250 50  0001 C CNN
-F 4 "0402" V 6960 2250 50  0000 C CNN "display_footprint"
-F 5 "1%" V 7060 2250 50  0000 C CNN "Tolerance"
-F 6 "1/16W" V 7160 2250 50  0000 C CNN "Wattage"
-F 7 "541-100LCT-ND" H 7160 2650 60  0001 C CNN "Digi-Key PN"
-	1    6860 2250
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	7010 2250 7550 2250
 $Comp
@@ -310,4 +295,19 @@ Wire Wire Line
 	1270 1890 2160 1890
 Wire Wire Line
 	1270 1990 2160 1990
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB9A4D9
+P 6860 2250
+F 0 "R?" V 6760 2250 50  0000 C CNN
+F 1 "10" V 6860 2250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 6860 2250 50  0001 C CNN
+F 3 "" H 6860 2250 50  0001 C CNN
+F 4 "0402" V 6960 2250 50  0000 C CNN "display_footprint"
+F 5 "1%" V 7060 2250 50  0000 C CNN "Tolerance"
+F 6 "1/16W" V 7160 2250 50  0000 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 7160 2650 60  0001 C CNN "Digi-Key PN"
+	1    6860 2250
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC

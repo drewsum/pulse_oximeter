@@ -84,29 +84,6 @@ Wire Wire Line
 Wire Wire Line
 	6560 2700 6560 2780
 Connection ~ 6560 2700
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5E024C29
-P 6110 2700
-AR Path="/5BAAE2B6/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5BB6CF6D/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5BBE424C/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5BAAE1DC/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5CAD2DA3/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5E01BCC3/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5E697952/5E024C29" Ref="R?"  Part="1" 
-AR Path="/5EAE2F15/5E024C29" Ref="R?"  Part="1" 
-F 0 "R?" V 6070 2560 50  0000 R CNN
-F 1 "100" V 6110 2700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 6110 2700 50  0001 C CNN
-F 3 "" H 6110 2700 50  0001 C CNN
-F 4 "0402" V 6210 2700 50  0001 C CNN "display_footprint"
-F 5 "1%" V 6310 2700 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 6410 2700 50  0001 C CNN "Wattage"
-F 7 "541-100LCT-ND" H 6410 3100 60  0001 C CNN "Digi-Key PN"
-	1    6110 2700
-	0    -1   1    0   
-$EndComp
 Wire Wire Line
 	5960 2700 5810 2700
 Wire Wire Line
@@ -343,29 +320,6 @@ Wire Wire Line
 Wire Wire Line
 	6560 5190 6560 5270
 Connection ~ 6560 5190
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5E0562C1
-P 6110 5190
-AR Path="/5BAAE2B6/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5BB6CF6D/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5BBE424C/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5BAAE1DC/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5CAD2DA3/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5E01BCC3/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5E697952/5E0562C1" Ref="R?"  Part="1" 
-AR Path="/5EAE2F15/5E0562C1" Ref="R?"  Part="1" 
-F 0 "R?" V 6070 5050 50  0000 R CNN
-F 1 "100" V 6110 5190 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 6110 5190 50  0001 C CNN
-F 3 "" H 6110 5190 50  0001 C CNN
-F 4 "0402" V 6210 5190 50  0001 C CNN "display_footprint"
-F 5 "1%" V 6310 5190 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 6410 5190 50  0001 C CNN "Wattage"
-F 7 "541-100LCT-ND" H 6410 5590 60  0001 C CNN "Digi-Key PN"
-	1    6110 5190
-	0    -1   1    0   
-$EndComp
 Wire Wire Line
 	5960 5190 5810 5190
 Wire Wire Line
@@ -567,7 +521,7 @@ $EndComp
 $Comp
 L Custom_Library:TP TP?
 U 1 1 5EBAE156
-P 2460 4680
+P 3170 5190
 AR Path="/5C1D5CD8/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5C1D5C9E/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5CB6F1ED/5EBAE156" Ref="TP?"  Part="1" 
@@ -575,13 +529,47 @@ AR Path="/5E939CFF/5EBAE156" Ref="TP?"  Part="1"
 AR Path="/5E9E0E87/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5EAE2D66/5EBAE156" Ref="TP?"  Part="1" 
 AR Path="/5EAE2F15/5EBAE156" Ref="TP?"  Part="1" 
-F 0 "TP?" V 2460 4830 50  0000 L CNN
-F 1 "TP" H 2460 4830 50  0001 C CNN
-F 2 "Custom Footprints Library:Test_Point" H 2460 4680 60  0001 C CNN
-F 3 "" H 2460 4680 60  0000 C CNN
-	1    2460 4680
+F 0 "TP?" V 3170 5340 50  0000 L CNN
+F 1 "TP" H 3170 5340 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 3170 5190 60  0001 C CNN
+F 3 "" H 3170 5190 60  0000 C CNN
+	1    3170 5190
 	0    1    1    0   
 $EndComp
-Text GLabel 2460 4680 0    50   UnSpc ~ 0
+Text GLabel 3170 5190 0    50   UnSpc ~ 0
 PIC32MZ_REFCLK1
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB9D3C3
+P 6110 5190
+AR Path="/5EAE2EF2/5EB9D3C3" Ref="R?"  Part="1" 
+AR Path="/5EAE2F15/5EB9D3C3" Ref="R?"  Part="1" 
+F 0 "R?" V 6010 5190 50  0000 C CNN
+F 1 "10" V 6110 5190 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 6110 5190 50  0001 C CNN
+F 3 "" H 6110 5190 50  0001 C CNN
+F 4 "0402" V 6210 5190 50  0000 C CNN "display_footprint"
+F 5 "1%" V 6310 5190 50  0000 C CNN "Tolerance"
+F 6 "1/16W" V 6410 5190 50  0000 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 6410 5590 60  0001 C CNN "Digi-Key PN"
+	1    6110 5190
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EB9DF29
+P 6110 2700
+AR Path="/5EAE2EF2/5EB9DF29" Ref="R?"  Part="1" 
+AR Path="/5EAE2F15/5EB9DF29" Ref="R?"  Part="1" 
+F 0 "R?" V 6010 2700 50  0000 C CNN
+F 1 "10" V 6110 2700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 6110 2700 50  0001 C CNN
+F 3 "" H 6110 2700 50  0001 C CNN
+F 4 "0402" V 6210 2700 50  0000 C CNN "display_footprint"
+F 5 "1%" V 6310 2700 50  0000 C CNN "Tolerance"
+F 6 "1/16W" V 6410 2700 50  0000 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 6410 3100 60  0001 C CNN "Digi-Key PN"
+	1    6110 2700
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC

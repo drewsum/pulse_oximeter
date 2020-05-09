@@ -197,7 +197,7 @@ Wire Wire Line
 Wire Wire Line
 	3040 3980 3040 4060
 Text GLabel 2960 3880 0    50   Output ~ 0
-OS1P8_PGOOD
+POS1P8_PGOOD
 Text GLabel 2960 3980 0    50   Input ~ 0
 POS1P8_RUN
 Wire Wire Line
