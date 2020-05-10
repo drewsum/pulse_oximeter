@@ -4,8 +4,8 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 12 19
-Title "VFD Clock"
+Sheet 12 20
+Title "Pulse Oximeter"
 Date "2019-04-11"
 Rev "A"
 Comp "Drew Maatman"
@@ -618,11 +618,12 @@ AR Path="/5EAE2D8A/5EB66EF0" Ref="R?"  Part="1"
 AR Path="/5EAE2F97/5EB66EF0" Ref="R?"  Part="1" 
 F 0 "R?" V 5150 1890 50  0000 C CNN
 F 1 "10" V 5250 1890 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 5250 1890 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 5250 1890 50  0001 C CNN
 F 3 "" H 5250 1890 50  0001 C CNN
-F 4 "0603" V 5350 1890 50  0001 C CNN "display_footprint"
+F 4 "0402" V 5350 1890 50  0001 C CNN "display_footprint"
 F 5 "1%" V 5450 1890 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 5550 1890 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 5550 1890 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 5250 1890 50  0001 C CNN "Digi-Key PN"
 	1    5250 1890
 	-1   0    0    -1  
 $EndComp
@@ -638,11 +639,12 @@ AR Path="/5EAE2D8A/5EB66EF9" Ref="R?"  Part="1"
 AR Path="/5EAE2F97/5EB66EF9" Ref="R?"  Part="1" 
 F 0 "R?" V 5610 1890 50  0000 C CNN
 F 1 "10" V 5710 1890 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 5710 1890 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 5710 1890 50  0001 C CNN
 F 3 "" H 5710 1890 50  0001 C CNN
-F 4 "0603" V 5810 1890 50  0001 C CNN "display_footprint"
+F 4 "0402" V 5810 1890 50  0001 C CNN "display_footprint"
 F 5 "1%" V 5910 1890 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 6010 1890 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 6010 1890 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 5710 1890 50  0001 C CNN "Digi-Key PN"
 	1    5710 1890
 	-1   0    0    -1  
 $EndComp

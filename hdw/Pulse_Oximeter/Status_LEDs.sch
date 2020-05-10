@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 19 19
-Title ""
+Sheet 19 20
+Title "Pulse Oximeter"
 Date ""
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""

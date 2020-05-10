@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 6 19
-Title ""
+Sheet 6 20
+Title "Pulse Oximeter"
 Date "2020-05-02"
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -241,11 +241,12 @@ AR Path="/5EAE2D8A/5EBD961F" Ref="R?"  Part="1"
 AR Path="/5EAE2E5F/5EBD961F" Ref="R?"  Part="1" 
 F 0 "R?" V 3800 2950 50  0000 C CNN
 F 1 "10" V 3900 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 3900 2950 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 3900 2950 50  0001 C CNN
 F 3 "" H 3900 2950 50  0001 C CNN
-F 4 "0603" V 4000 2950 50  0001 C CNN "display_footprint"
+F 4 "0402" V 4000 2950 50  0001 C CNN "display_footprint"
 F 5 "1%" V 4100 2950 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 4200 2950 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 4200 2950 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 3900 2950 50  0001 C CNN "Digi-Key PN"
 	1    3900 2950
 	1    0    0    -1  
 $EndComp
@@ -261,11 +262,12 @@ AR Path="/5EAE2D8A/5EBD9628" Ref="R?"  Part="1"
 AR Path="/5EAE2E5F/5EBD9628" Ref="R?"  Part="1" 
 F 0 "R?" V 4260 2950 50  0000 C CNN
 F 1 "10" V 4360 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 4360 2950 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 4360 2950 50  0001 C CNN
 F 3 "" H 4360 2950 50  0001 C CNN
-F 4 "0603" V 4460 2950 50  0001 C CNN "display_footprint"
+F 4 "0402" V 4460 2950 50  0001 C CNN "display_footprint"
 F 5 "1%" V 4560 2950 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 4660 2950 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 4660 2950 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 4360 2950 50  0001 C CNN "Digi-Key PN"
 	1    4360 2950
 	-1   0    0    -1  
 $EndComp
@@ -310,11 +312,12 @@ AR Path="/5EAE2D8A/5EBE152B" Ref="R?"  Part="1"
 AR Path="/5EAE2E5F/5EBE152B" Ref="R?"  Part="1" 
 F 0 "R?" V 6740 2950 50  0000 C CNN
 F 1 "10" V 6840 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 6840 2950 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 6840 2950 50  0001 C CNN
 F 3 "" H 6840 2950 50  0001 C CNN
-F 4 "0603" V 6940 2950 50  0001 C CNN "display_footprint"
+F 4 "0402" V 6940 2950 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7040 2950 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 7140 2950 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 7140 2950 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 6840 2950 50  0001 C CNN "Digi-Key PN"
 	1    6840 2950
 	-1   0    0    -1  
 $EndComp
@@ -330,11 +333,12 @@ AR Path="/5EAE2D8A/5EBE1534" Ref="R?"  Part="1"
 AR Path="/5EAE2E5F/5EBE1534" Ref="R?"  Part="1" 
 F 0 "R?" V 7200 2950 50  0000 C CNN
 F 1 "10" V 7300 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 7300 2950 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 7300 2950 50  0001 C CNN
 F 3 "" H 7300 2950 50  0001 C CNN
-F 4 "0603" V 7400 2950 50  0001 C CNN "display_footprint"
+F 4 "0402" V 7400 2950 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7500 2950 50  0001 C CNN "Tolerance"
-F 6 "1/10W" V 7600 2950 50  0001 C CNN "Wattage"
+F 6 "1/16W" V 7600 2950 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 7300 2950 50  0001 C CNN "Digi-Key PN"
 	1    7300 2950
 	-1   0    0    -1  
 $EndComp

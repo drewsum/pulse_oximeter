@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 18 19
-Title ""
+Sheet 18 20
+Title "Pulse Oximeter"
 Date ""
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -27,10 +27,10 @@ AR Path="/5CB7A8C3/5CB89777" Ref="C?"  Part="1"
 AR Path="/5EAE4ADE/5CB89777" Ref="C?"  Part="1" 
 F 0 "C?" H 1485 2280 50  0000 L CNN
 F 1 "0.1uF" H 1485 2080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 1498 2030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 1498 2030 50  0001 C CNN
 F 3 "" H 1485 2280 50  0001 C CNN
-F 4 "311-1344-1-ND" H 1885 2680 60  0001 C CNN "Digi-Key PN"
-F 5 "0603" H 1310 2280 50  0000 R CNN "display_footprint"
+F 4 "490-10701-1-ND" H 1885 2680 60  0001 C CNN "Digi-Key PN"
+F 5 "" H 1310 2280 50  0000 R CNN "display_footprint"
 F 6 "50V" H 1310 2180 50  0000 R CNN "Voltage"
 F 7 "X7R" H 1310 2080 50  0000 R CNN "Dielectric"
 	1    1460 2180
@@ -74,12 +74,12 @@ AR Path="/5CB7A8C3/5CB89791" Ref="R?"  Part="1"
 AR Path="/5EAE4ADE/5CB89791" Ref="R?"  Part="1" 
 F 0 "R?" H 3490 2300 50  0000 R CNN
 F 1 "1k" V 3550 2300 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 3550 2300 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 3550 2300 50  0001 C CNN
 F 3 "" H 3550 2300 50  0001 C CNN
-F 4 "0603" H 3620 2380 50  0000 L CNN "display_footprint"
+F 4 "0402" H 3620 2380 50  0000 L CNN "display_footprint"
 F 5 "1%" H 3620 2300 50  0000 L CNN "Tolerance"
-F 6 "1/10W" H 3620 2230 50  0000 L CNN "Wattage"
-F 7 "RMCF0603FT1K00CT-ND" H 3850 2700 60  0001 C CNN "Digi-Key PN"
+F 6 "1/16W" H 3620 2230 50  0000 L CNN "Wattage"
+F 7 "" H 3850 2700 60  0001 C CNN "Digi-Key PN"
 	1    3550 2300
 	-1   0    0    -1  
 $EndComp
@@ -124,10 +124,10 @@ AR Path="/5CB7A8C3/5CB8C8F5" Ref="C?"  Part="1"
 AR Path="/5EAE4ADE/5CB8C8F5" Ref="C?"  Part="1" 
 F 0 "C?" H 4895 2280 50  0000 L CNN
 F 1 "0.1uF" H 4895 2080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 4908 2030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 4908 2030 50  0001 C CNN
 F 3 "" H 4895 2280 50  0001 C CNN
-F 4 "311-1344-1-ND" H 5295 2680 60  0001 C CNN "Digi-Key PN"
-F 5 "0603" H 4720 2280 50  0000 R CNN "display_footprint"
+F 4 "490-10701-1-ND" H 5295 2680 60  0001 C CNN "Digi-Key PN"
+F 5 "" H 4720 2280 50  0000 R CNN "display_footprint"
 F 6 "50V" H 4720 2180 50  0000 R CNN "Voltage"
 F 7 "X7R" H 4720 2080 50  0000 R CNN "Dielectric"
 	1    4870 2180
@@ -171,12 +171,12 @@ AR Path="/5CB7A8C3/5CB8C910" Ref="R?"  Part="1"
 AR Path="/5EAE4ADE/5CB8C910" Ref="R?"  Part="1" 
 F 0 "R?" H 5490 2300 50  0000 R CNN
 F 1 "1k" V 5550 2300 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 5550 2300 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 5550 2300 50  0001 C CNN
 F 3 "" H 5550 2300 50  0001 C CNN
-F 4 "0603" H 5620 2380 50  0000 L CNN "display_footprint"
+F 4 "0402" H 5620 2380 50  0000 L CNN "display_footprint"
 F 5 "1%" H 5620 2300 50  0000 L CNN "Tolerance"
-F 6 "1/10W" H 5620 2230 50  0000 L CNN "Wattage"
-F 7 "RMCF0603FT1K00CT-ND" H 5850 2700 60  0001 C CNN "Digi-Key PN"
+F 6 "1/16W" H 5620 2230 50  0000 L CNN "Wattage"
+F 7 "" H 5850 2700 60  0001 C CNN "Digi-Key PN"
 	1    5550 2300
 	-1   0    0    -1  
 $EndComp
@@ -263,10 +263,10 @@ AR Path="/5CB7A8C3/5CB930FF" Ref="C?"  Part="1"
 AR Path="/5EAE4ADE/5CB930FF" Ref="C?"  Part="1" 
 F 0 "C?" H 6895 2280 50  0000 L CNN
 F 1 "0.1uF" H 6895 2080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 6908 2030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 6908 2030 50  0001 C CNN
 F 3 "" H 6895 2280 50  0001 C CNN
-F 4 "311-1344-1-ND" H 7295 2680 60  0001 C CNN "Digi-Key PN"
-F 5 "0603" H 6720 2280 50  0000 R CNN "display_footprint"
+F 4 "490-10701-1-ND" H 7295 2680 60  0001 C CNN "Digi-Key PN"
+F 5 "" H 6720 2280 50  0000 R CNN "display_footprint"
 F 6 "50V" H 6720 2180 50  0000 R CNN "Voltage"
 F 7 "X7R" H 6720 2080 50  0000 R CNN "Dielectric"
 	1    6870 2180
@@ -310,12 +310,12 @@ AR Path="/5CB7A8C3/5CB9311A" Ref="R?"  Part="1"
 AR Path="/5EAE4ADE/5CB9311A" Ref="R?"  Part="1" 
 F 0 "R?" H 7490 2300 50  0000 R CNN
 F 1 "1k" V 7550 2300 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 7550 2300 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 7550 2300 50  0001 C CNN
 F 3 "" H 7550 2300 50  0001 C CNN
-F 4 "0603" H 7620 2380 50  0000 L CNN "display_footprint"
+F 4 "0402" H 7620 2380 50  0000 L CNN "display_footprint"
 F 5 "1%" H 7620 2300 50  0000 L CNN "Tolerance"
-F 6 "1/10W" H 7620 2230 50  0000 L CNN "Wattage"
-F 7 "RMCF0603FT1K00CT-ND" H 7850 2700 60  0001 C CNN "Digi-Key PN"
+F 6 "1/16W" H 7620 2230 50  0000 L CNN "Wattage"
+F 7 "" H 7850 2700 60  0001 C CNN "Digi-Key PN"
 	1    7550 2300
 	-1   0    0    -1  
 $EndComp
@@ -402,10 +402,10 @@ AR Path="/5CB7A8C3/5CB97030" Ref="C?"  Part="1"
 AR Path="/5EAE4ADE/5CB97030" Ref="C?"  Part="1" 
 F 0 "C?" H 8895 2280 50  0000 L CNN
 F 1 "0.1uF" H 8895 2080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 8908 2030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 8908 2030 50  0001 C CNN
 F 3 "" H 8895 2280 50  0001 C CNN
-F 4 "311-1344-1-ND" H 9295 2680 60  0001 C CNN "Digi-Key PN"
-F 5 "0603" H 8720 2280 50  0000 R CNN "display_footprint"
+F 4 "490-10701-1-ND" H 9295 2680 60  0001 C CNN "Digi-Key PN"
+F 5 "" H 8720 2280 50  0000 R CNN "display_footprint"
 F 6 "50V" H 8720 2180 50  0000 R CNN "Voltage"
 F 7 "X7R" H 8720 2080 50  0000 R CNN "Dielectric"
 	1    8870 2180
@@ -449,12 +449,12 @@ AR Path="/5CB7A8C3/5CB9704B" Ref="R?"  Part="1"
 AR Path="/5EAE4ADE/5CB9704B" Ref="R?"  Part="1" 
 F 0 "R?" H 9490 2300 50  0000 R CNN
 F 1 "1k" V 9550 2300 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 9550 2300 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 9550 2300 50  0001 C CNN
 F 3 "" H 9550 2300 50  0001 C CNN
-F 4 "0603" H 9620 2380 50  0000 L CNN "display_footprint"
+F 4 "0402" H 9620 2380 50  0000 L CNN "display_footprint"
 F 5 "1%" H 9620 2300 50  0000 L CNN "Tolerance"
-F 6 "1/10W" H 9620 2230 50  0000 L CNN "Wattage"
-F 7 "RMCF0603FT1K00CT-ND" H 9850 2700 60  0001 C CNN "Digi-Key PN"
+F 6 "1/16W" H 9620 2230 50  0000 L CNN "Wattage"
+F 7 "" H 9850 2700 60  0001 C CNN "Digi-Key PN"
 	1    9550 2300
 	-1   0    0    -1  
 $EndComp
@@ -593,10 +593,10 @@ AR Path="/5CB7A8C3/5E1829A4" Ref="C?"  Part="1"
 AR Path="/5EAE4ADE/5E1829A4" Ref="C?"  Part="1" 
 F 0 "C?" H 2895 3780 50  0000 L CNN
 F 1 "0.1uF" H 2895 3580 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 2908 3530 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 2908 3530 50  0001 C CNN
 F 3 "" H 2895 3780 50  0001 C CNN
-F 4 "311-1344-1-ND" H 3295 4180 60  0001 C CNN "Digi-Key PN"
-F 5 "0603" H 2720 3780 50  0000 R CNN "display_footprint"
+F 4 "490-10701-1-ND" H 3295 4180 60  0001 C CNN "Digi-Key PN"
+F 5 "" H 2720 3780 50  0000 R CNN "display_footprint"
 F 6 "50V" H 2720 3680 50  0000 R CNN "Voltage"
 F 7 "X7R" H 2720 3580 50  0000 R CNN "Dielectric"
 	1    2870 3680
@@ -640,12 +640,12 @@ AR Path="/5CB7A8C3/5E1829BF" Ref="R?"  Part="1"
 AR Path="/5EAE4ADE/5E1829BF" Ref="R?"  Part="1" 
 F 0 "R?" H 3490 3800 50  0000 R CNN
 F 1 "1k" V 3550 3800 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" H 3550 3800 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" H 3550 3800 50  0001 C CNN
 F 3 "" H 3550 3800 50  0001 C CNN
-F 4 "0603" H 3620 3880 50  0000 L CNN "display_footprint"
+F 4 "0402" H 3620 3880 50  0000 L CNN "display_footprint"
 F 5 "1%" H 3620 3800 50  0000 L CNN "Tolerance"
-F 6 "1/10W" H 3620 3730 50  0000 L CNN "Wattage"
-F 7 "RMCF0603FT1K00CT-ND" H 3850 4200 60  0001 C CNN "Digi-Key PN"
+F 6 "1/16W" H 3620 3730 50  0000 L CNN "Wattage"
+F 7 "" H 3850 4200 60  0001 C CNN "Digi-Key PN"
 	1    3550 3800
 	-1   0    0    -1  
 $EndComp
@@ -721,18 +721,6 @@ F 3 "" H 2870 3830 50  0001 C CNN
 $EndComp
 Text GLabel 2680 4370 0    50   Input ~ 0
 POS5_USB_PGOOD
-$Comp
-L Regulator_Linear:TPS71533__SC70 U?
-U 1 1 5E4D26A0
-P 1990 1950
-F 0 "U?" H 1840 2075 50  0000 C CNN
-F 1 "TPS71533" H 1990 2075 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 1990 2175 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tps715.pdf" H 1690 2750 50  0001 C CNN
-F 4 "296-12008-1-ND" H 1990 1950 50  0001 C CNN "Digi-Key PN"
-	1    1990 1950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2290 1950 2570 1950
 Wire Wire Line
@@ -829,6 +817,17 @@ F 5 "6.3V" H 2420 2180 50  0000 R CNN "Voltage"
 F 6 "X5R" H 2420 2080 50  0000 R CNN "Dielectric"
 F 7 "490-13211-1-ND" H 2570 2180 50  0001 C CNN "Digi-Key PN"
 	1    2570 2180
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:TPS71530__SC70 U?
+U 1 1 5EC00B51
+P 1990 1950
+F 0 "U?" H 1840 2075 50  0000 C CNN
+F 1 "TPS71530" H 1990 2075 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 1990 2175 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tps715.pdf" H 1690 2750 50  0001 C CNN
+	1    1990 1950
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

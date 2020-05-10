@@ -4,8 +4,8 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 11 19
-Title "VFD Clock"
+Sheet 11 20
+Title "Pulse Oximeter"
 Date "2019-04-11"
 Rev "A"
 Comp "Drew Maatman"
@@ -216,6 +216,7 @@ AR Path="/5E9E0EA5/5EB7DAD1" Ref="R?"  Part="1"
 AR Path="/5E9E0E87/5EB7DAD1" Ref="R?"  Part="1" 
 AR Path="/5EAE2D66/5EB7DAD1" Ref="R?"  Part="1" 
 AR Path="/5EAE4A89/5EB7DAD1" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5EB7DAD1" Ref="R?"  Part="1" 
 F 0 "R?" H 9290 2380 50  0000 R CNN
 F 1 "10k" V 9370 2380 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 9370 2380 50  0001 C CNN
@@ -253,6 +254,7 @@ AR Path="/5E9E0EA5/5EB7DEAB" Ref="R?"  Part="1"
 AR Path="/5E9E0E87/5EB7DEAB" Ref="R?"  Part="1" 
 AR Path="/5EAE2D66/5EB7DEAB" Ref="R?"  Part="1" 
 AR Path="/5EAE4A89/5EB7DEAB" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5EB7DEAB" Ref="R?"  Part="1" 
 F 0 "R?" H 8700 2380 50  0000 R CNN
 F 1 "10k" V 8780 2380 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 8780 2380 50  0001 C CNN
@@ -284,4 +286,6 @@ Wire Wire Line
 Connection ~ 9370 2710
 Wire Wire Line
 	9370 2710 9670 2710
+Text GLabel 8630 5200 2    50   UnSpc ~ 0
+Telemetry_Config
 $EndSCHEMATC

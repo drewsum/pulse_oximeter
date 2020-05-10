@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 1 19
-Title ""
-Date "2020-05-02"
-Rev ""
-Comp ""
+Sheet 1 20
+Title "Pulse Oximeter"
+Date "2020-05-10"
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -121,5 +121,11 @@ S 5320 1670 500  150
 U 5EAE4AE4
 F0 "Status LEDs" 50
 F1 "Status_LEDs.sch" 50
+$EndSheet
+$Sheet
+S 5320 2020 500  150 
+U 5EBEB0C5
+F0 "Misc Circuits" 50
+F1 "Misc_Circuits.sch" 50
 $EndSheet
 $EndSCHEMATC

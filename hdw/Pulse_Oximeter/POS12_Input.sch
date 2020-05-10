@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 2 19
-Title "QI Charger"
+Sheet 2 20
+Title "Pulse Oximeter"
 Date "2019-01-03"
 Rev "A"
-Comp ""
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -239,7 +239,7 @@ F 0 "R?" V 4390 2660 50  0000 C CNN
 F 1 "10" V 4490 2660 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 4490 2660 50  0001 C CNN
 F 3 "" H 4490 2660 50  0001 C CNN
-F 4 "" H 4790 3060 60  0001 C CNN "Digi-Key PN"
+F 4 "541-3964-1-ND" H 4790 3060 60  0001 C CNN "Digi-Key PN"
 F 5 "0402" V 4590 2660 50  0000 C CNN "display_footprint"
 F 6 "1%" V 4690 2660 50  0000 C CNN "Tolerance"
 F 7 "1/16W" V 4790 2660 50  0000 C CNN "Wattage"
@@ -254,7 +254,7 @@ F 0 "R?" V 5260 2660 50  0000 C CNN
 F 1 "10" V 5360 2660 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 5360 2660 50  0001 C CNN
 F 3 "" H 5360 2660 50  0001 C CNN
-F 4 "" H 5660 3060 60  0001 C CNN "Digi-Key PN"
+F 4 "541-3964-1-ND" H 5660 3060 60  0001 C CNN "Digi-Key PN"
 F 5 "0402" V 5460 2660 50  0000 C CNN "display_footprint"
 F 6 "1%" V 5560 2660 50  0000 C CNN "Tolerance"
 F 7 "1/16W" V 5660 2660 50  0000 C CNN "Wattage"
@@ -674,6 +674,7 @@ F 3 "" H 6130 2040 50  0001 C CNN
 F 4 "0402" V 6230 2040 50  0001 C CNN "display_footprint"
 F 5 "1%" V 6330 2040 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 6430 2040 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 6130 2040 50  0001 C CNN "Digi-Key PN"
 	1    6130 2040
 	-1   0    0    -1  
 $EndComp
@@ -694,6 +695,7 @@ F 3 "" H 6590 2040 50  0001 C CNN
 F 4 "0402" V 6690 2040 50  0001 C CNN "display_footprint"
 F 5 "1%" V 6790 2040 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 6890 2040 50  0001 C CNN "Wattage"
+F 7 "541-3964-1-ND" H 6590 2040 50  0001 C CNN "Digi-Key PN"
 	1    6590 2040
 	-1   0    0    -1  
 $EndComp

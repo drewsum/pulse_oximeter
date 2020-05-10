@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 3 19
-Title ""
+Sheet 3 20
+Title "Pulse Oximeter"
 Date ""
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -61,12 +61,12 @@ AR Path="/5E052856/5E0B2427" Ref="C?"  Part="1"
 AR Path="/5EAE2D84/5E0B2427" Ref="C?"  Part="1" 
 F 0 "C?" H 5135 3110 50  0000 L CNN
 F 1 "0.1uF" H 5135 2910 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 5148 2860 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 5148 2860 50  0001 C CNN
 F 3 "" H 5135 3110 50  0001 C CNN
-F 4 "0603" H 4960 3110 50  0000 R CNN "display_footprint"
+F 4 "" H 4960 3110 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4960 3010 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4960 2910 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 1200 -3870 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 1200 -3870 50  0001 C CNN "Digi-Key PN"
 	1    5110 3010
 	1    0    0    -1  
 $EndComp
@@ -190,12 +190,12 @@ AR Path="/5E052856/5E2AA9A1" Ref="C?"  Part="1"
 AR Path="/5EAE2D84/5E2AA9A1" Ref="C?"  Part="1" 
 F 0 "C?" H 5135 5790 50  0000 L CNN
 F 1 "0.1uF" H 5135 5590 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 5148 5540 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 5148 5540 50  0001 C CNN
 F 3 "" H 5135 5790 50  0001 C CNN
-F 4 "0603" H 4960 5790 50  0000 R CNN "display_footprint"
+F 4 "" H 4960 5790 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4960 5690 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4960 5590 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 1200 -1190 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 1200 -1190 50  0001 C CNN "Digi-Key PN"
 	1    5110 5690
 	1    0    0    -1  
 $EndComp
@@ -259,12 +259,12 @@ AR Path="/5E052856/5E07E0FD" Ref="C?"  Part="1"
 AR Path="/5EAE2D84/5E07E0FD" Ref="C?"  Part="1" 
 F 0 "C?" H 4255 2130 50  0000 L CNN
 F 1 "0.1uF" H 4255 1930 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 4268 1880 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 4268 1880 50  0001 C CNN
 F 3 "" H 4255 2130 50  0001 C CNN
-F 4 "0603" H 4080 2130 50  0000 R CNN "display_footprint"
+F 4 "" H 4080 2130 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4080 2030 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4080 1930 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 320 -4850 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 320 -4850 50  0001 C CNN "Digi-Key PN"
 	1    4230 2030
 	1    0    0    -1  
 $EndComp

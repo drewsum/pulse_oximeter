@@ -4,8 +4,8 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 8 19
-Title "VFD Clock"
+Sheet 8 20
+Title "Pulse Oximeter"
 Date "2019-04-11"
 Rev "A"
 Comp "Drew Maatman"

@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 7 19
-Title ""
+Sheet 7 20
+Title "Pulse Oximeter"
 Date ""
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -95,12 +95,12 @@ AR Path="/5E0F263C/5E2AA9A5" Ref="C?"  Part="1"
 AR Path="/5EAE2E6F/5E2AA9A5" Ref="C?"  Part="1" 
 F 0 "C?" H 5455 6090 50  0000 L CNN
 F 1 "0.1uF" H 5455 5890 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 5468 5840 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 5468 5840 50  0001 C CNN
 F 3 "" H 5455 6090 50  0001 C CNN
-F 4 "0603" H 5280 6090 50  0000 R CNN "display_footprint"
+F 4 "" H 5280 6090 50  0000 R CNN "display_footprint"
 F 5 "50V" H 5280 5990 50  0000 R CNN "Voltage"
 F 6 "X7R" H 5280 5890 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 1520 -890 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 1520 -890 50  0001 C CNN "Digi-Key PN"
 	1    5430 5990
 	1    0    0    -1  
 $EndComp
@@ -134,22 +134,6 @@ F 1 "GND" H 5430 5990 50  0000 C CNN
 F 2 "" H 5430 6140 50  0001 C CNN
 F 3 "" H 5430 6140 50  0001 C CNN
 	1    5430 6140
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:I2C_Address DOC?
-U 1 1 5E2AA9B2
-P 6330 5860
-AR Path="/5E0652BA/5E2AA9B2" Ref="DOC?"  Part="1" 
-AR Path="/5E0A0E29/5E2AA9B2" Ref="DOC?"  Part="1" 
-AR Path="/5E0DC084/5E2AA9B2" Ref="DOC?"  Part="1" 
-AR Path="/5E0F263C/5E2AA9B2" Ref="DOC?"  Part="1" 
-AR Path="/5EAE2E6F/5E2AA9B2" Ref="DOC?"  Part="1" 
-F 0 "DOC?" H 6330 6110 60  0001 C CNN
-F 1 "awuha;isjdf" H 5880 5860 60  0000 L CNN
-F 2 "" H 6330 6210 60  0001 C CNN
-F 3 "" H 6330 6210 60  0001 C CNN
-	1    6330 5860
 	1    0    0    -1  
 $EndComp
 Text GLabel 6150 1970 0    50   UnSpc ~ 0
@@ -199,12 +183,12 @@ AR Path="/5E052856/5E1BD4CF" Ref="C?"  Part="1"
 AR Path="/5EAE2E6F/5E1BD4CF" Ref="C?"  Part="1" 
 F 0 "C?" H 3495 3280 50  0000 L CNN
 F 1 "0.1uF" H 3495 3080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 3508 3030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 3508 3030 50  0001 C CNN
 F 3 "" H 3495 3280 50  0001 C CNN
-F 4 "0603" H 3320 3280 50  0000 R CNN "display_footprint"
+F 4 "" H 3320 3280 50  0000 R CNN "display_footprint"
 F 5 "50V" H 3320 3180 50  0000 R CNN "Voltage"
 F 6 "X7R" H 3320 3080 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H -440 -3700 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H -440 -3700 50  0001 C CNN "Digi-Key PN"
 	1    3470 3180
 	1    0    0    -1  
 $EndComp
@@ -240,21 +224,6 @@ F 3 "" H 3470 3330 50  0001 C CNN
 $EndComp
 Text GLabel 3870 2010 2    50   BiDi ~ 0
 I2C_SDA
-$Comp
-L Custom_Library:I2C_Address DOC?
-U 1 1 5E1BD4E2
-P 4370 3050
-AR Path="/5E0652BA/5E1BD4E2" Ref="DOC?"  Part="1" 
-AR Path="/5E0A0E29/5E1BD4E2" Ref="DOC?"  Part="1" 
-AR Path="/5E052856/5E1BD4E2" Ref="DOC?"  Part="1" 
-AR Path="/5EAE2E6F/5E1BD4E2" Ref="DOC?"  Part="1" 
-F 0 "DOC?" H 4370 3300 60  0001 C CNN
-F 1 "akjshdflkasdf" H 3920 3050 60  0000 L CNN
-F 2 "" H 4370 3400 60  0001 C CNN
-F 3 "" H 4370 3400 60  0001 C CNN
-	1    4370 3050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2590 2430 2590 2350
 Wire Wire Line
@@ -270,12 +239,12 @@ AR Path="/5E052856/5E1BD4F9" Ref="C?"  Part="1"
 AR Path="/5EAE2E6F/5E1BD4F9" Ref="C?"  Part="1" 
 F 0 "C?" H 2615 2300 50  0000 L CNN
 F 1 "0.1uF" H 2615 2100 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 2628 2050 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 2628 2050 50  0001 C CNN
 F 3 "" H 2615 2300 50  0001 C CNN
-F 4 "0603" H 2440 2300 50  0000 R CNN "display_footprint"
+F 4 "" H 2440 2300 50  0000 R CNN "display_footprint"
 F 5 "50V" H 2440 2200 50  0000 R CNN "Voltage"
 F 6 "X7R" H 2440 2100 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H -1320 -4680 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H -1320 -4680 50  0001 C CNN "Digi-Key PN"
 	1    2590 2200
 	1    0    0    -1  
 $EndComp
@@ -340,12 +309,12 @@ AR Path="/5E052856/5E1C2940" Ref="C?"  Part="1"
 AR Path="/5EAE2E6F/5E1C2940" Ref="C?"  Part="1" 
 F 0 "C?" H 7495 3280 50  0000 L CNN
 F 1 "0.1uF" H 7495 3080 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 7508 3030 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 7508 3030 50  0001 C CNN
 F 3 "" H 7495 3280 50  0001 C CNN
-F 4 "0603" H 7320 3280 50  0000 R CNN "display_footprint"
+F 4 "" H 7320 3280 50  0000 R CNN "display_footprint"
 F 5 "50V" H 7320 3180 50  0000 R CNN "Voltage"
 F 6 "X7R" H 7320 3080 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 3560 -3700 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 3560 -3700 50  0001 C CNN "Digi-Key PN"
 	1    7470 3180
 	1    0    0    -1  
 $EndComp
@@ -381,21 +350,6 @@ F 3 "" H 7470 3330 50  0001 C CNN
 $EndComp
 Text GLabel 7870 2010 2    50   BiDi ~ 0
 I2C_SDA
-$Comp
-L Custom_Library:I2C_Address DOC?
-U 1 1 5E1C2953
-P 8370 3050
-AR Path="/5E0652BA/5E1C2953" Ref="DOC?"  Part="1" 
-AR Path="/5E0A0E29/5E1C2953" Ref="DOC?"  Part="1" 
-AR Path="/5E052856/5E1C2953" Ref="DOC?"  Part="1" 
-AR Path="/5EAE2E6F/5E1C2953" Ref="DOC?"  Part="1" 
-F 0 "DOC?" H 8370 3300 60  0001 C CNN
-F 1 "afasdf" H 7920 3050 60  0000 L CNN
-F 2 "" H 8370 3400 60  0001 C CNN
-F 3 "" H 8370 3400 60  0001 C CNN
-	1    8370 3050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6590 2430 6590 2350
 Wire Wire Line
@@ -411,12 +365,12 @@ AR Path="/5E052856/5E1C295F" Ref="C?"  Part="1"
 AR Path="/5EAE2E6F/5E1C295F" Ref="C?"  Part="1" 
 F 0 "C?" H 6615 2300 50  0000 L CNN
 F 1 "0.1uF" H 6615 2100 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 6628 2050 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 6628 2050 50  0001 C CNN
 F 3 "" H 6615 2300 50  0001 C CNN
-F 4 "0603" H 6440 2300 50  0000 R CNN "display_footprint"
+F 4 "" H 6440 2300 50  0000 R CNN "display_footprint"
 F 5 "50V" H 6440 2200 50  0000 R CNN "Voltage"
 F 6 "X7R" H 6440 2100 50  0000 R CNN "Dielectric"
-F 7 "399-6856-1-ND" H 2680 -4680 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10701-1-ND" H 2680 -4680 50  0001 C CNN "Digi-Key PN"
 	1    6590 2200
 	1    0    0    -1  
 $EndComp
@@ -461,5 +415,140 @@ F 3 "http://www.ti.com/lit/ds/symlink/ina219.pdf" H 3820 2110 50  0001 C CNN
 F 4 "296-46420-1-ND" H 3470 2210 50  0001 C CNN "Digi-Key PN"
 	1    3470 2210
 	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:I2C_Address DOC?
+U 1 1 5EC2F63C
+P 4370 3050
+AR Path="/5E0652BA/5EC2F63C" Ref="DOC?"  Part="1" 
+AR Path="/5E0A0E29/5EC2F63C" Ref="DOC?"  Part="1" 
+AR Path="/5E052856/5EC2F63C" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2DDC/5EC2F63C" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2E6F/5EC2F63C" Ref="DOC?"  Part="1" 
+F 0 "DOC?" H 4370 3300 60  0001 C CNN
+F 1 "0x43" H 3920 3050 60  0000 L CNN
+F 2 "" H 4370 3400 60  0001 C CNN
+F 3 "" H 4370 3400 60  0001 C CNN
+	1    4370 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EC2F642
+P 3870 2310
+AR Path="/5EAE2DDC/5EC2F642" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC2F642" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3870 2060 50  0001 C CNN
+F 1 "GND" V 3870 2160 50  0000 R CNN
+F 2 "" H 3870 2310 50  0001 C CNN
+F 3 "" H 3870 2310 50  0001 C CNN
+	1    3870 2310
+	0    -1   -1   0   
+$EndComp
+Text GLabel 3870 2410 2    50   Input ~ 0
+I2C_SCL
+$Comp
+L Custom_Library:I2C_Address DOC?
+U 1 1 5EC3148F
+P 8370 3050
+AR Path="/5E0652BA/5EC3148F" Ref="DOC?"  Part="1" 
+AR Path="/5E0A0E29/5EC3148F" Ref="DOC?"  Part="1" 
+AR Path="/5E052856/5EC3148F" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2DDC/5EC3148F" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2E6F/5EC3148F" Ref="DOC?"  Part="1" 
+F 0 "DOC?" H 8370 3300 60  0001 C CNN
+F 1 "0x44" H 7920 3050 60  0000 L CNN
+F 2 "" H 8370 3400 60  0001 C CNN
+F 3 "" H 8370 3400 60  0001 C CNN
+	1    8370 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EC31495
+P 7870 2410
+AR Path="/5EAE2DDC/5EC31495" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC31495" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7870 2160 50  0001 C CNN
+F 1 "GND" V 7870 2260 50  0000 R CNN
+F 2 "" H 7870 2410 50  0001 C CNN
+F 3 "" H 7870 2410 50  0001 C CNN
+	1    7870 2410
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EC31886
+P 7870 2310
+AR Path="/5E0652BA/5EC31886" Ref="#PWR?"  Part="1" 
+AR Path="/5E0A0E29/5EC31886" Ref="#PWR?"  Part="1" 
+AR Path="/5E052856/5EC31886" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC31886" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7870 2160 50  0001 C CNN
+F 1 "+3.3V" V 7870 2450 50  0000 L CNN
+F 2 "" H 7870 2310 50  0001 C CNN
+F 3 "" H 7870 2310 50  0001 C CNN
+	1    7870 2310
+	0    1    1    0   
+$EndComp
+$Comp
+L Custom_Library:I2C_Address DOC?
+U 1 1 5EC37016
+P 6330 5860
+AR Path="/5E0652BA/5EC37016" Ref="DOC?"  Part="1" 
+AR Path="/5E0A0E29/5EC37016" Ref="DOC?"  Part="1" 
+AR Path="/5E0DC084/5EC37016" Ref="DOC?"  Part="1" 
+AR Path="/5E0F263C/5EC37016" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2DDC/5EC37016" Ref="DOC?"  Part="1" 
+AR Path="/5EAE2E6F/5EC37016" Ref="DOC?"  Part="1" 
+F 0 "DOC?" H 6330 6110 60  0001 C CNN
+F 1 "0x1A" H 5880 5860 60  0000 L CNN
+F 2 "" H 6330 6210 60  0001 C CNN
+F 3 "" H 6330 6210 60  0001 C CNN
+	1    6330 5860
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EC3701C
+P 5830 4940
+AR Path="/5EAE2DDC/5EC3701C" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC3701C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5830 4690 50  0001 C CNN
+F 1 "GND" V 5830 4790 50  0000 R CNN
+F 2 "" H 5830 4940 50  0001 C CNN
+F 3 "" H 5830 4940 50  0001 C CNN
+	1    5830 4940
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EC37022
+P 5830 5140
+AR Path="/5EAE2DDC/5EC37022" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC37022" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5830 4890 50  0001 C CNN
+F 1 "GND" V 5830 4990 50  0000 R CNN
+F 2 "" H 5830 5140 50  0001 C CNN
+F 3 "" H 5830 5140 50  0001 C CNN
+	1    5830 5140
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EC37028
+P 5830 5040
+AR Path="/5E0652BA/5EC37028" Ref="#PWR?"  Part="1" 
+AR Path="/5E0A0E29/5EC37028" Ref="#PWR?"  Part="1" 
+AR Path="/5E0DC084/5EC37028" Ref="#PWR?"  Part="1" 
+AR Path="/5E0F263C/5EC37028" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2DDC/5EC37028" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2E6F/5EC37028" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5830 4890 50  0001 C CNN
+F 1 "+3.3V" V 5830 5180 50  0000 L CNN
+F 2 "" H 5830 5040 50  0001 C CNN
+F 3 "" H 5830 5040 50  0001 C CNN
+	1    5830 5040
+	0    1    -1   0   
 $EndComp
 $EndSCHEMATC

@@ -4,11 +4,11 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 15 19
-Title ""
+Sheet 15 20
+Title "Pulse Oximeter"
 Date "2020-05-02"
-Rev ""
-Comp ""
+Rev "A"
+Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -933,6 +933,7 @@ F 4 "0402" H 5840 3790 50  0000 L CNN "display_footprint"
 F 5 "1%" H 5840 3710 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 5850 3630 50  0000 L CNN "Wattage"
 F 7 "DNP" H 5840 3860 50  0000 L CNN "Configuration"
+F 8 "RMCF0402FT10K0CT-ND" H 5740 3710 50  0001 C CNN "Digi-Key PN"
 	1    5740 3710
 	1    0    0    -1  
 $EndComp
@@ -960,6 +961,7 @@ F 4 "0402" H 4970 3790 50  0000 L CNN "display_footprint"
 F 5 "1%" H 4970 3710 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 4980 3630 50  0000 L CNN "Wattage"
 F 7 "DNP" H 4970 3860 50  0000 L CNN "Configuration"
+F 8 "RMCF0402FT10K0CT-ND" H 4870 3710 50  0001 C CNN "Digi-Key PN"
 	1    4870 3710
 	1    0    0    -1  
 $EndComp
