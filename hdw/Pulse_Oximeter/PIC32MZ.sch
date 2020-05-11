@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 11 20
+Sheet 11 22
 Title "Pulse Oximeter"
 Date "2019-04-11"
 Rev "A"
@@ -288,4 +288,14 @@ Wire Wire Line
 	9370 2710 9670 2710
 Text GLabel 8630 5200 2    50   UnSpc ~ 0
 Telemetry_Config
+Text GLabel 9580 4790 0    40   Output ~ 0
+~SD_CARD_DETECT
+Text GLabel 9580 4090 0    50   Input ~ 0
+SD_SPI_CS
+Text GLabel 9580 4190 0    50   Input ~ 0
+SD_SPI_MOSI
+Text GLabel 9580 4390 0    50   Input ~ 0
+SD_SPI_SCLK
+Text GLabel 9580 4590 0    50   Output ~ 0
+SD_SPI_MISO
 $EndSCHEMATC
