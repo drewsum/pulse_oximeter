@@ -50,6 +50,25 @@ X ~ 3 300 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Connector_Generic_Conn_01x02
+#
+DEF Connector_Generic_Conn_01x02 J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Connector_Generic_Conn_01x02" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -150 1 1 10 f
+X Pin_1 1 -200 0 150 R 50 50 1 1 P
+X Pin_2 2 -200 -100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Connector_Generic_Conn_01x03
 #
 DEF Connector_Generic_Conn_01x03 J 0 40 Y N 1 F N
@@ -608,6 +627,34 @@ X 2 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Custom_Library_Screw
+#
+DEF Custom_Library_Screw MK 0 0 N N 1 F N
+F0 "MK" 0 100 50 H V C CNN
+F1 "Custom_Library_Screw" 0 200 50 H V C CNN
+F2 "" 0 250 50 H I C CNN
+F3 "" 0 250 50 H I C CNN
+DRAW
+A 0 -40 78 398 1402 0 1 0 N 60 10 -60 10
+S -30 0 30 -120 0 1 0 N
+P 2 0 1 0 -60 0 -60 10 N
+P 2 0 1 0 -60 0 60 0 N
+P 2 0 1 0 -30 -110 30 -120 N
+P 2 0 1 0 -30 -100 30 -110 N
+P 2 0 1 0 -30 -90 30 -100 N
+P 2 0 1 0 -30 -80 30 -90 N
+P 2 0 1 0 -30 -70 30 -80 N
+P 2 0 1 0 -30 -60 30 -70 N
+P 2 0 1 0 -30 -50 30 -60 N
+P 2 0 1 0 -30 -40 30 -50 N
+P 2 0 1 0 -30 -30 30 -40 N
+P 2 0 1 0 -30 -20 30 -30 N
+P 2 0 1 0 -30 -10 30 -20 N
+P 2 0 1 0 -30 0 30 -10 N
+P 2 0 1 0 60 0 60 10 N
+ENDDRAW
+ENDDEF
+#
 # Custom_Library_Si4946BEY
 #
 DEF Custom_Library_Si4946BEY Q 0 0 Y N 2 F N
@@ -645,6 +692,34 @@ X S2 3 100 -200 100 U 50 50 2 1 P
 X G2 4 -200 0 100 R 50 50 2 1 P
 X D2 5 100 200 100 D 50 50 2 1 P
 X D2 6 100 200 100 D 50 50 2 1 P N
+ENDDRAW
+ENDDEF
+#
+# Custom_Library_Standoff
+#
+DEF Custom_Library_Standoff MK 0 0 N N 1 F N
+F0 "MK" 0 150 50 H V C CNN
+F1 "Custom_Library_Standoff" 0 250 50 H V C CNN
+F2 "" 0 350 50 H I C CNN
+F3 "" 0 350 50 H I C CNN
+DRAW
+S -60 -200 -60 0 0 1 0 N
+S -60 0 60 0 0 1 0 N
+S -35 0 35 -200 0 1 0 N
+S -30 0 30 0 0 1 0 N
+S -30 80 -30 0 0 1 0 N
+S 30 0 30 80 0 1 0 N
+S 30 80 -30 80 0 1 0 N
+S 60 -200 -60 -200 0 1 0 N
+S 60 0 60 -200 0 1 0 N
+P 2 0 1 0 -30 10 30 0 N
+P 2 0 1 0 -30 20 30 10 N
+P 2 0 1 0 -30 30 30 20 N
+P 2 0 1 0 -30 40 30 30 N
+P 2 0 1 0 -30 50 30 40 N
+P 2 0 1 0 -30 60 30 50 N
+P 2 0 1 0 -30 70 30 60 N
+P 2 0 1 0 -30 80 30 70 N
 ENDDRAW
 ENDDEF
 #
@@ -1041,6 +1116,21 @@ X VCCB 8 100 500 100 D 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
+# Mechanical_MountingHole
+#
+DEF Mechanical_MountingHole H 0 40 Y Y 1 F N
+F0 "H" 0 200 50 H V C CNN
+F1 "Mechanical_MountingHole" 0 125 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ MountingHole*
+$ENDFPLIST
+DRAW
+C 0 0 50 0 1 50 N
+ENDDRAW
+ENDDEF
+#
 # Oscillator_ASE-xxxMHz
 #
 DEF Oscillator_ASE-xxxMHz X 0 10 Y Y 1 F N
@@ -1082,16 +1172,16 @@ X VIN 6 -400 100 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# Power_Protection_PESD3V3L5UV
+# Power_Protection_PESD3V3L5UY
 #
-DEF Power_Protection_PESD3V3L5UV D 0 20 N N 5 L N
+DEF Power_Protection_PESD3V3L5UY D 0 20 N N 5 L N
 F0 "D" 0 100 50 H V C CNN
-F1 "Power_Protection_PESD3V3L5UV" 0 -100 50 H V C CNN
-F2 "Package_TO_SOT_SMD:SOT-666" 0 0 50 H I C CNN
+F1 "Power_Protection_PESD3V3L5UY" 0 -100 50 H V C CNN
+F2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
-ALIAS PESD5V0L5UV
+ALIAS PESD5V0L5UY
 $FPLIST
- SOT?666*
+ SOT?363*
 $ENDFPLIST
 DRAW
 P 2 0 1 0 -40 0 40 0 N

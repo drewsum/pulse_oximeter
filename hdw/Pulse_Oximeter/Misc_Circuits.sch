@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 20 22
+Sheet 20 23
 Title "Pulse Oximeter"
 Date ""
 Rev "A"
@@ -74,6 +74,7 @@ F 1 "MCP9804" H 5600 2690 50  0000 C CNN
 F 2 "Package_DFN_QFN:DFN-8-1EP_3x2mm_P0.5mm_EP1.3x1.5mm" H 4100 1740 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 4950 2690 50  0001 C CNN
 F 4 "MCP9804T-E/MCCT-ND" H 5200 2240 50  0001 C CNN "Digi-Key PN"
+F 5 "Telemetry" H 5200 2240 50  0001 C CNN "Configuration"
 	1    5200 2240
 	-1   0    0    -1  
 $EndComp
@@ -351,4 +352,93 @@ F 3 "" H 5600 2340 50  0001 C CNN
 	1    5600 2340
 	0    -1   -1   0   
 $EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EC05B32
+P 7050 4930
+AR Path="/5BB27BA3/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5EC05B32" Ref="R?"  Part="1" 
+AR Path="/5EBEB0C5/5EC05B32" Ref="R?"  Part="1" 
+F 0 "R?" H 6970 4930 50  0000 R CNN
+F 1 "10k" V 7050 4930 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 7050 4930 50  0001 C CNN
+F 3 "" H 7050 4930 50  0001 C CNN
+F 4 "0402" H 7150 5010 50  0000 L CNN "display_footprint"
+F 5 "1%" H 7150 4930 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 7160 4850 50  0000 L CNN "Wattage"
+	1    7050 4930
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EC05B3C
+P 7050 4780
+F 0 "#PWR?" H 7050 4630 50  0001 C CNN
+F 1 "+3.3V" H 7050 4920 50  0000 C CNN
+F 2 "" H 7050 4780 50  0001 C CNN
+F 3 "" H 7050 4780 50  0001 C CNN
+	1    7050 4780
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EC05B46
+P 7050 5540
+F 0 "#PWR?" H 7050 5290 50  0001 C CNN
+F 1 "GND" H 7050 5390 50  0000 C CNN
+F 2 "" H 7050 5540 50  0001 C CNN
+F 3 "" H 7050 5540 50  0001 C CNN
+	1    7050 5540
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EC05B55
+P 7050 5390
+AR Path="/5BB27BA3/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5EC05B55" Ref="R?"  Part="1" 
+AR Path="/5EBEB0C5/5EC05B55" Ref="R?"  Part="1" 
+F 0 "R?" H 6970 5390 50  0000 R CNN
+F 1 "10" V 7050 5390 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 7050 5390 50  0001 C CNN
+F 3 "" H 7050 5390 50  0001 C CNN
+F 4 "0402" H 7150 5470 50  0000 L CNN "display_footprint"
+F 5 "1%" H 7150 5390 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 7160 5310 50  0000 L CNN "Wattage"
+F 7 "SD Logging" H 7160 5230 50  0000 L CNN "Configuration"
+F 8 "541-3964-1-ND" H 7050 5390 50  0001 C CNN "Digi-Key PN"
+	1    7050 5390
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 5240 7050 5160
+Text GLabel 7130 5160 2    50   UnSpc ~ 0
+SD_Logging_Config
+Wire Wire Line
+	7130 5160 7050 5160
+Connection ~ 7050 5160
+Wire Wire Line
+	7050 5160 7050 5080
 $EndSCHEMATC

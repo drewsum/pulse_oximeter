@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 22 22
+Sheet 22 23
 Title ""
 Date ""
 Rev ""
@@ -23,6 +23,7 @@ F 1 "Micro_SD_Card_Det" H 7420 4590 50  0000 R CNN
 F 2 "Connector_Card:microSD_HC_Molex_104031-0811" H 8820 4590 50  0001 C CNN
 F 3 "https://www.hirose.com/product/en/download_file/key_name/DM3/category/Catalog/doc_file_id/49662/?file_category_id=4&item_id=195&is_series=1" H 6770 3990 50  0001 C CNN
 F 4 "WM6357CT-ND" H 6770 3890 50  0001 C CNN "Digi-Key PN"
+F 5 "SD Logging" H 6770 3180 50  0000 C CNN "Configuration"
 	1    6770 3890
 	1    0    0    -1  
 $EndComp
@@ -257,28 +258,6 @@ F 3 "" H 5870 4390 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Power_Protection:PESD3V3L5UV D?
-U 1 1 5EBCE2AF
-P 4300 4580
-F 0 "D?" H 4300 4680 50  0000 C CNN
-F 1 "PESD3V3L5UV" V 4300 4480 50  0000 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-666" H 4300 4580 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4300 4580 50  0001 C CNN
-	1    4300 4580
-	0    1    1    0   
-$EndComp
-$Comp
-L Power_Protection:PESD3V3L5UV D?
-U 2 1 5EBCFE08
-P 4500 4580
-F 0 "D?" H 4500 4680 50  0000 C CNN
-F 1 "PESD3V3L5UV" V 4500 4480 50  0001 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-666" H 4500 4580 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4500 4580 50  0001 C CNN
-	2    4500 4580
-	0    1    1    0   
-$EndComp
-$Comp
 L Custom_Library:R_Custom R?
 U 1 1 5EBA2A9C
 P 4300 3360
@@ -418,39 +397,6 @@ Wire Wire Line
 	3990 3690 4500 3690
 Wire Wire Line
 	3990 3590 4300 3590
-$Comp
-L Power_Protection:PESD3V3L5UV D?
-U 3 1 5EBD1F55
-P 4700 4580
-F 0 "D?" H 4700 4680 50  0000 C CNN
-F 1 "PESD3V3L5UV" V 4700 4480 50  0001 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-666" H 4700 4580 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4700 4580 50  0001 C CNN
-	3    4700 4580
-	0    1    1    0   
-$EndComp
-$Comp
-L Power_Protection:PESD3V3L5UV D?
-U 4 1 5EBD26EA
-P 4900 4580
-F 0 "D?" H 4900 4680 50  0000 C CNN
-F 1 "PESD3V3L5UV" V 4900 4480 50  0001 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-666" H 4900 4580 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4900 4580 50  0001 C CNN
-	4    4900 4580
-	0    1    1    0   
-$EndComp
-$Comp
-L Power_Protection:PESD3V3L5UV D?
-U 5 1 5EBD2E02
-P 5100 4580
-F 0 "D?" H 5100 4680 50  0000 C CNN
-F 1 "PESD3V3L5UV" V 5100 4480 50  0001 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-666" H 5100 4580 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 5100 4580 50  0001 C CNN
-	5    5100 4580
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	4300 3510 4300 3590
 Connection ~ 4300 3590
@@ -626,4 +572,61 @@ Text GLabel 3690 3890 0    50   Input ~ 0
 SD_SPI_SCLK
 Text GLabel 3690 4090 0    50   Output ~ 0
 SD_SPI_MISO
+$Comp
+L Power_Protection:PESD3V3L5UY D?
+U 1 1 5EBFF172
+P 4300 4580
+F 0 "D?" V 4220 4480 50  0000 R CNN
+F 1 "PESD3V3L5UY" V 4320 4480 50  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4300 4580 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4300 4580 50  0001 C CNN
+F 4 "1727-3828-1-ND" H 4300 4580 50  0001 C CNN "Digi-Key PN"
+F 5 "SD Logging" V 4430 4970 50  0000 C CNN "Configuration"
+	1    4300 4580
+	0    1    1    0   
+$EndComp
+$Comp
+L Power_Protection:PESD3V3L5UY D?
+U 2 1 5EC01F12
+P 4500 4580
+F 0 "D?" V 4420 4480 50  0001 R CNN
+F 1 "PESD3V3L5UY" V 4520 4480 50  0001 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4500 4580 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4500 4580 50  0001 C CNN
+	2    4500 4580
+	0    1    1    0   
+$EndComp
+$Comp
+L Power_Protection:PESD3V3L5UY D?
+U 3 1 5EC02369
+P 4700 4580
+F 0 "D?" V 4620 4480 50  0001 R CNN
+F 1 "PESD3V3L5UY" V 4720 4480 50  0001 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4700 4580 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4700 4580 50  0001 C CNN
+	3    4700 4580
+	0    1    1    0   
+$EndComp
+$Comp
+L Power_Protection:PESD3V3L5UY D?
+U 4 1 5EC027AC
+P 4900 4580
+F 0 "D?" V 4820 4480 50  0001 R CNN
+F 1 "PESD3V3L5UY" V 4920 4480 50  0001 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4900 4580 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 4900 4580 50  0001 C CNN
+	4    4900 4580
+	0    1    1    0   
+$EndComp
+$Comp
+L Power_Protection:PESD3V3L5UY D?
+U 5 1 5EC02BD8
+P 5100 4580
+F 0 "D?" V 5020 4480 50  0001 R CNN
+F 1 "PESD3V3L5UY" V 5120 4480 50  0001 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 5100 4580 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/PESDXL5UF_V_Y.pdf" H 5100 4580 50  0001 C CNN
+	5    5100 4580
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
