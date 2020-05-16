@@ -564,4 +564,67 @@ F 3 "" H 4530 4210 50  0001 C CNN
 	1    4530 4210
 	1    0    0    -1  
 $EndComp
+Text GLabel 2680 5130 0    50   Input ~ 0
+PIC32MZ_REFCLK
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EC05874
+P 2760 5360
+AR Path="/5BAAE1F3/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5BAAE1DC/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5BAAE16C/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5BB844FD/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5BF346B3/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5CAD2D97/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5CB7A8BC/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5E01BCC3/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5E697952/5EC05874" Ref="R?"  Part="1" 
+AR Path="/5EAE2F15/5EC05874" Ref="R1006"  Part="1" 
+F 0 "R1006" H 2700 5360 50  0000 R CNN
+F 1 "10k" V 2760 5360 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2760 5360 50  0001 C CNN
+F 3 "" H 2760 5360 50  0001 C CNN
+F 4 "0402" H 2830 5440 50  0000 L CNN "display_footprint"
+F 5 "1%" H 2830 5360 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 2830 5290 50  0000 L CNN "Wattage"
+F 7 "RMCF0402FT10K0CT-ND" H 2760 5360 50  0001 C CNN "Digi-Key PN"
+	1    2760 5360
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5EC063B5
+P 2760 5510
+F 0 "#PWR0101" H 2760 5260 50  0001 C CNN
+F 1 "GND" H 2760 5360 50  0000 C CNN
+F 2 "" H 2760 5510 50  0001 C CNN
+F 3 "" H 2760 5510 50  0001 C CNN
+	1    2760 5510
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2760 5210 2760 5130
+Wire Wire Line
+	2760 5130 2680 5130
+$Comp
+L Custom_Library:TP TP?
+U 1 1 5EC0AF1F
+P 2840 5130
+AR Path="/5C1D5CD8/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5C1D5C9E/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5CB6F1ED/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5E939CFF/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5E9E0E87/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5EAE2D66/5EC0AF1F" Ref="TP?"  Part="1" 
+AR Path="/5EAE2F15/5EC0AF1F" Ref="TP1001"  Part="1" 
+F 0 "TP1001" V 2840 5280 50  0000 L CNN
+F 1 "TP" H 2840 5280 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 2840 5130 60  0001 C CNN
+F 3 "" H 2840 5130 60  0000 C CNN
+	1    2840 5130
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2840 5130 2760 5130
+Connection ~ 2760 5130
 $EndSCHEMATC

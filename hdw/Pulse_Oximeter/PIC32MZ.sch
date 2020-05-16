@@ -286,16 +286,28 @@ Wire Wire Line
 Connection ~ 9370 2710
 Wire Wire Line
 	9370 2710 9670 2710
-Text GLabel 8630 5200 2    50   UnSpc ~ 0
+Text GLabel 3360 4910 0    50   UnSpc ~ 0
 Telemetry_Config
-Text GLabel 9580 4790 0    40   Output ~ 0
+Text GLabel 3360 2810 0    40   Input ~ 0
 ~SD_CARD_DETECT
-Text GLabel 9580 4090 0    50   Input ~ 0
+Text GLabel 3360 2310 0    50   Output ~ 0
 SD_SPI_CS
-Text GLabel 9580 4190 0    50   Input ~ 0
+Text GLabel 3360 2410 0    50   Output ~ 0
 SD_SPI_MOSI
-Text GLabel 9580 4390 0    50   Input ~ 0
+Text GLabel 3360 2910 0    50   Output ~ 0
 SD_SPI_SCLK
-Text GLabel 9580 4590 0    50   Output ~ 0
+Text GLabel 3360 2510 0    50   Input ~ 0
 SD_SPI_MISO
+Text GLabel 8820 4560 0    50   Output ~ 0
+POS1P8_PGOOD
+Text GLabel 8820 4660 0    50   Input ~ 0
+POS1P8_RUN
+Text GLabel 9070 4900 0    50   Input ~ 0
+POX_I2C_Enable
+Text GLabel 9190 4280 0    50   Input ~ 0
+POS3P3_POX_Enable
+Text GLabel 8550 5210 2    40   Output ~ 0
+~POX_INT
+Text GLabel 8340 4010 2    50   Output ~ 0
+Cap_Touch_Power
 $EndSCHEMATC
