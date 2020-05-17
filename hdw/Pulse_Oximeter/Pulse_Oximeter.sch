@@ -129,10 +129,10 @@ F0 "Misc Circuits" 50
 F1 "Misc_Circuits.sch" 50
 $EndSheet
 $Sheet
-S 5320 2370 500  150 
-U 5EB8C603
-F0 "Backup RTC" 50
-F1 "Backup_RTC.sch" 50
+S 5320 3070 500  150 
+U 5EC12282
+F0 "Mechanical" 50
+F1 "Mechanical.sch" 50
 $EndSheet
 $Sheet
 S 5320 2720 500  150 
@@ -141,9 +141,9 @@ F0 "SD Card Slot" 50
 F1 "SD_Card_Slot.sch" 50
 $EndSheet
 $Sheet
-S 5320 3070 500  150 
-U 5EC12282
-F0 "Mechanical" 50
-F1 "Mechanical.sch" 50
+S 5320 2370 500  150 
+U 5EB8C603
+F0 "Backup RTC" 50
+F1 "Backup_RTC.sch" 50
 $EndSheet
 $EndSCHEMATC
