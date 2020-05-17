@@ -565,7 +565,7 @@ F 3 "" H 4530 4210 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 2680 5130 0    50   Input ~ 0
-PIC32MZ_REFCLK
+PIC32MZ_REFCLK1
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5EC05874
