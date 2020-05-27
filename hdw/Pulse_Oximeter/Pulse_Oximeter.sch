@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 1 23
+Sheet 1 21
 Title "Pulse Oximeter"
 Date "2019-01-03"
 Rev "A"
@@ -129,21 +129,9 @@ F0 "Misc Circuits" 50
 F1 "Misc_Circuits.sch" 50
 $EndSheet
 $Sheet
-S 5320 3070 500  150 
+S 5320 2370 500  150 
 U 5EC12282
 F0 "Mechanical" 50
 F1 "Mechanical.sch" 50
-$EndSheet
-$Sheet
-S 5320 2720 500  150 
-U 5EB8D6D6
-F0 "SD Card Slot" 50
-F1 "SD_Card_Slot.sch" 50
-$EndSheet
-$Sheet
-S 5320 2370 500  150 
-U 5EB8C603
-F0 "Backup RTC" 50
-F1 "Backup_RTC.sch" 50
 $EndSheet
 $EndSCHEMATC

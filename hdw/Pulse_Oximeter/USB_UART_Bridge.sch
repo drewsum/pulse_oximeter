@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 12 23
+Sheet 12 21
 Title "Pulse Oximeter"
 Date "2019-01-03"
 Rev "A"
@@ -73,12 +73,12 @@ U 1 1 5BAF11F6
 P 4650 4840
 F 0 "C1204" H 4675 4940 50  0000 L CNN
 F 1 "4.7uF" H 4675 4740 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 4688 4690 50  0001 C CNN
+F 2 "Capacitors_SMD:C_0402" H 4688 4690 50  0001 C CNN
 F 3 "" H 4675 4940 50  0001 C CNN
-F 4 "0805" H 4500 4940 50  0000 R CNN "display_footprint"
+F 4 "0402" H 4500 4940 50  0000 R CNN "display_footprint"
 F 5 "10V" H 4500 4840 50  0000 R CNN "Voltage"
-F 6 "X7R" H 4500 4740 50  0000 R CNN "Dielectric"
-F 7 "1276-2972-1-ND" H 5075 5340 60  0001 C CNN "Digi-Key PN"
+F 6 "X5R" H 4500 4740 50  0000 R CNN "Dielectric"
+F 7 "490-14306-1-ND" H 5075 5340 60  0001 C CNN "Digi-Key PN"
 	1    4650 4840
 	1    0    0    -1  
 $EndComp

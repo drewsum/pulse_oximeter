@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 6 23
+Sheet 6 21
 Title "Pulse Oximeter"
 Date "2019-01-03"
 Rev "A"
@@ -206,81 +206,6 @@ Wire Wire Line
 	2630 3980 2710 3980
 Wire Wire Line
 	2710 3880 2630 3880
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EBD9614
-P 3800 3280
-AR Path="/5CB6F1ED/5EBD9614" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5EBD9614" Ref="R?"  Part="1" 
-AR Path="/5E0DC082/5EBD9614" Ref="R?"  Part="1" 
-AR Path="/5E0F263A/5EBD9614" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5EBD9614" Ref="R?"  Part="1" 
-AR Path="/5EAE2E5F/5EBD9614" Ref="R604"  Part="1" 
-F 0 "R604" V 4170 3280 50  0000 C CNN
-F 1 "0.02" V 3800 3280 40  0000 C CNN
-F 2 "Resistors_SMD:R_0612" H 3800 3280 50  0001 C CNN
-F 3 "" H 3800 3280 50  0001 C CNN
-F 4 "P16010CT-ND" H 4100 3680 60  0001 C CNN "Digi-Key PN"
-F 5 "0612" V 3900 3280 50  0000 C CNN "display_footprint"
-F 6 "1%" V 4000 3280 50  0000 C CNN "Tolerance"
-F 7 "1W" V 4100 3280 50  0000 C CNN "Wattage"
-	1    3800 3280
-	0    -1   -1   0   
-$EndComp
-Text GLabel 3570 2800 1    50   UnSpc ~ 0
-POS1P8_SNS_IN+
-Text GLabel 4030 2800 1    50   UnSpc ~ 0
-POS1P8_SNS_IN-
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EBD961F
-P 3570 2950
-AR Path="/5CB0BC26/5EBD961F" Ref="R?"  Part="1" 
-AR Path="/5E1352F5/5EBD961F" Ref="R?"  Part="1" 
-AR Path="/5CB6F1ED/5EBD961F" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5EBD961F" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5EBD961F" Ref="R?"  Part="1" 
-AR Path="/5EAE2E5F/5EBD961F" Ref="R603"  Part="1" 
-F 0 "R603" V 3470 2950 50  0000 C CNN
-F 1 "10" V 3570 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 3570 2950 50  0001 C CNN
-F 3 "" H 3570 2950 50  0001 C CNN
-F 4 "0402" V 3670 2950 50  0001 C CNN "display_footprint"
-F 5 "1%" V 3770 2950 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 3870 2950 50  0001 C CNN "Wattage"
-F 7 "541-3964-1-ND" H 3570 2950 50  0001 C CNN "Digi-Key PN"
-	1    3570 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EBD9628
-P 4030 2950
-AR Path="/5CB0BC26/5EBD9628" Ref="R?"  Part="1" 
-AR Path="/5E1352F5/5EBD9628" Ref="R?"  Part="1" 
-AR Path="/5CB6F1ED/5EBD9628" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5EBD9628" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5EBD9628" Ref="R?"  Part="1" 
-AR Path="/5EAE2E5F/5EBD9628" Ref="R605"  Part="1" 
-F 0 "R605" V 3930 2950 50  0000 C CNN
-F 1 "10" V 4030 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 4030 2950 50  0001 C CNN
-F 3 "" H 4030 2950 50  0001 C CNN
-F 4 "0402" V 4130 2950 50  0001 C CNN "display_footprint"
-F 5 "1%" V 4230 2950 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 4330 2950 50  0001 C CNN "Wattage"
-F 7 "541-3964-1-ND" H 4030 2950 50  0001 C CNN "Digi-Key PN"
-	1    4030 2950
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	3950 3280 4030 3280
-Wire Wire Line
-	3570 3100 3570 3280
-Wire Wire Line
-	3570 3280 3650 3280
-Wire Wire Line
-	4030 3100 4030 3280
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5EBE1520
@@ -545,23 +470,19 @@ F 3 "" H 9170 3210 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	4030 3280 4030 3360
-Connection ~ 4030 3280
 $Comp
 L power:+3.3V #PWR0603
 U 1 1 5EC08E0D
-P 3240 3200
-F 0 "#PWR0603" H 3240 3050 50  0001 C CNN
-F 1 "+3.3V" H 3240 3340 50  0000 C CNN
-F 2 "" H 3240 3200 50  0001 C CNN
-F 3 "" H 3240 3200 50  0001 C CNN
-	1    3240 3200
+P 4030 3200
+F 0 "#PWR0603" H 4030 3050 50  0001 C CNN
+F 1 "+3.3V" H 4030 3340 50  0000 C CNN
+F 2 "" H 4030 3200 50  0001 C CNN
+F 3 "" H 4030 3200 50  0001 C CNN
+	1    4030 3200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3240 3200 3240 3280
-Wire Wire Line
-	3240 3280 3570 3280
-Connection ~ 3570 3280
+	4030 3200 4030 3280
 Connection ~ 2710 3880
 Connection ~ 2710 3980
 $Comp
@@ -644,26 +565,11 @@ F 3 "" H 2710 3360 50  0001 C CNN
 	1    2710 3360
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:PWR_FLAG #FLG0101
-U 1 1 5EC1F69C
-P 4410 3200
-F 0 "#FLG0101" H 4410 3275 50  0001 C CNN
-F 1 "PWR_FLAG" H 4410 3350 50  0000 C CNN
-F 2 "" H 4410 3200 50  0001 C CNN
-F 3 "~" H 4410 3200 50  0001 C CNN
-	1    4410 3200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2710 3880 4640 3880
 Wire Wire Line
 	2710 3980 4640 3980
 Wire Wire Line
-	4030 3280 4410 3280
-Wire Wire Line
-	4410 3200 4410 3280
-Connection ~ 4410 3280
-Wire Wire Line
-	4410 3280 4640 3280
+	4030 3280 4640 3280
+Connection ~ 4030 3280
 $EndSCHEMATC

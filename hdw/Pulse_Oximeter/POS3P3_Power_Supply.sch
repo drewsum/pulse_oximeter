@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
 encoding utf-8
-Sheet 4 23
+Sheet 4 21
 Title "Pulse Oximeter"
 Date "2019-01-03"
 Rev "A"
@@ -694,94 +694,7 @@ Wire Wire Line
 	8220 4240 8220 4570
 Wire Wire Line
 	2770 2570 2770 2640
-$Comp
-L power:PWR_FLAG #FLG0401
-U 1 1 5E4082E4
-P 2770 2570
-F 0 "#FLG0401" H 2770 2645 50  0001 C CNN
-F 1 "PWR_FLAG" H 2770 2720 50  0000 C CNN
-F 2 "" H 2770 2570 50  0001 C CNN
-F 3 "~" H 2770 2570 50  0001 C CNN
-	1    2770 2570
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5E2B33E5
-P 2300 2950
-AR Path="/5CB0BC26/5E2B33E5" Ref="R?"  Part="1" 
-AR Path="/5E1352F5/5E2B33E5" Ref="R?"  Part="1" 
-AR Path="/5CB6F1ED/5E2B33E5" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5E2B33E5" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5E2B33E5" Ref="R404"  Part="1" 
-F 0 "R404" V 2200 2950 50  0000 C CNN
-F 1 "10" V 2300 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 2300 2950 50  0001 C CNN
-F 3 "" H 2300 2950 50  0001 C CNN
-F 4 "0402" V 2400 2950 50  0001 C CNN "display_footprint"
-F 5 "1%" V 2500 2950 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 2600 2950 50  0001 C CNN "Wattage"
-F 7 "541-3964-1-ND" H 2300 2950 50  0001 C CNN "Digi-Key PN"
-	1    2300 2950
-	-1   0    0    1   
-$EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5E2B33DB
-P 1840 2950
-AR Path="/5CB0BC26/5E2B33DB" Ref="R?"  Part="1" 
-AR Path="/5E1352F5/5E2B33DB" Ref="R?"  Part="1" 
-AR Path="/5CB6F1ED/5E2B33DB" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5E2B33DB" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5E2B33DB" Ref="R401"  Part="1" 
-F 0 "R401" V 1740 2950 50  0000 C CNN
-F 1 "10" V 1840 2950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 1840 2950 50  0001 C CNN
-F 3 "" H 1840 2950 50  0001 C CNN
-F 4 "0402" V 1940 2950 50  0001 C CNN "display_footprint"
-F 5 "1%" V 2040 2950 50  0001 C CNN "Tolerance"
-F 6 "1/16W" V 2140 2950 50  0001 C CNN "Wattage"
-F 7 "541-3964-1-ND" H 1840 2950 50  0001 C CNN "Digi-Key PN"
-	1    1840 2950
-	-1   0    0    1   
-$EndComp
 Connection ~ 2770 2640
-Connection ~ 1840 2640
-Wire Wire Line
-	1840 2640 1920 2640
-Wire Wire Line
-	1840 2800 1840 2640
-Wire Wire Line
-	2300 2640 2770 2640
-Connection ~ 2300 2640
-Wire Wire Line
-	2300 2800 2300 2640
-Wire Wire Line
-	2220 2640 2300 2640
-Text GLabel 2300 3100 3    50   UnSpc ~ 0
-POS3P3_SNS_IN-
-Text GLabel 1840 3100 3    50   UnSpc ~ 0
-POS3P3_SNS_IN+
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5E2AA992
-P 2070 2640
-AR Path="/5CB6F1ED/5E2AA992" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5E2AA992" Ref="R?"  Part="1" 
-AR Path="/5E0DC082/5E2AA992" Ref="R?"  Part="1" 
-AR Path="/5E0F263A/5E2AA992" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5E2AA992" Ref="R402"  Part="1" 
-F 0 "R402" V 1970 2640 50  0000 C CNN
-F 1 "0.02" V 2070 2640 40  0000 C CNN
-F 2 "Resistors_SMD:R_0612" H 2070 2640 50  0001 C CNN
-F 3 "" H 2070 2640 50  0001 C CNN
-F 4 "P16010CT-ND" H 2370 3040 60  0001 C CNN "Digi-Key PN"
-F 5 "0612" V 2170 2640 50  0000 C CNN "display_footprint"
-F 6 "1%" V 2270 2640 50  0000 C CNN "Tolerance"
-F 7 "1W" V 2370 2640 50  0000 C CNN "Wattage"
-	1    2070 2640
-	0    -1   -1   0   
-$EndComp
 $Comp
 L power:+3.3V #PWR?
 U 1 1 5DEA7247
@@ -827,21 +740,19 @@ F 7 "RMCF0402FT10K0CT-ND" H 3070 4210 60  0001 C CNN "Digi-Key PN"
 	1    2770 3810
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1840 2560 1840 2640
 $Comp
 L power:+12V #PWR?
 U 1 1 5E2AA972
-P 1840 2560
+P 2770 2570
 AR Path="/5CB7718D/5E2AA972" Ref="#PWR?"  Part="1" 
 AR Path="/5E0DC082/5E2AA972" Ref="#PWR?"  Part="1" 
 AR Path="/5E0F263A/5E2AA972" Ref="#PWR?"  Part="1" 
 AR Path="/5EAE2D8A/5E2AA972" Ref="#PWR0401"  Part="1" 
-F 0 "#PWR0401" H 1840 2410 50  0001 C CNN
-F 1 "+12V" H 1840 2700 50  0000 C CNN
-F 2 "" H 1840 2560 50  0001 C CNN
-F 3 "" H 1840 2560 50  0001 C CNN
-	1    1840 2560
+F 0 "#PWR0401" H 2770 2420 50  0001 C CNN
+F 1 "+12V" H 2770 2710 50  0000 C CNN
+F 2 "" H 2770 2570 50  0001 C CNN
+F 3 "" H 2770 2570 50  0001 C CNN
+	1    2770 2570
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
