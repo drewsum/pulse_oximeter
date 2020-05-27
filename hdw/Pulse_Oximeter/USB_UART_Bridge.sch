@@ -660,7 +660,7 @@ Connection ~ 5710 2220
 Wire Wire Line
 	5710 2220 6180 2220
 Wire Wire Line
-	4050 2220 4830 2220
+	4050 2220 4440 2220
 Wire Wire Line
 	4830 2220 5250 2220
 Connection ~ 5250 2220
@@ -873,4 +873,27 @@ F 3 "" H 4830 2570 50  0001 C CNN
 	1    4830 2570
 	1    0    0    -1  
 $EndComp
+$Comp
+L Custom_Library:TP TP?
+U 1 1 5ECF7D94
+P 4440 2150
+AR Path="/5C1D5CD8/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5C1D5C9E/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5CB6F1ED/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5E939CFF/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5E9E0E87/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5EAE2D66/5ECF7D94" Ref="TP?"  Part="1" 
+AR Path="/5EAE2F97/5ECF7D94" Ref="TP1201"  Part="1" 
+F 0 "TP1201" H 4440 2300 50  0000 C CNN
+F 1 "TP" H 4440 2300 50  0001 C CNN
+F 2 "Custom Footprints Library:Test_Point" H 4440 2150 60  0001 C CNN
+F 3 "" H 4440 2150 60  0000 C CNN
+	1    4440 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4440 2150 4440 2220
+Connection ~ 4440 2220
+Wire Wire Line
+	4440 2220 4830 2220
 $EndSCHEMATC
