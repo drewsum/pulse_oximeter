@@ -102,8 +102,6 @@ Wire Wire Line
 	3210 5580 3320 5580
 Text GLabel 3320 3580 0    50   Input ~ 0
 PIC32MZ_POSC_EC
-Text GLabel 3320 3780 0    50   Input ~ 0
-PIC32MZ_SOSC
 Text GLabel 3320 2380 0    50   BiDi ~ 0
 PIC32MZ_ICSPDAT
 Text GLabel 3320 2280 0    50   Input ~ 0
@@ -326,4 +324,5 @@ NoConn ~ 3320 2080
 NoConn ~ 3320 2180
 NoConn ~ 3320 2780
 NoConn ~ 3320 2880
+NoConn ~ 3320 3780
 $EndSCHEMATC
