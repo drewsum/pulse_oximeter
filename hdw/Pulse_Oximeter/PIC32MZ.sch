@@ -284,16 +284,6 @@ Wire Wire Line
 	9330 2880 9630 2880
 Text GLabel 3320 5080 0    50   UnSpc ~ 0
 Telemetry_Config
-Text GLabel 3320 2980 0    40   Input ~ 0
-~SD_CARD_DETECT
-Text GLabel 3320 2480 0    50   Output ~ 0
-SD_SPI_CS
-Text GLabel 3320 2580 0    50   Output ~ 0
-SD_SPI_MOSI
-Text GLabel 3320 3080 0    50   Output ~ 0
-SD_SPI_SCLK
-Text GLabel 3320 2680 0    50   Input ~ 0
-SD_SPI_MISO
 Text GLabel 3320 4280 0    50   Input ~ 0
 POS1P8_PGOOD
 Text GLabel 3320 4380 0    50   Output ~ 0
@@ -314,12 +304,8 @@ Text GLabel 7520 2580 2    50   Output ~ 0
 Heartbeat_LED
 Text GLabel 3320 4880 0    50   Output ~ 0
 Error_LED
-Text GLabel 7520 3280 2    50   Input ~ 0
-VBAT_ADC
 Text GLabel 7520 3380 2    50   Input ~ 0
 POS3P3_POX_ADC
-Text GLabel 7520 3580 2    50   UnSpc ~ 0
-SD_Logging_Config
 NoConn ~ 3320 2080
 NoConn ~ 3320 2180
 NoConn ~ 3320 2780
