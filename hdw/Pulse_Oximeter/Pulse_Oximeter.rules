@@ -1,0 +1,147 @@
+
+(rules PCB Pulse_Oximeter
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 32)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 3.8)
+    )
+    (layer_rule GND
+      (active off)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+    (layer_rule PWR
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+  )
+  (rule
+    (width 254.0)
+    (clear 127.2)
+    (clear 127.0 (type smd_to_turn_gap))
+    (clear 31.8 (type smd_smd))
+  )
+  (padstack "Via[0-3]_431.8:200_um"
+    (shape
+      (circle F.Cu 431.8 0.0 0.0)
+    )
+    (shape
+      (circle GND 431.8 0.0 0.0)
+    )
+    (shape
+      (circle PWR 431.8 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 431.8 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_431.8:200_um" "Via[0-3]_431.8:200_um" default
+  )
+  (via 
+    "Via[0-3]_431.8:200_um-kicad_default" "Via[0-3]_431.8:200_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_431.8:200_um-Power" "Via[0-3]_431.8:200_um" Power
+  )
+  (via 
+    "Via[0-3]_431.8:200_um-Signal" "Via[0-3]_431.8:200_um" Signal
+  )
+  (via_rule
+    default "Via[0-3]_431.8:200_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_431.8:200_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-3]_431.8:200_um-Power"
+  )
+  (via_rule
+    Signal "Via[0-3]_431.8:200_um-Signal"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu GND PWR B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(U1101-Pad48)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu GND PWR B.Cu)
+    )
+  )
+  (class Power
+    GND +3V3 +12Vin +12V +1.8V "GNDA_MZ" "+3.3VA_MZ" "+5V_USB"
+    "+3.3V_POX"
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 635.0)
+    )
+    (circuit 
+      (use_layer F.Cu GND PWR B.Cu)
+    )
+  )
+  (class Signal
+    "Net-(Q201-Pad5)" "Net-(L401-Pad1)" "Net-(C405-Pad1)" "Net-(C603-Pad1)" "Net-(C204-Pad1)" "POS12_SNS-" "POS12_SNS+" "Net-(C402-Pad1)"
+    "Net-(C403-Pad1)" "POS3P3_SNS_OUT+" "POS3P3_SNS_OUT-" "Net-(C602-Pad1)" "POS1P8_SNS_OUT-" "POS1P8_SNS_OUT+" "Net-(C802-Pad1)" "Net-(C1001-Pad1)"
+    "Net-(C1206-Pad1)" "/USB UART Bridge/CONN_USB+" "/USB UART Bridge/CONN_USB-" "Net-(C1209-Pad1)" "POS5_USB_SNS+" "POS5_USB_SNS-" "Net-(C1401-Pad1)" "POS3P3_POX_ADC"
+    "Net-(C1704-Pad1)" "Net-(C1704-Pad2)" "Net-(C1706-Pad1)" "Net-(C1708-Pad1)" "Net-(C1802-Pad1)" "VBAT_ADC" "Net-(D1201-Pad2)" "~USB_ACTIVE"
+    "Net-(D1801-Pad2)" "Net-(D1801-Pad1)" "Net-(D1802-Pad2)" "Net-(D1802-Pad1)" "Net-(D1804-Pad1)" "Net-(D1804-Pad2)" "Net-(D1805-Pad1)" "Net-(D1805-Pad2)"
+    "Net-(D1901-Pad1)" "Net-(D1901-Pad2)" "Net-(D1902-Pad2)" "Net-(D1902-Pad1)" "Net-(D1903-Pad1)" "Net-(D1903-Pad2)" "Net-(D1904-Pad1)" "Net-(D1904-Pad2)"
+    "Net-(J801-Pad6)" "PIC32MZ_ICSPCLK" "PIC32MZ_ICSPDAT" "~PIC32MZ_MCLR" "Net-(J1201-Pad1)" "Net-(J1201-Pad4)" "Net-(J1201-Pad6)" "I2C_SCL"
+    "I2C_SDA" "USB_UART_RX" "USB_UART_TX" "Net-(Q201-Pad1)" "Net-(Q201-Pad2)" "Net-(Q201-Pad4)" "POS3P3_RUN" "Net-(Q401-Pad3)"
+    "Net-(Q801-Pad3)" "Net-(Q801-Pad1)" "POS3P3_PGOOD" "Net-(R201-Pad2)" "Net-(R202-Pad2)" "Net-(R204-Pad2)" "Net-(R205-Pad1)" "POS12_PGOOD"
+    "Net-(R410-Pad2)" "POS1P8_PGOOD" "POS1P8_RUN" "Net-(R609-Pad2)" "Net-(R801-Pad1)" "PIC32MZ_POSC_EC_Enable" "PIC32MZ_POSC_EC" "Net-(R1002-Pad1)"
+    "Net-(R1201-Pad2)" "Net-(R1202-Pad2)" "POS5_USB_PGOOD" "Net-(R1206-Pad2)" "/USB UART Bridge/BRIDGE_USB+" "/USB UART Bridge/BRIDGE_USB-" "POS3P3_POX_Enable" "POX_I2C_Enable"
+    "Net-(R1505-Pad2)" "Net-(R1506-Pad2)" "~POX_INT" "LCD_BACKLIGHT_PWM" "LCD_PMP_RS" "LCD_PMP_R_W" "LCD_BACKLIGHT" "Net-(R1604-Pad1)"
+    "LCD_PMP_E" "Net-(R1702-Pad1)" "Net-(R1704-Pad1)" "Heartbeat_LED" "Error_LED" "Reset_LED" "CPU_Trap_LED" "Telemetry_Config"
+    "SD_Logging_Config" "SD_SPI_CS" "SD_SPI_MOSI" "SD_SPI_SCLK" "SD_SPI_MISO" "~SD_CARD_DETECT" "LCD_PMP_DB0" "LCD_PMP_DB7"
+    "LCD_PMP_DB1" "LCD_PMP_DB2" "LCD_PMP_DB3" "LCD_PMP_DB5" "LCD_PMP_DB4" "LCD_PMP_DB6" "LCD_CONTRAST" "Net-(U302-Pad3)"
+    "Net-(U502-Pad3)" "Net-(U702-Pad3)" "PIC32MZ_REFCLK1" "Net-(U1101-Pad11)" "Net-(U1101-Pad12)" "Net-(U1101-Pad24)" "Net-(U1101-Pad27)" "Net-(U1101-Pad33)"
+    "Net-(U1101-Pad36)" "Net-(U1101-Pad37)" "Net-(U1101-Pad38)" "Net-(U1202-Pad2)" "Net-(U1202-Pad8)" "Net-(U1202-Pad11)" "Net-(U1302-Pad3)" "Net-(U1401-Pad2)"
+    "Net-(U1401-Pad3)" "Net-(U1401-Pad7)" "Net-(U1503-Pad1)" "Net-(U1503-Pad5)" "Net-(U1503-Pad6)" "Net-(U1503-Pad7)" "Net-(U1503-Pad8)" "Net-(U1503-Pad14)"
+    "Net-(U1702-Pad1)" "Net-(U1702-Pad3)" "Cap_Touch_Power" "Net-(U1801-Pad3)" "Net-(U1801-Pad1)" "Net-(U2001-Pad3)"
+    (clearance_class Signal)
+    (via_rule Signal)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu GND PWR B.Cu)
+    )
+  )
+)
