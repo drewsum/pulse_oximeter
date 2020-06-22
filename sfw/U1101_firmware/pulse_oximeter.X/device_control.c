@@ -206,17 +206,20 @@ void PLLInitialize(void) {
 // this function sets up reference clock 1
 void REFCLK1Initialize(void) {
  
-    // Set REFCLK1 divider to 1
-    REFO1CONbits.RODIV = 0b000000000000000;
+    // Set REFCLK1 divider to 200
+    REFO1CONbits.RODIV = 100;
     
-    // Disable REFCLK1
-    REFO1CONbits.ON = 0;
+    // source for REFCLK1 is SPLL
+    REFO1CONbits.ROSEL = 0b0111;
+    
+    // enable REFCLK1
+    REFO1CONbits.ON = 1;
     
     // Disable REFCLK1 in Idle mode
     REFO1CONbits.SIDL = 1;
     
-    // Disable output of REFCLK1 onto output pin
-    REFO1CONbits.OE = 0;
+    // enable output of REFCLK1 onto output pin
+    REFO1CONbits.OE = 1;
     
     // Disable REFCLK1 in sleep
     REFO1CONbits.RSLP = 0;

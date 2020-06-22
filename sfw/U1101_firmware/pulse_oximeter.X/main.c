@@ -15,12 +15,14 @@
 #include "configuration.h"
 #include "device_control.h"
 #include "32mz_interrupt_control.h"
+#include "heartbeat_timer.h"
 
 // GPIO
 #include "pin_macros.h"
 #include "gpio_setup.h"
 
 // Application
+#include "heartbeat_services.h"
 
 // I2C
 
@@ -124,9 +126,9 @@ void main(void) {
 //    if (reset_cause == POR_Reset) rtccClear();
 //    printf("    Real Time Clock-Calendar Initialized\r\n");
 //    
-//    // Setup heartbeat timer
-//    heartbeatTimerInitialize();
-//    printf("    Heartbeat Timer Initialized\n\r");
+    // Setup heartbeat timer
+    heartbeatTimerInitialize();
+    printf("    Heartbeat Timer Initialized\n\r");
 //    
 //    // setup watchdog timer
 //    watchdogTimerInitialize();
@@ -152,6 +154,7 @@ void main(void) {
     
     // endless loop
     while(1) {
+        Nop();
         
     }
     

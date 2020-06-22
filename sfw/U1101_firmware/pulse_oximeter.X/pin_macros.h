@@ -34,7 +34,7 @@
 
 // Port F
 #define RESET_LED_PIN               LATFbits.LATF0
-#define HEARTBET_LED_PIN            LATFbits.LATF1
+#define HEARTBEAT_LED_PIN           LATFbits.LATF1
 
 // Port G
 

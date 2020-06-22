@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/gpio_setup.c</file>
             <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/main.c</file>
+            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/device_control.c</file>
+            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/pin_macros.h</file>
+            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/gpio_setup.h</file>
         </group>
     </open-files>
 </project-private>
