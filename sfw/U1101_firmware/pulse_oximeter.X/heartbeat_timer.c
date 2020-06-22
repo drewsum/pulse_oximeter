@@ -33,9 +33,6 @@ void heartbeatTimerInitialize(void) {
     setInterruptPriority(Timer1, 6);
     setInterruptSubpriority(Timer1, 3);
     
-    // Clear on time counter
-    device_on_time_counter = 0;
-    
     // Enable timer 1 interrupt
     enableInterrupt(Timer1);
     

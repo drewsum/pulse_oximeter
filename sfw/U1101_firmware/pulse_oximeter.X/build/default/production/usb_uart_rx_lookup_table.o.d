@@ -6,4 +6,5 @@ usb_uart.h  \
 terminal_control.h  \
 device_control.h  \
 32mz_interrupt_control.h  \
- heartbeat_services.h 
+ error_handler.h  \
+heartbeat_services.h 

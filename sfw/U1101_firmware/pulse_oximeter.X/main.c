@@ -16,6 +16,8 @@
 #include "device_control.h"
 #include "32mz_interrupt_control.h"
 #include "heartbeat_timer.h"
+#include "watchdog_timer.h"
+#include "error_handler.h"
 
 // GPIO
 #include "pin_macros.h"
@@ -102,10 +104,10 @@ void main(void) {
     enableGlobalInterrupts();
     printf("    Interrupt Controller Initialized, Global Interrupts Enabled\n\r");
     
-//    // Setup error handling
-//    errorHandlerInitialize();
-//    printf("    Error Handler Initialized\n\r");
-//    
+    // Setup error handling
+    errorHandlerInitialize();
+    printf("    Error Handler Initialized\n\r");
+    
     // Setup USB UART debugging
     usbUartInitialize();
     printf("    USB UART Initialized, DMA buffer method used\n\r");
@@ -132,11 +134,11 @@ void main(void) {
     // Setup heartbeat timer
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");
-//    
-//    // setup watchdog timer
-//    watchdogTimerInitialize();
-//    printf("    Watchdog Timer Initialized\n\r");
-//    
+    
+    // setup watchdog timer
+    watchdogTimerInitialize();
+    printf("    Watchdog Timer Initialized\n\r");
+    
        
     // Disable reset LED
     RESET_LED_PIN = LOW;
@@ -158,6 +160,12 @@ void main(void) {
     // endless loop
     while(1) {
         
+        // clear the watchdog if we need to
+        if (wdt_clear_request) {
+            kickTheDog();
+            wdt_clear_request = 0;
+        }
+        
         // parse received USB strings if we have a new one received
         if (usb_uart_rx_ready) {
             usbUartRxLUTInterface(usb_uart_rx_buffer);
@@ -170,6 +178,12 @@ void main(void) {
                 usb_uart_rx_buffer[index] = '\0';
             }
         }
+        
+        // check to see if a clock fail has occurred and latch it
+        clockFailCheck();
+        
+        // update error LEDs if needed
+        if (update_error_leds_flag) updateErrorLEDs();
         
     }
     

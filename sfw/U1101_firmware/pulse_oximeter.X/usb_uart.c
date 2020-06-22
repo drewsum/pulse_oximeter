@@ -14,13 +14,9 @@
 #include "32mz_interrupt_control.h"
 #include "pin_macros.h"
 #include "device_control.h"
-// #include "power_saving.h"
-// #include "watchdog_timer.h"
 #include "usb_uart.h"
 #include "terminal_control.h"
-// #include "error_handler.h"
-// #include "cause_of_reset.h"
-// #include "prefetch.h"
+#include "error_handler.h"
 
 // Printable Variables from other header files
 extern uint32_t device_on_time_counter;
@@ -257,12 +253,11 @@ void usbUartInitialize(void) {
 // This is the UAB UART fault interrupt service routine
 void __ISR(USB_UART_FAULT_INT_VECTOR, ipl1SRS) usbUartFaultISR(void) {
     
-#warning "fix me"
-//    error_handler.flags.USB_general_error = 1;
-//    if (USB_UART_STA_BITFIELD.FERR) error_handler.flags.USB_framing_error = 1;
-//    if (USB_UART_STA_BITFIELD.OERR) error_handler.flags.USB_overrun_error = 1;
-//    if (USB_UART_STA_BITFIELD.PERR) error_handler.flags.USB_parity_error = 1;
-//    
+    error_handler.flags.USB_general_error = 1;
+    if (USB_UART_STA_BITFIELD.FERR) error_handler.flags.USB_framing_error = 1;
+    if (USB_UART_STA_BITFIELD.OERR) error_handler.flags.USB_overrun_error = 1;
+    if (USB_UART_STA_BITFIELD.PERR) error_handler.flags.USB_parity_error = 1;
+    
     USB_UART_STA_BITFIELD.PERR = 0;
     USB_UART_STA_BITFIELD.FERR = 0;
     USB_UART_STA_BITFIELD.OERR = 0;
@@ -292,12 +287,11 @@ void __ISR(USB_UART_TX_DMA_INT_VECTOR, IPL1SRS) usbUartTxDmaISR(void) {
     }
     
     // channel error
-#warning "fix me"
-//    else if (USB_UART_TX_DMA_INT_BITFIELD.CHERIF) {
-//        
-//        error_handler.flags.USB_tx_dma_error = 1;
-//        
-//    }
+    else if (USB_UART_TX_DMA_INT_BITFIELD.CHERIF) {
+        
+        error_handler.flags.USB_tx_dma_error = 1;
+        
+    }
     
     // Clear DMA controller interrupt flags
     USB_UART_TX_DMA_INTCLR_REG=0x000000ff;
@@ -322,12 +316,11 @@ void __ISR(USB_UART_RX_DMA_INT_VECTOR, IPL2SRS) usbUartRxDmaISR(void) {
     }
     
     // channel error
-#warning "fix me"
-//    else if (USB_UART_RX_DMA_INT_BITFIELD.CHERIF) {
-//        
-//        error_handler.flags.USB_rx_dma_error = 1;
-//        
-//    }
+    else if (USB_UART_RX_DMA_INT_BITFIELD.CHERIF) {
+        
+        error_handler.flags.USB_rx_dma_error = 1;
+        
+    }
     
     // Clear DMA controller interrupt flags
     USB_UART_RX_DMA_INTCLR_REG=0x000000ff;

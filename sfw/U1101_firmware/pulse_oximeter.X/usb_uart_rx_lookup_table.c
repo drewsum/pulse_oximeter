@@ -11,7 +11,7 @@
 #include "terminal_control.h"
 #include "device_control.h"
 // #include "cause_of_reset.h"
-// #include "error_handler.h"
+#include "error_handler.h"
 #include "heartbeat_services.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
@@ -96,11 +96,12 @@ usb_uart_command_function_t hostStatusCommand(char * input_str) {
 
     terminalTextAttributesReset();
     
+    printWatchdogStatus();
+    printDeadmanStatus();
     #warning "fix me"
-//    printWatchdogStatus();
-//    printDeadmanStatus();
-//    printPrefetchStatus();
-//    
+    // printPrefetchStatus();
+    
+    
 //    // Print cause of reset
 //    if (    reset_cause == Undefined ||
 //            reset_cause == Primary_Config_Registers_Error ||
@@ -150,12 +151,12 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
 //    else if (strcmp(rx_peripheral_name, "PMD") == 0) {
 //        printPMDStatus();
 //    }
-//    else if (strcmp(rx_peripheral_name, "WDT") == 0) {
-//        printWatchdogStatus();
-//    }
-//    else if (strcmp(rx_peripheral_name, "DMT") == 0) {
-//        printDeadmanStatus();
-//    }
+    else if (strcmp(rx_peripheral_name, "WDT") == 0) {
+        printWatchdogStatus();
+    }
+    else if (strcmp(rx_peripheral_name, "DMT") == 0) {
+        printDeadmanStatus();
+    }
 //    else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
 //        printPrefetchStatus();
 //    }
@@ -188,34 +189,32 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
 
 }
 
-#warning "fix me"
+usb_uart_command_function_t errorStatusCommand(char * input_str) {
+ 
+    // Print error handler status
+    printErrorHandlerStatus();
 
-//usb_uart_command_function_t errorStatusCommand(char * input_str) {
-// 
-//    // Print error handler status
-//    printErrorHandlerStatus();
-//
-//    // Print help message
-//    terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
-//    printf("\n\rCall 'Clear Errors' command to clear any errors that have been set\n\r");
-//    terminalTextAttributesReset();
-//    
-//}
-//
-//usb_uart_command_function_t clearErrorsCommand(char * input_str) {
-// 
-//    // Zero out all error handler flags
-//    clearErrorHandler();
-//
-//    // Update error LEDs based on error handler status
-//    update_error_leds_flag = 1;
-//
-//    terminalTextAttributesReset();
-//    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-//    printf("Error Handler flags cleared\n\r");
-//    terminalTextAttributesReset();
-//    
-//}
+    // Print help message
+    terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("\n\rCall 'Clear Errors' command to clear any errors that have been set\n\r");
+    terminalTextAttributesReset();
+    
+}
+
+usb_uart_command_function_t clearErrorsCommand(char * input_str) {
+ 
+    // Zero out all error handler flags
+    clearErrorHandler();
+
+    // Update error LEDs based on error handler status
+    update_error_leds_flag = 1;
+
+    terminalTextAttributesReset();
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("Error Handler flags cleared\n\r");
+    terminalTextAttributesReset();
+    
+}
 
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
@@ -249,13 +248,11 @@ void usbUartHashTableInitialize(void) {
             "       Prefetch\r\n"
             "       Timer <x> (x = 1-9)",
             peripheralStatusCommand);
-#warning "fix me"
-//    
-//    usbUartAddCommand("Error Status?",
-//            "Prints the status of various error handler flags",
-//            errorStatusCommand);
-//    usbUartAddCommand("Clear Errors",
-//            "Clears all error handler flags",
-//            clearErrorsCommand);
-//    
+    usbUartAddCommand("Error Status?",
+            "Prints the status of various error handler flags",
+            errorStatusCommand);
+    usbUartAddCommand("Clear Errors",
+            "Clears all error handler flags",
+            clearErrorsCommand);
+    
 }

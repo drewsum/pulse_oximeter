@@ -6,4 +6,5 @@ device_control.h  \
 usb_uart.h  \
 usb_uart_rx_lookup_table.h  \
  uthash.h  \
-terminal_control.h 
+terminal_control.h  \
+error_handler.h 
