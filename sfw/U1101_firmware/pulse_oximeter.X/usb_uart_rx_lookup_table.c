@@ -62,14 +62,14 @@ usb_uart_command_function_t clearCommand(char * input_str) {
 usb_uart_command_function_t idnCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("PIC32MZ Ethernet Demo Board by Drew Maatman, 2020\r\n");
+    printf("Pulse Oximeter by Drew Maatman, 2020\r\n");
     terminalTextAttributesReset();    
 }
 
 usb_uart_command_function_t repositoryCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("Project Git repository is hosted at: https://github.com/drewsum/PIC32MZ_ETH_Demo\r\n");
+    printf("Project Git repository is hosted at: https://github.com/drewsum/pulse_oximeter\r\n");
     terminalTextAttributesReset();    
 }
 

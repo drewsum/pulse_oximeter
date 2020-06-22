@@ -859,7 +859,7 @@ void printClockStatus(uint32_t input_sysclk) {
      
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("\n\r    REFCLK1 (Reference Clock 1) is set to: %s\n\r",
-                stringFromClockSetting(input_sysclk / (REFO1CONbits.RODIV + 1)));
+                stringFromClockSetting(input_sysclk / (2 * REFO1CONbits.RODIV)));
         
     }
     
@@ -875,7 +875,7 @@ void printClockStatus(uint32_t input_sysclk) {
      
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    REFCLK2 (Reference Clock 2) is set to: %s\n\r",
-                stringFromClockSetting(input_sysclk / (REFO2CONbits.RODIV + 1)));
+                stringFromClockSetting(input_sysclk / (2 * REFO2CONbits.RODIV)));
         
     }
     
@@ -891,7 +891,7 @@ void printClockStatus(uint32_t input_sysclk) {
      
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    REFCLK3 (Reference Clock 3) is set to: %s\n\r",
-                stringFromClockSetting(input_sysclk / (REFO3CONbits.RODIV + 1)));
+                stringFromClockSetting(input_sysclk / (2 * REFO3CONbits.RODIV)));
         
     }
     
@@ -907,7 +907,7 @@ void printClockStatus(uint32_t input_sysclk) {
      
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    REFCLK4 (Reference Clock 4) is set to: %s\n\r",
-                stringFromClockSetting(input_sysclk / (REFO4CONbits.RODIV + 1)));
+                stringFromClockSetting(input_sysclk / (2 * REFO4CONbits.RODIV)));
         
     }
     

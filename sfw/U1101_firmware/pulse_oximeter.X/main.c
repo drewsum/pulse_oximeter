@@ -157,7 +157,19 @@ void main(void) {
     
     // endless loop
     while(1) {
-        Nop();
+        
+        // parse received USB strings if we have a new one received
+        if (usb_uart_rx_ready) {
+            usbUartRxLUTInterface(usb_uart_rx_buffer);
+            // Determine length of received string
+            uint32_t length = strlen(usb_uart_rx_buffer);
+        
+            // clear rx buffer
+            uint32_t index;
+            for (index = 0; index < length; index++) {
+                usb_uart_rx_buffer[index] = '\0';
+            }
+        }
         
     }
     
