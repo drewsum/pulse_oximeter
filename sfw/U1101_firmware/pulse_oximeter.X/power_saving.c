@@ -81,14 +81,14 @@ void PMDInitialize(void) {
     PMD5bits.SPI6MD = 1;
     #endif
     
-    // Disable all I2C Modules
+    // Disable all I2C Modules besides I2C5
     PMD5bits.I2C1MD = 1;
     #ifdef I2C2CON
     PMD5bits.I2C2MD = 1;
     #endif
     PMD5bits.I2C3MD = 1;
     PMD5bits.I2C4MD = 1;
-    PMD5bits.I2C5MD = 1;
+    PMD5bits.I2C5MD = 0;
     
     // Disable USB Module (UART 1 is used for USB debug)
     PMD5bits.USBMD = 1;

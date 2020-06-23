@@ -30,6 +30,8 @@
 #include "power_saving.h"
 
 // I2C
+#include "plib_i2c3.h"
+#include "plib_i2c_master.h"
 
 // USB
 #include "terminal_control.h"
@@ -134,6 +136,9 @@ void main(void) {
     // setup watchdog timer
     watchdogTimerInitialize();
     printf("    Watchdog Timer Initialized\n\r");
+    
+    I2CMaster_Initialize();
+    printf("    I2C Bus Master Initialized\r\n");
        
     // Disable reset LED
     RESET_LED_PIN = LOW;

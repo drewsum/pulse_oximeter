@@ -12,7 +12,9 @@ cause_of_reset.h  \
 gpio_setup.h  \
  heartbeat_services.h  \
 power_saving.h  \
-terminal_control.h  \
+plib_i2c3.h  \
+plib_i2c_master.h  \
+ terminal_control.h  \
 uthash.h  \
- usb_uart.h  \
+usb_uart.h  \
 usb_uart_rx_lookup_table.h 
