@@ -19,6 +19,7 @@
 #include "watchdog_timer.h"
 #include "error_handler.h"
 #include "prefetch.h"
+#include "cause_of_reset.h"
 
 // GPIO
 #include "pin_macros.h"
@@ -40,7 +41,7 @@ void main(void) {
 
     // Save the cause of the most recent device reset
     // This also checks for configuration errors
-    // reset_cause = getResetCause();
+    reset_cause = getResetCause();
     
     // Clear the terminal
     terminalClearScreen();
@@ -53,37 +54,35 @@ void main(void) {
     printf("Created by Drew Maatman, 2020\r\n");
     terminalTextAttributesReset();
     
-//     // Print cause of reset
-//    if (    reset_cause == Undefined ||
-//            reset_cause == Primary_Config_Registers_Error ||
-//            reset_cause == Primary_Secondary_Config_Registers_Error ||
-//            reset_cause == Config_Mismatch ||
-//            reset_cause == DMT_Reset ||
-//            reset_cause == WDT_Reset ||
-//            reset_cause == Software_Reset ||
-//            reset_cause == External_Reset ||
-//            reset_cause == BOR_Reset) {
-//    
-//        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
-//        
-//    }
-//    
-//    else {
-//     
-//        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-//        
-//    }
-//    
-//    // only clear persistent error flags if we've seen a POR... keep old values after other resets
-//    if (reset_cause == POR_Reset) {
-//        live_telemetry_enable = 0;
-//        live_telemetry_request = 0;
-//        clearErrorHandler();
-//    }
-//    
-//    printf("\r\nCause of most recent device reset: %s\r\n\r\n", getResetCauseString(reset_cause));
-//    terminalTextAttributesReset();
-//    
+     // Print cause of reset
+    if (    reset_cause == Undefined ||
+            reset_cause == Primary_Config_Registers_Error ||
+            reset_cause == Primary_Secondary_Config_Registers_Error ||
+            reset_cause == Config_Mismatch ||
+            reset_cause == DMT_Reset ||
+            reset_cause == WDT_Reset ||
+            reset_cause == Software_Reset ||
+            reset_cause == External_Reset ||
+            reset_cause == BOR_Reset) {
+    
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        
+    }
+    
+    else {
+     
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        
+    }
+    
+    // only clear persistent error flags if we've seen a POR... keep old values after other resets
+    if (reset_cause == POR_Reset) {
+        clearErrorHandler();
+    }
+    
+    printf("\r\nCause of most recent device reset: %s\r\n\r\n", getResetCauseString(reset_cause));
+    terminalTextAttributesReset();
+    
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Beginning Host Initialization:\r\n");
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -135,7 +134,6 @@ void main(void) {
     // setup watchdog timer
     watchdogTimerInitialize();
     printf("    Watchdog Timer Initialized\n\r");
-    
        
     // Disable reset LED
     RESET_LED_PIN = LOW;

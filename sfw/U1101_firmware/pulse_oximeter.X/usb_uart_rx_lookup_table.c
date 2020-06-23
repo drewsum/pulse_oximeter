@@ -10,7 +10,7 @@
 
 #include "terminal_control.h"
 #include "device_control.h"
-// #include "cause_of_reset.h"
+#include "cause_of_reset.h"
 #include "error_handler.h"
 #include "heartbeat_services.h"
 
@@ -100,30 +100,28 @@ usb_uart_command_function_t hostStatusCommand(char * input_str) {
     printDeadmanStatus();
     printPrefetchStatus();
     
-    #warning "fix me"
-//    // Print cause of reset
-//    if (    reset_cause == Undefined ||
-//            reset_cause == Primary_Config_Registers_Error ||
-//            reset_cause == Primary_Secondary_Config_Registers_Error ||
-//            reset_cause == Config_Mismatch ||
-//            reset_cause == DMT_Reset ||
-//            reset_cause == WDT_Reset ||
-//            reset_cause == Software_Reset ||
-//            reset_cause == External_Reset ||
-//            reset_cause == BOR_Reset) {
-//    
-//        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
-//        
-//    }
-//    
-//    else {
-//     
-//        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-//        
-//    }
-//    
-//    printf("Cause of most recent device reset: %s\r\n", getResetCauseString(reset_cause));
-//    terminalTextAttributesReset();
+    // Print cause of reset
+    if (    reset_cause == Undefined ||
+            reset_cause == Primary_Config_Registers_Error ||
+            reset_cause == Primary_Secondary_Config_Registers_Error ||
+            reset_cause == Config_Mismatch ||
+            reset_cause == DMT_Reset ||
+            reset_cause == WDT_Reset ||
+            reset_cause == Software_Reset ||
+            reset_cause == External_Reset ||
+            reset_cause == BOR_Reset) {
+    
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        
+    }
+    
+    else {
+     
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        
+    }
+    
+    printf("Cause of most recent device reset: %s\r\n", getResetCauseString(reset_cause));
     
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);

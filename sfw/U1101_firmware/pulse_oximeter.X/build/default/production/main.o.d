@@ -8,10 +8,11 @@ pin_macros.h  \
 watchdog_timer.h  \
  error_handler.h  \
 prefetch.h  \
+cause_of_reset.h  \
 gpio_setup.h  \
-heartbeat_services.h  \
- power_saving.h  \
+ heartbeat_services.h  \
+power_saving.h  \
 terminal_control.h  \
 uthash.h  \
-usb_uart.h  \
- usb_uart_rx_lookup_table.h 
+ usb_uart.h  \
+usb_uart_rx_lookup_table.h 
