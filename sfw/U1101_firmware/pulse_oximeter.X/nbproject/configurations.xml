@@ -6,6 +6,7 @@
                    projectFiles="true">
       <logicalFolder name="f4" displayName="Application" projectFiles="true">
         <itemPath>heartbeat_services.h</itemPath>
+        <itemPath>power_saving.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Core Drivers" projectFiles="true">
         <itemPath>configuration.h</itemPath>
@@ -14,6 +15,7 @@
         <itemPath>heartbeat_timer.h</itemPath>
         <itemPath>watchdog_timer.h</itemPath>
         <itemPath>error_handler.h</itemPath>
+        <itemPath>prefetch.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="GPIO" projectFiles="true">
         <itemPath>pin_macros.h</itemPath>
@@ -35,6 +37,7 @@
                    projectFiles="true">
       <logicalFolder name="f4" displayName="Application" projectFiles="true">
         <itemPath>heartbeat_services.c</itemPath>
+        <itemPath>power_saving.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Core Drivers" projectFiles="true">
         <itemPath>device_control.c</itemPath>
@@ -42,6 +45,7 @@
         <itemPath>heartbeat_timer.c</itemPath>
         <itemPath>watchdog_timer.c</itemPath>
         <itemPath>error_handler.c</itemPath>
+        <itemPath>prefetch.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="GPIO" projectFiles="true">
         <itemPath>gpio_setup.c</itemPath>

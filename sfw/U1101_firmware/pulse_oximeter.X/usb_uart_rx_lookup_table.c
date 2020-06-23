@@ -98,10 +98,9 @@ usb_uart_command_function_t hostStatusCommand(char * input_str) {
     
     printWatchdogStatus();
     printDeadmanStatus();
+    printPrefetchStatus();
+    
     #warning "fix me"
-    // printPrefetchStatus();
-    
-    
 //    // Print cause of reset
 //    if (    reset_cause == Undefined ||
 //            reset_cause == Primary_Config_Registers_Error ||
@@ -147,19 +146,18 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
     else if (strcmp(rx_peripheral_name, "Clocks") == 0) {
         printClockStatus(SYSCLK_INT);
     }
-    #warning "fix me"
-//    else if (strcmp(rx_peripheral_name, "PMD") == 0) {
-//        printPMDStatus();
-//    }
+    else if (strcmp(rx_peripheral_name, "PMD") == 0) {
+        printPMDStatus();
+    }
     else if (strcmp(rx_peripheral_name, "WDT") == 0) {
         printWatchdogStatus();
     }
     else if (strcmp(rx_peripheral_name, "DMT") == 0) {
         printDeadmanStatus();
     }
-//    else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
-//        printPrefetchStatus();
-//    }
+    else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
+        printPrefetchStatus();
+    }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
         sscanf(rx_peripheral_name, "Timer %u", &read_timer_number);

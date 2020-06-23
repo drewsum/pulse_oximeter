@@ -18,6 +18,7 @@
 #include "heartbeat_timer.h"
 #include "watchdog_timer.h"
 #include "error_handler.h"
+#include "prefetch.h"
 
 // GPIO
 #include "pin_macros.h"
@@ -25,6 +26,7 @@
 
 // Application
 #include "heartbeat_services.h"
+#include "power_saving.h"
 
 // I2C
 
@@ -111,25 +113,20 @@ void main(void) {
     // Setup USB UART debugging
     usbUartInitialize();
     printf("    USB UART Initialized, DMA buffer method used\n\r");
-//    
-//    // Setup prefetch module
-//    prefetchInitialize();
-//    printf("    CPU Instruction Prefetch Module Enabled\r\n");
-//    
-//    // Disable unused peripherals for power savings
-//    PMDInitialize();
-//    printf("    Unused Peripheral Modules Disabled\n\r");
+    
+    // Setup prefetch module
+    prefetchInitialize();
+    printf("    CPU Instruction Prefetch Module Enabled\r\n");
+    
+    // Disable unused peripherals for power savings
+    PMDInitialize();
+    printf("    Unused Peripheral Modules Disabled\n\r");
 //    
 //    // Enable ADC
 //    VBAT_ADC_ENABLE_PIN = HIGH;
 //    POS3P3_BCKP_ADC_ENABLE_PIN = HIGH;
 //    ADCInitialize();
 //    printf("    Analog to Digital Converter Initialized\n\r");
-//    
-//    // Setup the real time clock-calendar
-//    rtccInitialize();
-//    if (reset_cause == POR_Reset) rtccClear();
-//    printf("    Real Time Clock-Calendar Initialized\r\n");
 //    
     // Setup heartbeat timer
     heartbeatTimerInitialize();
@@ -152,10 +149,7 @@ void main(void) {
     terminalTextAttributesReset();
     
     // check to see if a clock fail has occurred and latch it
-    // clockFailCheck();
-    
-    
-    
+    clockFailCheck();
     
     // endless loop
     while(1) {
