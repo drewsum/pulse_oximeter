@@ -75,7 +75,7 @@ void I2CMaster_Initialize(void)
     /* Disable the I2C Bus collision interrupt */
     IEC5CLR = _IEC5_I2C5BIE_MASK;
 
-    I2C5BRG = 64;
+    I2C5BRG = 0x04A;
 
     I2C5CONCLR = _I2C5CON_SIDL_MASK;
     I2C5CONCLR = _I2C5CON_DISSLW_MASK;

@@ -32,6 +32,7 @@
 // I2C
 #include "plib_i2c3.h"
 #include "plib_i2c_master.h"
+#include "temperature_sensors.h"
 
 // USB
 #include "terminal_control.h"
@@ -137,9 +138,14 @@ void main(void) {
     watchdogTimerInitialize();
     printf("    Watchdog Timer Initialized\n\r");
     
+    // setup I2C
     I2CMaster_Initialize();
     printf("    I2C Bus Master Initialized\r\n");
-       
+    
+    // setup I2C slaves
+    tempSensorsInitialize();
+    printf("    Temperature Sensors Initialized\r\n");
+    
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);

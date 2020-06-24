@@ -14,7 +14,9 @@ gpio_setup.h  \
 power_saving.h  \
 plib_i2c3.h  \
 plib_i2c_master.h  \
- terminal_control.h  \
+ temperature_sensors.h  \
+mcp9804_temp_sensor.h  \
+terminal_control.h  \
 uthash.h  \
-usb_uart.h  \
+ usb_uart.h  \
 usb_uart_rx_lookup_table.h 
