@@ -65,8 +65,6 @@
 // *****************************************************************************
 
 
-static I2C_OBJ i2c5Obj;
-
 void I2CMaster_Initialize(void)
 {
     /* Disable the I2C Master interrupt */

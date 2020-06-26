@@ -161,6 +161,14 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         printf("I2C Bus Master Controller Status:\r\n");
         printI2CMasterStatus();
     }
+    else if (strcmp(rx_peripheral_name, "I2C Slaves") == 0) {    
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, REVERSE_FONT);
+        printf("I2C Bus Slave Device Status:\r\n");
+        terminalTextAttributesReset();
+        printTemperatureSensorStatus();
+        #warning "fix me: printPowerMonitorStatus();"
+        #warning "fix me: miscI2CDevicesPrintStatus();"
+    }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
         sscanf(rx_peripheral_name, "Timer %u", &read_timer_number);

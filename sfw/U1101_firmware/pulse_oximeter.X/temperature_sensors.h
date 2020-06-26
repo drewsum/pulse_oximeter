@@ -25,12 +25,9 @@
 // These are all the I2C 7 bit addresses of temperature sensors in this project
 #define POS12_TEMP_SNS_ADDR         0x18
 #define POS3P3_TEMP_SNS_ADDR        0x19
-#define POS5_TEMP_SNS_ADDR          0x1A
-#define POS1P2_VFF_TEMP_SNS_ADDR    0x1B
-#define POS60_VAN_TEMP_SNS_ADDR     0x1C
-#define AMB_TEMP_SNS_ADDR           0x1D
-#define USB_TEMP_SNS_ADDR           0x1E
-#define DSPLY_TEMP_SNS_ADDR         0x1F
+#define POS1P8_TEMP_SNS_ADDR        0x1A
+#define USB_TEMP_SNS_ADDR           0x1B
+#define AMB_TEMP_SNS_ADDR           0x1C
 
 volatile __attribute__((coherent)) uint8_t temp_sense_data_request = 0;
 
