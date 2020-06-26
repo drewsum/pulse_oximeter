@@ -51,29 +51,25 @@ double MCP9804BytesToFloat(uint8_t input_array[2]) {
 // this function gets data over I2C from the given I2C address and returns the converted temperature
 double MCP9804GetTemperature(uint8_t input_address, volatile uint8_t *device_error_handler_flag) {
 
-#warning "fix me"
-//    uint8_t data_reg_pointer[1];
-//    uint8_t temp[2];
-//    I2C_TRANSACTION_REQUEST_BLOCK readTRBH[2];
-//    data_reg_pointer[0] = MCP9804_TA_REG;
-//    I2C_MasterWriteTRBBuild(&readTRBH[0], data_reg_pointer, 1, input_address);
-//    I2C_MasterReadTRBBuild(&readTRBH[1], temp, 2, input_address);
-//    I2C_MasterTRBInsert(2, readTRBH, &I2C_STATUS);
-//    while(I2C_STATUS == I2C_MESSAGE_PENDING);
-//    softwareDelay(0xFF);
-//    
-//    if (I2C_STATUS == I2C_MESSAGE_COMPLETE) return MCP9804BytesToFloat(temp);
-//    else {
-//        *device_error_handler_flag = 1;
-//        return 0.0;
-//    }
+    uint8_t data_reg_pointer[1];
+    uint8_t temp[2];
+    data_reg_pointer[0] = MCP9804_TA_REG;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, temp, 2)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    
+    if (i2c5Obj.state == I2C_STATE_IDLE) return MCP9804BytesToFloat(temp);
+    else {
+        *device_error_handler_flag = 1;
+        return 0.0;
+    }
     
 }
 
 // this function prints configuration status to stdio for the passed device address
 void MCP9804printStatus(uint8_t input_address, volatile uint8_t *device_error_handler_flag) {
     
-#warning "fix me"
     // first, get manufacturer ID
     uint8_t data_reg_pointer[1];
     uint8_t temp[2];
@@ -90,7 +86,6 @@ void MCP9804printStatus(uint8_t input_address, volatile uint8_t *device_error_ha
         *device_error_handler_flag = 1;
     }
     while(i2c5Obj.state != I2C_STATE_IDLE);
-    softwareDelay(0xFF);
     uint8_t read_device_id = temp[0];
     uint8_t read_rev_id = temp[1];
     

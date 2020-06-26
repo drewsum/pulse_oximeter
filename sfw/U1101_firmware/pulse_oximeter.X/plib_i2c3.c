@@ -53,7 +53,9 @@
 #include <xc.h>
 
 #include <stdio.h>
+
 #include "terminal_control.h"
+#include "error_handler.h"
 
 // These are macros needed for defining ISRs, included in XC52
 #include <sys/attribs.h>
@@ -499,7 +501,7 @@ void __ISR(_I2C5_BUS_VECTOR, IPL4SRS) I2CMaster_BUS_InterruptHandler( void )
     
     // enter bus collision handling code here
 	clearInterruptFlag(I2C5_Bus_Collision_Event);
-    #warning "fix me: error_handler.flags.i2c_bus_collision = 1;"
+    error_handler.flags.i2c_bus_collision = 1;
 } 
 
 void __ISR(_I2C5_MASTER_VECTOR, IPL7SRS) I2C_MASTER_ISR ( void )
