@@ -8,4 +8,6 @@ device_control.h  \
 32mz_interrupt_control.h  \
  cause_of_reset.h  \
 error_handler.h  \
-heartbeat_services.h 
+heartbeat_services.h  \
+pin_macros.h  \
+ telemetry.h 

@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #include "pin_macros.h"
-#warning "fix me" // #include "telemetry.h"
+#include "telemetry.h"
 #include "terminal_control.h"
 #include "error_handler.h"
 
@@ -22,8 +22,11 @@ void tempSensorsInitialize(void) {
 // this function gets temperature data for all temperature sensors
 void tempSensorsRetrieveData(void) {
 
-#warning "fix me"
-//    telemetry.pos12.temperature         = MCP9804GetTemperature(POS12_TEMP_SNS_ADDR, &error_handler.flags.pos12_temp);
+    telemetry.pos12.temperature         = MCP9804GetTemperature(POS12_TEMP_SNS_ADDR, &error_handler.flags.pos12_temp);
+    telemetry.pos3p3.temperature        = MCP9804GetTemperature(POS3P3_TEMP_SNS_ADDR, &error_handler.flags.pos3p3_temp);
+    telemetry.pos1p8.temperature        = MCP9804GetTemperature(POS1P8_TEMP_SNS_ADDR, &error_handler.flags.pos1p8_temp);
+    telemetry.usb.temperature           = MCP9804GetTemperature(USB_TEMP_SNS_ADDR, &error_handler.flags.usb_temp);
+    telemetry.ambient_temperature       = MCP9804GetTemperature(AMB_TEMP_SNS_ADDR, &error_handler.flags.amb_temp);
     
     temp_sense_data_request = 0;
     

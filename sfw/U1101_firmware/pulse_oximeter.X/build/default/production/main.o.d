@@ -12,11 +12,16 @@ cause_of_reset.h  \
 gpio_setup.h  \
  heartbeat_services.h  \
 power_saving.h  \
+telemetry.h  \
 plib_i2c3.h  \
-plib_i2c_master.h  \
- temperature_sensors.h  \
+ plib_i2c_master.h  \
+temperature_sensors.h  \
 mcp9804_temp_sensor.h  \
+ power_monitors.h  \
+ina219_power_monitor.h  \
+misc_i2c_devices.h  \
+ ds1683_time_of_flight.h  \
 terminal_control.h  \
 uthash.h  \
- usb_uart.h  \
-usb_uart_rx_lookup_table.h 
+usb_uart.h  \
+ usb_uart_rx_lookup_table.h 

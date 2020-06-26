@@ -28,11 +28,14 @@
 // Application
 #include "heartbeat_services.h"
 #include "power_saving.h"
+#include "telemetry.h"
 
 // I2C
 #include "plib_i2c3.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
+#include "power_monitors.h"
+#include "misc_i2c_devices.h"
 
 // USB
 #include "terminal_control.h"
@@ -80,6 +83,8 @@ void main(void) {
     
     // only clear persistent error flags if we've seen a POR... keep old values after other resets
     if (reset_cause == POR_Reset) {
+        live_telemetry_enable = 0;
+        live_telemetry_request = 0;
         clearErrorHandler();
     }
     
@@ -142,10 +147,16 @@ void main(void) {
     I2CMaster_Initialize();
     printf("    I2C Bus Master Initialized\r\n");
     
-    // setup I2C slaves
-    tempSensorsInitialize();
-    printf("    Temperature Sensors Initialized\r\n");
-    
+    if (TELEMETRY_CONFIG_PIN == LOW) {
+        // setup I2C slaves
+        tempSensorsInitialize();
+        printf("    Temperature Sensors Initialized\r\n");
+        powerMonitorsInitialize();
+        printf("    Power Monitors Initialized\r\n");
+    }
+    systemTOFInitialize();
+    printf("    Time of Flight Counter Initialized\r\n");
+        
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -162,6 +173,12 @@ void main(void) {
     
     // endless loop
     while(1) {
+        
+         // get temperature sensor data
+        if (temp_sense_data_request) tempSensorsRetrieveData();
+
+        // get power monitor data
+        if (power_monitor_data_request) powerMonitorsGetData();
         
         // clear the watchdog if we need to
         if (wdt_clear_request) {
@@ -180,6 +197,26 @@ void main(void) {
             for (index = 0; index < length; index++) {
                 usb_uart_rx_buffer[index] = '\0';
             }
+        }
+        
+        if (live_telemetry_request && live_telemetry_enable) {
+
+            // Clear the terminal
+            //terminalClearScreen();
+            terminalSetCursorHome();
+            
+            terminalTextAttributesReset();
+            terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, BOLD_FONT);
+            printf("Live system telemetry:\033[K\n\r\033[K");
+            
+            printCurrentTelemetry();
+            
+            terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("Call 'Live Telemetry' command to disable\033[K\n\r");
+            terminalTextAttributesReset();
+            
+            live_telemetry_request = 0;
+            
         }
         
         // check to see if a clock fail has occurred and latch it

@@ -6,4 +6,5 @@ plib_i2c3.h  \
 plib_i2c_master.h  \
  error_handler.h  \
 pin_macros.h  \
+telemetry.h  \
 terminal_control.h 

@@ -13,6 +13,8 @@
 #include "cause_of_reset.h"
 #include "error_handler.h"
 #include "heartbeat_services.h"
+#include "pin_macros.h"
+#include "telemetry.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -165,9 +167,11 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, REVERSE_FONT);
         printf("I2C Bus Slave Device Status:\r\n");
         terminalTextAttributesReset();
-        printTemperatureSensorStatus();
-        printPowerMonitorStatus();
-        #warning "fix me: miscI2CDevicesPrintStatus();"
+        if (TELEMETRY_CONFIG_PIN == LOW) {
+            printTemperatureSensorStatus();
+            printPowerMonitorStatus();
+        }
+        miscI2CDevicesPrintStatus();
     }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
@@ -200,6 +204,22 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
 
 }
 
+usb_uart_command_function_t timeOfFlightCommand(char * input_str) {
+ 
+    double tof_temp = systemGetTOF();
+    uint32_t tof_temp_int = (uint32_t) floor(tof_temp);
+    uint32_t power_cycle_temp = systemGetPowerCycles();
+    
+    // first print stuff for logic board
+    terminalTextAttributesReset();
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("System Time of Flight is %s\r\n", getStringSecondsAsTime(tof_temp_int));
+    printf("System has power cycled %u times\r\n", power_cycle_temp);
+    
+    terminalTextAttributesReset();
+    
+}
+
 usb_uart_command_function_t errorStatusCommand(char * input_str) {
  
     // Print error handler status
@@ -223,6 +243,30 @@ usb_uart_command_function_t clearErrorsCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     printf("Error Handler flags cleared\n\r");
+    terminalTextAttributesReset();
+    
+}
+
+usb_uart_command_function_t liveTelemetryCommand(char * input_str) {
+ 
+    terminalTextAttributesReset();
+    
+    if (live_telemetry_enable == 0) {
+        terminalClearScreen();
+        terminalSetCursorHome();
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Enabling Live Telemetry\n\r");
+        live_telemetry_enable = 1;
+        // Disable pushbuttons
+    }
+    else {
+        terminalClearScreen();
+        terminalSetCursorHome();
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Disabling Live Telemetry\n\r");
+        live_telemetry_enable = 0;
+    }
+    
     terminalTextAttributesReset();
     
 }
@@ -267,5 +311,11 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Clear Errors",
             "Clears all error handler flags",
             clearErrorsCommand);
+    usbUartAddCommand("Time of Flight?",
+            "Returns time of flight for logic board and display board (if installed)",
+            timeOfFlightCommand);
+    usbUartAddCommand("Live Telemetry",
+            "Toggles live updates of system level telemetry",
+            liveTelemetryCommand);
     
 }
