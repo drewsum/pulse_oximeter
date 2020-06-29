@@ -132,11 +132,7 @@ void main(void) {
     // Disable unused peripherals for power savings
     PMDInitialize();
     printf("    Unused Peripheral Modules Disabled\n\r");
-    
-    // Enable ADC
-    ADCInitialize();
-    printf("    Analog to Digital Converter Initialized\n\r");
-    
+
     // Setup heartbeat timer
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");
@@ -150,19 +146,48 @@ void main(void) {
     printf("    I2C Bus Master Initialized\r\n");
     
     if (TELEMETRY_CONFIG_PIN == LOW) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Telemetry Configuration Detected\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         // setup I2C slaves
         tempSensorsInitialize();
         printf("    Temperature Sensors Initialized\r\n");
         powerMonitorsInitialize();
         printf("    Power Monitors Initialized\r\n");
+        // Enable ADC
+        ADCInitialize();
+        printf("    Analog to Digital Converter Initialized\n\r");
     }
+    
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Telemetry Configuration Not Detected\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    }
+    
     systemTOFInitialize();
     printf("    Time of Flight Counter Initialized\r\n");
         
+    // enable POX sensor logic rail, LED drive voltage
+    POS1P8_RUN_PIN = HIGH;
+    uint32_t timeout = 0xFFFFFF;
+    while (POS1P8_PGOOD_PIN == LOW && timeout > 0) timeout--;
+    if (POS1P8_PGOOD_PIN == LOW) {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Failed to enable +1.8V Power Supply\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    }
+    else {
+        printf("    +1.8V Power Supply Enabled\r\n");
+    }
+    softwareDelay(1000);
+    POS3P3_POX_ENABLE_PIN = HIGH;
+    printf("    POX LED Drive Voltage Enabled\r\n");
+    
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("    Reset LED Disabled\r\n");
+    printf("    Reset LED Disabled, boot complete\r\n");
     
     // Print end of boot message, reset terminal for user input
     terminalTextAttributesReset();

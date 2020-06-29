@@ -326,8 +326,9 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Time of Flight?",
             "Returns time of flight for logic board and display board (if installed)",
             timeOfFlightCommand);
-    usbUartAddCommand("Live Telemetry",
-            "Toggles live updates of system level telemetry",
-            liveTelemetryCommand);
-    
+    if (TELEMETRY_CONFIG_PIN == LOW) {
+        usbUartAddCommand("Live Telemetry",
+                "Toggles live updates of system level telemetry",
+                liveTelemetryCommand);
+    }
 }
