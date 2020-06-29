@@ -10,4 +10,6 @@ device_control.h  \
 error_handler.h  \
 heartbeat_services.h  \
 pin_macros.h  \
- telemetry.h 
+ telemetry.h  \
+adc.h  \
+adc_channels.h 

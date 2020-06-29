@@ -20,7 +20,7 @@ void heartbeatServices(void) {
         power_monitor_data_request = 1;
         
         /* Trigger an ADC conversion scan */
-        #warning "Add ADC trigger once ADC is ported: ADCCON3bits.GSWTRG = 1;"
+        ADCCON3bits.GSWTRG = 1;
 
     }
     

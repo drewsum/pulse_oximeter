@@ -43,6 +43,10 @@
 #include "usb_uart.h"
 #include "usb_uart_rx_lookup_table.h"
 
+// ADC
+#include "adc.h"
+#include "adc_channels.h"
+
 void main(void) {
 
     // Save the cause of the most recent device reset
@@ -128,13 +132,11 @@ void main(void) {
     // Disable unused peripherals for power savings
     PMDInitialize();
     printf("    Unused Peripheral Modules Disabled\n\r");
-//    
-//    // Enable ADC
-//    VBAT_ADC_ENABLE_PIN = HIGH;
-//    POS3P3_BCKP_ADC_ENABLE_PIN = HIGH;
-//    ADCInitialize();
-//    printf("    Analog to Digital Converter Initialized\n\r");
-//    
+    
+    // Enable ADC
+    ADCInitialize();
+    printf("    Analog to Digital Converter Initialized\n\r");
+    
     // Setup heartbeat timer
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");

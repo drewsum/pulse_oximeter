@@ -24,4 +24,6 @@ misc_i2c_devices.h  \
 terminal_control.h  \
 uthash.h  \
 usb_uart.h  \
- usb_uart_rx_lookup_table.h 
+ usb_uart_rx_lookup_table.h  \
+adc.h  \
+adc_channels.h 

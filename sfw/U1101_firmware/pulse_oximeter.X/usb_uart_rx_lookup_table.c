@@ -15,6 +15,8 @@
 #include "heartbeat_services.h"
 #include "pin_macros.h"
 #include "telemetry.h"
+#include "adc.h"
+#include "adc_channels.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -158,6 +160,12 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
     else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
         printPrefetchStatus();
     }
+    else if (strcmp(rx_peripheral_name, "ADC Channels") == 0) {
+        printADCChannelStatus();
+    }
+    else if (strcmp(rx_peripheral_name, "ADC") == 0) {
+        printADCStatus();
+    }
     else if (strcmp(rx_peripheral_name, "I2C Master") == 0) {    
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("I2C Bus Master Controller Status:\r\n");
@@ -194,6 +202,8 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
                 "   PMD\r\n"
                 "   WDT\r\n"
                 "   DMT\r\n"
+                "   ADC\r\n"
+                "   ADC Channels\r\n"
                 "   Prefetch\r\n"
                 "   I2C Master\r\n"
                 "   I2C Slaves\r\n"
@@ -301,6 +311,8 @@ void usbUartHashTableInitialize(void) {
             "       WDT\r\n"
             "       DMT\r\n"
             "       Prefetch\r\n"
+            "       ADC\r\n"
+            "       ADC Channels\r\n"
             "       I2C Master\r\n"
             "       I2C Slaves\r\n"
             "       Timer <x> (x = 1-9)",

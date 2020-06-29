@@ -59,18 +59,14 @@ void printCurrentTelemetry(void) {
             telemetry.usb.power,
             telemetry.usb.temperature);
     
-    #warning "figure out all this misc telemetry shit"
     // print stuff off other random data points
     terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("\tMiscellaneous Telemetry:\033[K\r\n");
     terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
-//    printf("\t\tHost Die Temperature: %.3fC\033[K\r\n", telemetry.mcu_die_temp);
-//    printf("\t\tHost ADC Reference Voltage: %.3fV\033[K\r\n", telemetry.adc_vref_voltage);
-//    printf("\t\tHost Supply Voltage: %.3fV\033[K\r\n", telemetry.mcu_vdd);
-//    printf("\t\tBackup Battery Voltage: %.3fV\033[K\r\n", telemetry.battery_voltage);
-//    printf("\t\tBackup RTC Temperature: %.3fC\033[K\r\n", telemetry.backup_rtc_temperature);
+    printf("\t\tHost Die Temperature: %.3fC\033[K\r\n", telemetry.mcu_die_temp);
+    printf("\t\tHost ADC Reference Voltage: %.3fV\033[K\r\n", telemetry.adc_vref_voltage);
     printf("\t\tAmbient Temperature: %.3fC\033[K\r\n", telemetry.ambient_temperature);
-//    printf("\t\tDisplay Temperature: %.3fC\033[K\r\n\033[K\r\n", telemetry.display_temperature);
+    printf("\t\tPOX Sensor LED Drive Voltage: %.3fV\033[K\r\n", telemetry.pox_led_voltage);
     
     terminalTextAttributesReset();
 

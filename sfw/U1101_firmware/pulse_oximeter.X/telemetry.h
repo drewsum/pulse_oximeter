@@ -41,6 +41,7 @@ volatile __attribute__((coherent)) struct telemetry_s {
     double ambient_temperature;
     double mcu_die_temp;
     double adc_vref_voltage;
+    double pox_led_voltage;
     
 } telemetry;
 
