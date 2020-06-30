@@ -36,6 +36,7 @@
 #include "temperature_sensors.h"
 #include "power_monitors.h"
 #include "misc_i2c_devices.h"
+#include "max30102.h"
 
 // USB
 #include "terminal_control.h"
@@ -182,8 +183,18 @@ void main(void) {
     }
     softwareDelay(1000);
     POS3P3_POX_ENABLE_PIN = HIGH;
-    printf("    POX LED Drive Voltage Enabled\r\n");
+    printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
     
+    // initialize MAX30102 pulse oximeter sensor
+    if (!maxim_max30102_init()) {
+        printf("    Pulse Oximetry Sensor Initialized\r\n");
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    }
+                
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
