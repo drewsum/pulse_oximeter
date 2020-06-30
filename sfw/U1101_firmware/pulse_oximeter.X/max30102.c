@@ -62,7 +62,7 @@
 */
 #include "max30102.h"
 #include "plib_i2c3.h"
-#warning "fix this " // #include "algorithm_by_RF.h"
+#include "algorithm_by_RF.h"
 #include "error_handler.h"
 
 #include <stdbool.h>

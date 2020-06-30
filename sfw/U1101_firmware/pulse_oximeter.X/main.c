@@ -37,6 +37,7 @@
 #include "power_monitors.h"
 #include "misc_i2c_devices.h"
 #include "max30102.h"
+#include "algorithm_by_RF.h"
 
 // USB
 #include "terminal_control.h"
@@ -188,6 +189,10 @@ void main(void) {
     // initialize MAX30102 pulse oximeter sensor
     if (!maxim_max30102_init()) {
         printf("    Pulse Oximetry Sensor Initialized\r\n");
+        maxim_max30102_reset(); //resets the MAX30102
+        softwareDelay(1000);
+        maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+        maxim_max30102_init();  //initialize the MAX3010
     }
     else {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -262,6 +267,18 @@ void main(void) {
         
         // update error LEDs if needed
         if (update_error_leds_flag) updateErrorLEDs();
+        
+//        #warning "this is def not kosher"
+//        poxAcquire();
+//        printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
+//                n_heart_rate,
+//                n_spo2,
+//                ratio,
+//                correl,
+//                ch_spo2_valid,
+//                ch_hr_valid);
+//        
+//        softwareDelay(10000);
         
     }
     

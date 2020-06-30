@@ -22,9 +22,10 @@ ina219_power_monitor.h  \
 misc_i2c_devices.h  \
  ds1683_time_of_flight.h  \
 max30102.h  \
+algorithm_by_RF.h  \
 terminal_control.h  \
-uthash.h  \
- usb_uart.h  \
+ uthash.h  \
+usb_uart.h  \
 usb_uart_rx_lookup_table.h  \
 adc.h  \
 adc_channels.h 
