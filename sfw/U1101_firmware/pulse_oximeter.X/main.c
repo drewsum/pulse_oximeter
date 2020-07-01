@@ -180,19 +180,21 @@ void main(void) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     else {
-        printf("    +1.8V Power Supply Enabled\r\n");
+        POX_I2C_ENABLE_PIN = HIGH;
+        printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
     }
     softwareDelay(1000);
     POS3P3_POX_ENABLE_PIN = HIGH;
     printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
     
     // initialize MAX30102 pulse oximeter sensor
-    if (!maxim_max30102_init()) {
+    softwareDelay(1000);
+    
+    maxim_max30102_reset(); //resets the MAX30102
+    softwareDelay(1000);
+    maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+    if (maxim_max30102_init()) {
         printf("    Pulse Oximetry Sensor Initialized\r\n");
-        maxim_max30102_reset(); //resets the MAX30102
-        softwareDelay(1000);
-        maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
-        maxim_max30102_init();  //initialize the MAX3010
     }
     else {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -213,6 +215,8 @@ void main(void) {
     
     // check to see if a clock fail has occurred and latch it
     clockFailCheck();
+    
+    pox_daq_request_flag = 1;
     
     // endless loop
     while(1) {
@@ -268,17 +272,18 @@ void main(void) {
         // update error LEDs if needed
         if (update_error_leds_flag) updateErrorLEDs();
         
-//        #warning "this is def not kosher"
-//        poxAcquire();
-//        printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
-//                n_heart_rate,
-//                n_spo2,
-//                ratio,
-//                correl,
-//                ch_spo2_valid,
-//                ch_hr_valid);
-//        
-//        softwareDelay(10000);
+        #warning "this is def not kosher"
+        if (pox_daq_request_flag) {
+            poxAcquire();
+            printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
+                    n_heart_rate,
+                    n_spo2,
+                    ratio,
+                    correl,
+                    ch_spo2_valid,
+                    ch_hr_valid);
+            pox_daq_request_flag = 0;
+        }
         
     }
     

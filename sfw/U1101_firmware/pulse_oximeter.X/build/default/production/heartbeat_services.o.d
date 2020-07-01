@@ -8,4 +8,5 @@ plib_i2c3.h  \
 plib_i2c_master.h  \
 power_monitors.h  \
  ina219_power_monitor.h  \
-telemetry.h 
+telemetry.h  \
+algorithm_by_RF.h 

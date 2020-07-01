@@ -6,6 +6,7 @@
 #include "temperature_sensors.h"
 #include "power_monitors.h"
 #include "telemetry.h"
+#include "algorithm_by_RF.h"
 
 // This function executes actions every call of the heartbeat timer, and is used as an easy interface to do some action every second
 void heartbeatServices(void) {
@@ -31,5 +32,7 @@ void heartbeatServices(void) {
     
     // Increment on time counter
     device_on_time_counter++;
+    
+    if (device_on_time_counter % 5 == 0) pox_daq_request_flag = 1;
     
 }

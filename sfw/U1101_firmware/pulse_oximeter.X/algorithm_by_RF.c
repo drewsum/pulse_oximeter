@@ -309,15 +309,18 @@ void poxAcquire(void) {
  
     //buffer length of BUFFER_SIZE stores ST seconds of samples running at FS sps
     //read BUFFER_SIZE samples, and determine the signal range
-    uint32_t i;
-    for(i=0;i<BUFFER_SIZE;i++)
+    uint32_t buffer_index;
+    for(buffer_index=0;buffer_index<BUFFER_SIZE;buffer_index++)
     {
-      while(POX_INT_PIN == HIGH);  //wait until the interrupt pin asserts
-      maxim_max30102_read_fifo((aun_red_buffer+i), (aun_ir_buffer+i));  //read from MAX30102 FIFO
+        // uint32_t timeout = 0xFFFFFF;
+        while(POX_INT_PIN == HIGH) { // && timeout > 0) {
+            // timeout--;  //wait until the interrupt pin asserts
+            maxim_max30102_read_fifo((aun_red_buffer+buffer_index), (aun_ir_buffer+buffer_index));  //read from MAX30102 FIFO
+        }
     }
 
     //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
-    rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl); 
+    rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);
     
 }
 
