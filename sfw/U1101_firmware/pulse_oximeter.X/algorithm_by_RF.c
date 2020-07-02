@@ -320,14 +320,6 @@ void poxAcquire(void) {
     }
 
     Nop();
-    printf("New AQ:\r\n");
-    for(buffer_index = 0; buffer_index < BUFFER_SIZE; buffer_index++)
-    {
-        printf("IR: %d\r\n", aun_ir_buffer[buffer_index]);
-        
-    }
-    
-    Nop();
     
     //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
     rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);

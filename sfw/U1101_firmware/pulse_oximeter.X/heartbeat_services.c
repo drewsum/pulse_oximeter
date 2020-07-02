@@ -33,6 +33,6 @@ void heartbeatServices(void) {
     // Increment on time counter
     device_on_time_counter++;
     
-    if (device_on_time_counter % 6 == 0) pox_daq_request_flag = 1;
+    if (pox_daq_enable == 1 && device_on_time_counter % 5 == 0) pox_daq_request_flag = 1;
     
 }

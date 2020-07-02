@@ -216,8 +216,6 @@ void main(void) {
     // check to see if a clock fail has occurred and latch it
     clockFailCheck();
     
-    pox_daq_request_flag = 1;
-    
     // endless loop
     while(1) {
         
@@ -272,16 +270,27 @@ void main(void) {
         // update error LEDs if needed
         if (update_error_leds_flag) updateErrorLEDs();
         
-        #warning "this is def not kosher"
+        // Get new POX data and convert it to heart rate and SPO2
         if (pox_daq_request_flag) {
             poxAcquire();
+            
+            if (ch_spo2_valid && ch_spo2_valid) {
+                terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("Data Valid: ");
+            }
+            else {
+                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("Data Invalid: ");
+            }
+            
             printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
                     n_heart_rate,
                     n_spo2,
                     ratio,
                     correl,
                     ch_spo2_valid,
-                    ch_hr_valid);
+                    ch_hr_valid);  
+            terminalTextAttributesReset();
             pox_daq_request_flag = 0;
         }
         

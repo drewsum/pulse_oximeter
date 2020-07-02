@@ -12,4 +12,5 @@ heartbeat_services.h  \
 pin_macros.h  \
  telemetry.h  \
 adc.h  \
-adc_channels.h 
+adc_channels.h  \
+algorithm_by_RF.h 

@@ -17,6 +17,7 @@
 #include "telemetry.h"
 #include "adc.h"
 #include "adc_channels.h"
+#include "algorithm_by_RF.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -281,6 +282,30 @@ usb_uart_command_function_t liveTelemetryCommand(char * input_str) {
     
 }
 
+usb_uart_command_function_t poxDaqCommand(char * input_str) {
+ 
+    terminalTextAttributesReset();
+    
+    if (pox_daq_enable == 0) {
+        terminalClearScreen();
+        terminalSetCursorHome();
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Enabling Pulse Oximetry\n\r");
+        pox_daq_enable = 1;
+        // Disable pushbuttons
+    }
+    else {
+        terminalClearScreen();
+        terminalSetCursorHome();
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Disabling Pulse Oximetry\n\r");
+        pox_daq_enable = 0;
+    }
+    
+    terminalTextAttributesReset();
+    
+}
+
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {
@@ -331,4 +356,7 @@ void usbUartHashTableInitialize(void) {
                 "Toggles live updates of system level telemetry",
                 liveTelemetryCommand);
     }
+    usbUartAddCommand("POX DAQ",
+            "Toggles Pulse Oximetry Polling",
+            poxDaqCommand);
 }
