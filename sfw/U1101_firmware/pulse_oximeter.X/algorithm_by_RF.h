@@ -70,16 +70,16 @@ float min_pearson_correlation = 0.8;
 #define HIGHEST_PERIOD  FS60/MIN_HR // Maximal distance between peaks
 volatile float mean_X = (float)(BUFFER_SIZE-1)/2.0; // Mean value of the set of integers from 0 to BUFFER_SIZE-1. For ST=4 and FS=25 it's equal to 49.5.
 
-volatile uint32_t aun_ir_buffer[BUFFER_SIZE]; //infrared LED sensor data
-volatile uint32_t aun_red_buffer[BUFFER_SIZE];  //red LED sensor data
-volatile float old_n_spo2 = 0.0;  // Previous SPO2 value
-volatile uint8_t uch_dummy,k;
+uint32_t aun_ir_buffer[BUFFER_SIZE]; //infrared LED sensor data
+uint32_t aun_red_buffer[BUFFER_SIZE];  //red LED sensor data
+float old_n_spo2 = 0.0;  // Previous SPO2 value
+uint8_t uch_dummy,k;
 
 
-volatile float n_spo2,ratio,correl;  //SPO2 value
-volatile int8_t ch_spo2_valid;  //indicator to show if the SPO2 calculation is valid
-volatile int32_t n_heart_rate; //heart rate value
-volatile int8_t  ch_hr_valid;  //indicator to show if the heart rate calculation is valid
+float n_spo2,ratio,correl;  //SPO2 value
+int8_t ch_spo2_valid;  //indicator to show if the SPO2 calculation is valid
+int32_t n_heart_rate; //heart rate value
+int8_t  ch_hr_valid;  //indicator to show if the heart rate calculation is valid
 
 // this flag is used for the application to request ST seconds worth of data. 
 volatile uint32_t pox_daq_request_flag;

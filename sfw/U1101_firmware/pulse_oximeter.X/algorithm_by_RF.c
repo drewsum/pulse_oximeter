@@ -37,6 +37,8 @@
 #include <stdlib.h>
 #include <xc.h>
 #include "pin_macros.h"
+#include "max30102.h"
+#include "error_handler.h"
 
 void rf_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer, int32_t n_ir_buffer_length, uint32_t *pun_red_buffer, float *pn_spo2, int8_t *pch_spo2_valid, 
                 int32_t *pn_heart_rate, int8_t *pch_hr_valid, float *ratio, float *correl)
@@ -306,21 +308,31 @@ float rf_Pcorrelation(float *pn_x, float *pn_y, int32_t n_size)
 
 // this function was added by drewsum, grabs data from MAX and is meant to be called from main()
 void poxAcquire(void) {
- 
+
     //buffer length of BUFFER_SIZE stores ST seconds of samples running at FS sps
     //read BUFFER_SIZE samples, and determine the signal range
     uint32_t buffer_index;
-    for(buffer_index=0;buffer_index<BUFFER_SIZE;buffer_index++)
+    for(buffer_index = 0; buffer_index < BUFFER_SIZE; buffer_index++)
     {
-        // uint32_t timeout = 0xFFFFFF;
-        while(POX_INT_PIN == HIGH) { // && timeout > 0) {
-            // timeout--;  //wait until the interrupt pin asserts
-            maxim_max30102_read_fifo((aun_red_buffer+buffer_index), (aun_ir_buffer+buffer_index));  //read from MAX30102 FIFO
-        }
+        while(POX_INT_PIN == HIGH);
+        maxim_max30102_read_fifo((aun_red_buffer + buffer_index), (aun_ir_buffer + buffer_index), &error_handler.flags.pox_sensor);  //read from MAX30102 FIFO
+        
     }
 
+    Nop();
+    printf("New AQ:\r\n");
+    for(buffer_index = 0; buffer_index < BUFFER_SIZE; buffer_index++)
+    {
+        printf("IR: %d\r\n", aun_ir_buffer[buffer_index]);
+        
+    }
+    
+    Nop();
+    
     //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
     rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);
+    
+    old_n_spo2=n_spo2;
     
 }
 
