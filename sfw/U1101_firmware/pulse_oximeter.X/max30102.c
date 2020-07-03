@@ -66,6 +66,9 @@
 #include "error_handler.h"
 
 #include <stdbool.h>
+#include <stdio.h>
+
+#include "terminal_control.h"
 
 bool maxim_max30102_write_reg(uint8_t uch_addr, uint8_t uch_data, volatile uint8_t *device_error_handler_flag)
 /**
@@ -157,10 +160,10 @@ bool maxim_max30102_init()
     softwareDelay(0xFF);
 
     //Choose value for ~ 7mA for LED1
-    if(!maxim_max30102_write_reg(MAX30102_REG_LED1_PA,0x24, &error_handler.flags.pox_sensor))   return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_LED1_PA,0x34, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
     // Choose value for ~ 7mA for LED2
-    if(!maxim_max30102_write_reg(MAX30102_REG_LED2_PA,0x24, &error_handler.flags.pox_sensor))   return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_LED2_PA,0x34, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
     // Choose value for ~ 25mA for Pilot LED
     if(!maxim_max30102_write_reg(MAX30102_REG_PILOT_PA,0x7f, &error_handler.flags.pox_sensor))   return false;
@@ -239,3 +242,364 @@ bool maxim_max30102_reset()
         return true;    
 }
 
+// this function is something drewsum added, it prints the status of the MAX30102 configuration registers
+void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_handler_flag) {
+ 
+    uint8_t data_reg_pointer[1];
+    uint8_t read_bytes[1];
+    
+    // Read INT STATUS 1 REG
+    data_reg_pointer[0] = MAX30102_REG_INTR_STATUS_1;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_a_full = (read_bytes[0] >> 7) & 0b1;
+    uint8_t read_ppg_rdy = (read_bytes[0] >> 6) & 0b1;
+    uint8_t read_alc_ovf = (read_bytes[0] >> 5) & 0b1;
+    uint8_t read_pwr_rdy = (read_bytes[0]) & 0b1;
+    
+    // Read INT STATUS 2 REG
+    data_reg_pointer[0] = MAX30102_REG_INTR_STATUS_2;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_die_temp_rdy = (read_bytes[0] >> 1) & 0b1;
+    
+    // Read INT ENABLE 1 REG
+    data_reg_pointer[0] = MAX30102_REG_INTR_ENABLE_1;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_a_full_en = (read_bytes[0] >> 7) & 0b1;
+    uint8_t read_ppg_rdy_en = (read_bytes[0] >> 6) & 0b1;
+    uint8_t read_alc_ovf_en = (read_bytes[0] >> 5) & 0b1;
+    
+    // Read INT ENABLE 2 REG
+    data_reg_pointer[0] = MAX30102_REG_INTR_ENABLE_2;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_die_temp_rdy_en = (read_bytes[0] >> 1) & 0b1;
+    
+    // Read FIFO_WR_PTR
+    data_reg_pointer[0] = MAX30102_REG_FIFO_WR_PTR;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_fifo_wr_ptr = read_bytes[0];
+    
+    // Read FIFO_OVF_CTR
+    data_reg_pointer[0] = MAX30102_REG_OVF_COUNTER;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_fifo_ovf_ctr = read_bytes[0];
+    
+    // Read FIFO_RD_PTR
+    data_reg_pointer[0] = MAX30102_REG_FIFO_RD_PTR;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_fifo_rd_ptr = read_bytes[0];
+    
+    // Read FIFO_CFG
+    data_reg_pointer[0] = MAX30102_REG_FIFO_CONFIG;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_smp_ave = (read_bytes[0] >> 5) & 0b11;
+    uint8_t read_fifo_roll_over_en = (read_bytes[0] >> 4) & 0b1;
+    uint8_t read_fifo_a_full = (read_bytes[0]) & 0b1111;
+    
+    // Read Mode CONFIG
+    data_reg_pointer[0] = MAX30102_REG_MODE_CONFIG;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_shdn = (read_bytes[0] >> 7) & 0b1;
+    uint8_t read_reset = (read_bytes[0] >> 6) & 0b1;
+    uint8_t read_mode = (read_bytes[0]) & 0b111;
+    
+    // Read SPO2 Config
+    data_reg_pointer[0] = MAX30102_REG_SPO2_CONFIG;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_spo2_adc_rge = (read_bytes[0] >> 5) & 0b11;
+    uint8_t read_spo2_sr = (read_bytes[0] >> 2) & 0b111;
+    uint8_t read_led_pw = (read_bytes[0]) & 0b11;
+    
+    // Read LED PA1
+    data_reg_pointer[0] = MAX30102_REG_LED1_PA;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_led_pa1 = read_bytes[0];
+    
+    // Read LED PA2
+    data_reg_pointer[0] = MAX30102_REG_LED2_PA;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_led_pa2 = read_bytes[0];
+    
+    // Read LED ctrl reg1
+    data_reg_pointer[0] = MAX30102_REG_MULTI_LED_CTRL1;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_slot2 = (read_bytes[0] >> 4) & 0b111;
+    uint8_t read_slot1 = (read_bytes[0]) & 0b111;
+    
+    // Read LED ctrl reg2
+    data_reg_pointer[0] = MAX30102_REG_MULTI_LED_CTRL2;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_slot4 = (read_bytes[0] >> 4) & 0b111;
+    uint8_t read_slot3 = (read_bytes[0]) & 0b111;
+    
+    // Read Rev ID
+    data_reg_pointer[0] = MAX30102_REG_REV_ID;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_rev_id = read_bytes[0];
+    
+    // Read dev ID
+    data_reg_pointer[0] = MAX30102_REG_PART_ID;
+    if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
+        *device_error_handler_flag = 1;
+    }
+    while(i2c5Obj.state != I2C_STATE_IDLE);
+    uint8_t read_part_id = read_bytes[0];
+    
+    
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+    printf("MAX30102 Pulse Oximetry Sensor, located at 0x%02X\r\n", input_address);
+    
+    if (read_a_full) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    FIFO Almost Full Flag: %s\r\n", read_a_full ? "True" : "False");
+    if (read_ppg_rdy) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    New FIFO Data Ready: %s\r\n", read_ppg_rdy ? "True" : "False");
+    if (read_alc_ovf) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Ambient Light Cancellation Overflow: %s\r\n", read_alc_ovf ? "Occurred" : "Not Occurred");
+    if (read_pwr_rdy) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Device Power Ready: %s\r\n", read_pwr_rdy ? "True" : "False");
+    if (read_die_temp_rdy) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Die Temp Data: %s\r\n", read_die_temp_rdy ? "Ready" : "Not Ready");
+    
+    
+    if (read_a_full_en) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    FIFO Almost Full Interrupt Enable: %s\r\n", read_a_full_en ? "True" : "False");
+    if (read_ppg_rdy_en) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    New FIFO Data Ready Interrupt Enable: %s\r\n", read_ppg_rdy_en ? "True" : "False");
+    if (read_alc_ovf_en) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Ambient Light Cancellation Overflow Interrupt Enable: %s\r\n", read_alc_ovf_en ? "True" : "False");
+    if (read_die_temp_rdy_en) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Die Temp Data Ready Interrupt Enable: %s\r\n", read_die_temp_rdy_en ? "True" : "False");
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    FIFO Write Pointer: 0x%02X\r\n", read_fifo_wr_ptr);
+    printf("    FIFO Overflow Counter: 0x%02X\r\n", read_fifo_ovf_ctr);
+    printf("    FIFO Read Pointer: 0x%02X\r\n", read_fifo_rd_ptr);
+    
+    printf("    Sampling Average: ");
+    switch (read_smp_ave) {
+        case 0b000:
+            printf("1 (no averaging)\r\n");
+            break;
+        case 0b001:
+            printf("2\r\n");
+            break;
+        case 0b010:
+            printf("4\r\n");
+            break;
+        case 0b011:
+            printf("8\r\n");
+            break;
+        case 0b100:
+            printf("16\r\n");
+            break;
+        case 0b101:
+            printf("32\r\n");
+            break;
+        case 0b110:
+            printf("32\r\n");
+            break;
+        case 0b111: 
+            printf("32\r\n");
+            break;   
+    }
+    if (read_fifo_roll_over_en) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    FIFO Rollover Enable: %s\r\n", read_fifo_roll_over_en ? "True" : "False");
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    FIFO Almost Full Value: 0x%02X\r\n", read_fifo_a_full);
+    
+    if (read_shdn) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Device Shutdown: %s\r\n", read_shdn ? "True" : "False");
+    if (read_reset) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Device Reset: %s\r\n", read_reset ? "True" : "False");
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Device Mode: ");
+    switch (read_mode) {
+        case 0b010: 
+            printf("Heart Rate mode, Red LED active\r\n");
+            break;
+        case 0b011: 
+            printf("SpO2 mode, Red and IR LEDs active\r\n");
+            break;
+        case 0b111: 
+            printf("Multi-LED mode, Red and IR LEDs active\r\n");
+            break;
+        default:
+            printf("Undefined\r\n");
+            break;
+    }
+    
+    printf("    SPO2 ADC Range: ");
+    switch (read_spo2_adc_rge) {
+        case 0b00: 
+            printf("LSB: 7.81, Full Scale: 2048nA\r\n");
+            break;
+        case 0b01: 
+            printf("LSB: 15.63, Full Scale: 4096nA\r\n");
+            break;
+        case 0b10: 
+            printf("LSB: 31.25, Full Scale: 8192nA\r\n");
+            break;
+        case 0b11: 
+            printf("LSB: 62.5, Full Scale: 16384nA\r\n");
+            break;
+    }
+    
+    printf("    SPO2 Sample Rate (per second): ");
+    switch (read_spo2_sr) {
+        case 0b000:
+            printf("50\r\n");
+            break;
+        case 0b001:
+            printf("100\r\n");
+            break;
+        case 0b010: 
+            printf("200\r\n");
+            break;
+        case 0b011: 
+            printf("400\r\n");
+            break;
+        case 0b100:
+            printf("800\r\n");
+            break;
+        case 0b101:
+            printf("1000\r\n");
+            break;
+        case 0b110:
+            printf("1600\r\n");
+            break;
+        case 0b111:
+            printf("3200\r\n");
+            break;
+    }
+    
+    printf("    LED Pulse Width (us)/ADC Resolution (bits): ");
+    switch (read_led_pw) {
+        case 0b00: 
+            printf("69 (68.95)/ 15\r\n");
+            break;
+        case 0b01:
+            printf("118 (117.78)/ 16\r\n");
+            break;
+        case 0b10:
+            printf("215 (215.44)/ 17\r\n");
+            break;
+        case 0b11:
+            printf("411 (410.75)/ 18\r\n");
+            break;
+    }
+    
+    printf("    Red LED Current Value: 0x%02X\r\n", read_led_pa1);
+    printf("    IR LED Current Value: 0x%02X\r\n", read_led_pa2);
+    
+    printf("    Slot 1 Setting: ");
+    switch (read_slot1) {
+        case 0b001:
+            printf("LED1 (Red)\r\n");
+            break;
+        case 0b010:
+            printf("LED2 (IR)\r\n");
+            break;
+        default:
+            printf("None\r\n");
+            break;
+    }
+    printf("    Slot 2 Setting: ");
+    switch (read_slot2) {
+        case 0b001:
+            printf("LED1 (Red)\r\n");
+            break;
+        case 0b010:
+            printf("LED2 (IR)\r\n");
+            break;
+        default:
+            printf("None\r\n");
+            break;
+    }
+    printf("    Slot 3 Setting: ");
+    switch (read_slot3) {
+        case 0b001:
+            printf("LED1 (Red)\r\n");
+            break;
+        case 0b010:
+            printf("LED2 (IR)\r\n");
+            break;
+        default:
+            printf("None\r\n");
+            break;
+    }
+    printf("    Slot 4 Setting: ");
+    switch (read_slot4) {
+        case 0b001:
+            printf("LED1 (Red)\r\n");
+            break;
+        case 0b010:
+            printf("LED2 (IR)\r\n");
+            break;
+        default:
+            printf("None\r\n");
+            break;
+    }
+    
+    printf("    Device ID: 0x%02X\r\n", read_part_id);
+    printf("    Device Revision ID: 0x%02X\r\n", read_rev_id);
+    
+    terminalTextAttributesReset();
+    
+}

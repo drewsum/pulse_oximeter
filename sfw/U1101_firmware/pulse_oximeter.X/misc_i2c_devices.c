@@ -7,6 +7,7 @@
 #include "pin_macros.h"
 #include "error_handler.h"
 #include "ds1683_time_of_flight.h"
+#include "max30102.h"
 
 // this function initializes the logic board TOF counter
 void systemTOFInitialize(void) {
@@ -34,5 +35,6 @@ uint32_t systemGetPowerCycles(void) {
 void miscI2CDevicesPrintStatus(void) {
  
     DS1683PrintStatus(SYSTEM_TOF_ADDR, &error_handler.flags.time_of_flight);
+    MAX30102printStatus(MAX30102_I2C_READ_ADDR, &error_handler.flags.pox_sensor);
     
 }

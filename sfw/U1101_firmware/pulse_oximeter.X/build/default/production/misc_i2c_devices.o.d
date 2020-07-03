@@ -5,4 +5,5 @@ plib_i2c3.h  \
 plib_i2c_master.h  \
 ds1683_time_of_flight.h  \
  pin_macros.h  \
-error_handler.h 
+error_handler.h  \
+max30102.h 
