@@ -89,10 +89,10 @@ void main(void) {
     
     // only clear persistent error flags if we've seen a POR... keep old values after other resets
     if (reset_cause == POR_Reset) {
-        live_telemetry_enable = 0;
-        live_telemetry_request = 0;
         clearErrorHandler();
     }
+    live_telemetry_enable = 0;
+    live_telemetry_request = 0;
     
     printf("\r\nCause of most recent device reset: %s\r\n\r\n", getResetCauseString(reset_cause));
     terminalTextAttributesReset();

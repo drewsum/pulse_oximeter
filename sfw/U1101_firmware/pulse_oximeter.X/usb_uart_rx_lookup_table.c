@@ -18,6 +18,7 @@
 #include "adc.h"
 #include "adc_channels.h"
 #include "algorithm_by_RF.h"
+#include "misc_i2c_devices.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -217,7 +218,7 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
 
 usb_uart_command_function_t timeOfFlightCommand(char * input_str) {
  
-    double tof_temp = systemGetTOF();
+    volatile double tof_temp = systemGetTOF();
     uint32_t tof_temp_int = (uint32_t) floor(tof_temp);
     uint32_t power_cycle_temp = systemGetPowerCycles();
     

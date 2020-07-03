@@ -6,7 +6,6 @@
 
 #include "pin_macros.h"
 #include "error_handler.h"
-#include "temperature_sensors.h"
 #include "ds1683_time_of_flight.h"
 
 // this function initializes the logic board TOF counter
@@ -19,7 +18,9 @@ void systemTOFInitialize(void) {
 // this function returns time of flight in seconds (w/ 0.25 second granularity) for logic board from I2C time of flight counter
 double systemGetTOF(void) {
  
-    return DS1683GetETC(SYSTEM_TOF_ADDR, &error_handler.flags.time_of_flight);
+    volatile double ret_value = DS1683GetETC(SYSTEM_TOF_ADDR, &error_handler.flags.time_of_flight);
+    Nop();
+    return ret_value;
     
 }
 

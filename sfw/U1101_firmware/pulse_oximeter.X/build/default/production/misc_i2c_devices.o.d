@@ -5,6 +5,4 @@ plib_i2c3.h  \
 plib_i2c_master.h  \
 ds1683_time_of_flight.h  \
  pin_macros.h  \
-error_handler.h  \
-temperature_sensors.h  \
-mcp9804_temp_sensor.h 
+error_handler.h 

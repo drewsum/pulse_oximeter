@@ -29,13 +29,13 @@
 #define SYSTEM_TOF_ADDR      0x6B
 
 // this function initializes the logic board TOF counter
-void logicBoardTOFInitialize(void);
+void systemTOFInitialize(void);
 
 // this function returns time of flight in seconds (w/ 0.25 second granularity) for logic board from I2C time of flight counter
-double logicBoardGetTOF(void);
+double systemGetTOF(void);
 
 // this function returns the number of power cycles for the logic board from I2C time of flight counter
-uint32_t logicBoardGetPowerCycles(void);
+uint32_t systemGetPowerCycles(void);
 
 // this function prints config status for misc I2C devices
 void miscI2CDevicesPrintStatus(void);

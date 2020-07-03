@@ -13,4 +13,8 @@ pin_macros.h  \
  telemetry.h  \
 adc.h  \
 adc_channels.h  \
-algorithm_by_RF.h 
+algorithm_by_RF.h  \
+misc_i2c_devices.h  \
+ plib_i2c3.h  \
+plib_i2c_master.h  \
+ds1683_time_of_flight.h 

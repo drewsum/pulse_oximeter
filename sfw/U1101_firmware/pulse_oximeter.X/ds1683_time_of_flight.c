@@ -31,23 +31,17 @@ double DS1683GetETC(uint8_t device_address, volatile uint8_t *device_error_handl
     uint8_t data_reg_pointer[1];
     uint8_t readBytes[4];
     data_reg_pointer[0] = DS1683_ETC_0_REG;
-    if(!I2CMaster_WriteRead(device_address, data_reg_pointer, 1, readBytes, 4)) {
+    if(!I2CMaster_WriteRead(device_address, &data_reg_pointer[0], 1, readBytes, 4)) {
         *device_error_handler_flag = 1;
     }
     while(i2c5Obj.state != I2C_STATE_IDLE);
     
-    if (i2c5Obj.state == I2C_STATE_IDLE) {
-        // convert received data to volts
-#warning "This appears to be broken"
-        uint32_t received_data = ((readBytes[3] << 24) | (readBytes[2] << 16) | (readBytes[1] << 8) | (readBytes[0]));
-        return received_data * 0.25;
-    }
-    else {
-        *device_error_handler_flag = 1;
-        return 0.0;
-    }
-    
-    
+    // convert received data to volts
+    #warning "This appears to be broken"
+    uint32_t received_data = ((readBytes[3] << 24) | (readBytes[2] << 16) | (readBytes[1] << 8) | (readBytes[0]));
+    double return_val = ((double) received_data) * 0.25;
+    return return_val;
+
 }
 
 // This function gets the event count from counter at passed address. Also pass pointer to error handler flag for device
