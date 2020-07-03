@@ -19,7 +19,6 @@ void systemTOFInitialize(void) {
 double systemGetTOF(void) {
  
     volatile double ret_value = DS1683GetETC(SYSTEM_TOF_ADDR, &error_handler.flags.time_of_flight);
-    Nop();
     return ret_value;
     
 }

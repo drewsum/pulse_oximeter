@@ -37,7 +37,6 @@ double DS1683GetETC(uint8_t device_address, volatile uint8_t *device_error_handl
     while(i2c5Obj.state != I2C_STATE_IDLE);
     
     // convert received data to volts
-    #warning "This appears to be broken"
     uint32_t received_data = ((readBytes[3] << 24) | (readBytes[2] << 16) | (readBytes[1] << 8) | (readBytes[0]));
     double return_val = ((double) received_data) * 0.25;
     return return_val;
