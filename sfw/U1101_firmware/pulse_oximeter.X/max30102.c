@@ -169,6 +169,19 @@ bool maxim_max30102_init()
     if(!maxim_max30102_write_reg(MAX30102_REG_LED2_PA,0x24, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
 
+    // setup POX_INT_PIN falling edge interrupt
+    // Configure PORT B CNF
+    disableInterrupt(PORTB_Input_Change_Interrupt);
+    CNCONBbits.EDGEDETECT = 1;
+    CNCONBbits.ON = 1;
+    setInterruptPriority(PORTB_Input_Change_Interrupt, 2);
+    setInterruptSubpriority(PORTB_Input_Change_Interrupt, 1);
+    
+    // Set falling edge detection on RB2
+    CNENB = 0;
+    CNNEB = 0;
+    CNNEBbits.CNNEB2 = 1;
+    
     return true;  
 }
 

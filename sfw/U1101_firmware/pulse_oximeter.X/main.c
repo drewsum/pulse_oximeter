@@ -271,37 +271,11 @@ void main(void) {
         // update error LEDs if needed
         if (update_error_leds_flag) updateErrorLEDs();
         
-        // Get new POX data and convert it to heart rate and SPO2
-        if (pox_daq_request_flag) {
+        // Start POX DAQ state machine if we need to
+        if (pox_daq_request_flag) poxAcquireStart();
             
-            poxAcquire();
-            
-            if (ch_spo2_valid && ch_spo2_valid) {
-                terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
-                printf("Data Valid:\r\n");
-            }
-            else {
-                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
-                printf("Data Invalid:\r\n");
-            }
-            
-            if (pox_daq_verbosity_enable) {
-                uint32_t print_index;
-                for (print_index = 0; print_index < BUFFER_SIZE; print_index++) {
-                    printf("    %d, %d\r\n", aun_ir_buffer[print_index], aun_red_buffer[print_index]);
-                }
-            }
-            
-            printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
-                    n_heart_rate,
-                    n_spo2,
-                    ratio,
-                    correl,
-                    ch_spo2_valid,
-                    ch_hr_valid);  
-            terminalTextAttributesReset();
-            pox_daq_request_flag = 0;
-        }
+        // get new POX data if we need to
+        if (pox_daq_callback_request) poxAcquireInterruptHandler();
         
     }
     

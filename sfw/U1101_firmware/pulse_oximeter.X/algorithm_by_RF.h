@@ -36,6 +36,12 @@
 
 #include <stdint.h>
 
+// These are macros needed for defining ISRs, included in XC32
+#include <sys/attribs.h>
+
+#include "32mz_interrupt_control.h"
+
+
 /*
  * Settable parameters 
  * Leave these alone if your circuit and hardware setup match the defaults 
@@ -82,7 +88,7 @@ int32_t n_heart_rate; //heart rate value
 int8_t  ch_hr_valid;  //indicator to show if the heart rate calculation is valid
 
 // this flag is used for the application to request ST seconds worth of data. 
-volatile uint32_t pox_daq_request_flag, pox_daq_enable, pox_daq_verbosity_enable;
+volatile uint32_t pox_daq_request_flag, pox_daq_enable, pox_daq_verbosity_enable, pox_daq_buffer_index, pox_daq_callback_request;
 
 void rf_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer, int32_t n_ir_buffer_length, uint32_t *pun_red_buffer, float *pn_spo2, int8_t *pch_spo2_valid, int32_t *pn_heart_rate, 
                                         int8_t *pch_hr_valid, float *ratio, float *correl);
@@ -93,8 +99,15 @@ float rf_Pcorrelation(float *pn_x, float *pn_y, int32_t n_size);
 void rf_initialize_periodicity_search(float *pn_x, int32_t n_size, int32_t *p_last_periodicity, int32_t n_max_distance, float min_aut_ratio, float aut_lag0);
 void rf_signal_periodicity(float *pn_x, int32_t n_size, int32_t *p_last_periodicity, int32_t n_min_distance, int32_t n_max_distance, float min_aut_ratio, float aut_lag0, float *ratio);
 
-// this function was added by drewsum, grabs data from MAX and is meant to be called from main()
-void poxAcquire(void);
+// Dresum's stuff. This interrupt is used when gathering data from MAX30102
+// This interrupt is triggered on the falling edge of POX_INT_PIN
+void __ISR(_CHANGE_NOTICE_B_VECTOR, IPL2SRS) poxIntISR(void);
+
+// this function starts the pulse oximeter DAQ state machine
+void poxAcquireStart(void);
+// this function is the handler for POX INT pin falling edge interrupt
+void poxAcquireInterruptHandler(void);
+
 
 #endif /* ALGORITHM_BY_RF_H_ */
 

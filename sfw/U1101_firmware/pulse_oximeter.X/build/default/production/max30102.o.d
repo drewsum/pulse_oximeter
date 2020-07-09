@@ -4,5 +4,6 @@ max30102.h  \
 plib_i2c3.h  \
  plib_i2c_master.h  \
 algorithm_by_RF.h  \
-error_handler.h  \
+32mz_interrupt_control.h  \
+ error_handler.h  \
 terminal_control.h 

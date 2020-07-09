@@ -35,10 +35,13 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <xc.h>
 #include "pin_macros.h"
 #include "max30102.h"
 #include "error_handler.h"
+#include "32mz_interrupt_control.h"
+#include "terminal_control.h"
 
 void rf_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer, int32_t n_ir_buffer_length, uint32_t *pun_red_buffer, float *pn_spo2, int8_t *pch_spo2_valid, 
                 int32_t *pn_heart_rate, int8_t *pch_hr_valid, float *ratio, float *correl)
@@ -306,34 +309,110 @@ float rf_Pcorrelation(float *pn_x, float *pn_y, int32_t n_size)
   return r;
 }
 
-// this function was added by drewsum, grabs data from MAX and is meant to be called from main()
-void poxAcquire(void) {
-    
-    //buffer length of BUFFER_SIZE stores ST seconds of samples running at FS sps
-    //read BUFFER_SIZE samples, and determine the signal range
-    uint32_t buffer_index;
-    for(buffer_index = 0; buffer_index < BUFFER_SIZE; buffer_index++)
-    {
-        while(POX_INT_PIN == HIGH);
-        maxim_max30102_read_fifo(&aun_red_buffer[buffer_index], &aun_ir_buffer[buffer_index], &error_handler.flags.pox_sensor);  //read from MAX30102 FIFO
+// Dresum's stuff. This interrupt is used when gathering data from MAX30102
+// This interrupt is triggered on the falling edge of POX_INT_PIN
+void __ISR(_CHANGE_NOTICE_B_VECTOR, IPL2SRS) poxIntISR(void) {
+ 
+    // If we saw a falling edge on RB2
+    if (CNFBbits.CNFB2 && CNNEBbits.CNNEB2) {
+        
+        // read data from MAX30102 on next loop through main()
+        pox_daq_callback_request = 1;
         
     }
-
-    //FIFO_WR_PTR[4:0]
-    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_WR_PTR,0x00, &error_handler.flags.pox_sensor))  return;
-    softwareDelay(0xFF);
-    //OVF_COUNTER[4:0]
-    if(!maxim_max30102_write_reg(MAX30102_REG_OVF_COUNTER,0x00, &error_handler.flags.pox_sensor))  return;
-    softwareDelay(0xFF);
-    //FIFO_RD_PTR[4:0]
-    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_RD_PTR,0x00, &error_handler.flags.pox_sensor))  return;
-    softwareDelay(0xFF);
-
     
-    //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
-    rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);
+    // Clear all change notification flags
+    // If this is not done, we'll continuously trigger on edges that aren't there
+    CNFB    = 0;
+    CNSTATB = 0;
     
-    old_n_spo2=n_spo2;
+    // Read PORTB, this clears more CN flags
+    uint16_t dummy = PORTB;
+    
+    clearInterruptFlag(PORTB_Input_Change_Interrupt);
     
 }
 
+// this function starts the pulse oximiter DAQ state machine
+void poxAcquireStart(void) {
+    
+    
+    
+    // this is the index of how many samples we've received from MAX30102
+    pox_daq_buffer_index = 0;
+    
+    // Setup falling edge interrupt on POX INT pin
+    enableInterrupt(PORTB_Input_Change_Interrupt);
+    
+    pox_daq_request_flag = 0;
+    
+}
+
+// this function is the handler for POX INT pin falling edge interrupt
+void poxAcquireInterruptHandler(void) {
+ 
+    // if we're canceling the acquisition
+    if (pox_daq_enable == 0) {
+        disableInterrupt(PORTB_Input_Change_Interrupt);
+        pox_daq_callback_request = 0;
+        pox_daq_request_flag = 0;
+        pox_daq_buffer_index = 0;
+        return;
+    }
+    
+    // grab the next sample
+    maxim_max30102_read_fifo(&aun_red_buffer[pox_daq_buffer_index], &aun_ir_buffer[pox_daq_buffer_index], &error_handler.flags.pox_sensor);  //read from MAX30102 FIFO
+    
+    // save sample in next location next time we get new data
+    pox_daq_buffer_index++;
+    
+    // if we've gotten all needed samples
+    if (pox_daq_buffer_index == BUFFER_SIZE) {
+     
+        // reset FIFO pointers in MAX30102
+        //FIFO_WR_PTR[4:0]
+        if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_WR_PTR,0x00, &error_handler.flags.pox_sensor))  return;
+        softwareDelay(0xFF);
+        //OVF_COUNTER[4:0]
+        if(!maxim_max30102_write_reg(MAX30102_REG_OVF_COUNTER,0x00, &error_handler.flags.pox_sensor))  return;
+        softwareDelay(0xFF);
+        //FIFO_RD_PTR[4:0]
+        if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_RD_PTR,0x00, &error_handler.flags.pox_sensor))  return;
+        softwareDelay(0xFF);
+        
+        //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
+        rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);
+        old_n_spo2=n_spo2;
+        
+        disableInterrupt(PORTB_Input_Change_Interrupt);
+        
+        if (ch_spo2_valid && ch_spo2_valid) {
+            terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("Data Valid:\r\n");
+        }
+        else {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("Data Invalid:\r\n");
+        }
+
+        if (pox_daq_verbosity_enable) {
+            uint32_t print_index;
+            for (print_index = 0; print_index < BUFFER_SIZE; print_index++) {
+                printf("    %d, %d\r\n", aun_ir_buffer[print_index], aun_red_buffer[print_index]);
+            }
+        }
+
+        printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
+                n_heart_rate,
+                n_spo2,
+                ratio,
+                correl,
+                ch_spo2_valid,
+                ch_hr_valid);  
+        terminalTextAttributesReset();
+        
+    }
+    
+    pox_daq_callback_request = 0;
+    
+}
