@@ -25,6 +25,8 @@
 
 #include "adc.h"
 
+#define HOST_TEMP_OFFSET -100.0
+
 // this function sets up ADC channels
 void adcChannelsInitialize(void);
 

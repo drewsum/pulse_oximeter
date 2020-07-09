@@ -195,7 +195,7 @@ void main(void) {
     maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
     if (maxim_max30102_init()) {
         printf("    Pulse Oximetry Sensor Initialized\r\n");
-        old_n_spo2=0.0;
+        old_n_spo2 = 0.0;
     }
     else {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);

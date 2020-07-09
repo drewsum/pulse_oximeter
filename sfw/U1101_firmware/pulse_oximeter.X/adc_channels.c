@@ -99,7 +99,7 @@ void __ISR(_ADC_DATA44_VECTOR, IPL1SRS) ADCData44ISR(void) {
     if (ADCDSTAT2bits.ARDY44) {
 
         // copy ADC conversion result into telemetry
-        telemetry.mcu_die_temp = (double) ((ADCDATA44 * ADC_VOLTS_PER_LSB * adc_cal_gain) - 0.7) / 0.005;
+        telemetry.mcu_die_temp = (double) ((ADCDATA44 * ADC_VOLTS_PER_LSB * adc_cal_gain) - 0.7) / 0.005 + HOST_TEMP_OFFSET;
         
     }
     
