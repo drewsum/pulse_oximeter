@@ -188,13 +188,14 @@ void main(void) {
     printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
     
     // initialize MAX30102 pulse oximeter sensor
-    softwareDelay(1000);
+    softwareDelay(100000);
     
     maxim_max30102_reset(); //resets the MAX30102
-    softwareDelay(1000);
+    while(POX_INT_PIN == HIGH);
     maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
     if (maxim_max30102_init()) {
         printf("    Pulse Oximetry Sensor Initialized\r\n");
+        old_n_spo2=0.0;
     }
     else {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -272,15 +273,23 @@ void main(void) {
         
         // Get new POX data and convert it to heart rate and SPO2
         if (pox_daq_request_flag) {
+            
             poxAcquire();
             
             if (ch_spo2_valid && ch_spo2_valid) {
                 terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
-                printf("Data Valid: ");
+                printf("Data Valid:\r\n");
             }
             else {
                 terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
-                printf("Data Invalid: ");
+                printf("Data Invalid:\r\n");
+            }
+            
+            if (pox_daq_verbosity_enable) {
+                uint32_t print_index;
+                for (print_index = 0; print_index < BUFFER_SIZE; print_index++) {
+                    printf("    %d, %d\r\n", aun_ir_buffer[print_index], aun_red_buffer[print_index]);
+                }
             }
             
             printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",

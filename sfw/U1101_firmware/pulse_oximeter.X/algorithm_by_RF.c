@@ -308,18 +308,27 @@ float rf_Pcorrelation(float *pn_x, float *pn_y, int32_t n_size)
 
 // this function was added by drewsum, grabs data from MAX and is meant to be called from main()
 void poxAcquire(void) {
-
+    
     //buffer length of BUFFER_SIZE stores ST seconds of samples running at FS sps
     //read BUFFER_SIZE samples, and determine the signal range
     uint32_t buffer_index;
     for(buffer_index = 0; buffer_index < BUFFER_SIZE; buffer_index++)
     {
         while(POX_INT_PIN == HIGH);
-        maxim_max30102_read_fifo((aun_red_buffer + buffer_index), (aun_ir_buffer + buffer_index), &error_handler.flags.pox_sensor);  //read from MAX30102 FIFO
+        maxim_max30102_read_fifo(&aun_red_buffer[buffer_index], &aun_ir_buffer[buffer_index], &error_handler.flags.pox_sensor);  //read from MAX30102 FIFO
         
     }
 
-    Nop();
+    //FIFO_WR_PTR[4:0]
+    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_WR_PTR,0x00, &error_handler.flags.pox_sensor))  return;
+    softwareDelay(0xFF);
+    //OVF_COUNTER[4:0]
+    if(!maxim_max30102_write_reg(MAX30102_REG_OVF_COUNTER,0x00, &error_handler.flags.pox_sensor))  return;
+    softwareDelay(0xFF);
+    //FIFO_RD_PTR[4:0]
+    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_RD_PTR,0x00, &error_handler.flags.pox_sensor))  return;
+    softwareDelay(0xFF);
+
     
     //calculate heart rate and SpO2 after BUFFER_SIZE samples (ST seconds of samples) using Robert's method
     rf_heart_rate_and_oxygen_saturation(aun_ir_buffer, BUFFER_SIZE, aun_red_buffer, &n_spo2, &ch_spo2_valid, &n_heart_rate, &ch_hr_valid, &ratio, &correl);

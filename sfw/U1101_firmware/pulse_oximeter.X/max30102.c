@@ -135,10 +135,13 @@ bool maxim_max30102_init()
 * \retval       true on success
 */
 {
+    // clear INT registers
+    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_STATUS_1, 0x00, &error_handler.flags.pox_sensor)) return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_STATUS_2, 0x00, &error_handler.flags.pox_sensor)) return false;
     // INTR setting
-    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_ENABLE_1,0xc0, &error_handler.flags.pox_sensor)) return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_ENABLE_1,0b01000000, &error_handler.flags.pox_sensor)) return false;
     softwareDelay(0xFF);
-    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_ENABLE_2,0x00, &error_handler.flags.pox_sensor)) return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_INTR_ENABLE_2,0b00000000, &error_handler.flags.pox_sensor)) return false;
     softwareDelay(0xFF);
     //FIFO_WR_PTR[4:0]
     if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_WR_PTR,0x00, &error_handler.flags.pox_sensor))  return false;
@@ -149,24 +152,21 @@ bool maxim_max30102_init()
     //FIFO_RD_PTR[4:0]
     if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_RD_PTR,0x00, &error_handler.flags.pox_sensor))  return false;
     softwareDelay(0xFF);
-    //sample avg = 4, fifo rollover=false, fifo almost full = 17
-    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_CONFIG,0x4f, &error_handler.flags.pox_sensor))  return false;
+    //sample avg = 4, fifo rollover=false, fifo almost full = 0
+    if(!maxim_max30102_write_reg(MAX30102_REG_FIFO_CONFIG,0b01000000, &error_handler.flags.pox_sensor))  return false;
     softwareDelay(0xFF);
     //0x02 for Red only, 0x03 for SpO2 mode 0x07 multimode LED
-    if(!maxim_max30102_write_reg(MAX30102_REG_MODE_CONFIG,0x03, &error_handler.flags.pox_sensor))   return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_MODE_CONFIG,0b00000011, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
-    // SPO2_ADC range = 4096nA, SPO2 sample rate (100 Hz), LED pulseWidth (411uS)
-    if(!maxim_max30102_write_reg(MAX30102_REG_SPO2_CONFIG,0x27, &error_handler.flags.pox_sensor))  return false;
+    // SPO2_ADC range = 4096nA, SPO2 sample rate (100 Hz), LED pulseWidth (411us)
+    if(!maxim_max30102_write_reg(MAX30102_REG_SPO2_CONFIG,0b00100111, &error_handler.flags.pox_sensor))  return false;
     softwareDelay(0xFF);
 
     //Choose value for ~ 7mA for LED1
-    if(!maxim_max30102_write_reg(MAX30102_REG_LED1_PA,0x34, &error_handler.flags.pox_sensor))   return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_LED1_PA,0x24, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
     // Choose value for ~ 7mA for LED2
-    if(!maxim_max30102_write_reg(MAX30102_REG_LED2_PA,0x34, &error_handler.flags.pox_sensor))   return false;
-    softwareDelay(0xFF);
-    // Choose value for ~ 25mA for Pilot LED
-    if(!maxim_max30102_write_reg(MAX30102_REG_PILOT_PA,0x7f, &error_handler.flags.pox_sensor))   return false;
+    if(!maxim_max30102_write_reg(MAX30102_REG_LED2_PA,0x24, &error_handler.flags.pox_sensor))   return false;
     softwareDelay(0xFF);
 
     return true;  
@@ -188,8 +188,8 @@ bool maxim_max30102_read_fifo(uint32_t *pun_red_led, uint32_t *pun_ir_led, volat
     // clear interrupt pin since this is what triggered us entering this function
     uint32_t un_temp;
     uint8_t uch_temp;
-    *pun_ir_led=0;
-    *pun_red_led=0;
+    *pun_ir_led = 0;
+    *pun_red_led = 0;
     maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1, &uch_temp, &error_handler.flags.pox_sensor);
     maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_2, &uch_temp, &error_handler.flags.pox_sensor);
     
@@ -203,25 +203,12 @@ bool maxim_max30102_read_fifo(uint32_t *pun_red_led, uint32_t *pun_ir_led, volat
     while(i2c5Obj.state != I2C_STATE_IDLE);
 
     // align data from FIFO
-    un_temp=temp[0];
-    un_temp<<=16;
-    *pun_red_led+=un_temp;
-    un_temp=temp[1];
-    un_temp<<=8;
-    *pun_red_led+=un_temp;
-    un_temp=temp[2];
-    *pun_red_led+=un_temp;
-    un_temp=temp[3];
-    un_temp<<=16;
-    *pun_ir_led+=un_temp;
-    un_temp=temp[4];
-    un_temp<<=8;
-    *pun_ir_led+=un_temp;
-    un_temp=temp[5];
-    *pun_ir_led+=un_temp;
+    *pun_red_led = ((uint32_t) temp[0] << 16) | ((uint32_t) temp[1] << 8) | ((uint32_t) temp[2]);
+    *pun_ir_led = ((uint32_t) temp[3] << 16) | ((uint32_t) temp[4] << 8) | ((uint32_t) temp[5]);
+    
     *pun_red_led&=0x03FFFF;  //Mask MSB [23:18]
     *pun_ir_led&=0x03FFFF;  //Mask MSB [23:18]
-
+    
     return true;
 }
 
@@ -315,7 +302,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
         *device_error_handler_flag = 1;
     }
     while(i2c5Obj.state != I2C_STATE_IDLE);
-    uint8_t read_smp_ave = (read_bytes[0] >> 5) & 0b11;
+    uint8_t read_smp_ave = (read_bytes[0] >> 5) & 0b111;
     uint8_t read_fifo_roll_over_en = (read_bytes[0] >> 4) & 0b1;
     uint8_t read_fifo_a_full = (read_bytes[0]) & 0b1111;
     

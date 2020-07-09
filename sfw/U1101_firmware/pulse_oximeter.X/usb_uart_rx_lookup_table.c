@@ -285,25 +285,55 @@ usb_uart_command_function_t liveTelemetryCommand(char * input_str) {
 
 usb_uart_command_function_t poxDaqCommand(char * input_str) {
  
-    terminalTextAttributesReset();
+    // Snipe out received arguments
+    char rx_arguments[32];
+    sscanf(input_str, "POX DAQ %[^\t\n\r]", rx_arguments);
+
+    // Determine the rail we're enabling or disabling
+    if (strcmp(rx_arguments, "Verbose") == 0) {
+        
+        terminalTextAttributesReset();
     
-    if (pox_daq_enable == 0) {
-        terminalClearScreen();
-        terminalSetCursorHome();
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("Enabling Pulse Oximetry\n\r");
-        pox_daq_enable = 1;
-        // Disable pushbuttons
+        if (pox_daq_enable == 0) {
+            terminalClearScreen();
+            terminalSetCursorHome();
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+            printf("Enabling Pulse Oximetry with Verbosity\n\r");
+            pox_daq_enable = 1;
+            pox_daq_verbosity_enable = 1;
+        }
+        else {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+            printf("Disabling Pulse Oximetry\n\r");
+            pox_daq_enable = 0;
+            pox_daq_verbosity_enable = 0;
+        }
+
+        terminalTextAttributesReset();
+        
     }
     else {
-        terminalClearScreen();
-        terminalSetCursorHome();
-        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("Disabling Pulse Oximetry\n\r");
-        pox_daq_enable = 0;
+        
+        terminalTextAttributesReset();
+    
+        if (pox_daq_enable == 0) {
+            terminalClearScreen();
+            terminalSetCursorHome();
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+            printf("Enabling Pulse Oximetry\n\r");
+            pox_daq_enable = 1;
+            pox_daq_verbosity_enable = 0;
+        }
+        else {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+            printf("Disabling Pulse Oximetry\n\r");
+            pox_daq_enable = 0;
+        }
+
+        terminalTextAttributesReset();
+        
     }
     
-    terminalTextAttributesReset();
     
 }
 
@@ -358,6 +388,6 @@ void usbUartHashTableInitialize(void) {
                 liveTelemetryCommand);
     }
     usbUartAddCommand("POX DAQ",
-            "Toggles Pulse Oximetry Polling",
+            "Toggles Pulse Oximetry Data Acquisition (pass with Verbose argument to enable data stream)",
             poxDaqCommand);
 }
