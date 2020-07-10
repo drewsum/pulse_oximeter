@@ -49,6 +49,9 @@
 #include "adc.h"
 #include "adc_channels.h"
 
+// LCD
+#include "lcd_dimming.h"
+
 void main(void) {
 
     // Save the cause of the most recent device reset
@@ -203,6 +206,9 @@ void main(void) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
                 
+    #warning "eventually tie this all together into an LCD initialize function"
+    LCDDimmingInitialize();
+    
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);

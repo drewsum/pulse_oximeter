@@ -1,5 +1,6 @@
 
 #include <xc.h>
+#include <proc/p32mz0512efe064.h>
 
 #include "gpio_setup.h"
 
@@ -297,5 +298,6 @@ void portGGPIOInitialize (void) {
     gpioPinSetup(PORTG, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(PORTG, 7, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_ENABLE);
     gpioPinSetup(PORTG, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPG8Rbits.RPG8R = OC3_PPS_OUTPUT;       // Assign OC3 output to pin RG8
     gpioPinSetup(PORTG, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
 }

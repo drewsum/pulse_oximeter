@@ -28,4 +28,5 @@ terminal_control.h  \
 usb_uart.h  \
 usb_uart_rx_lookup_table.h  \
 adc.h  \
-adc_channels.h 
+adc_channels.h  \
+ lcd_dimming.h 

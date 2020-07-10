@@ -43,6 +43,9 @@
         <itemPath>power_monitors.h</itemPath>
         <itemPath>misc_i2c_devices.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f7" displayName="LCD" projectFiles="true">
+        <itemPath>lcd_dimming.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="USB UART" projectFiles="true">
         <itemPath>terminal_control.h</itemPath>
         <itemPath>uthash.h</itemPath>
@@ -92,6 +95,9 @@
         <itemPath>temperature_sensors.c</itemPath>
         <itemPath>power_monitors.c</itemPath>
         <itemPath>misc_i2c_devices.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f7" displayName="LCD" projectFiles="true">
+        <itemPath>lcd_dimming.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="USB UART" projectFiles="true">
         <itemPath>terminal_control.c</itemPath>

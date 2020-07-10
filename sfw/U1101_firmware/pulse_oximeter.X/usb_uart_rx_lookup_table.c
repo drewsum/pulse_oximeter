@@ -19,6 +19,7 @@
 #include "adc_channels.h"
 #include "algorithm_by_RF.h"
 #include "misc_i2c_devices.h"
+#include "lcd_dimming.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -337,6 +338,33 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
     
 }
 
+usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
+ 
+    // Snipe out received arguments
+    uint32_t read_brightness;
+    sscanf(input_str, "Set LCD Brightness: %u", &read_brightness);
+    
+    if (read_brightness > 100) {
+     
+        terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Please set a brightness between 0 and 100, user entered %u\n\r", read_brightness);
+        terminalTextAttributesReset();
+        
+    }
+    
+    else {
+     
+        LCDSetBrightness((uint8_t) read_brightness);
+        
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Set LCD brightness to %u\n\r", read_brightness);
+        terminalTextAttributesReset();
+        
+    }
+
+
+}
+
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {
@@ -390,4 +418,7 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("POX DAQ",
             "Toggles Pulse Oximetry Data Acquisition (pass with Verbose argument to enable data stream)",
             poxDaqCommand);
+    usbUartAddCommand("Set LCD Brightness: ",
+            "\b\b<0 to 100>: Sets LCD backlight brightness",
+            setLCDBrightnessCommand);
 }
