@@ -29,4 +29,5 @@ usb_uart.h  \
 usb_uart_rx_lookup_table.h  \
 adc.h  \
 adc_channels.h  \
- lcd_dimming.h 
+ lcd_dimming.h  \
+parallel_master_port.h 

@@ -51,6 +51,7 @@
 
 // LCD
 #include "lcd_dimming.h"
+#include "parallel_master_port.h"
 
 void main(void) {
 
@@ -208,6 +209,9 @@ void main(void) {
                 
     #warning "eventually tie this all together into an LCD initialize function"
     LCDDimmingInitialize();
+    printf("    Setup LCD Dimming\r\n");
+    // PMPInitialize();
+    // printf("    Parallel Master Port Initialized\r\n");
     
     // Disable reset LED
     RESET_LED_PIN = LOW;

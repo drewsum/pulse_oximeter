@@ -101,8 +101,8 @@ void PMDInitialize(void) {
     PMD6bits.REFO3MD = 0;
     PMD6bits.REFO4MD = 0;
     
-    // Disable peripheral master port
-    PMD6bits.PMPMD = 1;
+    // Enable peripheral master port
+    PMD6bits.PMPMD = 0;
     
     // Disable external bus interface (EBI)
     #ifdef EBICS0

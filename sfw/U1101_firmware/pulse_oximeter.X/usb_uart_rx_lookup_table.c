@@ -20,6 +20,7 @@
 #include "algorithm_by_RF.h"
 #include "misc_i2c_devices.h"
 #include "lcd_dimming.h"
+#include "parallel_master_port.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -196,6 +197,9 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
             printTimerStatus((uint8_t) read_timer_number);
         }
     }
+    else if (strcomp(rx_peripheral_name, "PMP") == 0) {
+        printPMPStatus();
+    }
     else {
         terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("Please enter a peripheral to view status. Received %s as peripheral name\r\n", rx_peripheral_name);
@@ -210,7 +214,8 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
                 "   Prefetch\r\n"
                 "   I2C Master\r\n"
                 "   I2C Slaves\r\n"
-                "   Timer <x> (x = 1-9)\r\n");
+                "   Timer <x> (x = 1-9)\r\n"
+                "   PMP\r\n");
         terminalTextAttributesReset();
         return;
     }
@@ -399,7 +404,8 @@ void usbUartHashTableInitialize(void) {
             "       ADC Channels\r\n"
             "       I2C Master\r\n"
             "       I2C Slaves\r\n"
-            "       Timer <x> (x = 1-9)",
+            "       Timer <x> (x = 1-9)\r\n"
+            "       PMP",
             peripheralStatusCommand);
     usbUartAddCommand("Error Status?",
             "Prints the status of various error handler flags",
