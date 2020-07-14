@@ -164,6 +164,9 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
     else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
         printPrefetchStatus();
     }
+    else if (strcmp(rx_peripheral_name, "DMA") == 0) {
+        printDMAStatus();
+    }
     else if (strcmp(rx_peripheral_name, "ADC Channels") == 0) {
         printADCChannelStatus();
     }
@@ -212,6 +215,7 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
                 "   ADC\r\n"
                 "   ADC Channels\r\n"
                 "   Prefetch\r\n"
+                "   DMA\r\n"
                 "   I2C Master\r\n"
                 "   I2C Slaves\r\n"
                 "   Timer <x> (x = 1-9)\r\n"
@@ -400,6 +404,7 @@ void usbUartHashTableInitialize(void) {
             "       WDT\r\n"
             "       DMT\r\n"
             "       Prefetch\r\n"
+            "       DMA\r\n"
             "       ADC\r\n"
             "       ADC Channels\r\n"
             "       I2C Master\r\n"

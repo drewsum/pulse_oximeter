@@ -1443,3 +1443,58 @@ void printTimerStatus(uint8_t timer_number) {
     terminalTextAttributesReset();
     
 }
+
+// this function prints status of all DMA channels
+void printDMAStatus(void) {
+ 
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+    printf("Direct Memory Access Controller Status:\r\n");
+    
+    if (DMACONbits.ON) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    DMA Controller: %s\n\r", DMACONbits.ON ? "On" : "Off");
+    if (DMACONbits.SUSPEND) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    DMA is currently %s\n\r", DMACONbits.SUSPEND ? "Suspended" : "Not Suspended");
+    if (DMACONbits.DMABUSY) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    DMA is currently %s\n\r", DMACONbits.DMABUSY ? "Busy" : "not Busy");
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    Last DMA error detected (if detected) was a DMA %s\r\n", DMASTATbits.RDWR ? "Read" : "Write");
+    printf("    DMA Channel active if error was detected: %s\r\n", DMASTATbits.DMACH);
+    printf("    Last DMA access address if/when error occurred: 0x%08X\r\n", DMAADDR);
+    
+    if (DCRCCONbits.CRCEN) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    DMA CRC is currently %s\n\r", DCRCCONbits.CRCEN ? "enabled" : "disabled");
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("    DMA CRC Byte Order: ");
+    switch (DCRCCONbits.BYTO) {
+        case 0b11:
+            printf("Endian byte swap on half-word boundaries (i.e., source half-word order with reverse source byte order"
+                    "per half-word)\r\n");
+            break;
+        case 0b10:
+            printf("Swap half-words on word boundaries (i.e., reverse source half-word order with source byte order per"
+                    "half-word)\r\n");
+            break;
+        case 0b01:
+            printf("Endian byte swap on word boundaries (i.e., reverse source byte order)\r\n");
+            break;
+        case 0b00:
+            printf("No swapping (i.e., source byte order)\r\n");
+            break;
+    }
+    printf("    CRC Write Byte Order: %s\r\n", DCRCCONbits.WBO ? 
+        "Source data is written to the destination re-ordered as defined by BYTO<1:0>" : 
+        "Source data is written to the destination unaltered");
+    printf("    CRC bit order: %s\r\n", DCRCCONbits.BITO ? "LSb first" : "MSb first");
+    printf("    CRC polynomial length: %u\r\n", DCRCCONbits.PLEN);
+    printf("    CRC append mode: %s\r\n", DCRCCONbits.CRCAPP ? "back to source" : "write to destination");
+    
+#warning "finish this"
+    
+    terminalTextAttributesReset();
+    
+}
