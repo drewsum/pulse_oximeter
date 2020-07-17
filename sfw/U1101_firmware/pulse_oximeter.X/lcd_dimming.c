@@ -49,8 +49,8 @@ void LCDDimmingInitialize(void) {
     // Enable Output Compare peripheral
     OC3CONbits.ON = 1;
     
-    // Set PWM duty cycle to 50% at boot
-    OC3RS = PR2 >> 1;
+    // Set PWM duty cycle to 100% at boot
+    OC3RS = PR2;
     
     // Start timer 2
     T2CONbits.ON = 1;

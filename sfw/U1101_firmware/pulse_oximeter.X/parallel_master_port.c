@@ -86,6 +86,9 @@ void PMPInitialize(void) {
     
     enableInterrupt(Parallel_Master_Port_Error);
     
+    // enable module
+    PMCONbits.ON = 1;
+    
 }
 
 // This ISR is triggered when a PMP error occurs
@@ -222,13 +225,13 @@ void printPMPStatus(void) {
             break;
     }
     
-    printf("    PMP Data Setup to Read/Write Strobe Wait States: %u", PMMODEbits.WAITB + 1);
-    printf("    PMP Data Read/Write Strobe Wait States: %u", PMMODEbits.WAITM + 1);
+    printf("    PMP Data Setup to Read/Write Strobe Wait States: %u\r\n", PMMODEbits.WAITB + 1);
+    printf("    PMP Data Read/Write Strobe Wait States: %u\r\n", PMMODEbits.WAITM + 1);
     printf("    PMP Data Hold After Read/Write Strobe Wait States bits: %u for write, %u for read\r\n", 
             PMMODEbits.WAITE + 1, PMMODEbits.WAITE);
     
     // print enable for PMP address bits
-    uint8_t address_bit;
+    int8_t address_bit;
     for (address_bit = 15; address_bit >= 0; address_bit--) {
         if ((PMADDR >> address_bit) & 0b1) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -244,7 +247,7 @@ void printPMPStatus(void) {
     printf("    PMP Read Data Register: 0x%04X\r\n", PMRDIN);
     
     // print pin enable for PMP address bits
-    uint8_t pin_bit;
+    int8_t pin_bit;
     for (pin_bit = 15; pin_bit >= 0; pin_bit--) {
         if ((PMAEN >> pin_bit) & 0b1) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);

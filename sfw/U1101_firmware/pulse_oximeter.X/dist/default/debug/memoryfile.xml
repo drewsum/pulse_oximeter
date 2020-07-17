@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/pulse_oximeter.X.production.elf">                 
+  <executable name="dist/default/debug/pulse_oximeter.X.debug.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>525440</length>                 
-      <used>304864</used>                     
-      <free>220576</free>                     
+      <used>304880</used>                     
+      <free>220560</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
-      <length>131072</length>                 
-      <used>58501</used>                     
-      <free>72571</free>                     
+      <length>131968</length>                 
+      <used>60293</used>                     
+      <free>71675</free>                     
     </memory>                              
   </executable>                            
 </project>                                 
