@@ -52,6 +52,7 @@
 // LCD
 #include "lcd_dimming.h"
 #include "parallel_master_port.h"
+#include "lcd.h"
 
 void main(void) {
 
@@ -208,10 +209,22 @@ void main(void) {
     }
                 
     #warning "eventually tie this all together into an LCD initialize function"
+    TRISE = 0;
     LCDDimmingInitialize();
     printf("    Setup LCD Dimming\r\n");
-    PMPInitialize();
-    printf("    Parallel Master Port Initialized\r\n");
+    //PMPInitialize();
+    //printf("    Parallel Master Port Initialized\r\n");
+    lcdInitialize();
+    lcdClear();
+    lcdSetCursor(0,0);
+    lcdPrint("Hello, World!");
+    lcdSetCursor(0,1);
+    lcdPrint("Pulse Oximeter");
+    lcdSetCursor(0,2);
+    lcdPrint("This is line 3");
+    lcdSetCursor(0,3);
+    lcdPrint("More on line 4");
+    printf("    LCD Controller Initialized\r\n");
     
     // Disable reset LED
     RESET_LED_PIN = LOW;

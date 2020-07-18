@@ -46,6 +46,7 @@
       <logicalFolder name="f7" displayName="LCD" projectFiles="true">
         <itemPath>lcd_dimming.h</itemPath>
         <itemPath>parallel_master_port.h</itemPath>
+        <itemPath>lcd.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="USB UART" projectFiles="true">
         <itemPath>terminal_control.h</itemPath>
@@ -100,6 +101,7 @@
       <logicalFolder name="f7" displayName="LCD" projectFiles="true">
         <itemPath>lcd_dimming.c</itemPath>
         <itemPath>parallel_master_port.c</itemPath>
+        <itemPath>lcd.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="USB UART" projectFiles="true">
         <itemPath>terminal_control.c</itemPath>
