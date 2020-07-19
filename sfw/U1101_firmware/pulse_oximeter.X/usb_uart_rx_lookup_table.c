@@ -404,7 +404,7 @@ void usbUartHashTableInitialize(void) {
             "       ADC Channels\r\n"
             "       I2C Master\r\n"
             "       I2C Slaves\r\n"
-            "       Timer <x> (x = 1-9)\r\n",
+            "       Timer <x> (x = 1-9)",
             peripheralStatusCommand);
     usbUartAddCommand("Error Status?",
             "Prints the status of various error handler flags",

@@ -5,4 +5,6 @@ algorithm_by_RF.c  \
 pin_macros.h  \
 max30102.h  \
  error_handler.h  \
-terminal_control.h 
+terminal_control.h  \
+lcd.h  \
+lcd_dimming.h 

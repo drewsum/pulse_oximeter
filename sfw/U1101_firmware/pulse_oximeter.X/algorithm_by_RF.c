@@ -42,6 +42,7 @@
 #include "error_handler.h"
 #include "32mz_interrupt_control.h"
 #include "terminal_control.h"
+#include "lcd.h"
 
 void rf_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer, int32_t n_ir_buffer_length, uint32_t *pun_red_buffer, float *pn_spo2, int8_t *pch_spo2_valid, 
                 int32_t *pn_heart_rate, int8_t *pch_hr_valid, float *ratio, float *correl)
@@ -410,6 +411,22 @@ void poxAcquireInterruptHandler(void) {
                 ch_spo2_valid,
                 ch_hr_valid);  
         terminalTextAttributesReset();
+        
+        // print out acquired data to LCD
+        lcdClear();
+        lcdSetCursor(0,0);
+        lcdPrint("Heart Rate:");
+        lcdSetCursor(0,1);
+        char buffer[20];
+        sprintf(buffer, "%u bpm", n_heart_rate);
+        if(ch_hr_valid) lcdPrint(buffer);
+        else lcdPrint("Data Invalid");
+        lcdSetCursor(0,2);
+        lcdPrint("Oxygen Saturation:");
+        lcdSetCursor(0,3);
+        sprintf(buffer, "%.3f %%", n_spo2);
+        if(ch_hr_valid) lcdPrint(buffer);
+        else lcdPrint("Data Invalid");
         
     }
     
