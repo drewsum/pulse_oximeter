@@ -18,7 +18,7 @@
 #ifndef _LCD_H    /* Guard against multiple inclusion */
 #define _LCD_H
 
-#include "parallel_master_port.h"
+// #include "parallel_master_port.h"
 #include "lcd_dimming.h"
 
 // this function presents a byte of data to the LCD

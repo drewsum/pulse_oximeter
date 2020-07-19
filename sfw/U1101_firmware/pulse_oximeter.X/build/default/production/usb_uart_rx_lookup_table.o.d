@@ -18,5 +18,4 @@ misc_i2c_devices.h  \
  plib_i2c3.h  \
 plib_i2c_master.h  \
 ds1683_time_of_flight.h  \
-lcd_dimming.h  \
- parallel_master_port.h 
+lcd_dimming.h 

@@ -1,5 +1,5 @@
 
-#include <proc/p32mz0512efe064.h>
+#include <xc.h>
 
 
 // for bit banging if needed
@@ -8,32 +8,23 @@
 #define E_BIT           LATDbits.LATD4
 #define RW_BIT          LATDbits.LATD5
 
-
 // this function presents a byte of data to the LCD
 void lcdWrite(uint8_t input_byte) {
-    
-//    PMDOUT = input_byte;
-//    // clock on data write complete
-//    while (PMMODEbits.BUSY);
-    
+   
     // bit bang implementation
     RS_BIT = 1;
     RW_BIT = 0;
     E_BIT = 0;
     DATA_PORT = input_byte;
     E_BIT = 1;
-    softwareDelay(10000);
+    softwareDelay(5000);
     E_BIT = 0;
-    softwareDelay(10000);
+    softwareDelay(5000);
     
 }
 
 // this function writes a command to the LCD
 void lcdCommand(uint8_t input_command) {
-    
-    // clear RS signal (PMA0)
-//    PMADDRCLR = 0b1;
-//    lcdWrite(input_command);
     
     // bit bang
     RS_BIT = 0;
@@ -41,25 +32,18 @@ void lcdCommand(uint8_t input_command) {
     E_BIT = 0;
     DATA_PORT = input_command;
     E_BIT = 1;
-    softwareDelay(10000);
+    softwareDelay(5000);
     E_BIT = 0;
-    softwareDelay(10000);
+    softwareDelay(7000);
     
 }
 
 // this function initializes the LCD module
 void lcdInitialize(void) {
     
-//    lcdCommand(0x30);
-//    softwareDelay(1000);
-//    lcdCommand(0x30);
-//    softwareDelay(1000);
-//    lcdCommand(0x30);
-//    softwareDelay(1000);
-//    lcdCommand(0x06);
-//    lcdCommand(0x0C);
-//    lcdCommand(0x38);
+    LCDDimmingInitialize();
     
+    TRISE = 0;
     E_BIT = 0;
     softwareDelay(10000); //Wait >40 msec after power is applied
     lcdCommand(0x30); //command 0x30 = Wake up
@@ -89,18 +73,18 @@ void lcdClear(void) {
 // this function sets the cursor location
 void lcdSetCursor(uint8_t column, uint8_t row) {
  
-    if(row == 0)      lcdCommand((uint8_t) 0x80 | column);		//see Figures 4 and 10
-	else if(row == 1) lcdCommand((uint8_t) 0x80 | column | 0x40);		//see Figures 4 and 10
-    else if(row == 2) lcdCommand((uint8_t) 0x80 | column | 0x14);		//see Figures 4 and 10
-    else if(row == 3) lcdCommand((uint8_t) 0x80 | column | 0x54);		//see Figures 4 and 10
+    if(row == 0)      lcdCommand((uint8_t) 0x80 | column);
+	else if(row == 1) lcdCommand((uint8_t) 0x80 | column | 0x40);
+    else if(row == 2) lcdCommand((uint8_t) 0x80 | column | 0x14);
+    else if(row == 3) lcdCommand((uint8_t) 0x80 | column | 0x54);
     
 }
 
 // this function writes a character to the LCD
 void lcdPutc(char input_char) {
     
-    // set RS signal (PMA0)
-    PMADDRSET = 0b1;
+    // set RS signal
+    RS_BIT = 1;
     lcdWrite(input_char);
     
 }
