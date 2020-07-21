@@ -27,9 +27,20 @@
 
 #include "32mz_interrupt_control.h"
 
-// this bool keeps track of if we're awake or not
-// pressing the power cap touch push button toggles this
-bool ui_wake_status = false;
+// this enum keeps track of the state of the user interface
+enum ui_state_machine_t {
+    
+    sleep_state                 = 0,
+    boot_state                  = 1,
+    wakeup_screen_1_state       = 2,
+    wakeup_screen_2_state       = 3,
+    wakeup_screen_3_state       = 4,
+    pox_scan_state              = 5,
+    shutdown_state              = 6
+    
+} ui_state_machine;
+
+// these bools keep track of if we should wake or sleep on the next loop through main()
 bool ui_wake_request = false;
 bool ui_sleep_request = false;
 

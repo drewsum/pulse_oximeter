@@ -10,6 +10,7 @@
 #include "error_handler.h"
 #include "lcd.h"
 #include "lcd_dimming.h"
+#include "power_saving.h"
 
 // this function initializes the "Power" capacitive pushbutton interrupt
 void powerCapTouchPushbuttonInitialize(void) {
@@ -32,7 +33,7 @@ void __ISR(_EXTERNAL_4_VECTOR, IPL7SRS) powerCapTouchPushbuttonISR(void) {
     printf("User pressed power pushbutton\r\n");
     terminalTextAttributesReset();
     
-    if (ui_wake_status == false) ui_wake_request = true;
+    if (ui_state_machine == sleep_state) ui_wake_request = true;
     else ui_sleep_request = true;
     
     // clear IRQ
@@ -97,7 +98,7 @@ void uiDeviceWakeup(void) {
     }
     
     // keep track that we're initialized
-    ui_wake_status = true;
+    ui_state_machine = boot_state;
     
 }
 
@@ -109,7 +110,7 @@ void uiDeviceSleep(void) {
     terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
     
     ui_sleep_request = false;
-    ui_wake_status = false;
+    ui_state_machine = sleep_state;
     
     // print out exit message on LCD
     lcdClear();

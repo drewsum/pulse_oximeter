@@ -8,4 +8,6 @@ max30102.h  \
 algorithm_by_RF.h  \
 error_handler.h  \
 lcd.h  \
- lcd_dimming.h 
+ lcd_dimming.h  \
+power_saving.h  \
+device_control.h 
