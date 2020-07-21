@@ -12,6 +12,7 @@
         <itemPath>heartbeat_services.h</itemPath>
         <itemPath>power_saving.h</itemPath>
         <itemPath>telemetry.h</itemPath>
+        <itemPath>user_interface.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Core Drivers" projectFiles="true">
         <itemPath>configuration.h</itemPath>
@@ -69,6 +70,7 @@
         <itemPath>heartbeat_services.c</itemPath>
         <itemPath>power_saving.c</itemPath>
         <itemPath>telemetry.c</itemPath>
+        <itemPath>user_interface.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Core Drivers" projectFiles="true">
         <itemPath>device_control.c</itemPath>

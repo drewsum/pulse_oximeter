@@ -219,6 +219,9 @@ void main(void) {
     lcdPrint("More on line 4");
     printf("    LCD Controller Initialized\r\n");
     
+    // setup power pushbutton
+    powerCapTouchPushbuttonInitialize();
+    
     // Disable reset LED
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);

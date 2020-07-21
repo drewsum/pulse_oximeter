@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=adc.c adc_channels.c heartbeat_services.c power_saving.c telemetry.c device_control.c 32mz_interrupt_control.c heartbeat_timer.c watchdog_timer.c error_handler.c prefetch.c cause_of_reset.c gpio_setup.c max30102.c algorithm_by_RF.c mcp9804_temp_sensor.c ina219_power_monitor.c ds1683_time_of_flight.c plib_i2c3.c temperature_sensors.c power_monitors.c misc_i2c_devices.c lcd_dimming.c terminal_control.c usb_uart_rx_lookup_table.c usb_uart.c main.c lcd.c
+SOURCEFILES_QUOTED_IF_SPACED=adc.c adc_channels.c heartbeat_services.c power_saving.c telemetry.c device_control.c 32mz_interrupt_control.c heartbeat_timer.c watchdog_timer.c error_handler.c prefetch.c cause_of_reset.c gpio_setup.c max30102.c algorithm_by_RF.c mcp9804_temp_sensor.c ina219_power_monitor.c ds1683_time_of_flight.c plib_i2c3.c temperature_sensors.c power_monitors.c misc_i2c_devices.c lcd_dimming.c terminal_control.c usb_uart_rx_lookup_table.c usb_uart.c main.c lcd.c user_interface.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/adc_channels.o ${OBJECTDIR}/heartbeat_services.o ${OBJECTDIR}/power_saving.o ${OBJECTDIR}/telemetry.o ${OBJECTDIR}/device_control.o ${OBJECTDIR}/32mz_interrupt_control.o ${OBJECTDIR}/heartbeat_timer.o ${OBJECTDIR}/watchdog_timer.o ${OBJECTDIR}/error_handler.o ${OBJECTDIR}/prefetch.o ${OBJECTDIR}/cause_of_reset.o ${OBJECTDIR}/gpio_setup.o ${OBJECTDIR}/max30102.o ${OBJECTDIR}/algorithm_by_RF.o ${OBJECTDIR}/mcp9804_temp_sensor.o ${OBJECTDIR}/ina219_power_monitor.o ${OBJECTDIR}/ds1683_time_of_flight.o ${OBJECTDIR}/plib_i2c3.o ${OBJECTDIR}/temperature_sensors.o ${OBJECTDIR}/power_monitors.o ${OBJECTDIR}/misc_i2c_devices.o ${OBJECTDIR}/lcd_dimming.o ${OBJECTDIR}/terminal_control.o ${OBJECTDIR}/usb_uart_rx_lookup_table.o ${OBJECTDIR}/usb_uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/lcd.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/adc_channels.o.d ${OBJECTDIR}/heartbeat_services.o.d ${OBJECTDIR}/power_saving.o.d ${OBJECTDIR}/telemetry.o.d ${OBJECTDIR}/device_control.o.d ${OBJECTDIR}/32mz_interrupt_control.o.d ${OBJECTDIR}/heartbeat_timer.o.d ${OBJECTDIR}/watchdog_timer.o.d ${OBJECTDIR}/error_handler.o.d ${OBJECTDIR}/prefetch.o.d ${OBJECTDIR}/cause_of_reset.o.d ${OBJECTDIR}/gpio_setup.o.d ${OBJECTDIR}/max30102.o.d ${OBJECTDIR}/algorithm_by_RF.o.d ${OBJECTDIR}/mcp9804_temp_sensor.o.d ${OBJECTDIR}/ina219_power_monitor.o.d ${OBJECTDIR}/ds1683_time_of_flight.o.d ${OBJECTDIR}/plib_i2c3.o.d ${OBJECTDIR}/temperature_sensors.o.d ${OBJECTDIR}/power_monitors.o.d ${OBJECTDIR}/misc_i2c_devices.o.d ${OBJECTDIR}/lcd_dimming.o.d ${OBJECTDIR}/terminal_control.o.d ${OBJECTDIR}/usb_uart_rx_lookup_table.o.d ${OBJECTDIR}/usb_uart.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/lcd.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/adc.o ${OBJECTDIR}/adc_channels.o ${OBJECTDIR}/heartbeat_services.o ${OBJECTDIR}/power_saving.o ${OBJECTDIR}/telemetry.o ${OBJECTDIR}/device_control.o ${OBJECTDIR}/32mz_interrupt_control.o ${OBJECTDIR}/heartbeat_timer.o ${OBJECTDIR}/watchdog_timer.o ${OBJECTDIR}/error_handler.o ${OBJECTDIR}/prefetch.o ${OBJECTDIR}/cause_of_reset.o ${OBJECTDIR}/gpio_setup.o ${OBJECTDIR}/max30102.o ${OBJECTDIR}/algorithm_by_RF.o ${OBJECTDIR}/mcp9804_temp_sensor.o ${OBJECTDIR}/ina219_power_monitor.o ${OBJECTDIR}/ds1683_time_of_flight.o ${OBJECTDIR}/plib_i2c3.o ${OBJECTDIR}/temperature_sensors.o ${OBJECTDIR}/power_monitors.o ${OBJECTDIR}/misc_i2c_devices.o ${OBJECTDIR}/lcd_dimming.o ${OBJECTDIR}/terminal_control.o ${OBJECTDIR}/usb_uart_rx_lookup_table.o ${OBJECTDIR}/usb_uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/user_interface.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/adc.o.d ${OBJECTDIR}/adc_channels.o.d ${OBJECTDIR}/heartbeat_services.o.d ${OBJECTDIR}/power_saving.o.d ${OBJECTDIR}/telemetry.o.d ${OBJECTDIR}/device_control.o.d ${OBJECTDIR}/32mz_interrupt_control.o.d ${OBJECTDIR}/heartbeat_timer.o.d ${OBJECTDIR}/watchdog_timer.o.d ${OBJECTDIR}/error_handler.o.d ${OBJECTDIR}/prefetch.o.d ${OBJECTDIR}/cause_of_reset.o.d ${OBJECTDIR}/gpio_setup.o.d ${OBJECTDIR}/max30102.o.d ${OBJECTDIR}/algorithm_by_RF.o.d ${OBJECTDIR}/mcp9804_temp_sensor.o.d ${OBJECTDIR}/ina219_power_monitor.o.d ${OBJECTDIR}/ds1683_time_of_flight.o.d ${OBJECTDIR}/plib_i2c3.o.d ${OBJECTDIR}/temperature_sensors.o.d ${OBJECTDIR}/power_monitors.o.d ${OBJECTDIR}/misc_i2c_devices.o.d ${OBJECTDIR}/lcd_dimming.o.d ${OBJECTDIR}/terminal_control.o.d ${OBJECTDIR}/usb_uart_rx_lookup_table.o.d ${OBJECTDIR}/usb_uart.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/lcd.o.d ${OBJECTDIR}/user_interface.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/adc_channels.o ${OBJECTDIR}/heartbeat_services.o ${OBJECTDIR}/power_saving.o ${OBJECTDIR}/telemetry.o ${OBJECTDIR}/device_control.o ${OBJECTDIR}/32mz_interrupt_control.o ${OBJECTDIR}/heartbeat_timer.o ${OBJECTDIR}/watchdog_timer.o ${OBJECTDIR}/error_handler.o ${OBJECTDIR}/prefetch.o ${OBJECTDIR}/cause_of_reset.o ${OBJECTDIR}/gpio_setup.o ${OBJECTDIR}/max30102.o ${OBJECTDIR}/algorithm_by_RF.o ${OBJECTDIR}/mcp9804_temp_sensor.o ${OBJECTDIR}/ina219_power_monitor.o ${OBJECTDIR}/ds1683_time_of_flight.o ${OBJECTDIR}/plib_i2c3.o ${OBJECTDIR}/temperature_sensors.o ${OBJECTDIR}/power_monitors.o ${OBJECTDIR}/misc_i2c_devices.o ${OBJECTDIR}/lcd_dimming.o ${OBJECTDIR}/terminal_control.o ${OBJECTDIR}/usb_uart_rx_lookup_table.o ${OBJECTDIR}/usb_uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/lcd.o
+OBJECTFILES=${OBJECTDIR}/adc.o ${OBJECTDIR}/adc_channels.o ${OBJECTDIR}/heartbeat_services.o ${OBJECTDIR}/power_saving.o ${OBJECTDIR}/telemetry.o ${OBJECTDIR}/device_control.o ${OBJECTDIR}/32mz_interrupt_control.o ${OBJECTDIR}/heartbeat_timer.o ${OBJECTDIR}/watchdog_timer.o ${OBJECTDIR}/error_handler.o ${OBJECTDIR}/prefetch.o ${OBJECTDIR}/cause_of_reset.o ${OBJECTDIR}/gpio_setup.o ${OBJECTDIR}/max30102.o ${OBJECTDIR}/algorithm_by_RF.o ${OBJECTDIR}/mcp9804_temp_sensor.o ${OBJECTDIR}/ina219_power_monitor.o ${OBJECTDIR}/ds1683_time_of_flight.o ${OBJECTDIR}/plib_i2c3.o ${OBJECTDIR}/temperature_sensors.o ${OBJECTDIR}/power_monitors.o ${OBJECTDIR}/misc_i2c_devices.o ${OBJECTDIR}/lcd_dimming.o ${OBJECTDIR}/terminal_control.o ${OBJECTDIR}/usb_uart_rx_lookup_table.o ${OBJECTDIR}/usb_uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/lcd.o ${OBJECTDIR}/user_interface.o
 
 # Source Files
-SOURCEFILES=adc.c adc_channels.c heartbeat_services.c power_saving.c telemetry.c device_control.c 32mz_interrupt_control.c heartbeat_timer.c watchdog_timer.c error_handler.c prefetch.c cause_of_reset.c gpio_setup.c max30102.c algorithm_by_RF.c mcp9804_temp_sensor.c ina219_power_monitor.c ds1683_time_of_flight.c plib_i2c3.c temperature_sensors.c power_monitors.c misc_i2c_devices.c lcd_dimming.c terminal_control.c usb_uart_rx_lookup_table.c usb_uart.c main.c lcd.c
+SOURCEFILES=adc.c adc_channels.c heartbeat_services.c power_saving.c telemetry.c device_control.c 32mz_interrupt_control.c heartbeat_timer.c watchdog_timer.c error_handler.c prefetch.c cause_of_reset.c gpio_setup.c max30102.c algorithm_by_RF.c mcp9804_temp_sensor.c ina219_power_monitor.c ds1683_time_of_flight.c plib_i2c3.c temperature_sensors.c power_monitors.c misc_i2c_devices.c lcd_dimming.c terminal_control.c usb_uart_rx_lookup_table.c usb_uart.c main.c lcd.c user_interface.c
 
 
 CFLAGS=
@@ -274,6 +274,12 @@ ${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/lcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d" -o ${OBJECTDIR}/lcd.o lcd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/user_interface.o: user_interface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/user_interface.o.d 
+	@${RM} ${OBJECTDIR}/user_interface.o 
+	@${FIXDEPS} "${OBJECTDIR}/user_interface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user_interface.o.d" -o ${OBJECTDIR}/user_interface.o user_interface.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -442,6 +448,12 @@ ${OBJECTDIR}/lcd.o: lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/lcd.o.d 
 	@${RM} ${OBJECTDIR}/lcd.o 
 	@${FIXDEPS} "${OBJECTDIR}/lcd.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/lcd.o.d" -o ${OBJECTDIR}/lcd.o lcd.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/user_interface.o: user_interface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/user_interface.o.d 
+	@${RM} ${OBJECTDIR}/user_interface.o 
+	@${FIXDEPS} "${OBJECTDIR}/user_interface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user_interface.o.d" -o ${OBJECTDIR}/user_interface.o user_interface.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 
