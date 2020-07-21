@@ -26,7 +26,7 @@ void LCDDimmingInitialize(void);
 // This function sets LCD brightness using output compare 4
 // Pass an integer between 0 and 100
 // Larger numbers correspond to a brighter display
-void LCDSetBrightness(uint8_t set_brightness);
+void lcdSetBrightness(uint8_t set_brightness);
 
 #endif /* _LCD_DIMMING_H */
 

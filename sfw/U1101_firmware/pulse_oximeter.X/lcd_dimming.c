@@ -49,8 +49,8 @@ void LCDDimmingInitialize(void) {
     // Enable Output Compare peripheral
     OC3CONbits.ON = 1;
     
-    // Set PWM duty cycle to 100% at boot
-    OC3RS = PR2;
+    // Set PWM duty cycle to 0% at boot
+    OC3RS = 0;
     
     // Start timer 2
     T2CONbits.ON = 1;
@@ -60,7 +60,7 @@ void LCDDimmingInitialize(void) {
 // This function sets LCD brightness using output compare 3
 // Pass an integer between 0 and 100
 // Larger numbers correspond to a brighter display
-void LCDSetBrightness(uint8_t set_brightness) {
+void lcdSetBrightness(uint8_t set_brightness) {
     
     // Set duty cycle
     OC3RS = (set_brightness * PR2) / 100;

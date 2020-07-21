@@ -359,7 +359,7 @@ usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
     
     else {
      
-        LCDSetBrightness((uint8_t) read_brightness);
+        lcdSetBrightness((uint8_t) read_brightness);
         
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("Set LCD brightness to %u\n\r", read_brightness);
