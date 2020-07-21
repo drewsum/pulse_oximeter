@@ -46,21 +46,30 @@ void uiDeviceWakeup(void) {
 
     ui_wake_request = false;
     
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+    printf("Waking up device\r\n");
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    
+    // start WDT
+    kickTheDog();
+    heartbeatTimerInitialize();
+    printf("    Heartbeat Timer Initialized\n\r");
+    
+    // setup watchdog timer
+    watchdogTimerInitialize();
+    printf("    Watchdog Timer Initialized\n\r");
+    
     // print out starting message on LCD
     lcdClear();
     lcdSetCursor(0,0);
     lcdPrint(" DIY Pulse Oximeter ");
     lcdSetCursor(0,1);
-    lcdPrint("    Drew Maatman    ");
+    lcdPrint("    By: _drewsum    ");
     lcdSetCursor(0,2);
     lcdPrint("    July of 2020    ");
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
     lcdSetBrightness(100);
-    
-    
-    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-    printf("Waking up device\r\n");
     
     // enable POX sensor logic rail, LED drive voltage
     POS1P8_RUN_PIN = HIGH;
@@ -73,7 +82,6 @@ void uiDeviceWakeup(void) {
     }
     else {
         POX_I2C_ENABLE_PIN = HIGH;
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
     }
     softwareDelay(1000);
@@ -141,11 +149,27 @@ void uiDeviceSleep(void) {
     #warning "add other shutdown tasks here"
     
     
-    terminalTextAttributesReset();
     kickTheDog();
     softwareDelay(0x1FFFFFF);
     // kill LCD screen backlight
     lcdClear();
     lcdSetBrightness(0);
+    
+    // stop WDT
+    kickTheDog();
+    WDTCONbits.ON = 0;
+    printf("    Watchdog Timer Stopped, Cleared\r\n");
+    
+    // stop heartbeat timer
+    T1CONbits.ON = 0;
+    TMR1 = 0;
+    HEARTBEAT_LED_PIN = LOW;
+    printf("    Heartbeat Timer Stopped\r\n");
+    
+    terminalTextAttributesReset();
+    
+#warning "configure device to wake from sleep based on certain IRQs here, disable others"
+    
+#warning "go to sleep here once everything is configured properly"
     
 }
