@@ -304,6 +304,7 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
             terminalSetCursorHome();
             terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
             printf("Enabling Pulse Oximetry with Verbosity\n\r");
+            
             pox_daq_enable = 1;
             pox_daq_verbosity_enable = 1;
         }
