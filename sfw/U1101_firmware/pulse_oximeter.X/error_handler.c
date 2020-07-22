@@ -10,6 +10,7 @@
 #include "32mz_interrupt_control.h"
 #include "pin_macros.h"
 #include "terminal_control.h"
+#include "usb_uart.h"
 
 // This function initializes the error handler structure to detect fault conditions
 void errorHandlerInitialize(void) {
@@ -177,10 +178,10 @@ void exceptionPrint(char *input_string) {
         if (input_string[i] == '\0') return;
         
         // send single character
-        U3TXREG = input_string[i];
+        USB_UART_TX_REG = input_string[i];
         
         // wait for buffer to open
-        while(U3STAbits.UTXBF);
+        while(USB_UART_STA_BITFIELD.UTXBF);
         
         
     }

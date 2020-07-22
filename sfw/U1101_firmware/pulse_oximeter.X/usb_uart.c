@@ -161,7 +161,7 @@ void usbUartInitialize(void) {
     USB_UART_MODE_BITFIELD.ON = 0;
     
     // stop UART 3 operation in IDLE mode
-    USB_UART_MODE_BITFIELD.SIDL = 1;
+    // USB_UART_MODE_BITFIELD.SIDL = 1;
     
     // Disable IrDA encoding
     USB_UART_MODE_BITFIELD.IREN = 0;

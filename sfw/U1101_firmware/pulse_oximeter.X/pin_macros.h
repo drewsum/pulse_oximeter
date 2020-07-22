@@ -37,6 +37,7 @@
 #define HEARTBEAT_LED_PIN           LATFbits.LATF1
 
 // Port G
+#define LCD_BACKLIGHT_PWM_PIN       LATGbits.LATG8
 
 
 #endif /* _PIN_MACROS_H */

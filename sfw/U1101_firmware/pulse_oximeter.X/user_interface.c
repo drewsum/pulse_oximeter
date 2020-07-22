@@ -144,7 +144,7 @@ void uiDeviceSleep(void) {
     printf("    POX I2C bridge disabled\r\n");
     POS1P8_RUN_PIN = LOW;
     printf("    +1.8V power supply disabled\r\n");
-    
+    terminalTextAttributesReset();
     
     #warning "add other shutdown tasks here"
     
@@ -154,22 +154,37 @@ void uiDeviceSleep(void) {
     // kill LCD screen backlight
     lcdClear();
     lcdSetBrightness(0);
+    LCD_BACKLIGHT_PWM_PIN = LOW;
+    
+    kickTheDog();
+    softwareDelay(0xFFFFFF);
     
     // stop WDT
     kickTheDog();
     WDTCONbits.ON = 0;
-    printf("    Watchdog Timer Stopped, Cleared\r\n");
     
     // stop heartbeat timer
     T1CONbits.ON = 0;
     TMR1 = 0;
     HEARTBEAT_LED_PIN = LOW;
-    printf("    Heartbeat Timer Stopped\r\n");
     
-    terminalTextAttributesReset();
+    // disable I2C in sleep
+    I2C5CONbits.SIDL = 1;
+    // disable ADC in sleep
+    ADCCON1bits.SIDL = 1;
+    // disable LCD PWM in sleep
+    OC3CONbits.SIDL = 0;
+    T2CONbits.SIDL = 1;
+    // enable USB UART in sleep
+    U1MODEbits.SIDL = 0;
     
-#warning "configure device to wake from sleep based on certain IRQs here, disable others"
+    asm volatile ( "wait" ); // Put device into Idle mode
     
-#warning "go to sleep here once everything is configured properly"
+    // start WDT
+    kickTheDog();
+    heartbeatTimerInitialize();
+    
+    // setup watchdog timer
+    watchdogTimerInitialize();
     
 }
