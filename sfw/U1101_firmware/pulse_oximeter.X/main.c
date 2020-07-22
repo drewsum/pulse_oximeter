@@ -191,10 +191,50 @@ void main(void) {
     terminalTextAttributesReset();
     terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
     printf("\n\rType 'Help' for list of supported commands\n\r\n\r");
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("Going to Sleep\r\n");
+    
     terminalTextAttributesReset();
     
     // check to see if a clock fail has occurred and latch it
     clockFailCheck();
+    
+    // wait for USB UART TX DMA to complete (flush TX buffer)
+    while (USB_UART_TX_DMA_CON_BITFIELD.CHBUSY);
+    
+    // get ready to wake up when user presses power button
+    ui_sleep_request = false;
+    ui_state_machine = sleep_state;
+    
+    // stop WDT
+    kickTheDog();
+    WDTCONbits.ON = 0;
+    
+    // stop heartbeat timer
+    T1CONbits.ON = 0;
+    TMR1 = 0;
+    HEARTBEAT_LED_PIN = LOW;
+    
+    // disable I2C in sleep
+    I2C5CONbits.SIDL = 1;
+    // disable ADC in sleep
+    ADCCON1bits.SIDL = 1;
+    // disable LCD PWM in sleep
+    OC3CONbits.SIDL = 0;
+    T2CONbits.SIDL = 1;
+    // enable USB UART in sleep
+    U1MODEbits.SIDL = 0;
+    
+    asm volatile ( "wait" ); // Put device into Idle mode
+    
+    // this code executes on a wake from sleep (power pushbutton pressed, or serial commands received)
+    // start WDT
+    kickTheDog();
+    heartbeatTimerInitialize();
+    
+    // setup watchdog timer
+    watchdogTimerInitialize();
     
     // endless loop
     while(1) {

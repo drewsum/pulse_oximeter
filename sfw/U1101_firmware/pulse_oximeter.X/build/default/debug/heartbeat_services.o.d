@@ -1,4 +1,4 @@
-build/default/production/heartbeat_services.o:  \
+build/default/debug/heartbeat_services.o:  \
 heartbeat_services.c  \
  heartbeat_services.h  \
 error_handler.h  \
@@ -12,5 +12,4 @@ telemetry.h  \
 algorithm_by_RF.h  \
  32mz_interrupt_control.h  \
 user_interface.h  \
-device_control.h  \
- terminal_control.h 
+device_control.h 

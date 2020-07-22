@@ -11,6 +11,8 @@
 #include "lcd.h"
 #include "lcd_dimming.h"
 #include "power_saving.h"
+#include "usb_uart.h"
+#include "heartbeat_services.h"
 
 // this function initializes the "Power" capacitive pushbutton interrupt
 void powerCapTouchPushbuttonInitialize(void) {
@@ -54,6 +56,7 @@ void uiDeviceWakeup(void) {
     kickTheDog();
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");
+    ui_power_on_time = device_on_time_counter;
     
     // setup watchdog timer
     watchdogTimerInitialize();
@@ -64,11 +67,12 @@ void uiDeviceWakeup(void) {
     lcdSetCursor(0,0);
     lcdPrint(" DIY Pulse Oximeter ");
     lcdSetCursor(0,1);
-    lcdPrint("    By: _drewsum    ");
+    lcdPrint(" github.com/drewsum ");
     lcdSetCursor(0,2);
     lcdPrint("    July of 2020    ");
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
+    
     lcdSetBrightness(100);
     
     // enable POX sensor logic rail, LED drive voltage
@@ -79,6 +83,14 @@ void uiDeviceWakeup(void) {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    Failed to enable +1.8V Power Supply\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        ui_state_machine = stall_state;
+        lcdClear();
+        lcdSetCursor(0,0);
+        lcdPrint("Failed to enable");
+        lcdSetCursor(0,1);
+        lcdPrint("+1.8V Power Supply");
+        lcdSetBrightness(100);
+        return;
     }
     else {
         POX_I2C_ENABLE_PIN = HIGH;
@@ -103,14 +115,24 @@ void uiDeviceWakeup(void) {
         terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        ui_state_machine = stall_state;
+        lcdClear();
+        lcdSetCursor(0,0);
+        lcdPrint("Failed to enable");
+        lcdSetCursor(0,1);
+        lcdPrint("POX Sensor");
+        lcdSetBrightness(100);
+        return;
     }
     
+    terminalTextAttributesReset();
+    
     // keep track that we're initialized
-    ui_state_machine = boot_state;
+    ui_state_machine = wakeup_screen_1_state;
     
 }
 
-// this function deconstructs up the device for the user to turn off the device
+// this function deconstructs the device for the user to turn off the device
 void uiDeviceSleep(void) {
     
     terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
@@ -167,6 +189,9 @@ void uiDeviceSleep(void) {
     T1CONbits.ON = 0;
     TMR1 = 0;
     HEARTBEAT_LED_PIN = LOW;
+    
+    // wait for USB UART TX DMA to complete (flush TX buffer)
+    while (USB_UART_TX_DMA_CON_BITFIELD.CHBUSY);
     
     // disable I2C in sleep
     I2C5CONbits.SIDL = 1;

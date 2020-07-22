@@ -10,4 +10,8 @@ error_handler.h  \
 lcd.h  \
  lcd_dimming.h  \
 power_saving.h  \
-device_control.h 
+device_control.h  \
+usb_uart.h  \
+ usb_uart_rx_lookup_table.h  \
+uthash.h  \
+heartbeat_services.h 
