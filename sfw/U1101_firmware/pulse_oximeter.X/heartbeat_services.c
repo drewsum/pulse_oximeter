@@ -69,9 +69,9 @@ void heartbeatServices(void) {
         lcdSetCursor(0,1);
         lcdPrint("heart rate and");
         lcdSetCursor(0,2);
-        lcdPrint("oxygen saturation.");
+        lcdPrint("oxygen saturation");
         lcdSetCursor(0,3);
-        lcdPrint("(SPO2)");
+        lcdPrint("(SPO2).");
         
         ui_state_machine = wakeup_screen_3_state;
         
@@ -117,7 +117,7 @@ void heartbeatServices(void) {
         lcdSetCursor(0,1);
         lcdPrint("every five seconds.");
         lcdSetCursor(0,3);
-        lcdPrint("Please be patient.");
+        lcdPrint("Please be patient!");
         
         ui_state_machine = wakeup_screen_6_state;
         
@@ -162,10 +162,8 @@ void heartbeatServices(void) {
         lcdPrint("* RESULTS ARE FOR  *");
         lcdSetCursor(0,1);
         lcdPrint("*  REFERENCE ONLY  *");
-        lcdSetCursor(0,2);
-        lcdPrint("Starting to measure");
         lcdSetCursor(0,3);
-        lcdPrint("now!");
+        lcdPrint("   Measuring now!   ");
         
         ui_state_machine = pox_scan_state;
         terminalClearScreen();

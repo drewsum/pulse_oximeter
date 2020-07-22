@@ -73,7 +73,12 @@ void uiDeviceWakeup(void) {
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
     
-    lcdSetBrightness(100);
+    uint8_t set_brightness;
+    for (set_brightness = 0; set_brightness < 101; set_brightness++) {
+        lcdSetBrightness(set_brightness);
+        softwareDelay(100000);
+        kickTheDog();
+    }
     
     // enable POX sensor logic rail, LED drive voltage
     POS1P8_RUN_PIN = HIGH;
@@ -89,7 +94,10 @@ void uiDeviceWakeup(void) {
         lcdPrint("Failed to enable");
         lcdSetCursor(0,1);
         lcdPrint("+1.8V Power Supply");
+        lcdSetCursor(0,2);
+        lcdPrint(":(((((");
         lcdSetBrightness(100);
+        error_handler.flags.pos1p8_pgood = 1;
         return;
     }
     else {
@@ -121,7 +129,10 @@ void uiDeviceWakeup(void) {
         lcdPrint("Failed to enable");
         lcdSetCursor(0,1);
         lcdPrint("POX Sensor");
+        lcdSetCursor(0,2);
+        lcdPrint(":(((((");
         lcdSetBrightness(100);
+        error_handler.flags.pox_sensor = 1;
         return;
     }
     
@@ -174,8 +185,13 @@ void uiDeviceSleep(void) {
     kickTheDog();
     softwareDelay(0x1FFFFFF);
     // kill LCD screen backlight
+    uint8_t set_brightness;
+    for (set_brightness = 101; set_brightness > 0; set_brightness--) {
+        lcdSetBrightness(set_brightness - 1);
+        softwareDelay(100000);
+        kickTheDog();
+    }
     lcdClear();
-    lcdSetBrightness(0);
     LCD_BACKLIGHT_PWM_PIN = LOW;
     
     kickTheDog();
