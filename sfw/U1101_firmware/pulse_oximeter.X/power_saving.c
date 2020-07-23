@@ -49,16 +49,16 @@ void PMDInitialize(void) {
     PMD3bits.OC8MD = 1;
     PMD3bits.OC9MD = 1;
     
-    // Enable all hardware timers
+    // Enable all unused hardware timers
     PMD4bits.T1MD = 0;
     PMD4bits.T2MD = 0;
-    PMD4bits.T3MD = 0;
-    PMD4bits.T4MD = 0;
-    PMD4bits.T5MD = 0;
-    PMD4bits.T6MD = 0;
-    PMD4bits.T7MD = 0;
-    PMD4bits.T8MD = 0;
-    PMD4bits.T9MD = 0;
+    PMD4bits.T3MD = 1;
+    PMD4bits.T4MD = 1;
+    PMD4bits.T5MD = 1;
+    PMD4bits.T6MD = 1;
+    PMD4bits.T7MD = 1;
+    PMD4bits.T8MD = 1;
+    PMD4bits.T9MD = 1;
     
     // Enable UART1, disable others
     PMD5bits.U1MD = 0;
@@ -101,8 +101,8 @@ void PMDInitialize(void) {
     PMD6bits.REFO3MD = 0;
     PMD6bits.REFO4MD = 0;
     
-    // Enable peripheral master port
-    PMD6bits.PMPMD = 0;
+    // Disable peripheral master port
+    PMD6bits.PMPMD = 1;
     
     // Disable external bus interface (EBI)
     #ifdef EBICS0
@@ -112,8 +112,8 @@ void PMDInitialize(void) {
     // Disable serial quad interface
     PMD6bits.SQI1MD = 1;
     
-    // enable ethernet module
-    PMD6bits.ETHMD = 0;
+    // disable ethernet module
+    PMD6bits.ETHMD = 1;
     
     // Enable DMA
     PMD7bits.DMAMD = 0;
