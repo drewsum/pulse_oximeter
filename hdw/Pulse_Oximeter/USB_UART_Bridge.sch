@@ -225,10 +225,11 @@ L Device:Ferrite_Bead L1201
 U 1 1 5BB0BDEE
 P 8190 3090
 F 0 "L1201" V 8040 3115 50  0000 C CNN
-F 1 "600R 0.5A" V 8340 3090 50  0000 C CNN
+F 1 "DNP" V 8340 3090 50  0000 C CNN
 F 2 "Inductors_SMD:L_0402" V 8120 3090 50  0001 C CNN
 F 3 "~" H 8190 3090 50  0001 C CNN
-F 4 "490-5441-1-ND" H 0   0   50  0001 C CNN "Digi-Key PN"
+F 4 "DNP" H 0   0   50  0001 C CNN "Digi-Key PN"
+F 5 "DNP" V 8190 3090 50  0001 C CNN "Configuration"
 	1    8190 3090
 	0    1    1    0   
 $EndComp
@@ -896,4 +897,10 @@ Wire Wire Line
 Connection ~ 4440 2220
 Wire Wire Line
 	4440 2220 4830 2220
+Text Notes 1790 2640 0    50   ~ 0
+Change VCCIO from global +3.3V! This creates sequencing issues!\nPick something else, or do it the old way
+Text Notes 970  3180 0    50   ~ 0
+Add pullups on RX and TX
+Text Notes 1960 780  0    100  ~ 20
+ECO: Run a modwire from +3.3V to +5V_USB somewhere, and ensure L1201 is non-popped
 $EndSCHEMATC
