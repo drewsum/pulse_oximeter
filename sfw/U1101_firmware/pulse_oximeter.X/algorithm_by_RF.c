@@ -417,16 +417,13 @@ void poxAcquireInterruptHandler(void) {
         lcdSetCursor(0,0);
         lcdPrint("Heart Rate:");
         lcdSetCursor(0,1);
-        char buffer[20];
-        sprintf(buffer, "%u bpm", n_heart_rate);
-        if(ch_hr_valid) lcdPrint(buffer);
-        else lcdPrint("(Measuring...)");
+        if(ch_hr_valid) sprintf(hr_display_buffer, "%u bpm", n_heart_rate);
+        lcdPrint(hr_display_buffer);
         lcdSetCursor(0,2);
         lcdPrint("Oxygen Saturation:");
         lcdSetCursor(0,3);
-        sprintf(buffer, "%.3f %%", n_spo2);
-        if(ch_spo2_valid) lcdPrint(buffer);
-        else lcdPrint("(Measuring...)");
+        if(ch_spo2_valid) sprintf(spo2_display_buffer, "%.3f%%", n_spo2);
+        lcdPrint(spo2_display_buffer);
         
     }
     

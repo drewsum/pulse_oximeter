@@ -20,6 +20,7 @@
 #include "algorithm_by_RF.h"
 #include "misc_i2c_devices.h"
 #include "lcd_dimming.h"
+#include "max30102.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -305,6 +306,44 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
             terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
             printf("Enabling Pulse Oximetry with Verbosity\n\r");
             
+            // enable POX sensor logic rail, LED drive voltage
+            POS1P8_RUN_PIN = HIGH;
+            uint32_t timeout = 0xFFFFFF;
+            while (POS1P8_PGOOD_PIN == LOW && timeout > 0) timeout--;
+            if (POS1P8_PGOOD_PIN == LOW) {
+                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Failed to enable +1.8V Power Supply\r\n");
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                error_handler.flags.pos1p8_pgood = 1;
+                return;
+            }
+            else {
+                POX_I2C_ENABLE_PIN = HIGH;
+                printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
+            }
+            softwareDelay(1000);
+            POS3P3_POX_ENABLE_PIN = HIGH;
+            printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
+
+            // initialize MAX30102 pulse oximeter sensor
+            softwareDelay(100000);
+
+            maxim_max30102_reset(); //resets the MAX30102
+            while(POX_INT_PIN == HIGH);
+            maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+            if (maxim_max30102_init()) {
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Pulse Oximetry Sensor Initialized\r\n");
+                old_n_spo2 = 0.0;
+            }
+            else {
+                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                error_handler.flags.pox_sensor = 1;
+                return;
+            }
+
             pox_daq_enable = 1;
             pox_daq_verbosity_enable = 1;
         }
@@ -327,6 +366,46 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
             terminalSetCursorHome();
             terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
             printf("Enabling Pulse Oximetry\n\r");
+            
+                        // enable POX sensor logic rail, LED drive voltage
+            POS1P8_RUN_PIN = HIGH;
+            uint32_t timeout = 0xFFFFFF;
+            while (POS1P8_PGOOD_PIN == LOW && timeout > 0) timeout--;
+            if (POS1P8_PGOOD_PIN == LOW) {
+                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Failed to enable +1.8V Power Supply\r\n");
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                error_handler.flags.pos1p8_pgood = 1;
+                return;
+            }
+            else {
+                POX_I2C_ENABLE_PIN = HIGH;
+                printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
+            }
+            softwareDelay(1000);
+            POS3P3_POX_ENABLE_PIN = HIGH;
+            printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
+
+            // initialize MAX30102 pulse oximeter sensor
+            softwareDelay(100000);
+
+            maxim_max30102_reset(); //resets the MAX30102
+            while(POX_INT_PIN == HIGH);
+            maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+            if (maxim_max30102_init()) {
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Pulse Oximetry Sensor Initialized\r\n");
+                old_n_spo2 = 0.0;
+            }
+            else {
+                terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+                printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
+                terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+                error_handler.flags.pox_sensor = 1;
+                return;
+            }
+
+            
             pox_daq_enable = 1;
             pox_daq_verbosity_enable = 0;
         }

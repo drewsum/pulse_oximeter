@@ -115,7 +115,9 @@ void heartbeatServices(void) {
         lcdSetCursor(0,0);
         lcdPrint("Data will refresh");
         lcdSetCursor(0,1);
-        lcdPrint("every five seconds.");
+        lcdPrint("every five seconds,");
+        lcdSetCursor(0,2);
+        lcdPrint("latch most recent.");
         lcdSetCursor(0,3);
         lcdPrint("Please be patient!");
         

@@ -182,6 +182,9 @@ bool maxim_max30102_init()
     CNNEB = 0;
     CNNEBbits.CNNEB2 = 1;
     
+    sprintf(hr_display_buffer, "(Measuring...)");
+    sprintf(spo2_display_buffer, "(Measuring...)");
+    
     return true;  
 }
 

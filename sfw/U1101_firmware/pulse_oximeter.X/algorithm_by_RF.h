@@ -90,6 +90,10 @@ int8_t  ch_hr_valid;  //indicator to show if the heart rate calculation is valid
 // this flag is used for the application to request ST seconds worth of data. 
 volatile uint32_t pox_daq_request_flag, pox_daq_enable, pox_daq_verbosity_enable, pox_daq_buffer_index, pox_daq_callback_request;
 
+// this keeps track of what to print to the LCD
+char hr_display_buffer[20];
+char spo2_display_buffer[20];
+
 void rf_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer, int32_t n_ir_buffer_length, uint32_t *pun_red_buffer, float *pn_spo2, int8_t *pch_spo2_valid, int32_t *pn_heart_rate, 
                                         int8_t *pch_hr_valid, float *ratio, float *correl);
 float rf_linear_regression_beta(float *pn_x, float xmean, float sum_x2);
