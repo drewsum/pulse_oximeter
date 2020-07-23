@@ -69,6 +69,19 @@ void lcdClear(void) {
     
 }
 
+// this function enabled the LCD display
+void lcdPowerUp(void) {
+ 
+    lcdCommand(0x0C);
+    
+}
+
+// this function powers down the LCD
+void lcdPowerDown(void) {
+ 
+    lcdCommand(0x08);
+    
+}
 
 // this function sets the cursor location
 void lcdSetCursor(uint8_t column, uint8_t row) {

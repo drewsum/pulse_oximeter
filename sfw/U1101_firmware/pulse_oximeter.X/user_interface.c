@@ -63,6 +63,7 @@ void uiDeviceWakeup(void) {
     printf("    Watchdog Timer Initialized\n\r");
     
     // print out starting message on LCD
+    lcdPowerUp();
     lcdClear();
     lcdSetCursor(0,0);
     lcdPrint(" DIY Pulse Oximeter ");
@@ -190,6 +191,7 @@ void uiDeviceSleep(void) {
     }
     lcdClear();
     LCD_BACKLIGHT_PWM_PIN = LOW;
+    lcdPowerDown();
     
     kickTheDog();
     softwareDelay(0xFFFFFF);

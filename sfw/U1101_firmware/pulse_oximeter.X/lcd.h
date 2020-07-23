@@ -33,6 +33,12 @@ void lcdInitialize(void);
 // this function clears the display
 void lcdClear(void);
 
+// this function enabled the LCD display
+void lcdPowerUp(void);
+
+// this function powers down the LCD
+void lcdPowerDown(void);
+
 // this function sets the cursor location
 void lcdSetCursor(uint8_t column, uint8_t row);
 

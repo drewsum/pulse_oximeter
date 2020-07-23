@@ -207,6 +207,8 @@ void main(void) {
     ui_sleep_request = false;
     ui_state_machine = sleep_state;
     
+    lcdPowerDown();
+    
     // stop WDT
     kickTheDog();
     WDTCONbits.ON = 0;
