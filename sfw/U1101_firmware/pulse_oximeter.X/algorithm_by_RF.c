@@ -422,7 +422,11 @@ void poxAcquireInterruptHandler(void) {
         lcdSetCursor(0,2);
         lcdPrint("Oxygen Saturation:");
         lcdSetCursor(0,3);
-        if(ch_spo2_valid) sprintf(spo2_display_buffer, "%.3f%%", n_spo2);
+        if(ch_spo2_valid) {
+            if (n_spo2 >= 95.0) sprintf(spo2_display_buffer, "%.3f %% (normal)", n_spo2);
+            else if (n_spo2 >= 90.0) sprintf(spo2_display_buffer, "%.3f %% (hypoxic)", n_spo2);
+            else sprintf(spo2_display_buffer, "%.3f %% (danger)", n_spo2);
+        }
         lcdPrint(spo2_display_buffer);
         
     }

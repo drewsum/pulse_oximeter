@@ -179,9 +179,6 @@ void uiDeviceSleep(void) {
     printf("    +1.8V power supply disabled\r\n");
     terminalTextAttributesReset();
     
-    #warning "add other shutdown tasks here"
-    
-    
     kickTheDog();
     softwareDelay(0x1FFFFFF);
     // kill LCD screen backlight

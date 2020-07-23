@@ -1,5 +1,7 @@
 
 
+#define FIRMWARE_VERSION_STR "0.8"
+
 #include "heartbeat_services.h"
 
 #include "error_handler.h"
@@ -10,6 +12,7 @@
 #include "user_interface.h"
 #include "device_control.h"
 #include "terminal_control.h"
+#include "pin_macros.h"
 
 #include <stdio.h>
 
@@ -54,7 +57,7 @@ void heartbeatServices(void) {
         sprintf(buffer, "%s", getStringSerialNumber());
         lcdPrint(buffer);
         lcdSetCursor(0,3);
-        sprintf(buffer, "Die Rev: %s", getRevisionIDString(getRevisionID()));
+        sprintf(buffer, "Die:%s,T:%u,FW:%s", getRevisionIDString(getRevisionID()), !TELEMETRY_CONFIG_PIN, FIRMWARE_VERSION_STR);
         lcdPrint(buffer);
         
         ui_state_machine = wakeup_screen_2_state;
