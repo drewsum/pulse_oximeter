@@ -68,6 +68,7 @@ void main(void) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Pulse Oximeter\r\n");
+    printf("Firmware Version %s\r\n", FIRMWARE_VERSION_STR);
     printf("Created by Drew Maatman, 2020\r\n");
     terminalTextAttributesReset();
     
@@ -153,8 +154,8 @@ void main(void) {
     printf("    I2C Bus Master Initialized\r\n");
     
     if (TELEMETRY_CONFIG_PIN == LOW) {
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("Telemetry Configuration Detected\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Telemetry Configuration Detected\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         // setup I2C slaves
         tempSensorsInitialize();
@@ -167,8 +168,8 @@ void main(void) {
     }
     
     else {
-        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("Telemetry Configuration Not Detected\r\n");
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Telemetry Configuration Not Detected\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
@@ -193,8 +194,7 @@ void main(void) {
     printf("\n\rType 'Help' for list of supported commands\n\r\n\r");
     
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("Going to Sleep\r\n");
-    
+    printf("Entering IDLE mode\r\n");
     terminalTextAttributesReset();
     
     // check to see if a clock fail has occurred and latch it

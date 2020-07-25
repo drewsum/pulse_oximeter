@@ -387,14 +387,8 @@ void poxAcquireInterruptHandler(void) {
         
         disableInterrupt(PORTB_Input_Change_Interrupt);
         
-        if (ch_spo2_valid && ch_spo2_valid) {
-            terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
-            printf("Data Valid:\r\n");
-        }
-        else {
-            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
-            printf("Data Invalid:\r\n");
-        }
+        if (ch_spo2_valid && ch_spo2_valid) terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
 
         if (pox_daq_verbosity_enable) {
             uint32_t print_index;
@@ -420,7 +414,7 @@ void poxAcquireInterruptHandler(void) {
         if(ch_hr_valid) sprintf(hr_display_buffer, "%u bpm", n_heart_rate);
         lcdPrint(hr_display_buffer);
         lcdSetCursor(0,2);
-        lcdPrint("Oxygen Saturation:");
+        lcdPrint("Oxygen Level (SPO2):");
         lcdSetCursor(0,3);
         if(ch_spo2_valid) {
             if (n_spo2 >= 95.0) sprintf(spo2_display_buffer, "%.3f %% (normal)", n_spo2);

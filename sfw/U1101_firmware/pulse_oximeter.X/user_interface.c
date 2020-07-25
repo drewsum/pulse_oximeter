@@ -167,17 +167,18 @@ void uiDeviceSleep(void) {
     pox_daq_verbosity_enable = 0;
     pox_daq_buffer_index = 0;
     pox_daq_callback_request = 0;
-    printf("    MAX30102 data acquisition stopped\r\n");
+    printf("    POX data acquisition stopped\r\n");
     
     // kill MAX30102
     disableInterrupt(PORTB_Input_Change_Interrupt);
-    printf("    MAX30102 interrupt source disabled\r\n");
+    printf("    POX interrupt source disabled\r\n");
     POS3P3_POX_ENABLE_PIN = LOW;
     printf("    POX LED drive voltage disabled\r\n");
     POX_I2C_ENABLE_PIN = LOW;
     printf("    POX I2C bridge disabled\r\n");
     POS1P8_RUN_PIN = LOW;
     printf("    +1.8V power supply disabled\r\n");
+    printf("    Entering IDLE mode\r\n");
     terminalTextAttributesReset();
     
     kickTheDog();

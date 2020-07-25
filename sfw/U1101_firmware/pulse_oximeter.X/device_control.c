@@ -171,7 +171,7 @@ void clockInitialize(void) {
     
     // wait for switch to complete
     while (OSCCONbits.OSWEN == 1);
-        
+    
     // lock clock and PLL settings
     OSCCONbits.CLKLOCK = 1;
     
@@ -367,7 +367,7 @@ void PBCLK5Initialize(void) {
     while (PB5DIVbits.PBDIVRDY == 0);
     
     // Enable PBCLK5
-    PB5DIVbits.ON = 1;
+    PB5DIVbits.ON = 0;
     
 }
 
@@ -912,35 +912,76 @@ void printClockStatus(uint32_t input_sysclk) {
     }
     
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    
     // Determine PBCLK1 (Cannot be disabled)
     printf("\n\r    PBCLK1 (Peripheral Bus Clock 1) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB1DIVbits.PBDIV + 1)));
     
     // Determine PBCLK2
-    printf("    PBCLK2 (Peripheral Bus Clock 2) is set to: %s\n\r",
+    if (PB2DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK2 (Peripheral Bus Clock 2) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB2DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK2 (Peripheral Bus Clock 2) is disabled\r\n");
+    }
+    
     
     // Determine PBCLK3
-    printf("    PBCLK3 (Peripheral Bus Clock 3) is set to: %s\n\r",
+    if (PB3DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK3 (Peripheral Bus Clock 3) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB3DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK3 (Peripheral Bus Clock 3) is disabled\r\n");
+    }
     
-    // Determine PBCLK4
-    printf("    PBCLK4 (Peripheral Bus Clock 4) is set to: %s\n\r",
+    // Determine PBCLK2
+    if (PB4DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK4 (Peripheral Bus Clock 4) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB4DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK4 (Peripheral Bus Clock 4) is disabled\r\n");
+    }
 
     // Determine PBCLK5
-    printf("    PBCLK5 (Peripheral Bus Clock 5) is set to: %s\n\r",
+    if (PB5DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK5 (Peripheral Bus Clock 5) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB5DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK5 (Peripheral Bus Clock 5) is disabled\r\n");
+    }
     
     // Determine PBCLK7
-    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("    PBCLK7 (Peripheral Bus Clock 7) is set to: %s\n\r",
+    if (PB7DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK7 (Peripheral Bus Clock 7) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB7DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK7 (Peripheral Bus Clock 7) is disabled\r\n");
+    }
     
-    // Determine PBCLK8
-    printf("    PBCLK8 (Peripheral Bus Clock 8) is set to: %s\n\r",
+    // Determine PBCLK2
+    if (PB8DIVbits.ON) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK8 (Peripheral Bus Clock 8) is set to: %s\n\r",
             stringFromClockSetting(input_sysclk / (PB8DIVbits.PBDIV + 1)));
+    }
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    PBCLK8 (Peripheral Bus Clock 8) is disabled\r\n");
+    }
     
     // Print clock lock status
     if (OSCCONbits.CLKLOCK) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -954,7 +995,7 @@ void printClockStatus(uint32_t input_sysclk) {
     
     // Print Sleep Mode status
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("\n\r    WAIT instruction enters: %s Mode\n\r", OSCCONbits.CF ? "Sleep" : "Idle");
+    printf("\n\r    WAIT instruction enters: %s Mode\n\r", OSCCONbits.SLPEN ? "Sleep" : "Idle");
     
     // Print status of oscillators that are ready
     if (CLKSTATbits.LPRCRDY) terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);

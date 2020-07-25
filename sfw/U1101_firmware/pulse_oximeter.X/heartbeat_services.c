@@ -1,7 +1,4 @@
 
-
-#define FIRMWARE_VERSION_STR "0.8"
-
 #include "heartbeat_services.h"
 
 #include "error_handler.h"
@@ -96,7 +93,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 20) {
+    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 25) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -112,7 +109,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 25) {
+    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 30) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -128,13 +125,13 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 30) {
+    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 35) {
      
         lcdClear();
         lcdSetCursor(0,0);
         lcdPrint("If device reports");
         lcdSetCursor(0,1);
-        lcdPrint("\"measuring\" after");
+        lcdPrint("\"Measuring\" after");
         lcdSetCursor(0,2);
         lcdPrint("awhile, reposition");
         lcdSetCursor(0,3);
@@ -144,7 +141,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 35) {
+    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 40) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -160,7 +157,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_8_state && (device_on_time_counter - ui_power_on_time) == 40) {
+    if (ui_state_machine == wakeup_screen_8_state && (device_on_time_counter - ui_power_on_time) == 45) {
      
         lcdClear();
         lcdSetCursor(0,0);

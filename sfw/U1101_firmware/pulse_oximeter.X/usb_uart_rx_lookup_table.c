@@ -70,7 +70,7 @@ usb_uart_command_function_t clearCommand(char * input_str) {
 usb_uart_command_function_t idnCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("Pulse Oximeter by Drew Maatman, 2020\r\n");
+    printf("Pulse Oximeter by Drew Maatman, 2020, FW version %s\r\n", FIRMWARE_VERSION_STR);
     terminalTextAttributesReset();    
 }
 

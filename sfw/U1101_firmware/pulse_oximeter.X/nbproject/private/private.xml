@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/heartbeat_services.c</file>
             <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/main.c</file>
-            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/user_interface.h</file>
-            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/pin_macros.h</file>
+            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/user_interface.c</file>
+            <file>file:/C:/Users/Drew%20Maatman/Documents/KiCad%20Projects/Projects/pulse_oximeter/sfw/U1101_firmware/pulse_oximeter.X/algorithm_by_RF.c</file>
         </group>
     </open-files>
 </project-private>
