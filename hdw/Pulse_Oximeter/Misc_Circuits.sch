@@ -250,36 +250,6 @@ F 3 "" H 5570 5540 50  0001 C CNN
 	1    5570 5540
 	1    0    0    -1  
 $EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EBF5642
-P 5570 5390
-AR Path="/5BB27BA3/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5BB27BF7/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5C1DE17A/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5C1E3A08/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5D779AE1/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5E0DC082/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5E0F9110/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5E9E0EA5/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5E9E0E87/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5EAE2D66/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5EAE4A89/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5EAE2F23/5EBF5642" Ref="R?"  Part="1" 
-AR Path="/5EBEB0C5/5EBF5642" Ref="R2002"  Part="1" 
-F 0 "R2002" H 5490 5390 50  0000 R CNN
-F 1 "10" V 5570 5390 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 5570 5390 50  0001 C CNN
-F 3 "" H 5570 5390 50  0001 C CNN
-F 4 "0402" H 5670 5470 50  0000 L CNN "display_footprint"
-F 5 "1%" H 5670 5390 50  0000 L CNN "Tolerance"
-F 6 "1/16W" H 5680 5310 50  0000 L CNN "Wattage"
-F 7 "Telemetry" H 5680 5230 50  0000 L CNN "Configuration"
-F 8 "541-3964-1-ND" H 5570 5390 50  0001 C CNN "Digi-Key PN"
-	1    5570 5390
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5570 5240 5570 5160
 Text GLabel 5650 5160 2    50   UnSpc ~ 0
@@ -352,5 +322,35 @@ F 2 "" H 5600 2340 50  0001 C CNN
 F 3 "" H 5600 2340 50  0001 C CNN
 	1    5600 2340
 	0    -1   -1   0   
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5EBF5642
+P 5570 5390
+AR Path="/5BB27BA3/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5EBF5642" Ref="R?"  Part="1" 
+AR Path="/5EBEB0C5/5EBF5642" Ref="R2002"  Part="1" 
+F 0 "R2002" H 5490 5390 50  0000 R CNN
+F 1 "10" V 5570 5390 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 5570 5390 50  0001 C CNN
+F 3 "" H 5570 5390 50  0001 C CNN
+F 4 "0402" H 5670 5470 50  0000 L CNN "display_footprint"
+F 5 "1%" H 5670 5390 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 5680 5310 50  0000 L CNN "Wattage"
+F 7 "Telemetry" H 5680 5230 50  0000 L CNN "Configuration"
+F 8 "541-3964-1-ND" H 5570 5390 50  0001 C CNN "Digi-Key PN"
+	1    5570 5390
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

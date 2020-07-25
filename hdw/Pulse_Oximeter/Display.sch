@@ -48,28 +48,6 @@ F 3 "" H 5590 3120 50  0001 C CNN
 	1    5590 3120
 	1    0    0    -1  
 $EndComp
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EB2CCF7
-P 3730 6230
-AR Path="/5CB6F1ED/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5CB7718D/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5E0DC082/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5E0F263A/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5EAE2E5F/5EB2CCF7" Ref="R?"  Part="1" 
-AR Path="/5EAE4A89/5EB2CCF7" Ref="R1604"  Part="1" 
-F 0 "R1604" V 4100 6230 50  0000 C CNN
-F 1 "499" V 3730 6230 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 3730 6230 50  0001 C CNN
-F 3 "" H 3730 6230 50  0001 C CNN
-F 4 "0402" V 3830 6230 50  0000 C CNN "display_footprint"
-F 5 "1%" V 3930 6230 50  0000 C CNN "Tolerance"
-F 6 "1/16W" V 4030 6230 50  0000 C CNN "Wattage"
-F 7 "RMCF0402FT499RCT-ND" H 3730 6230 50  0001 C CNN "Digi-Key PN"
-	1    3730 6230
-	0    -1   1    0   
-$EndComp
 Text GLabel 3880 6230 2    50   Output ~ 0
 LCD_BACKLIGHT
 Text GLabel 5990 4220 2    50   Input ~ 0
@@ -946,4 +924,21 @@ Wire Wire Line
 Connection ~ 4860 4520
 Wire Wire Line
 	4860 4520 5190 4520
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5F1BFFAE
+P 3730 6230
+AR Path="/5EAE2D66/5F1BFFAE" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5F1BFFAE" Ref="R1604"  Part="1" 
+F 0 "R1604" V 4120 6230 50  0000 C CNN
+F 1 "10" V 3730 6230 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 3730 6230 50  0001 C CNN
+F 3 "" H 3730 6230 50  0001 C CNN
+F 4 "541-3964-1-ND" H 4030 6630 60  0001 C CNN "Digi-Key PN"
+F 5 "0402" V 3830 6230 50  0000 C CNN "display_footprint"
+F 6 "1%" V 3930 6230 50  0000 C CNN "Tolerance"
+F 7 "1/16W" V 4030 6230 50  0000 C CNN "Wattage"
+	1    3730 6230
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
