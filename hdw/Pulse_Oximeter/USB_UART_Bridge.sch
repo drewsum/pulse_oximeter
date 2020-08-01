@@ -897,10 +897,10 @@ Wire Wire Line
 Connection ~ 4440 2220
 Wire Wire Line
 	4440 2220 4830 2220
-Text Notes 1790 2640 0    50   ~ 0
-Change VCCIO from global +3.3V! This creates sequencing issues!\nPick something else, or do it the old way
+Text Notes 1540 2650 0    50   ~ 0
+ECR: Change VCCIO from global +3.3V! This creates sequencing issues!\nPick something else, or do it the old way
 Text Notes 970  3180 0    50   ~ 0
-Add pullups on RX and TX
+ECR: Add pullups on RX and TX
 Text Notes 1960 780  0    100  ~ 20
 ECO: Run a modwire from +3.3V to +5V_USB somewhere, and ensure L1201 is non-popped
 $EndSCHEMATC
