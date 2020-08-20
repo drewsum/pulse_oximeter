@@ -61,7 +61,7 @@
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.051)
     (solder_mask_min_width 0.25)
-    (aux_axis_origin 0 0)
+    (aux_axis_origin 103.3145 114.4905)
     (visible_elements 7FFFF77F)
     (pcbplotparams
       (layerselection 0x010fc_ffffffff)
@@ -89,7 +89,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "gerbers/"))
+      (outputdirectory "./"))
   )
 
   (net 0 "")
@@ -447,6 +447,7 @@
 
   (module "Custom Footprints Library:Microchip_Logo" (layer F.Cu) (tedit 0) (tstamp 5ED875C7)
     (at 152.4635 82.804)
+    (attr smd)
     (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
@@ -773,6 +774,7 @@
 
   (module "Custom Footprints Library:PIC32_Logo" (layer F.Cu) (tedit 5C380AFF) (tstamp 5ED87368)
     (at 152.4635 96.7105)
+    (attr smd)
     (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
@@ -898,6 +900,7 @@
 
   (module "Custom Footprints Library:Owl_1_Logo" (layer F.Cu) (tedit 0) (tstamp 5ED86F22)
     (at 124.841 93.98)
+    (attr smd)
     (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
@@ -8920,7 +8923,7 @@
     (descr "Mesurement Point, Round, SMD Pad, DM 1.5mm,")
     (tags "Mesurement Point Round SMD Pad 1.5mm")
     (path /5EAE2D66/5C361228)
-    (attr virtual)
+    (attr smd)
     (fp_text reference TP203 (at 0 -2 90) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -8956,7 +8959,7 @@
     (descr "Mesurement Point, Round, SMD Pad, DM 1.5mm,")
     (tags "Mesurement Point Round SMD Pad 1.5mm")
     (path /5EAE2E5F/5EBF1325)
-    (attr virtual)
+    (attr smd)
     (fp_text reference TP601 (at 0 -2) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )

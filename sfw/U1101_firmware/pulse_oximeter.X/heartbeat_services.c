@@ -41,7 +41,7 @@ void heartbeatServices(void) {
     if (pox_daq_enable == 1 && device_on_time_counter % 5 == 0) pox_daq_request_flag = 1;
     
     // update LCD with boot messages if we need to
-    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 5) {
+    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 2) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -61,7 +61,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 10) {
+    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 5) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -77,7 +77,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 15) {
+    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 10) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -93,7 +93,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 25) {
+    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 20) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -109,7 +109,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 30) {
+    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 25) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -125,7 +125,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 35) {
+    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 30) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -141,23 +141,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 40) {
-     
-        lcdClear();
-        lcdSetCursor(0,0);
-        lcdPrint("* ALWAYS CONSULT A *");
-        lcdSetCursor(0,1);
-        lcdPrint("*  DOCTOR IF YOU   *");
-        lcdSetCursor(0,2);
-        lcdPrint("* SUSPECT YOU HAVE *");
-        lcdSetCursor(0,3);
-        lcdPrint("*     COVID-19     *");
-        
-        ui_state_machine = wakeup_screen_8_state;
-        
-    }
-    
-    if (ui_state_machine == wakeup_screen_8_state && (device_on_time_counter - ui_power_on_time) == 45) {
+    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 35) {
      
         lcdClear();
         lcdSetCursor(0,0);
