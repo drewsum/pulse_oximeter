@@ -2,14 +2,14 @@
 <export version="D">
   <design>
     <source>C:\Users\Drew Maatman\Documents\KiCad Projects\Projects\pulse_oximeter\hdw\Pulse_Oximeter\Pulse_Oximeter.sch</source>
-    <date>7/24/2020 11:23:15 PM</date>
+    <date>8/9/2020 2:29:11 PM</date>
     <tool>Eeschema (5.1.4)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Pulse_Oximeter.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -22,7 +22,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS12_Input.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -35,7 +35,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS12_Telemetry.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -48,7 +48,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS3P3_Power_Supply.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -61,7 +61,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS3P3_Telemetry.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -74,7 +74,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS1P8_Power_Supply.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -87,7 +87,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POS1P8_Telemetry.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -100,7 +100,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>PIC32MZ_Programming.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -113,7 +113,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>PIC32MZ_Bypass.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -126,7 +126,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>PIC32MZ_Clocking.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -139,7 +139,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>PIC32MZ.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -152,7 +152,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>USB_UART_Bridge.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -165,7 +165,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>USB_Telemetry.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -178,7 +178,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Time_of_Flight.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -191,7 +191,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>POX_Sensor.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -204,7 +204,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Display.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -217,7 +217,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Pushbuttons.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -230,7 +230,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>PGOOD_LEDs.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -243,7 +243,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Status_LEDs.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -256,7 +256,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Misc_Circuits.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -269,7 +269,7 @@
         <title>Pulse Oximeter</title>
         <company>Drew Maatman</company>
         <rev>A</rev>
-        <date>2019-01-03</date>
+        <date>2020-08-01</date>
         <source>Mechanical.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
