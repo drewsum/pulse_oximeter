@@ -41,7 +41,7 @@ void heartbeatServices(void) {
     if (pox_daq_enable == 1 && device_on_time_counter % 5 == 0) pox_daq_request_flag = 1;
     
     // update LCD with boot messages if we need to
-    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 2) {
+    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 1) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -61,7 +61,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 5) {
+    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 3) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -77,7 +77,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 10) {
+    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 8) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -93,7 +93,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 20) {
+    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 13) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -109,15 +109,13 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 25) {
+    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 18) {
      
         lcdClear();
         lcdSetCursor(0,0);
         lcdPrint("Data will refresh");
         lcdSetCursor(0,1);
-        lcdPrint("every five seconds,");
-        lcdSetCursor(0,2);
-        lcdPrint("latch most recent.");
+        lcdPrint("every five seconds.");
         lcdSetCursor(0,3);
         lcdPrint("Please be patient!");
         
@@ -125,7 +123,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 30) {
+    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 23) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -141,7 +139,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 35) {
+    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 28) {
      
         lcdClear();
         lcdSetCursor(0,0);
