@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:Pulse_Oximeter-cache
 EELAYER 30 0
 EELAYER END
 $Descr A 11000 8500
@@ -89,8 +88,8 @@ $EndSheet
 $Sheet
 S 4320 5930 500  150 
 U 5EAE3021
-F0 "Time of Flight" 50
-F1 "Time_of_Flight.sch" 50
+F0 "Platform ETC" 50
+F1 "Platform_ETC.sch" 50
 $EndSheet
 $Sheet
 S 4320 6280 500  150 
@@ -161,7 +160,7 @@ Text Notes 2160 5380 0    100  ~ 20
 Text Notes 2160 5730 0    100  ~ 20
 13. USB Telemetry
 Text Notes 2160 6080 0    100  ~ 20
-14. Time of Flight
+14. Platform ETC
 Text Notes 2160 6430 0    100  ~ 20
 15. POX Sensor
 Text Notes 2160 6780 0    100  ~ 20
