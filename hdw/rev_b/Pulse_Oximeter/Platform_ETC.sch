@@ -5,26 +5,14 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 14 21
 Title "Pulse Oximeter"
-Date "2020-08-01"
-Rev "A"
+Date "2020-12-09"
+Rev "B"
 Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Custom_Library:DS1683 U1401
-U 1 1 5B5039F7
-P 4840 4100
-F 0 "U1401" H 4840 3750 60  0000 C CNN
-F 1 "DS1683" H 4840 4450 60  0000 C CNN
-F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 4740 4400 60  0001 C CNN
-F 3 "https://datasheets.maximintegrated.com/en/ds/DS1683.pdf" H 4740 4400 60  0001 C CNN
-F 4 "DS1683S+-ND" H 4940 3850 60  0001 C CNN "Digi-Key PN"
-	1    4840 4100
-	1    0    0    -1  
-$EndComp
 NoConn ~ 4440 3900
 $Comp
 L power:GND #PWR01405
@@ -168,11 +156,12 @@ U 1 1 5EB6FFC8
 P 2880 2660
 AR Path="/5EAE2D8A/5EB6FFC8" Ref="D?"  Part="1" 
 AR Path="/5EAE3021/5EB6FFC8" Ref="D1401"  Part="1" 
-F 0 "D1401" V 2950 2540 50  0000 R CNN
-F 1 "BAT48JFILM" V 2850 2540 50  0000 R CNN
+F 0 "D1401" V 2990 2540 50  0000 R CNN
+F 1 "BAT48JFILM" V 2890 2540 50  0000 R CNN
 F 2 "Diode_SMD:D_SOD-323" H 2880 2485 50  0001 C CNN
 F 3 "www.st.com/resource/en/datasheet/bat48.pdf" H 2880 2660 50  0001 C CNN
 F 4 "497-5711-1-ND" H 2880 2660 50  0001 C CNN "Digi-Key PN"
+F 5 "ETC" V 2790 2540 50  0000 R CNN "Configuration"
 	1    2880 2660
 	0    -1   -1   0   
 $EndComp
@@ -196,6 +185,7 @@ F 4 "0402" H 2730 3220 50  0000 R CNN "display_footprint"
 F 5 "6.3V" H 2730 3120 50  0000 R CNN "Voltage"
 F 6 "X5R" H 2730 3020 50  0000 R CNN "Dielectric"
 F 7 "490-13211-1-ND" H 2880 3120 50  0001 C CNN "Digi-Key PN"
+F 8 "ETC" H 3080 3120 50  0000 C CNN "Configuration"
 	1    2880 3120
 	1    0    0    -1  
 $EndComp
@@ -219,6 +209,7 @@ F 4 "0402" H 3380 3220 50  0000 R CNN "display_footprint"
 F 5 "6.3V" H 3380 3120 50  0000 R CNN "Voltage"
 F 6 "X5R" H 3380 3020 50  0000 R CNN "Dielectric"
 F 7 "490-13211-1-ND" H 3530 3120 50  0001 C CNN "Digi-Key PN"
+F 8 "ETC" H 3730 3120 50  0000 C CNN "Configuration"
 	1    3530 3120
 	1    0    0    -1  
 $EndComp
@@ -242,6 +233,7 @@ F 4 "0402" H 4030 3220 50  0000 R CNN "display_footprint"
 F 5 "6.3V" H 4030 3120 50  0000 R CNN "Voltage"
 F 6 "X5R" H 4030 3020 50  0000 R CNN "Dielectric"
 F 7 "490-13211-1-ND" H 4180 3120 50  0001 C CNN "Digi-Key PN"
+F 8 "ETC" H 4380 3120 50  0000 C CNN "Configuration"
 	1    4180 3120
 	1    0    0    -1  
 $EndComp
@@ -268,7 +260,21 @@ F 4 "0402" H 4680 3220 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4680 3120 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4680 3020 50  0000 R CNN "Dielectric"
 F 7 "490-10701-1-ND" H 5255 3620 60  0001 C CNN "Digi-Key PN"
+F 8 "ETC" H 5030 3120 50  0000 C CNN "Configuration"
 	1    4830 3120
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:DS1683 U1401
+U 1 1 5B5039F7
+P 4840 4100
+F 0 "U1401" H 4840 3750 50  0000 C CNN
+F 1 "DS1683" H 4840 4450 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 4740 4400 60  0001 C CNN
+F 3 "https://datasheets.maximintegrated.com/en/ds/DS1683.pdf" H 4740 4400 60  0001 C CNN
+F 4 "DS1683S+-ND" H 4940 3850 60  0001 C CNN "Digi-Key PN"
+F 5 "ETC" H 4840 3620 50  0000 C CNN "Configuration"
+	1    4840 4100
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

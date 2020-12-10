@@ -5,8 +5,8 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 20 21
 Title "Pulse Oximeter"
-Date "2020-08-01"
-Rev "A"
+Date "2020-12-09"
+Rev "B"
 Comp "Drew Maatman"
 Comment1 ""
 Comment2 ""
@@ -82,28 +82,6 @@ I2C_SCL
 Text GLabel 5600 1940 2    50   BiDi ~ 0
 I2C_SDA
 NoConn ~ 4800 2240
-$Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EBEF932
-P 5200 3390
-AR Path="/5B3E071A/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5E0652BA/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5E0A0E29/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5E0DC084/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5E0F263C/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5EAE2E6F/5EBEF932" Ref="C?"  Part="1" 
-AR Path="/5EBEB0C5/5EBEF932" Ref="C2001"  Part="1" 
-F 0 "C2001" H 5225 3490 50  0000 L CNN
-F 1 "0.1uF" H 5225 3290 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 5238 3240 50  0001 C CNN
-F 3 "" H 5225 3490 50  0001 C CNN
-F 4 "" H 5050 3490 50  0000 R CNN "display_footprint"
-F 5 "50V" H 5050 3390 50  0000 R CNN "Voltage"
-F 6 "X7R" H 5050 3290 50  0000 R CNN "Dielectric"
-F 7 "490-10701-1-ND" H 1290 -3490 50  0001 C CNN "Digi-Key PN"
-	1    5200 3390
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:+3.3V #PWR?
 U 1 1 5EBEF938
@@ -350,6 +328,28 @@ F 6 "1/16W" H 5680 5310 50  0000 L CNN "Wattage"
 F 7 "Telemetry" H 5680 5230 50  0000 L CNN "Configuration"
 F 8 "541-3964-1-ND" H 5570 5390 50  0001 C CNN "Digi-Key PN"
 	1    5570 5390
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5FD3C87C
+P 5200 3390
+AR Path="/5B3E071A/5FD3C87C" Ref="C?"  Part="1" 
+AR Path="/5E0652BA/5FD3C87C" Ref="C?"  Part="1" 
+AR Path="/5E0A0E29/5FD3C87C" Ref="C?"  Part="1" 
+AR Path="/5E052856/5FD3C87C" Ref="C?"  Part="1" 
+AR Path="/5EAE2D84/5FD3C87C" Ref="C?"  Part="1" 
+AR Path="/5EBEB0C5/5FD3C87C" Ref="C2001"  Part="1" 
+F 0 "C2001" H 5225 3490 50  0000 L CNN
+F 1 "0.1uF" H 5225 3290 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 5238 3240 50  0001 C CNN
+F 3 "" H 5225 3490 50  0001 C CNN
+F 4 "0402" H 5050 3490 50  0000 R CNN "display_footprint"
+F 5 "50V" H 5050 3390 50  0000 R CNN "Voltage"
+F 6 "X7R" H 5050 3290 50  0000 R CNN "Dielectric"
+F 7 "490-10701-1-ND" H 1290 -3490 50  0001 C CNN "Digi-Key PN"
+F 8 "Telemetry" H 4670 3390 50  0000 C CNN "Configuration"
+	1    5200 3390
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
