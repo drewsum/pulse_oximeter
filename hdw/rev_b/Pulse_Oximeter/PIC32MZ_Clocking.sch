@@ -22,6 +22,7 @@ F 1 "ASE-8.000MHz" H 5560 2450 50  0000 L CNN
 F 2 "Oscillator:Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm" H 6210 2350 50  0001 C CNN
 F 3 "http://www.abracon.com/Oscillators/ASV.pdf" H 5410 2700 50  0001 C CNN
 F 4 "	535-9558-1-ND" H 5510 2700 50  0001 C CNN "Digi-Key PN"
+F 5 "EXT_OSC" H 5510 2130 50  0000 C CNN "Configuration"
 	1    5510 2700
 	1    0    0    -1  
 $EndComp
@@ -263,11 +264,12 @@ AR Path="/5CAD2D97/5E053473" Ref="L?"  Part="1"
 AR Path="/5E01BCC3/5E053473" Ref="L?"  Part="1" 
 AR Path="/5E697952/5E053473" Ref="L?"  Part="1" 
 AR Path="/5EAE2F15/5E053473" Ref="L1001"  Part="1" 
-F 0 "L1001" V 4890 1825 50  0000 C CNN
-F 1 "600R 0.5A" V 5190 1800 50  0000 C CNN
+F 0 "L1001" V 4640 1810 50  0000 C CNN
+F 1 "600R 0.5A" V 4740 1810 50  0000 C CNN
 F 2 "Inductors_SMD:L_0402" V 4970 1800 50  0001 C CNN
 F 3 "~" H 5040 1800 50  0001 C CNN
 F 4 "490-5441-1-ND" H -3150 -1290 50  0001 C CNN "Digi-Key PN"
+F 5 "EXT_OSC" V 4840 1810 50  0000 C CNN "Configuration"
 	1    5040 1800
 	0    1    1    0   
 $EndComp
