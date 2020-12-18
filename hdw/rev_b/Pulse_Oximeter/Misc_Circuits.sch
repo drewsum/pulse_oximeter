@@ -230,7 +230,7 @@ $EndComp
 Wire Wire Line
 	5570 5240 5570 5160
 Text GLabel 5650 5160 2    50   UnSpc ~ 0
-Telemetry_Config
+~Telemetry_Config
 Wire Wire Line
 	5650 5160 5570 5160
 Connection ~ 5570 5160
@@ -350,6 +350,96 @@ F 6 "X7R" H 5050 3290 50  0000 R CNN "Dielectric"
 F 7 "490-10701-1-ND" H 1290 -3490 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" H 4670 3390 50  0000 C CNN "Configuration"
 	1    5200 3390
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5FDF0D57
+P 6770 4930
+AR Path="/5BB27BA3/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5FDF0D57" Ref="R?"  Part="1" 
+AR Path="/5EBEB0C5/5FDF0D57" Ref="R?"  Part="1" 
+F 0 "R?" H 6690 4930 50  0000 R CNN
+F 1 "10k" V 6770 4930 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 6770 4930 50  0001 C CNN
+F 3 "" H 6770 4930 50  0001 C CNN
+F 4 "0402" H 6870 5010 50  0000 L CNN "display_footprint"
+F 5 "1%" H 6870 4930 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 6880 4850 50  0000 L CNN "Wattage"
+F 7 "RMCF0402FT10K0CT-ND" H 6770 4930 50  0001 C CNN "Digi-Key PN"
+	1    6770 4930
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FDF0E95
+P 6770 4780
+F 0 "#PWR?" H 6770 4630 50  0001 C CNN
+F 1 "+3.3V" H 6770 4920 50  0000 C CNN
+F 2 "" H 6770 4780 50  0001 C CNN
+F 3 "" H 6770 4780 50  0001 C CNN
+	1    6770 4780
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FDF0E9F
+P 6770 5540
+F 0 "#PWR?" H 6770 5290 50  0001 C CNN
+F 1 "GND" H 6770 5390 50  0000 C CNN
+F 2 "" H 6770 5540 50  0001 C CNN
+F 3 "" H 6770 5540 50  0001 C CNN
+	1    6770 5540
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6770 5240 6770 5160
+Text GLabel 6850 5160 2    50   UnSpc ~ 0
+~ETC_Config
+Wire Wire Line
+	6850 5160 6770 5160
+Connection ~ 6770 5160
+Wire Wire Line
+	6770 5160 6770 5080
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5FDF0EB3
+P 6770 5390
+AR Path="/5BB27BA3/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5E0F9110/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5E9E0EA5/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5E9E0E87/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5EAE2D66/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5EAE4A89/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5EAE2F23/5FDF0EB3" Ref="R?"  Part="1" 
+AR Path="/5EBEB0C5/5FDF0EB3" Ref="R?"  Part="1" 
+F 0 "R?" H 6690 5390 50  0000 R CNN
+F 1 "10" V 6770 5390 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 6770 5390 50  0001 C CNN
+F 3 "" H 6770 5390 50  0001 C CNN
+F 4 "0402" H 6870 5470 50  0000 L CNN "display_footprint"
+F 5 "1%" H 6870 5390 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 6880 5310 50  0000 L CNN "Wattage"
+F 7 "ETC" H 6880 5230 50  0000 L CNN "Configuration"
+F 8 "541-3964-1-ND" H 6770 5390 50  0001 C CNN "Digi-Key PN"
+	1    6770 5390
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

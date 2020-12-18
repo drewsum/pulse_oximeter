@@ -281,8 +281,8 @@ Wire Wire Line
 Connection ~ 9330 2880
 Wire Wire Line
 	9330 2880 9630 2880
-Text GLabel 3320 5080 0    50   UnSpc ~ 0
-Telemetry_Config
+Text GLabel 3320 5080 0    40   UnSpc ~ 0
+~Telemetry_Config
 Text GLabel 3320 4280 0    50   Input ~ 0
 POS1P8_PGOOD
 Text GLabel 3320 4380 0    50   Output ~ 0
@@ -317,4 +317,6 @@ NoConn ~ 3320 2580
 NoConn ~ 3320 2680
 NoConn ~ 3320 2980
 NoConn ~ 3320 3080
+Text GLabel 1180 2380 2    50   UnSpc ~ 0
+~ETC_Config
 $EndSCHEMATC
