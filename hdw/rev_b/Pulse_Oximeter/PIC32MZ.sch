@@ -217,7 +217,7 @@ F 3 "" H 9330 2550 50  0001 C CNN
 F 4 "0402" H 9430 2630 50  0000 L CNN "display_footprint"
 F 5 "1%" H 9430 2550 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 9440 2470 50  0000 L CNN "Wattage"
-F 7 "RMCF0402FT10K0CT-ND" H 9330 2550 50  0001 C CNN "Digi-Key PN"
+F 7 "" H 9330 2550 50  0001 C CNN "Digi-Key PN"
 	1    9330 2550
 	1    0    0    -1  
 $EndComp
@@ -256,7 +256,7 @@ F 3 "" H 8740 2550 50  0001 C CNN
 F 4 "0402" H 8840 2630 50  0000 L CNN "display_footprint"
 F 5 "1%" H 8840 2550 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 8850 2470 50  0000 L CNN "Wattage"
-F 7 "RMCF0402FT10K0CT-ND" H 8740 2550 50  0001 C CNN "Digi-Key PN"
+F 7 "" H 8740 2550 50  0001 C CNN "Digi-Key PN"
 	1    8740 2550
 	1    0    0    -1  
 $EndComp
@@ -319,4 +319,6 @@ NoConn ~ 3320 2980
 NoConn ~ 3320 3080
 Text GLabel 1180 2380 2    50   UnSpc ~ 0
 ~ETC_Config
+Text GLabel 1650 2700 0    50   Input ~ 0
+PGOOD_LED_EN
 $EndSCHEMATC
