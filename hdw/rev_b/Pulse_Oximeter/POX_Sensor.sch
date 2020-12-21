@@ -717,32 +717,6 @@ $EndComp
 Wire Wire Line
 	4490 6440 4490 6360
 $Comp
-L Custom_Library:C_Custom C?
-U 1 1 5EC2763B
-P 5190 6590
-AR Path="/5BAAE16C/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5BB181D8/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5BB2595E/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5BAAE0FA/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5BB86F23/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5C1D5C9E/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5CB6F1ED/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5E939CFF/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5E9E0E87/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5EAE2D66/5EC2763B" Ref="C?"  Part="1" 
-AR Path="/5EAE30C7/5EC2763B" Ref="C1506"  Part="1" 
-F 0 "C1506" H 5215 6690 50  0000 L CNN
-F 1 "10nF" H 5215 6490 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 5228 6440 50  0001 C CNN
-F 3 "" H 5215 6690 50  0001 C CNN
-F 4 "0402" H 5040 6690 50  0000 R CNN "display_footprint"
-F 5 "50V" H 5040 6590 50  0000 R CNN "Voltage"
-F 6 "X7R" H 5040 6490 50  0000 R CNN "Dielectric"
-F 7 "490-13295-1-ND" H 5615 7090 60  0001 C CNN "Digi-Key PN"
-	1    5190 6590
-	-1   0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR01521
 U 1 1 5EC2869A
 P 5190 6740
@@ -1060,4 +1034,30 @@ Wire Wire Line
 	4480 3940 6430 3940
 Wire Wire Line
 	4480 4040 6430 4040
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5FE1722F
+P 5190 6590
+AR Path="/5BAAE16C/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5BB181D8/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5BB2595E/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5BAAE0FA/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5BB86F23/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5C1D5C9E/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5CB6F1ED/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5E939CFF/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5E9E0E87/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5EAE2D66/5FE1722F" Ref="C?"  Part="1" 
+AR Path="/5EAE30C7/5FE1722F" Ref="C1506"  Part="1" 
+F 0 "C1506" H 5215 6690 50  0000 L CNN
+F 1 "0.1uF" H 5215 6490 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 5228 6440 50  0001 C CNN
+F 3 "" H 5215 6690 50  0001 C CNN
+F 4 "0402" H 5040 6690 50  0000 R CNN "display_footprint"
+F 5 "50V" H 5040 6590 50  0000 R CNN "Voltage"
+F 6 "X7R" H 5040 6490 50  0000 R CNN "Dielectric"
+F 7 "490-10701-1-ND" H 5615 7090 60  0001 C CNN "Digi-Key PN"
+	1    5190 6590
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

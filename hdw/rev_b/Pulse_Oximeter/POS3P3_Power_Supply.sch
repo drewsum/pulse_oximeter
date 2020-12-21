@@ -432,6 +432,7 @@ F 4 "0402" V 7390 2710 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7490 2710 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 7590 2710 50  0001 C CNN "Wattage"
 F 7 "541-3964-1-ND" H 7290 2710 50  0001 C CNN "Digi-Key PN"
+F 8 "Telemetry" V 7390 2710 50  0000 C CNN "Configuration"
 	1    7290 2710
 	-1   0    0    -1  
 $EndComp
@@ -452,6 +453,7 @@ F 4 "0402" V 7850 2710 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7950 2710 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8050 2710 50  0001 C CNN "Wattage"
 F 7 "541-3964-1-ND" H 7750 2710 50  0001 C CNN "Digi-Key PN"
+F 8 "Telemetry" V 7850 2710 50  0000 C CNN "Configuration"
 	1    7750 2710
 	-1   0    0    -1  
 $EndComp
@@ -532,7 +534,7 @@ U 1 1 5EB3F7A8
 P 4290 7490
 F 0 "Q401" H 4490 7565 50  0000 L CNN
 F 1 "BSS214NW" H 4490 7490 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-323_SC-70" H 4490 7415 50  0001 L CIN
+F 2 "TO_SOT_Packages_SMD:SOT-323_SC-70" H 4490 7415 50  0001 L CIN
 F 3 "https://www.infineon.com/dgdl/Infineon-BSS214NW-DS-v02_02-en.pdf?fileId=db3a30431b3e89eb011b695aebc01bde" H 4290 7490 50  0001 L CNN
 F 4 "BSS214NWH6327XTSA1CT-ND" H 4290 7490 50  0001 C CNN "Digi-Key PN"
 	1    4290 7490
@@ -625,23 +627,6 @@ F 3 "" H 3680 6370 50  0001 C CNN
 $EndComp
 Text GLabel 2280 6700 2    50   Output ~ 0
 POS3P3_RUN
-$Comp
-L Custom_Library:R_Custom R?
-U 1 1 5EB895CA
-P 2130 6700
-AR Path="/5EAE2D66/5EB895CA" Ref="R?"  Part="1" 
-AR Path="/5EAE2D8A/5EB895CA" Ref="R403"  Part="1" 
-F 0 "R403" V 2030 6700 50  0000 C CNN
-F 1 "10" V 2130 6700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 2130 6700 50  0001 C CNN
-F 3 "" H 2130 6700 50  0001 C CNN
-F 4 "541-3964-1-ND" H 2430 7100 60  0001 C CNN "Digi-Key PN"
-F 5 "0402" V 2230 6700 50  0000 C CNN "display_footprint"
-F 6 "1%" V 2330 6700 50  0000 C CNN "Tolerance"
-F 7 "1/16W" V 2430 6700 50  0000 C CNN "Wattage"
-	1    2130 6700
-	0    1    1    0   
-$EndComp
 Text GLabel 1980 6700 0    50   Input ~ 0
 POS12_PGOOD
 $Comp
@@ -798,4 +783,21 @@ Wire Wire Line
 	4890 4240 2770 4240
 Text GLabel 4090 7490 0    50   Input ~ 0
 POS3P3_RUN
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5FE28635
+P 2130 6700
+AR Path="/5EAE2EF2/5FE28635" Ref="R?"  Part="1" 
+AR Path="/5EAE30C7/5FE28635" Ref="R?"  Part="1" 
+AR Path="/5EAE2D8A/5FE28635" Ref="R403"  Part="1" 
+F 0 "R403" V 2030 6700 50  0000 C CNN
+F 1 "0" V 2130 6700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2130 6700 50  0001 C CNN
+F 3 "" H 2130 6700 50  0001 C CNN
+F 4 "0402" V 2230 6700 50  0000 C CNN "display_footprint"
+F 5 "1%" V 2330 6700 50  0000 C CNN "Tolerance"
+F 6 "1/16W" V 2430 6700 50  0000 C CNN "Wattage"
+	1    2130 6700
+	0    -1   1    0   
+$EndComp
 $EndSCHEMATC

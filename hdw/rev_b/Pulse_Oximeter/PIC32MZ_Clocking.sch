@@ -161,102 +161,6 @@ Wire Wire Line
 Text GLabel 4660 2700 0    50   Input ~ 0
 PIC32MZ_POSC_EC_Enable
 $Comp
-L power:GND #PWR?
-U 1 1 5E03ADCE
-P 6400 2300
-AR Path="/5CB25152/5E03ADCE" Ref="#PWR?"  Part="1" 
-AR Path="/5E01BCC3/5E03ADCE" Ref="#PWR?"  Part="1" 
-AR Path="/5E697952/5E03ADCE" Ref="#PWR?"  Part="1" 
-AR Path="/5EAE2F15/5E03ADCE" Ref="#PWR01006"  Part="1" 
-F 0 "#PWR01006" H 6400 2050 50  0001 C CNN
-F 1 "GND" H 6400 2150 50  0000 C CNN
-F 2 "" H 6400 2300 50  0000 C CNN
-F 3 "" H 6400 2300 50  0000 C CNN
-	1    6400 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:C_Custom C?
-U 1 1 5E03ADD8
-P 6080 2070
-AR Path="/5CB25152/5E03ADD8" Ref="C?"  Part="1" 
-AR Path="/5E01BCC3/5E03ADD8" Ref="C?"  Part="1" 
-AR Path="/5E697952/5E03ADD8" Ref="C?"  Part="1" 
-AR Path="/5EAE2F15/5E03ADD8" Ref="C1001"  Part="1" 
-F 0 "C1001" H 6105 2170 50  0000 L CNN
-F 1 "0.1uF" H 6105 1970 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 6118 1920 50  0001 C CNN
-F 3 "" H 6105 2170 50  0001 C CNN
-F 4 "0402" H 5930 2170 50  0000 R CNN "display_footprint"
-F 5 "50V" H 5930 2070 50  0000 R CNN "Voltage"
-F 6 "X7R" H 5930 1970 50  0000 R CNN "Dielectric"
-F 7 "490-10701-1-ND" H 2170 -4810 50  0001 C CNN "Digi-Key PN"
-	1    6080 2070
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:C_Custom C?
-U 1 1 5E03ADE2
-P 6720 2070
-AR Path="/5CB25152/5E03ADE2" Ref="C?"  Part="1" 
-AR Path="/5E01BCC3/5E03ADE2" Ref="C?"  Part="1" 
-AR Path="/5E697952/5E03ADE2" Ref="C?"  Part="1" 
-AR Path="/5EAE2F15/5E03ADE2" Ref="C1005"  Part="1" 
-F 0 "C1005" H 6745 2170 50  0000 L CNN
-F 1 "1nF" H 6745 1970 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 6758 1920 50  0001 C CNN
-F 3 "" H 6745 2170 50  0001 C CNN
-F 4 "0402" H 6570 2170 50  0001 R CNN "display_footprint"
-F 5 "50V" H 6570 2070 50  0001 R CNN "Voltage"
-F 6 "X7R" H 6570 1970 50  0001 R CNN "Dielectric"
-F 7 "399-1032-1-ND" H 2170 -4810 50  0001 C CNN "Digi-Key PN"
-	1    6720 2070
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:C_Custom C?
-U 1 1 5E03ADEC
-P 6400 2070
-AR Path="/5CB25152/5E03ADEC" Ref="C?"  Part="1" 
-AR Path="/5E01BCC3/5E03ADEC" Ref="C?"  Part="1" 
-AR Path="/5E697952/5E03ADEC" Ref="C?"  Part="1" 
-AR Path="/5EAE2F15/5E03ADEC" Ref="C1003"  Part="1" 
-F 0 "C1003" H 6425 2170 50  0000 L CNN
-F 1 "10nF" H 6425 1970 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0402" H 6438 1920 50  0001 C CNN
-F 3 "" H 6425 2170 50  0001 C CNN
-F 4 "0402" H 6250 2170 50  0001 R CNN "display_footprint"
-F 5 "50V" H 6250 2070 50  0001 R CNN "Voltage"
-F 6 "X7R" H 6250 1970 50  0001 R CNN "Dielectric"
-F 7 "490-13295-1-ND" H 2170 -4810 50  0001 C CNN "Digi-Key PN"
-	1    6400 2070
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6080 1880 6080 1920
-Connection ~ 6400 1880
-Wire Wire Line
-	6720 1880 6720 1920
-Wire Wire Line
-	6080 1880 6400 1880
-Wire Wire Line
-	6080 2260 6080 2220
-Connection ~ 6400 2260
-Wire Wire Line
-	6720 2260 6720 2220
-Wire Wire Line
-	6080 2260 6400 2260
-Wire Wire Line
-	6400 2220 6400 2260
-Wire Wire Line
-	6400 1880 6720 1880
-Wire Wire Line
-	6400 1880 6400 1920
-Wire Wire Line
-	6400 2260 6720 2260
-Wire Wire Line
-	6400 2260 6400 2300
-$Comp
 L Device:Ferrite_Bead L?
 U 1 1 5E053473
 P 5040 1800
@@ -277,10 +181,6 @@ Wire Wire Line
 	5190 1800 5510 1800
 Wire Wire Line
 	5510 1800 5510 2400
-Wire Wire Line
-	5510 1800 6400 1800
-Wire Wire Line
-	6400 1800 6400 1880
 Connection ~ 5510 1800
 Wire Wire Line
 	4530 1720 4530 1800
@@ -373,4 +273,88 @@ $EndComp
 Wire Wire Line
 	2840 5130 2760 5130
 Connection ~ 2760 5130
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5FE10797
+P 6730 2030
+AR Path="/5CB7718D/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5E0DC082/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5E0F9110/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5A557C58/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5CB25152/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5E697934/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5EAE3021/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5EAE30C7/5FE10797" Ref="C?"  Part="1" 
+AR Path="/5EAE2F15/5FE10797" Ref="C?"  Part="1" 
+F 0 "C?" H 6755 2130 50  0000 L CNN
+F 1 "10uF" H 6755 1930 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 6768 1880 50  0001 C CNN
+F 3 "" H 6755 2130 50  0001 C CNN
+F 4 "0402" H 6580 2130 50  0000 R CNN "display_footprint"
+F 5 "6.3V" H 6580 2030 50  0000 R CNN "Voltage"
+F 6 "X5R" H 6580 1930 50  0000 R CNN "Dielectric"
+F 7 "490-13211-1-ND" H 6730 2030 50  0001 C CNN "Digi-Key PN"
+	1    6730 2030
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:C_Custom C?
+U 1 1 5FE107A1
+P 6090 2030
+AR Path="/5BAAE16C/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5BB181D8/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5BB2595E/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5BAAE0FA/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5BB86F23/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5C1D5C9E/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5CB6F1ED/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5E939CFF/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5E9E0E87/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5EAE2D66/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5EAE30C7/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5EAE2F02/5FE107A1" Ref="C?"  Part="1" 
+AR Path="/5EAE2F15/5FE107A1" Ref="C?"  Part="1" 
+F 0 "C?" H 6115 2130 50  0000 L CNN
+F 1 "0.1uF" H 6115 1930 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 6128 1880 50  0001 C CNN
+F 3 "" H 6115 2130 50  0001 C CNN
+F 4 "0402" H 5940 2130 50  0000 R CNN "display_footprint"
+F 5 "50V" H 5940 2030 50  0000 R CNN "Voltage"
+F 6 "X7R" H 5940 1930 50  0000 R CNN "Dielectric"
+F 7 "490-10701-1-ND" H 6515 2530 60  0001 C CNN "Digi-Key PN"
+	1    6090 2030
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FE10E08
+P 6090 2180
+F 0 "#PWR?" H 6090 1930 50  0001 C CNN
+F 1 "GND" H 6090 2030 50  0000 C CNN
+F 2 "" H 6090 2180 50  0001 C CNN
+F 3 "" H 6090 2180 50  0001 C CNN
+	1    6090 2180
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FE10FFC
+P 6730 2180
+F 0 "#PWR?" H 6730 1930 50  0001 C CNN
+F 1 "GND" H 6730 2030 50  0000 C CNN
+F 2 "" H 6730 2180 50  0001 C CNN
+F 3 "" H 6730 2180 50  0001 C CNN
+	1    6730 2180
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6090 1880 6090 1800
+Wire Wire Line
+	6090 1800 5510 1800
+Wire Wire Line
+	6090 1800 6730 1800
+Wire Wire Line
+	6730 1800 6730 1880
+Connection ~ 6090 1800
 $EndSCHEMATC
