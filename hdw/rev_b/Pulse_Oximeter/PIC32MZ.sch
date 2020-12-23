@@ -291,7 +291,7 @@ Text GLabel 3320 1680 0    50   Output ~ 0
 POX_I2C_Enable
 Text GLabel 3320 1780 0    50   Output ~ 0
 POS3P3_POX_Enable
-Text GLabel 3320 1880 0    40   Output ~ 0
+Text GLabel 3320 1880 0    40   Input ~ 0
 ~POX_INT
 Text GLabel 3320 1980 0    50   Input ~ 0
 Cap_Touch_Power
@@ -307,18 +307,19 @@ Text GLabel 7520 3380 2    50   Input ~ 0
 POS3P3_POX_ADC
 NoConn ~ 3320 2080
 NoConn ~ 3320 2180
-NoConn ~ 3320 2780
-NoConn ~ 3320 2880
 NoConn ~ 3320 3780
 NoConn ~ 7520 3280
 NoConn ~ 7520 3580
 NoConn ~ 3320 2480
 NoConn ~ 3320 2580
-NoConn ~ 3320 2680
-NoConn ~ 3320 2980
-NoConn ~ 3320 3080
-Text GLabel 1180 2380 2    50   UnSpc ~ 0
+Text GLabel 3320 2980 0    40   UnSpc ~ 0
 ~ETC_Config
-Text GLabel 1650 2700 0    50   Input ~ 0
+Text GLabel 3320 3080 0    50   Output ~ 0
 PGOOD_LED_EN
+Text GLabel 3320 2680 0    50   Input ~ 0
+POS12_PGOOD
+Text GLabel 3320 2780 0    50   Input ~ 0
+POS5_USB_PGOOD
+Text GLabel 3320 2880 0    50   Input ~ 0
+POS3P3_PGOOD
 $EndSCHEMATC
