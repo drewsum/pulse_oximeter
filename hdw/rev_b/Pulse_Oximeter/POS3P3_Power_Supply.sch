@@ -469,35 +469,12 @@ Wire Wire Line
 	4390 6750 3680 6750
 Wire Wire Line
 	3680 6750 3680 6830
-$Comp
-L Diode:BAT48JFILM D401
-U 1 1 5EB4A7A8
-P 3680 6520
-F 0 "D401" V 3750 6400 50  0000 R CNN
-F 1 "BAT48JFILM" V 3650 6400 50  0000 R CNN
-F 2 "Diode_SMD:D_SOD-323" H 3680 6345 50  0001 C CNN
-F 3 "www.st.com/resource/en/datasheet/bat48.pdf" H 3680 6520 50  0001 C CNN
-F 4 "497-5711-1-ND" H 3680 6520 50  0001 C CNN "Digi-Key PN"
-	1    3680 6520
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	3680 6670 3680 6750
 Connection ~ 3680 6750
-$Comp
-L power:+3.3V #PWR0404
-U 1 1 5EB4C2CE
-P 3680 6370
-F 0 "#PWR0404" H 3680 6220 50  0001 C CNN
-F 1 "+3.3V" H 3680 6510 50  0000 C CNN
-F 2 "" H 3680 6370 50  0001 C CNN
-F 3 "" H 3680 6370 50  0001 C CNN
-	1    3680 6370
-	1    0    0    -1  
-$EndComp
-Text GLabel 2280 6700 2    50   Output ~ 0
+Text GLabel 1990 6470 2    50   Output ~ 0
 POS3P3_RUN
-Text GLabel 1980 6700 0    50   Input ~ 0
+Text GLabel 1690 6470 0    50   Input ~ 0
 POS12_PGOOD
 $Comp
 L Custom_Library:C_Custom C?
@@ -654,18 +631,18 @@ POS3P3_RUN
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5FE28635
-P 2130 6700
+P 1840 6470
 AR Path="/5EAE2EF2/5FE28635" Ref="R?"  Part="1" 
 AR Path="/5EAE30C7/5FE28635" Ref="R?"  Part="1" 
 AR Path="/5EAE2D8A/5FE28635" Ref="R403"  Part="1" 
-F 0 "R403" V 2030 6700 50  0000 C CNN
-F 1 "0" V 2130 6700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0402" H 2130 6700 50  0001 C CNN
-F 3 "" H 2130 6700 50  0001 C CNN
-F 4 "0402" V 2230 6700 50  0000 C CNN "display_footprint"
-F 5 "1%" V 2330 6700 50  0000 C CNN "Tolerance"
-F 6 "1/16W" V 2430 6700 50  0000 C CNN "Wattage"
-	1    2130 6700
+F 0 "R403" V 1740 6470 50  0000 C CNN
+F 1 "0" V 1840 6470 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 1840 6470 50  0001 C CNN
+F 3 "" H 1840 6470 50  0001 C CNN
+F 4 "0402" V 1940 6470 50  0000 C CNN "display_footprint"
+F 5 "1%" V 2040 6470 50  0000 C CNN "Tolerance"
+F 6 "1/16W" V 2140 6470 50  0000 C CNN "Wattage"
+	1    1840 6470
 	0    -1   1    0   
 $EndComp
 $Comp
@@ -1086,4 +1063,101 @@ Wire Wire Line
 Connection ~ 6820 3040
 Wire Wire Line
 	6820 3040 7410 3040
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5FEC8503
+P 2890 6980
+AR Path="/5BB27BA3/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5E0F263A/5FEC8503" Ref="R?"  Part="1" 
+AR Path="/5EAE2D8A/5FEC8503" Ref="R?"  Part="1" 
+F 0 "R?" H 2810 6980 50  0000 R CNN
+F 1 "10k" V 2890 6980 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2890 6980 50  0001 C CNN
+F 3 "" H 2890 6980 50  0001 C CNN
+F 4 "0402" H 2990 7060 50  0000 L CNN "display_footprint"
+F 5 "1%" H 2990 6980 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 3000 6900 50  0000 L CNN "Wattage"
+F 7 "" H 3190 7380 60  0001 C CNN "Digi-Key PN"
+	1    2890 6980
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FEC96FB
+P 2890 7130
+F 0 "#PWR?" H 2890 6880 50  0001 C CNN
+F 1 "GND" H 2890 6980 50  0000 C CNN
+F 2 "" H 2890 7130 50  0001 C CNN
+F 3 "" H 2890 7130 50  0001 C CNN
+	1    2890 7130
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3680 6750 2890 6750
+Wire Wire Line
+	2890 6750 2890 6830
+$Comp
+L Device:LED D?
+U 1 1 5FECDEC8
+P 3680 6520
+AR Path="/5BB844FD/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5BF346B3/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5BAAE1F3/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5CAD2D97/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5CB7A8BC/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5E6AF016/5FECDEC8" Ref="D?"  Part="1" 
+AR Path="/5EAE4AE4/5FECDEC8" Ref="D?"  Part="1" 
+F 0 "D?" V 3719 6403 50  0000 R CNN
+F 1 "Red" V 3628 6403 50  0000 R CNN
+F 2 "LEDs:LED_0402" H 3680 6520 50  0001 C CNN
+F 3 "~" H 3680 6520 50  0001 C CNN
+F 4 "1497-1174-1-ND" H 3680 6520 50  0001 C CNN "Digi-Key PN"
+	1    3680 6520
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 5FECF137
+P 3680 6220
+AR Path="/5BB27BA3/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5BB27BF7/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5C1DE17A/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5C1E3A08/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5D779AE1/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5CB7718D/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5E0DC082/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5E0F263A/5FECF137" Ref="R?"  Part="1" 
+AR Path="/5EAE2D8A/5FECF137" Ref="R?"  Part="1" 
+F 0 "R?" H 3600 6220 50  0000 R CNN
+F 1 "10k" V 3680 6220 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 3680 6220 50  0001 C CNN
+F 3 "" H 3680 6220 50  0001 C CNN
+F 4 "0402" H 3780 6300 50  0000 L CNN "display_footprint"
+F 5 "1%" H 3780 6220 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 3790 6140 50  0000 L CNN "Wattage"
+F 7 "" H 3980 6620 60  0001 C CNN "Digi-Key PN"
+	1    3680 6220
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5FECF71F
+P 3680 6070
+AR Path="/5CB7718D/5FECF71F" Ref="#PWR?"  Part="1" 
+AR Path="/5E0DC082/5FECF71F" Ref="#PWR?"  Part="1" 
+AR Path="/5E0F263A/5FECF71F" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE2D8A/5FECF71F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3680 5920 50  0001 C CNN
+F 1 "+12V" H 3680 6210 50  0000 C CNN
+F 2 "" H 3680 6070 50  0001 C CNN
+F 3 "" H 3680 6070 50  0001 C CNN
+	1    3680 6070
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
