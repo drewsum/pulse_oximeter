@@ -129,7 +129,7 @@ Wire Wire Line
 	7930 2250 7550 2250
 Connection ~ 7550 2250
 Text GLabel 8230 2250 2    50   UnSpc ~ 0
-~MCLR
+~PIC32MZ_MCLR
 $Comp
 L Switch:SW_Push SW801
 U 1 1 5BC17B44
