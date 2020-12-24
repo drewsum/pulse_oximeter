@@ -314,12 +314,12 @@ NoConn ~ 3320 2480
 NoConn ~ 3320 2580
 Text GLabel 3320 2980 0    40   UnSpc ~ 0
 ~ETC_Config
-Text GLabel 3320 3080 0    50   Output ~ 0
-PGOOD_LED_EN
 Text GLabel 3320 2680 0    50   Input ~ 0
 POS12_PGOOD
 Text GLabel 3320 2780 0    50   Input ~ 0
 POS5_USB_PGOOD
 Text GLabel 3320 2880 0    50   Input ~ 0
 POS3P3_PGOOD
+Text GLabel 3320 3080 0    50   Output ~ 0
+PGOOD_LED_SHDN
 $EndSCHEMATC

@@ -502,55 +502,6 @@ $EndComp
 Text GLabel 4350 3690 0    50   Input ~ 0
 POS5_USB_PGOOD
 $Comp
-L Custom_Library:74LVC1G97_Power_AND U1803
-U 1 1 5FDA165A
-P 6650 3740
-F 0 "U1803" H 6710 3890 50  0000 L CNN
-F 1 "74LVC1G97" H 6710 3590 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 6700 3740 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 6700 3740 50  0001 C CNN
-F 4 "296-SN74LVC1G97DCK3CT-ND" H 6650 3740 50  0001 C CNN "Digi-Key PN"
-	1    6650 3740
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_AND U1801
-U 1 1 5FDA52FA
-P 2650 3740
-F 0 "U1801" H 2710 3890 50  0000 L CNN
-F 1 "74LVC1G97" H 2710 3590 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2700 3740 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 2700 3740 50  0001 C CNN
-F 4 "296-SN74LVC1G97DCK3CT-ND" H 2650 3740 50  0001 C CNN "Digi-Key PN"
-	1    2650 3740
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_AND U1802
-U 1 1 5FDA580E
-P 4650 3740
-F 0 "U1802" H 4710 3890 50  0000 L CNN
-F 1 "74LVC1G97" H 4710 3590 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4700 3740 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 4700 3740 50  0001 C CNN
-F 4 "USB" H 4870 3490 50  0000 C CNN "Configuration"
-F 5 "296-SN74LVC1G97DCK3CT-ND" H 4650 3740 50  0001 C CNN "Digi-Key PN"
-	1    4650 3740
-	1    0    0    -1  
-$EndComp
-$Comp
-L Custom_Library:74LVC1G97_Power_AND U1804
-U 1 1 5FDA5C2B
-P 8650 3740
-F 0 "U1804" H 8710 3890 50  0000 L CNN
-F 1 "74LVC1G97" H 8710 3590 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 8700 3740 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 8700 3740 50  0001 C CNN
-F 4 "296-SN74LVC1G97DCK3CT-ND" H 8650 3740 50  0001 C CNN "Digi-Key PN"
-	1    8650 3740
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+3.3V #PWR01804
 U 1 1 5FDA8D7E
 P 3220 3020
@@ -562,13 +513,7 @@ F 3 "" H 3220 3020 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 2190 3790 0    50   Input ~ 0
-PGOOD_LED_EN
-Text GLabel 4350 3790 0    50   Input ~ 0
-PGOOD_LED_EN
-Text GLabel 6350 3790 0    50   Input ~ 0
-PGOOD_LED_EN
-Text GLabel 8350 3790 0    50   Input ~ 0
-PGOOD_LED_EN
+PGOOD_LED_SHDN
 $Comp
 L Custom_Library:R_Custom R?
 U 1 1 5FDAD266
@@ -629,6 +574,57 @@ F 1 "+3.3V" H 2650 3780 50  0000 C CNN
 F 2 "" H 2650 3640 50  0001 C CNN
 F 3 "" H 2650 3640 50  0001 C CNN
 	1    2650 3640
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G97_Power_NAND_INV U1801
+U 1 1 5FE744B0
+P 2650 3740
+F 0 "U1801" H 2710 3890 50  0000 L CNN
+F 1 "74LVC1G97" H 2710 3590 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2700 3740 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 2700 3740 50  0001 C CNN
+	1    2650 3740
+	1    0    0    -1  
+$EndComp
+Text GLabel 4350 3790 0    50   Input ~ 0
+PGOOD_LED_SHDN
+Text GLabel 6350 3790 0    50   Input ~ 0
+PGOOD_LED_SHDN
+Text GLabel 8350 3790 0    50   Input ~ 0
+PGOOD_LED_SHDN
+$Comp
+L Custom_Library:74LVC1G97_Power_NAND_INV U1802
+U 1 1 5FE78E95
+P 4650 3740
+F 0 "U1802" H 4710 3890 50  0000 L CNN
+F 1 "74LVC1G97" H 4710 3590 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4700 3740 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 4700 3740 50  0001 C CNN
+F 4 "USB" H 4650 3410 50  0000 C CNN "Configuration"
+	1    4650 3740
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G97_Power_NAND_INV U1803
+U 1 1 5FE79518
+P 6650 3740
+F 0 "U1803" H 6710 3890 50  0000 L CNN
+F 1 "74LVC1G97" H 6710 3590 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 6700 3740 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 6700 3740 50  0001 C CNN
+	1    6650 3740
+	1    0    0    -1  
+$EndComp
+$Comp
+L Custom_Library:74LVC1G97_Power_NAND_INV U1804
+U 1 1 5FE79BFE
+P 8650 3740
+F 0 "U1804" H 8710 3890 50  0000 L CNN
+F 1 "74LVC1G97" H 8710 3590 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 8700 3740 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 8700 3740 50  0001 C CNN
+	1    8650 3740
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
