@@ -297,9 +297,9 @@ F 1 "0.1uF" H 4255 1990 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 4268 1940 50  0001 C CNN
 F 3 "" H 4255 2190 50  0001 C CNN
 F 4 "0402" H 4080 2190 50  0000 R CNN "display_footprint"
-F 5 "50V" H 4080 2090 50  0000 R CNN "Voltage"
+F 5 "25V" H 4080 2090 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4080 1990 50  0000 R CNN "Dielectric"
-F 7 "" H 320 -4790 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10698-1-ND" H 320 -4790 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" H 3700 2090 50  0000 C CNN "Configuration"
 	1    4230 2090
 	1    0    0    -1  
@@ -319,9 +319,9 @@ F 1 "0.1uF" H 5135 2970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 5148 2920 50  0001 C CNN
 F 3 "" H 5135 3170 50  0001 C CNN
 F 4 "0402" H 4960 3170 50  0000 R CNN "display_footprint"
-F 5 "50V" H 4960 3070 50  0000 R CNN "Voltage"
+F 5 "25V" H 4960 3070 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4960 2970 50  0000 R CNN "Dielectric"
-F 7 "" H 1200 -3810 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10698-1-ND" H 1200 -3810 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" H 4580 3070 50  0000 C CNN "Configuration"
 	1    5110 3070
 	1    0    0    -1  
@@ -341,9 +341,9 @@ F 1 "0.1uF" H 5135 5590 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 5148 5540 50  0001 C CNN
 F 3 "" H 5135 5790 50  0001 C CNN
 F 4 "0402" H 4960 5790 50  0000 R CNN "display_footprint"
-F 5 "50V" H 4960 5690 50  0000 R CNN "Voltage"
+F 5 "25V" H 4960 5690 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4960 5590 50  0000 R CNN "Dielectric"
-F 7 "" H 1200 -1190 50  0001 C CNN "Digi-Key PN"
+F 7 "490-10698-1-ND" H 1200 -1190 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" H 4580 5690 50  0000 C CNN "Configuration"
 	1    5110 5690
 	1    0    0    -1  

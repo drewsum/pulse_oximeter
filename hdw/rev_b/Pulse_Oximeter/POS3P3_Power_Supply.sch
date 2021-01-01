@@ -54,8 +54,9 @@ F 1 "0.1uF" H 4575 2870 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 4588 2820 50  0001 C CNN
 F 3 "" H 4575 3070 50  0001 C CNN
 F 4 "0402" H 4400 3070 50  0000 R CNN "display_footprint"
-F 5 "50V" H 4400 2970 50  0000 R CNN "Voltage"
+F 5 "25V" H 4400 2970 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4400 2870 50  0000 R CNN "Dielectric"
+F 7 "490-10698-1-ND" H 4550 2970 50  0001 C CNN "Digi-Key PN"
 	1    4550 2970
 	1    0    0    -1  
 $EndComp
@@ -175,6 +176,7 @@ F 4 "0402" H 8810 4800 50  0000 L CNN "display_footprint"
 F 5 "1%" H 8810 4720 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 8820 4640 50  0000 L CNN "Wattage"
 F 7 "DNP" H 8530 4800 50  0000 C CNN "Configuration"
+F 8 "RMCF0402FT180KCT-ND" H 8710 4720 50  0001 C CNN "Digi-Key PN"
 	1    8710 4720
 	1    0    0    -1  
 $EndComp
@@ -313,7 +315,7 @@ F 3 "" H 7780 2710 50  0001 C CNN
 F 4 "0402" V 7880 2710 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7980 2710 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8080 2710 50  0001 C CNN "Wattage"
-F 7 "" H 7780 2710 50  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10R0CT-ND" H 7780 2710 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" V 7880 2710 50  0000 C CNN "Configuration"
 	1    7780 2710
 	-1   0    0    -1  
@@ -334,7 +336,7 @@ F 3 "" H 8240 2710 50  0001 C CNN
 F 4 "0402" V 8340 2710 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8440 2710 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8540 2710 50  0001 C CNN "Wattage"
-F 7 "" H 8240 2710 50  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10R0CT-ND" H 8240 2710 50  0001 C CNN "Digi-Key PN"
 F 8 "Telemetry" V 8340 2710 50  0000 C CNN "Configuration"
 	1    8240 2710
 	-1   0    0    -1  
@@ -441,7 +443,7 @@ F 3 "" H 4390 6980 50  0001 C CNN
 F 4 "0402" H 4490 7060 50  0000 L CNN "display_footprint"
 F 5 "1%" H 4490 6980 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 4500 6900 50  0000 L CNN "Wattage"
-F 7 "" H 4690 7380 60  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10K0CT-ND" H 4690 7380 60  0001 C CNN "Digi-Key PN"
 	1    4390 6980
 	1    0    0    -1  
 $EndComp
@@ -494,9 +496,9 @@ F 1 "10uF" H 3705 6880 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 3718 6830 50  0001 C CNN
 F 3 "" H 3705 7080 50  0001 C CNN
 F 4 "0402" H 3530 7080 50  0000 R CNN "display_footprint"
-F 5 "6.3V" H 3530 6980 50  0000 R CNN "Voltage"
+F 5 "10V" H 3530 6980 50  0000 R CNN "Voltage"
 F 6 "X5R" H 3530 6880 50  0000 R CNN "Dielectric"
-F 7 "" H 3680 6980 50  0001 C CNN "Digi-Key PN"
+F 7 "1276-6830-1-ND" H 3680 6980 50  0001 C CNN "Digi-Key PN"
 	1    3680 6980
 	1    0    0    -1  
 $EndComp
@@ -565,7 +567,7 @@ F 3 "" H 2770 3810 50  0001 C CNN
 F 4 "0402" H 2870 3890 50  0000 L CNN "display_footprint"
 F 5 "1%" H 2870 3810 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 2880 3730 50  0000 L CNN "Wattage"
-F 7 "" H 3070 4210 60  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10K0CT-ND" H 3070 4210 60  0001 C CNN "Digi-Key PN"
 	1    2770 3810
 	1    0    0    -1  
 $EndComp
@@ -616,7 +618,7 @@ F 3 "" H 2795 3070 50  0001 C CNN
 F 4 "1206" H 2620 3070 50  0000 R CNN "display_footprint"
 F 5 "25V" H 2620 2970 50  0000 R CNN "Voltage"
 F 6 "X5R" H 2620 2870 50  0000 R CNN "Dielectric"
-F 7 "1276-1075-1-ND" H 3195 3470 60  0001 C CNN "Digi-Key PN"
+F 7 "1276-1181-1-ND" H 3195 3470 60  0001 C CNN "Digi-Key PN"
 	1    2770 2970
 	1    0    0    -1  
 $EndComp
@@ -642,6 +644,7 @@ F 3 "" H 1840 6470 50  0001 C CNN
 F 4 "0402" V 1940 6470 50  0000 C CNN "display_footprint"
 F 5 "1%" V 2040 6470 50  0000 C CNN "Tolerance"
 F 6 "1/16W" V 2140 6470 50  0000 C CNN "Wattage"
+F 7 "2019-RK73Z1ETTPCT-ND" H 1840 6470 50  0001 C CNN "Digi-Key PN"
 	1    1840 6470
 	0    -1   1    0   
 $EndComp
@@ -665,6 +668,7 @@ F 3 "" H 4215 4870 50  0001 C CNN
 F 4 "0402" H 4040 4870 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4040 4770 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4040 4670 50  0000 R CNN "Dielectric"
+F 7 "399-3066-1-ND" H 4190 4770 50  0001 C CNN "Digi-Key PN"
 	1    4190 4770
 	1    0    0    -1  
 $EndComp
@@ -700,7 +704,7 @@ F 3 "" H 1820 4520 50  0001 C CNN
 F 4 "0402" H 1920 4600 50  0000 L CNN "display_footprint"
 F 5 "1%" H 1920 4520 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 1930 4440 50  0000 L CNN "Wattage"
-F 7 "" H 2120 4920 60  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10K0CT-ND" H 2120 4920 60  0001 C CNN "Digi-Key PN"
 	1    1820 4520
 	-1   0    0    -1  
 $EndComp
@@ -780,8 +784,9 @@ F 1 "0.1uF" H 2665 4760 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402" H 2678 4710 50  0001 C CNN
 F 3 "" H 2665 4960 50  0001 C CNN
 F 4 "0402" H 2490 4960 50  0000 R CNN "display_footprint"
-F 5 "50V" H 2490 4860 50  0000 R CNN "Voltage"
+F 5 "25V" H 2490 4860 50  0000 R CNN "Voltage"
 F 6 "X7R" H 2490 4760 50  0000 R CNN "Dielectric"
+F 7 "490-10698-1-ND" H 2640 4860 50  0001 C CNN "Digi-Key PN"
 	1    2640 4860
 	1    0    0    -1  
 $EndComp
@@ -836,6 +841,7 @@ F 4 "0402" H 8810 3890 50  0000 L CNN "display_footprint"
 F 5 "1%" H 8810 3810 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 8820 3730 50  0000 L CNN "Wattage"
 F 7 "DNP" H 8530 3890 50  0000 C CNN "Configuration"
+F 8 "RMCF0402FT562KCT-ND" H 8710 3810 50  0001 C CNN "Digi-Key PN"
 	1    8710 3810
 	1    0    0    -1  
 $EndComp
@@ -853,6 +859,7 @@ F 3 "" H 7410 4720 50  0001 C CNN
 F 4 "0402" H 7310 4810 50  0000 R CNN "display_footprint"
 F 5 "1%" H 7310 4720 50  0000 R CNN "Tolerance"
 F 6 "1/16W" H 7310 4620 50  0000 R CNN "Wattage"
+F 7 "2019-RK73Z1ETTPCT-ND" H 7410 4720 50  0001 C CNN "Digi-Key PN"
 	1    7410 4720
 	-1   0    0    -1  
 $EndComp
@@ -902,6 +909,7 @@ F 3 "" H 5120 6860 50  0001 C CNN
 F 4 "0402" H 5220 6940 50  0001 L CNN "display_footprint"
 F 5 "1%" H 5220 6860 50  0001 L CNN "Tolerance"
 F 6 "1/16W" H 5230 6780 50  0001 L CNN "Wattage"
+F 7 "RMCF0402FT100RCT-ND" H 5120 6860 50  0001 C CNN "Digi-Key PN"
 	1    5120 6860
 	-1   0    0    -1  
 $EndComp
@@ -933,6 +941,7 @@ F 4 "0402" V 8110 3450 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 3450 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 3450 50  0001 C CNN "Wattage"
 F 7 "~Telemetry" V 8110 3450 50  0000 C CNN "Configuration"
+F 8 "2019-RK73Z1ETTPCT-ND" H 8010 3450 50  0001 C CNN "Digi-Key PN"
 	1    8010 3450
 	0    -1   1    0   
 $EndComp
@@ -952,6 +961,7 @@ F 4 "0402" V 8110 3750 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 3750 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 3750 50  0001 C CNN "Wattage"
 F 7 "~Telemetry" V 8110 3750 50  0000 C CNN "Configuration"
+F 8 "2019-RK73Z1ETTPCT-ND" H 8010 3750 50  0001 C CNN "Digi-Key PN"
 	1    8010 3750
 	0    -1   1    0   
 $EndComp
@@ -971,6 +981,7 @@ F 4 "0402" V 8110 4050 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 4050 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 4050 50  0001 C CNN "Wattage"
 F 7 "~Telemetry" V 8110 4050 50  0000 C CNN "Configuration"
+F 8 "2019-RK73Z1ETTPCT-ND" H 8010 4050 50  0001 C CNN "Digi-Key PN"
 	1    8010 4050
 	0    -1   1    0   
 $EndComp
@@ -1021,7 +1032,7 @@ F 3 "" H 7435 3380 50  0001 C CNN
 F 4 "1206" H 7260 3380 50  0000 R CNN "display_footprint"
 F 5 "25V" H 7260 3280 50  0000 R CNN "Voltage"
 F 6 "X5R" H 7260 3180 50  0000 R CNN "Dielectric"
-F 7 "1276-1075-1-ND" H 7835 3780 60  0001 C CNN "Digi-Key PN"
+F 7 "1276-1181-1-ND" H 7835 3780 60  0001 C CNN "Digi-Key PN"
 	1    7410 3280
 	1    0    0    -1  
 $EndComp
@@ -1040,7 +1051,7 @@ F 3 "" H 6845 3380 50  0001 C CNN
 F 4 "1206" H 6670 3380 50  0000 R CNN "display_footprint"
 F 5 "25V" H 6670 3280 50  0000 R CNN "Voltage"
 F 6 "X5R" H 6670 3180 50  0000 R CNN "Dielectric"
-F 7 "1276-1075-1-ND" H 7245 3780 60  0001 C CNN "Digi-Key PN"
+F 7 "1276-1181-1-ND" H 7245 3780 60  0001 C CNN "Digi-Key PN"
 	1    6820 3280
 	1    0    0    -1  
 $EndComp
@@ -1084,7 +1095,7 @@ F 3 "" H 2890 6980 50  0001 C CNN
 F 4 "0402" H 2990 7060 50  0000 L CNN "display_footprint"
 F 5 "1%" H 2990 6980 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 3000 6900 50  0000 L CNN "Wattage"
-F 7 "" H 3190 7380 60  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10K0CT-ND" H 3190 7380 60  0001 C CNN "Digi-Key PN"
 	1    2890 6980
 	1    0    0    -1  
 $EndComp
@@ -1143,7 +1154,7 @@ F 3 "" H 3680 6220 50  0001 C CNN
 F 4 "0402" H 3780 6300 50  0000 L CNN "display_footprint"
 F 5 "1%" H 3780 6220 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 3790 6140 50  0000 L CNN "Wattage"
-F 7 "" H 3980 6620 60  0001 C CNN "Digi-Key PN"
+F 7 "RMCF0402FT10K0CT-ND" H 3980 6620 60  0001 C CNN "Digi-Key PN"
 	1    3680 6220
 	1    0    0    -1  
 $EndComp
