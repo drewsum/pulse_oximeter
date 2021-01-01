@@ -4,10 +4,10 @@ EELAYER END
 $Descr A 11000 8500
 encoding utf-8
 Sheet 8 21
-Title "VFD Clock"
-Date "2020-10-12"
+Title "Pulse Oximeter"
+Date "2020-12-31"
 Rev "B"
-Comp "Drew Maatman"
+Comp "Drew Maatman, Nick Mussoline"
 Comment1 ""
 Comment2 ""
 Comment3 ""

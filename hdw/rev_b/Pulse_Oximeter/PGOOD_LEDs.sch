@@ -5,9 +5,9 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 18 21
 Title "Pulse Oximeter"
-Date "2020-12-09"
+Date "2020-12-31"
 Rev "B"
-Comp "Drew Maatman"
+Comp "Drew Maatman, Nick Mussoline"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -376,7 +376,6 @@ F 3 "" H 4565 3150 50  0001 C CNN
 F 4 "0402" H 4390 3150 50  0000 R CNN "display_footprint"
 F 5 "50V" H 4390 3050 50  0000 R CNN "Voltage"
 F 6 "X7R" H 4390 2950 50  0000 R CNN "Dielectric"
-F 7 "USB" H 4730 3050 50  0000 C CNN "Configuration"
 	1    4540 3050
 	-1   0    0    -1  
 $EndComp
@@ -396,7 +395,6 @@ F 1 "Green" V 5168 3353 50  0000 R CNN
 F 2 "LEDs:LED_0402" H 5220 3470 50  0001 C CNN
 F 3 "~" H 5220 3470 50  0001 C CNN
 F 4 "1497-1219-1-ND" H 60  -2850 50  0001 C CNN "Digi-Key PN"
-F 5 "USB" V 5220 3630 50  0000 C CNN "Configuration"
 	1    5220 3470
 	0    -1   -1   0   
 $EndComp
@@ -424,8 +422,6 @@ F 3 "" H 5220 3170 50  0001 C CNN
 F 4 "0402" H 5290 3250 50  0000 L CNN "display_footprint"
 F 5 "1%" H 5290 3170 50  0000 L CNN "Tolerance"
 F 6 "1/16W" H 5290 3100 50  0000 L CNN "Wattage"
-F 7 "" H 5520 3570 60  0001 C CNN "Digi-Key PN"
-F 8 "USB" H 5080 3260 50  0000 C CNN "Configuration"
 	1    5220 3170
 	-1   0    0    -1  
 $EndComp
@@ -601,7 +597,6 @@ F 0 "U1802" H 4710 3890 50  0000 L CNN
 F 1 "74LVC1G97" H 4710 3590 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4700 3740 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 4700 3740 50  0001 C CNN
-F 4 "USB" H 4650 3410 50  0000 C CNN "Configuration"
 	1    4650 3740
 	1    0    0    -1  
 $EndComp

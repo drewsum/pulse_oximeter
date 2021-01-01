@@ -5,9 +5,9 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 4 21
 Title "Pulse Oximeter"
-Date "2020-12-09"
+Date "2020-12-31"
 Rev "B"
-Comp "Drew Maatman"
+Comp "Drew Maatman, Nick Mussoline"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -932,7 +932,7 @@ F 3 "" H 8010 3450 50  0001 C CNN
 F 4 "0402" V 8110 3450 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 3450 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 3450 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 8110 3450 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 8110 3450 50  0000 C CNN "Configuration"
 	1    8010 3450
 	0    -1   1    0   
 $EndComp
@@ -951,7 +951,7 @@ F 3 "" H 8010 3750 50  0001 C CNN
 F 4 "0402" V 8110 3750 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 3750 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 3750 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 8110 3750 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 8110 3750 50  0000 C CNN "Configuration"
 	1    8010 3750
 	0    -1   1    0   
 $EndComp
@@ -970,7 +970,7 @@ F 3 "" H 8010 4050 50  0001 C CNN
 F 4 "0402" V 8110 4050 50  0001 C CNN "display_footprint"
 F 5 "1%" V 8210 4050 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 8310 4050 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 8110 4050 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 8110 4050 50  0000 C CNN "Configuration"
 	1    8010 4050
 	0    -1   1    0   
 $EndComp

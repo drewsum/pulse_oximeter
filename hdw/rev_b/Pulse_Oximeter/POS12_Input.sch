@@ -4,10 +4,10 @@ EELAYER END
 $Descr A 11000 8500
 encoding utf-8
 Sheet 2 21
-Title "Analog Clock"
-Date "2020-08-15"
-Rev "A"
-Comp "Drew Maatman"
+Title "Pulse Oximeter"
+Date "2020-12-31"
+Rev "B"
+Comp "Drew Maatman, Nick Mussoline"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -691,7 +691,7 @@ F 3 "" H 7210 2640 50  0001 C CNN
 F 4 "0402" V 7310 2640 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7410 2640 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 7510 2640 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 7310 2640 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 7310 2640 50  0000 C CNN "Configuration"
 	1    7210 2640
 	0    -1   1    0   
 $EndComp
@@ -710,7 +710,7 @@ F 3 "" H 7210 2940 50  0001 C CNN
 F 4 "0402" V 7310 2940 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7410 2940 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 7510 2940 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 7310 2940 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 7310 2940 50  0000 C CNN "Configuration"
 	1    7210 2940
 	0    -1   1    0   
 $EndComp
@@ -729,7 +729,7 @@ F 3 "" H 7210 3240 50  0001 C CNN
 F 4 "0402" V 7310 3240 50  0001 C CNN "display_footprint"
 F 5 "1%" V 7410 3240 50  0001 C CNN "Tolerance"
 F 6 "1/16W" V 7510 3240 50  0001 C CNN "Wattage"
-F 7 "!Telemetry" V 7310 3240 50  0000 C CNN "Configuration"
+F 7 "~Telemetry" V 7310 3240 50  0000 C CNN "Configuration"
 	1    7210 3240
 	0    -1   1    0   
 $EndComp
