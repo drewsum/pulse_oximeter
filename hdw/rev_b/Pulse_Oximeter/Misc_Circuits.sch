@@ -117,66 +117,6 @@ F 3 "" H 3780 3550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 J2001
-U 1 1 5EBF5609
-P 2530 5190
-F 0 "J2001" H 2530 5390 50  0000 C CNN
-F 1 "I2C" H 2530 4990 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2530 5190 50  0001 C CNN
-F 3 "~" H 2530 5190 50  0001 C CNN
-	1    2530 5190
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR02001
-U 1 1 5EBF560F
-P 2250 5370
-F 0 "#PWR02001" H 2250 5120 50  0001 C CNN
-F 1 "GND" H 2250 5220 50  0000 C CNN
-F 2 "" H 2250 5370 50  0001 C CNN
-F 3 "" H 2250 5370 50  0001 C CNN
-	1    2250 5370
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2250 5370 2250 5290
-Wire Wire Line
-	2250 5290 2330 5290
-$Comp
-L Connector_Generic:Conn_01x03 J2002
-U 1 1 5EBF5617
-P 3680 5190
-F 0 "J2002" H 3680 5390 50  0000 C CNN
-F 1 "USB UART" H 3680 4990 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3680 5190 50  0001 C CNN
-F 3 "~" H 3680 5190 50  0001 C CNN
-	1    3680 5190
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR02002
-U 1 1 5EBF561D
-P 3400 5370
-F 0 "#PWR02002" H 3400 5120 50  0001 C CNN
-F 1 "GND" H 3400 5220 50  0000 C CNN
-F 2 "" H 3400 5370 50  0001 C CNN
-F 3 "" H 3400 5370 50  0001 C CNN
-	1    3400 5370
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3400 5370 3400 5290
-Wire Wire Line
-	3400 5290 3480 5290
-Text GLabel 3480 5090 0    50   UnSpc ~ 0
-USB_UART_RX
-Text GLabel 3480 5190 0    50   UnSpc ~ 0
-USB_UART_TX
-Text GLabel 2330 5190 0    50   UnSpc ~ 0
-I2C_SCL
-Text GLabel 2330 5090 0    50   UnSpc ~ 0
-I2C_SDA
-$Comp
 L Custom_Library:R_Custom R?
 U 1 1 5EBF562C
 P 5570 4930
