@@ -260,7 +260,7 @@ F 7 "X7R" H 7110 2810 50  0000 R CNN "Dielectric"
 	1    7260 2910
 	1    0    0    -1  
 $EndComp
-Text GLabel 7240 2460 2    50   Output ~ 0
+Text GLabel 8260 2460 2    50   Output ~ 0
 Cap_Touch_Power
 $Comp
 L power:+3.3V #PWR01708
@@ -438,11 +438,60 @@ L Custom_Library:74LVC1G97_Power_BUF U1702
 U 1 1 5FDCDCCA
 P 6990 2460
 F 0 "U1702" H 7050 2610 50  0000 L CNN
-F 1 "74LVC1G97" H 7610 2050 50  0000 L CNN
+F 1 "74LVC1G97" H 6400 2600 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 7040 2460 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g97.pdf" H 7040 2460 50  0001 C CNN
 F 4 "296-SN74LVC1G97DCK3CT-ND" H 6990 2460 50  0001 C CNN "Digi-Key PN"
 	1    6990 2460
 	1    0    0    -1  
 $EndComp
+$Comp
+L Custom_Library:R_Custom R?
+U 1 1 60040257
+P 7730 2690
+AR Path="/5D6B2673/60040257" Ref="R?"  Part="1" 
+AR Path="/5D784813/60040257" Ref="R?"  Part="1" 
+AR Path="/5D739492/60040257" Ref="R?"  Part="1" 
+AR Path="/5E28CFDF/60040257" Ref="R?"  Part="1" 
+AR Path="/5E36CE18/60040257" Ref="R?"  Part="1" 
+AR Path="/5E3C80C8/60040257" Ref="R?"  Part="1" 
+AR Path="/5E3C97B4/60040257" Ref="R?"  Part="1" 
+AR Path="/5EAE4AB6/60040257" Ref="R1705"  Part="1" 
+F 0 "R1705" H 7830 2850 50  0000 L CNN
+F 1 "10k" V 7730 2620 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 7730 2690 50  0001 C CNN
+F 3 "" H 7730 2690 50  0001 C CNN
+F 4 "0402" H 7830 2760 50  0000 L CNN "display_footprint"
+F 5 "1%" H 7830 2660 50  0000 L CNN "Tolerance"
+F 6 "1/16W" H 7830 2560 50  0000 L CNN "Wattage"
+F 7 "RMCF0402FT10K0CT-ND" H 8030 3090 60  0001 C CNN "Digi-Key PN"
+	1    7730 2690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60040EA4
+P 7730 2840
+AR Path="/5D6B2673/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5D784813/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5D739492/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5E28CFDF/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5E36CE18/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5E3C80C8/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5E3C97B4/60040EA4" Ref="#PWR?"  Part="1" 
+AR Path="/5EAE4AB6/60040EA4" Ref="#PWR01712"  Part="1" 
+F 0 "#PWR01712" H 7730 2590 50  0001 C CNN
+F 1 "GND" H 7735 2667 50  0000 C CNN
+F 2 "" H 7730 2840 50  0001 C CNN
+F 3 "" H 7730 2840 50  0001 C CNN
+	1    7730 2840
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8260 2460 7730 2460
+Wire Wire Line
+	7730 2540 7730 2460
+Connection ~ 7730 2460
+Wire Wire Line
+	7730 2460 7240 2460
 $EndSCHEMATC
