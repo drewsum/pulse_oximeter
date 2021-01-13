@@ -342,16 +342,11 @@ F 8 "Telemetry" V 8340 2710 50  0000 C CNN "Configuration"
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8160 3040 8240 3040
-Wire Wire Line
 	7780 2860 7780 3040
 Wire Wire Line
 	7780 3040 7860 3040
 Wire Wire Line
 	8240 2860 8240 3040
-Connection ~ 8240 3040
-Wire Wire Line
-	8240 3040 8710 3040
 $Comp
 L power:+3.3V #PWR?
 U 1 1 5E434D63
@@ -1003,9 +998,6 @@ Wire Wire Line
 	8240 3750 8240 3450
 Wire Wire Line
 	8160 3450 8240 3450
-Connection ~ 8240 3450
-Wire Wire Line
-	8240 3450 8240 3050
 Wire Wire Line
 	7860 3450 7780 3450
 Connection ~ 7780 3450
@@ -1173,4 +1165,12 @@ F 3 "" H 3680 6070 50  0001 C CNN
 	1    3680 6070
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8160 3040 8240 3040
+Wire Wire Line
+	8240 3040 8240 3450
+Connection ~ 8240 3040
+Wire Wire Line
+	8240 3040 8710 3040
+Connection ~ 8240 3450
 $EndSCHEMATC
