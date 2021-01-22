@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 32)
+    (start_pass_no 69)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -93,7 +93,15 @@
     )
   )
   (class "kicad_default"
-    "Net-(U1101-Pad48)"
+    "Net-(R207-Pad2)" "Net-(C201-Pad2)" "Net-(C406-Pad1)" "Net-(C201-Pad1)" "Net-(C404-Pad1)" "Net-(C1506-Pad1)" "Net-(C1507-Pad1)" "Net-(C1701-Pad2)"
+    "Net-(C1701-Pad1)" "Net-(C1703-Pad1)" "Net-(D401-Pad2)" "Net-(D1803-Pad1)" "Net-(D1803-Pad2)" "USB_UART_RX_BUF" "USB_UART_TX_BUF" "Net-(L1201-Pad2)"
+    "Net-(Q402-Pad3)" "Net-(R202-Pad1)" "Net-(R206-Pad2)" "Net-(R212-Pad1)" "Net-(R214-Pad1)" "Net-(R215-Pad2)" "Net-(R216-Pad2)" "Net-(R217-Pad2)"
+    "Net-(R403-Pad2)" "Net-(R408-Pad1)" "Net-(R801-Pad2)" "Net-(R1003-Pad1)" "Net-(R1203-Pad2)" "Net-(R1209-Pad2)" "Net-(R1503-Pad2)" "Net-(R1504-Pad2)"
+    "Net-(R1608-Pad1)" "Net-(R1701-Pad2)" "Net-(R1703-Pad1)" "PGOOD_LED_SHDN" "~Telemetry_Config" "~ETC_Config" "Net-(J801-Pad7)" "Net-(J801-Pad8)"
+    "Net-(J1202-Pad5)" "Net-(J1202-Pad1)" "Net-(U201-Pad21)" "Net-(U201-Pad16)" "Net-(U201-Pad13)" "Net-(U201-Pad11)" "Net-(U201-Pad7)" "Net-(U201-Pad6)"
+    "Net-(U201-Pad5)" "Net-(U201-Pad4)" "Net-(U201-Pad3)" "Net-(U201-Pad2)" "Net-(U201-Pad1)" "Net-(U501-Pad3)" "Net-(U601-Pad10)" "Net-(U601-Pad6)"
+    "Net-(U601-Pad4)" "Net-(U601-Pad2)" "Net-(U701-Pad3)" "Net-(U1101-Pad48)" "Net-(U1101-Pad22)" "Net-(U1101-Pad21)" "Net-(U1101-Pad10)" "Net-(U1101-Pad4)"
+    "Net-(U2002-Pad3)" "Net-(D1501-Pad1)" "Net-(D1501-Pad2)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
@@ -105,7 +113,7 @@
   )
   (class Power
     GND +3V3 +12Vin +12V +1.8V "GNDA_MZ" "+3.3VA_MZ" "+5V_USB"
-    "+3.3V_POX"
+    "+3.3V_POX" "+3.3V_USB"
     (clearance_class Power)
     (via_rule Power)
     (rule
@@ -116,25 +124,19 @@
     )
   )
   (class Signal
-    "Net-(Q201-Pad5)" "Net-(L401-Pad1)" "Net-(C405-Pad1)" "Net-(C603-Pad1)" "Net-(C204-Pad1)" "POS12_SNS-" "POS12_SNS+" "Net-(C402-Pad1)"
-    "Net-(C403-Pad1)" "POS3P3_SNS_OUT+" "POS3P3_SNS_OUT-" "Net-(C602-Pad1)" "POS1P8_SNS_OUT-" "POS1P8_SNS_OUT+" "Net-(C802-Pad1)" "Net-(C1001-Pad1)"
-    "Net-(C1206-Pad1)" "/USB UART Bridge/CONN_USB+" "/USB UART Bridge/CONN_USB-" "Net-(C1209-Pad1)" "POS5_USB_SNS+" "POS5_USB_SNS-" "Net-(C1401-Pad1)" "POS3P3_POX_ADC"
-    "Net-(C1704-Pad1)" "Net-(C1704-Pad2)" "Net-(C1706-Pad1)" "Net-(C1708-Pad1)" "Net-(C1802-Pad1)" "VBAT_ADC" "Net-(D1201-Pad2)" "~USB_ACTIVE"
-    "Net-(D1801-Pad2)" "Net-(D1801-Pad1)" "Net-(D1802-Pad2)" "Net-(D1802-Pad1)" "Net-(D1804-Pad1)" "Net-(D1804-Pad2)" "Net-(D1805-Pad1)" "Net-(D1805-Pad2)"
-    "Net-(D1901-Pad1)" "Net-(D1901-Pad2)" "Net-(D1902-Pad2)" "Net-(D1902-Pad1)" "Net-(D1903-Pad1)" "Net-(D1903-Pad2)" "Net-(D1904-Pad1)" "Net-(D1904-Pad2)"
-    "Net-(J801-Pad6)" "PIC32MZ_ICSPCLK" "PIC32MZ_ICSPDAT" "~PIC32MZ_MCLR" "Net-(J1201-Pad1)" "Net-(J1201-Pad4)" "Net-(J1201-Pad6)" "I2C_SCL"
-    "I2C_SDA" "USB_UART_RX" "USB_UART_TX" "Net-(Q201-Pad1)" "Net-(Q201-Pad2)" "Net-(Q201-Pad4)" "POS3P3_RUN" "Net-(Q401-Pad3)"
-    "Net-(Q801-Pad3)" "Net-(Q801-Pad1)" "POS3P3_PGOOD" "Net-(R201-Pad2)" "Net-(R202-Pad2)" "Net-(R204-Pad2)" "Net-(R205-Pad1)" "POS12_PGOOD"
-    "Net-(R410-Pad2)" "POS1P8_PGOOD" "POS1P8_RUN" "Net-(R609-Pad2)" "Net-(R801-Pad1)" "PIC32MZ_POSC_EC_Enable" "PIC32MZ_POSC_EC" "Net-(R1002-Pad1)"
-    "Net-(R1201-Pad2)" "Net-(R1202-Pad2)" "POS5_USB_PGOOD" "Net-(R1206-Pad2)" "/USB UART Bridge/BRIDGE_USB+" "/USB UART Bridge/BRIDGE_USB-" "POS3P3_POX_Enable" "POX_I2C_Enable"
-    "Net-(R1505-Pad2)" "Net-(R1506-Pad2)" "~POX_INT" "LCD_BACKLIGHT_PWM" "LCD_PMP_RS" "LCD_PMP_R_W" "LCD_BACKLIGHT" "Net-(R1604-Pad1)"
-    "LCD_PMP_E" "Net-(R1702-Pad1)" "Net-(R1704-Pad1)" "Heartbeat_LED" "Error_LED" "Reset_LED" "CPU_Trap_LED" "Telemetry_Config"
-    "SD_Logging_Config" "SD_SPI_CS" "SD_SPI_MOSI" "SD_SPI_SCLK" "SD_SPI_MISO" "~SD_CARD_DETECT" "LCD_PMP_DB0" "LCD_PMP_DB7"
-    "LCD_PMP_DB1" "LCD_PMP_DB2" "LCD_PMP_DB3" "LCD_PMP_DB5" "LCD_PMP_DB4" "LCD_PMP_DB6" "LCD_CONTRAST" "Net-(U302-Pad3)"
-    "Net-(U502-Pad3)" "Net-(U702-Pad3)" "PIC32MZ_REFCLK1" "Net-(U1101-Pad11)" "Net-(U1101-Pad12)" "Net-(U1101-Pad24)" "Net-(U1101-Pad27)" "Net-(U1101-Pad33)"
-    "Net-(U1101-Pad36)" "Net-(U1101-Pad37)" "Net-(U1101-Pad38)" "Net-(U1202-Pad2)" "Net-(U1202-Pad8)" "Net-(U1202-Pad11)" "Net-(U1302-Pad3)" "Net-(U1401-Pad2)"
-    "Net-(U1401-Pad3)" "Net-(U1401-Pad7)" "Net-(U1503-Pad1)" "Net-(U1503-Pad5)" "Net-(U1503-Pad6)" "Net-(U1503-Pad7)" "Net-(U1503-Pad8)" "Net-(U1503-Pad14)"
-    "Net-(U1702-Pad1)" "Net-(U1702-Pad3)" "Cap_Touch_Power" "Net-(U1801-Pad3)" "Net-(U1801-Pad1)" "Net-(U2001-Pad3)"
+    "Net-(C603-Pad1)" "Net-(L401-Pad1)" "POS12_SNS-" "POS12_SNS+" "Net-(C403-Pad1)" "POS3P3_SNS_OUT+" "POS3P3_SNS_OUT-" "Net-(C602-Pad1)"
+    "POS1P8_SNS_OUT-" "POS1P8_SNS_OUT+" "Net-(C802-Pad1)" "Net-(C1001-Pad1)" "/USB UART Bridge/CONN_USB+" "/USB UART Bridge/CONN_USB-" "POS5_USB_SNS+" "POS5_USB_SNS-"
+    "Net-(C1401-Pad1)" "POS3P3_POX_ADC" "Net-(D1201-Pad2)" "~USB_ACTIVE" "Net-(D1801-Pad2)" "Net-(D1801-Pad1)" "Net-(D1802-Pad2)" "Net-(D1802-Pad1)"
+    "Net-(D1804-Pad1)" "Net-(D1804-Pad2)" "Net-(D1901-Pad1)" "Net-(D1901-Pad2)" "Net-(D1902-Pad2)" "Net-(D1902-Pad1)" "Net-(D1903-Pad1)" "Net-(D1903-Pad2)"
+    "Net-(D1904-Pad1)" "Net-(D1904-Pad2)" "PIC32MZ_ICSPCLK" "PIC32MZ_ICSPDAT" "~PIC32MZ_MCLR" "Net-(J1201-Pad1)" "Net-(J1201-Pad6)" "I2C_SCL"
+    "I2C_SDA" "USB_UART_RX" "USB_UART_TX" "POS3P3_RUN" "Net-(Q401-Pad3)" "Net-(Q801-Pad3)" "Net-(Q801-Pad1)" "POS3P3_PGOOD"
+    "Net-(R201-Pad2)" "POS12_PGOOD" "POS1P8_PGOOD" "POS1P8_RUN" "PIC32MZ_POSC_EC_Enable" "PIC32MZ_POSC_EC" "Net-(R1202-Pad2)" "POS5_USB_PGOOD"
+    "/USB UART Bridge/BRIDGE_USB+" "/USB UART Bridge/BRIDGE_USB-" "POS3P3_POX_Enable" "POX_I2C_Enable" "~POX_INT" "LCD_BACKLIGHT_PWM" "LCD_PMP_RS" "LCD_PMP_R_W"
+    "LCD_BACKLIGHT" "LCD_PMP_E" "Heartbeat_LED" "Error_LED" "Reset_LED" "CPU_Trap_LED" "LCD_PMP_DB0" "LCD_PMP_DB7"
+    "LCD_PMP_DB1" "LCD_PMP_DB2" "LCD_PMP_DB3" "LCD_PMP_DB5" "LCD_PMP_DB4" "LCD_PMP_DB6" "LCD_CONTRAST" "PIC32MZ_REFCLK1"
+    "Cap_Touch_Power" "Net-(J801-Pad6)" "Net-(J1201-Pad4)" "Net-(U302-Pad3)" "Net-(U1101-Pad38)" "Net-(U1101-Pad37)" "Net-(U1101-Pad36)" "Net-(U1101-Pad33)"
+    "Net-(U1101-Pad12)" "Net-(U1101-Pad11)" "Net-(U1202-Pad2)" "Net-(U1202-Pad8)" "Net-(U1202-Pad11)" "Net-(U1302-Pad3)" "Net-(U1401-Pad2)" "Net-(U1401-Pad3)"
+    "Net-(U1401-Pad7)" "Net-(U1503-Pad1)" "Net-(U1503-Pad5)" "Net-(U1503-Pad6)" "Net-(U1503-Pad7)" "Net-(U1503-Pad8)" "Net-(U1503-Pad14)" "Net-(U2001-Pad3)"
     (clearance_class Signal)
     (via_rule Signal)
     (rule
