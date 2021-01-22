@@ -297,11 +297,11 @@ Text GLabel 3320 1980 0    50   Input ~ 0
 Cap_Touch_Power
 Text GLabel 7520 2480 2    50   Output ~ 0
 Reset_LED
-Text GLabel 3320 4980 0    50   Output ~ 0
+Text GLabel 3320 4880 0    50   Output ~ 0
 CPU_Trap_LED
 Text GLabel 7520 2580 2    50   Output ~ 0
 Heartbeat_LED
-Text GLabel 3320 4880 0    50   Output ~ 0
+Text GLabel 3320 4980 0    50   Output ~ 0
 Error_LED
 Text GLabel 7520 3380 2    50   Input ~ 0
 POS3P3_POX_ADC
