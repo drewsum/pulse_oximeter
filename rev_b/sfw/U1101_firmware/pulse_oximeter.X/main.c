@@ -55,8 +55,9 @@
 #include "lcd_dimming.h"
 #include "lcd.h"
 
-void main(void) {
 
+void main(void) {
+    
     // Save the cause of the most recent device reset
     // This also checks for configuration errors
     reset_cause = getResetCause();
