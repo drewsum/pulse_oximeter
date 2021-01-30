@@ -369,9 +369,22 @@ void usbUartRxLUTInterface(char * cmd_string) {
     usb_uart_command_t *current_command, *temp;
     HASH_ITER(hh, usb_uart_commands, current_command, temp) {
         
+        // print help message if user has passed command with "-h" flag
+        char help_flag_str[64];
+        strcpy(help_flag_str, current_command->command_name);
+        strcat(help_flag_str, " -h");
+        if (strcmp(cmd_string, help_flag_str) == 0) {
+            terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("%s: %s\r\n",
+                    current_command->command_name,
+                    current_command->command_help_message);
+            terminalTextAttributesReset();
+            break;
+        }
+        
         // if the current entry that we've found in the hash table matches cmd_string,
         // call the function pointed to by the current entry in the hash table
-        if (strcmp(cmd_string, current_command->command_name) == 0) {
+        else if (strcmp(cmd_string, current_command->command_name) == 0) {
          
             current_command->func(cmd_string);
             break;

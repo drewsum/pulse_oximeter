@@ -20,10 +20,10 @@
 
 #include "xc.h"
 
+#include "heartbeat_timer.h"
+
 // API Variables
 volatile uint32_t device_on_time_counter;
-
-#define FIRMWARE_VERSION_STR "1.0"
 
 // This function executes actions every call of the heartbeat timer, and is used as an easy interface to do some action every second
 void heartbeatServices(void);

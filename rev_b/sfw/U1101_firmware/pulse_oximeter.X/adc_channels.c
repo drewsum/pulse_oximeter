@@ -7,6 +7,8 @@
 #include "telemetry.h"
 #include "terminal_control.h"
 
+#warning "adc channels may need to be modified"
+
 /*
  * 
  * Used ADC channels: 

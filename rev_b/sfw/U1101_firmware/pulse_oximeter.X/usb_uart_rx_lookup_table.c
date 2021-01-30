@@ -84,6 +84,10 @@ usb_uart_command_function_t repositoryCommand(char * input_str) {
 usb_uart_command_function_t hostStatusCommand(char * input_str) {
 
     terminalTextAttributesReset();
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("Host Firmware Version: %s\r\n", FIRMWARE_VERSION_STR);
+    
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Host Device IDs:\r\n");
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -130,6 +134,7 @@ usb_uart_command_function_t hostStatusCommand(char * input_str) {
     }
     
     printf("Cause of most recent device reset: %s\r\n", getResetCauseString(reset_cause));
+    terminalTextAttributesReset();
     
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
@@ -162,7 +167,7 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         printDeadmanStatus();
     }
     else if (strcmp(rx_peripheral_name, "Prefetch") == 0) {
-        printPrefetchStatus();
+       printPrefetchStatus();
     }
     else if (strcmp(rx_peripheral_name, "DMA") == 0) {
         printDMAStatus();
@@ -178,15 +183,8 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         printf("I2C Bus Master Controller Status:\r\n");
         printI2CMasterStatus();
     }
-    else if (strcmp(rx_peripheral_name, "I2C Slaves") == 0) {    
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, REVERSE_FONT);
-        printf("I2C Bus Slave Device Status:\r\n");
-        terminalTextAttributesReset();
-        if (TELEMETRY_CONFIG_PIN == LOW) {
-            printTemperatureSensorStatus();
-            printPowerMonitorStatus();
-        }
-        miscI2CDevicesPrintStatus();
+    else if (strcmp(rx_peripheral_name, "RTCC") == 0) {
+        printRTCCStatus();
     }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
@@ -214,28 +212,12 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
                 "   Prefetch\r\n"
                 "   DMA\r\n"
                 "   I2C Master\r\n"
-                "   I2C Slaves\r\n"
+                "   RTCC\r\n"
                 "   Timer <x> (x = 1-9)\r\n");
         terminalTextAttributesReset();
         return;
     }
 
-}
-
-usb_uart_command_function_t timeOfFlightCommand(char * input_str) {
- 
-    volatile double tof_temp = systemGetTOF();
-    uint32_t tof_temp_int = (uint32_t) floor(tof_temp);
-    uint32_t power_cycle_temp = systemGetPowerCycles();
-    
-    // first print stuff for logic board
-    terminalTextAttributesReset();
-    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("System Time of Flight is %s\r\n", getStringSecondsAsTime(tof_temp_int));
-    printf("System has power cycled %u times\r\n", power_cycle_temp);
-    
-    terminalTextAttributesReset();
-    
 }
 
 usb_uart_command_function_t errorStatusCommand(char * input_str) {
@@ -262,6 +244,53 @@ usb_uart_command_function_t clearErrorsCommand(char * input_str) {
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     printf("Error Handler flags cleared\n\r");
     terminalTextAttributesReset();
+    
+}
+
+usb_uart_command_function_t platformStatusCommand(char * input_str) {
+ 
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    printf("Platform Revision: %s\r\n", PLATFORM_REVISION_STR);
+    
+    printPGOODStatus();
+    
+    if (nTOF_CONFIG_PIN == LOW) {
+        double logic_tof_temp = logicBoardGetTOF();
+        uint32_t logic_tof_temp_int = (uint32_t) floor(logic_tof_temp);
+        uint32_t logic_power_cycle_temp = logicBoardGetPowerCycles();
+
+        // first print stuff for logic board
+        terminalTextAttributesReset();
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        
+         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("\r\nPlatform Time of Flight Data:\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        
+        printf("    Logic Board Time of Flight is %s\r\n", getStringSecondsAsTime(logic_tof_temp_int));
+        printf("    Logic Board has power cycled %u times\r\n", logic_power_cycle_temp);
+
+        // Next, print stuff for display board if it's installed
+        if (I2C_DSP_EN_PIN) {
+            double display_tof_temp = displayBoardGetTOF();
+            uint32_t display_tof_temp_int = (uint32_t) floor(display_tof_temp);
+            uint32_t display_power_cycle_temp = displayBoardGetPowerCycles();
+
+            printf("    Display Board Time of Flight is %s\r\n", getStringSecondsAsTime(display_tof_temp_int));
+            printf("    Display Board has power cycled %u times\r\n", display_power_cycle_temp);
+        }
+    }
+    
+    terminalTextAttributesReset();
+    
+    terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, REVERSE_FONT);
+    printf("\r\nI2C Bus Slave Device Status:\r\n");
+    terminalTextAttributesReset();
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
+        printTemperatureSensorStatus();
+        printPowerMonitorStatus();
+    }
+    miscI2CDevicesPrintStatus();
     
 }
 
@@ -449,6 +478,7 @@ usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
 
 }
 
+#warning "add missing commands from above here"
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {

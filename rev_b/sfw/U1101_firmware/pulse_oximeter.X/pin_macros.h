@@ -2,6 +2,7 @@
 #ifndef _PIN_MACROS_H    /* Guard against multiple inclusion */
 #define _PIN_MACROS_H
 
+#warning "fix pin macros"
 
 #include <xc.h>
 

@@ -1,3 +1,5 @@
+
+#warning "port this to use newer I2C master code if needed"
 /** \file max30102.h ******************************************************
 *
 * Project: MAXREFDES117#

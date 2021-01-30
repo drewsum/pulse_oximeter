@@ -22,7 +22,7 @@
 #include <xc.h>
 #include <stdbool.h>
 
-#include "plib_i2c3.h"
+#include "plib_i2c.h"
 
 // INA219 register pointers
 // from register 5-1 of INA219 datasheet

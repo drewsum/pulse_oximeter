@@ -32,6 +32,7 @@
 #include "user_interface.h"
 
 // I2C
+#warning "name of this might have changed"
 #include "plib_i2c3.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
