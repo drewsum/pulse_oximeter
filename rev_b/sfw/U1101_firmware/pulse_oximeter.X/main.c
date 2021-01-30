@@ -32,7 +32,7 @@
 #include "user_interface.h"
 
 // I2C
-#warning "name of this might have changed"
+#warning "name of this might have changed, also need to overwrite what's in there"
 #include "plib_i2c3.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
@@ -67,11 +67,12 @@ void main(void) {
     terminalSetCursorHome();
     terminalSetTitle("Pulse Oximeter Serial Terminal");
     
+    #warning "add macro configurable project data here, and in main.h"
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Pulse Oximeter\r\n");
     printf("Firmware Version %s\r\n", FIRMWARE_VERSION_STR);
-    printf("Created by Drew Maatman, 2020\r\n");
+    printf("Created by Drew Maatman, 2021\r\n");
     terminalTextAttributesReset();
     
      // Print cause of reset
@@ -100,7 +101,7 @@ void main(void) {
         clearErrorHandler();
     }
     live_telemetry_enable = 0;
-    live_telemetry_request = 0;
+    live_telemetry_print_request = 0;
     
     printf("\r\nCause of most recent device reset: %s\r\n\r\n", getResetCauseString(reset_cause));
     terminalTextAttributesReset();
@@ -268,7 +269,7 @@ void main(void) {
             }
         }
         
-        if (live_telemetry_request && live_telemetry_enable) {
+        if (live_telemetry_print_request && live_telemetry_enable) {
 
             // Clear the terminal
             //terminalClearScreen();
@@ -284,7 +285,7 @@ void main(void) {
             printf("Call 'Live Telemetry' command to disable\033[K\n\r");
             terminalTextAttributesReset();
             
-            live_telemetry_request = 0;
+            live_telemetry_print_request = 0;
             
         }
         

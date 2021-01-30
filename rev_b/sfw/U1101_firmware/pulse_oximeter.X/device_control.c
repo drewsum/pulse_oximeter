@@ -158,18 +158,13 @@ void clockInitialize(void) {
     // This sets FRCDIV frequency to 8 MHz
     // OSCCONbits.FRCDIV = 0b000;
     
-    // Enable external clock into primary oscillator (POSC EC)
+    // Disable external clock into primary oscillator (POSC EC) since this isn't popped
     TRISCbits.TRISC15 = TRIS_OUTPUT;
-    MCU_POSC_ENABLE_PIN = HIGH;
+    POSC_EC_ENABLE_PIN = LOW;
     
-    // wait for POSC EC to be ready
-    //while (CLKSTATbits.POSCRDY == 0);
-    
-    // wait for PLL to stabilize
-    //while (CLKSTATbits.SPDIVRDY == 0);
-    
-    // Set new clock source as POSC EC
-    OSCCONbits.NOSC = 0b010;
+    // Set new clock source as Internal FRC
+#warning "clock source is subject to change for accuracy reasons"
+    OSCCONbits.NOSC = 0b000;
     
     // Initiate clock switch
     OSCCONbits.OSWEN = 1;
@@ -206,8 +201,9 @@ void PLLInitialize(void) {
     // Set PLL input range as 5-10 MHz
     SPLLCONbits.PLLRANGE = 0b001;
     
-    // Set the input to the PLL as POSC
-    SPLLCONbits.PLLICLK = 0;
+    // Set the input to the PLL as FRC
+    #warning "subject to change"
+    SPLLCONbits.PLLICLK = 1;
     
     // Set PLL input divider to 2
     SPLLCONbits.PLLIDIV = 0b001;
