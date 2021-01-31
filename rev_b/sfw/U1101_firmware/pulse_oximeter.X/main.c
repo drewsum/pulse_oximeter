@@ -11,6 +11,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "main.h"
+
 // Core Drivers
 #include "configuration.h"
 #include "device_control.h"
@@ -32,7 +34,6 @@
 #include "user_interface.h"
 
 // I2C
-#warning "name of this might have changed, also need to overwrite what's in there"
 #include "plib_i2c.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
@@ -67,12 +68,11 @@ void main(void) {
     terminalSetCursorHome();
     terminalSetTitle("Pulse Oximeter Serial Terminal");
     
-    #warning "add macro configurable project data here, and in main.h"
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Pulse Oximeter\r\n");
-    printf("Firmware Version %s\r\n", FIRMWARE_VERSION_STR);
-    printf("Created by Drew Maatman, 2021\r\n");
+    printf("Host Firmware Version: %s, Platform Hardware Revision: %s\r\n", FIRMWARE_VERSION_STR, PLATFORM_REVISION_STR);
+    printf("Created by Drew Maatman, %s\r\n", PROJECT_DATE_STR);
     terminalTextAttributesReset();
     
      // Print cause of reset
@@ -156,7 +156,7 @@ void main(void) {
     I2CMaster_Initialize();
     printf("    I2C Bus Master Initialized\r\n");
     
-    if (TELEMETRY_CONFIG_PIN == LOW) {
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         printf("    Telemetry Configuration Detected\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
@@ -176,8 +176,19 @@ void main(void) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
-    systemTOFInitialize();
-    printf("    Time of Flight Counter Initialized\r\n");
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Elapsed Time Configuration Detected\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        platformTOFInitialize();
+        printf("    Platform Elapsed Time Counter Initialized\r\n");
+    }
+    
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("    Platform Elapsed Time Configuration Not Detected\r\n");
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    }
     
     lcdInitialize();
     lcdClear();

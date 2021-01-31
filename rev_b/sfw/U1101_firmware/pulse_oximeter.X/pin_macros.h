@@ -35,7 +35,7 @@
 #define LCD_R_W_PIN                 LATDbits.LATD5
 #define CPU_TRAP_LED_PIN            LATDbits.LATD9
 #define ERROR_LED_PIN               LATDbits.LATD10
-#define TELEMETRY_CONFIG_PIN        PORTDbits.RD11
+#define nTELEMETRY_CONFIG_PIN       PORTDbits.RD11
 
 // Port E
 // used for LCD parallel bus

@@ -13,6 +13,7 @@
         <itemPath>power_saving.h</itemPath>
         <itemPath>telemetry.h</itemPath>
         <itemPath>user_interface.h</itemPath>
+        <itemPath>pgood_monitor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Core Drivers" projectFiles="true">
         <itemPath>configuration.h</itemPath>
@@ -54,6 +55,7 @@
         <itemPath>usb_uart_rx_lookup_table.h</itemPath>
         <itemPath>usb_uart.h</itemPath>
       </logicalFolder>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -71,6 +73,7 @@
         <itemPath>power_saving.c</itemPath>
         <itemPath>telemetry.c</itemPath>
         <itemPath>user_interface.c</itemPath>
+        <itemPath>pgood_monitor.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Core Drivers" projectFiles="true">
         <itemPath>device_control.c</itemPath>

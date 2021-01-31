@@ -35,20 +35,18 @@
 // Some macros are also used to map to interrupts
 // Make sure UART modules have signals properly routed to pins using PPS
 
-#warning "uart macros may need to change"
-
 // REGISTER MAPPINGS
-#define USB_UART_MODE_BITFIELD          U3MODEbits
-#define USB_UART_STA_BITFIELD           U3STAbits
-#define USB_UART_TX_REG                 U3TXREG
-#define USB_UART_RX_REG                 U3RXREG
-#define USB_UART_BRG_REG                U3BRG
+#define USB_UART_MODE_BITFIELD          U1MODEbits
+#define USB_UART_STA_BITFIELD           U1STAbits
+#define USB_UART_TX_REG                 U1TXREG
+#define USB_UART_RX_REG                 U1RXREG
+#define USB_UART_BRG_REG                U1BRG
 
 // INTERRUPT MAPPINGS
-#define USB_UART_TX_INT_SOURCE          UART3_Transfer_Done
-#define USB_UART_RX_INT_SOURCE          UART3_Receive_Done
-#define USB_UART_FAULT_INT_SOURCE       UART3_Fault
-#define USB_UART_FAULT_INT_VECTOR       _UART3_FAULT_VECTOR
+#define USB_UART_TX_INT_SOURCE          UART1_Transfer_Done
+#define USB_UART_RX_INT_SOURCE          UART1_Receive_Done
+#define USB_UART_FAULT_INT_SOURCE       UART1_Fault
+#define USB_UART_FAULT_INT_VECTOR       _UART1_FAULT_VECTOR
 
 // TX DMA MAPPINGS
 #define USB_UART_TX_DMA_CON_BITFIELD    DCH0CONbits

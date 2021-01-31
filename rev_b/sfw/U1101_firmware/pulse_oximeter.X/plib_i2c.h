@@ -63,8 +63,12 @@
 
 #endif
         
-volatile I2C_OBJ i2c1Obj;
-        
+volatile I2C_OBJ i2cMasterObj;
+
+
+// These macros set which I2C peripheral is used
+#warning "figure out how to macro config this once you actually have code running on hardware"
+
 // DOM-IGNORE-END
 
 // *****************************************************************************

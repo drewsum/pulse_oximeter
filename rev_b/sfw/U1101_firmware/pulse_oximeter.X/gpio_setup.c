@@ -1,8 +1,6 @@
 
 #include <xc.h>
 
-#warning "fix gpio setup"
-
 #include "gpio_setup.h"
 
 // initializes port A GPIO pins
@@ -19,9 +17,8 @@ void portBGPIOInitialize (void) {
     gpioPinSetup(gpio_port_b, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_b, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_b, 2, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set INT input here for POX INT"
     gpioPinSetup(gpio_port_b, 3, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set INT here for CAP_TOUCH_POWER"
+    INT4Rbits.INT4R = RPB3_PPS_INPUT;
     gpioPinSetup(gpio_port_b, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_b, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_b, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
@@ -41,7 +38,7 @@ void portBGPIOInitialize (void) {
 void portCGPIOInitialize (void) {
 
     gpioPinSetup(gpio_port_c, 13, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set REFCLK1 output here"
+    RPC13Rbits.RPC13R = REFCLKO1_PPS_OUTPUT;        // map REFCLKO1 to RC13
     gpioPinSetup(gpio_port_c, 14, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_c, 15, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     
@@ -53,9 +50,9 @@ void portDGPIOInitialize (void) {
     gpioPinSetup(gpio_port_d, 0, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_d, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_d, 2, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set UART RX here"
+    U1RXRbits.U1RXR = RPD2_PPS_INPUT;           // Assign U1RX to RD2
     gpioPinSetup(gpio_port_d, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set UART TX here"
+    RPD3Rbits.RPD3R = U1TX_PPS_OUTPUT;           // Assign U1TX to RD3
     gpioPinSetup(gpio_port_d, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_d, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_d, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
@@ -69,7 +66,6 @@ void portEGPIOInitialize (void) {
     
     gpioPinSetup(gpio_port_e, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_e, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set heartbeat LED PWM here"
     gpioPinSetup(gpio_port_e, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_e, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_e, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
@@ -84,8 +80,8 @@ void portFGPIOInitialize (void) {
     
     gpioPinSetup(gpio_port_f, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_f, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPF1Rbits.RPF1R = OC6_PPS_OUTPUT;                           // map OC6 PWM output to RF1 (for heartbeat LED)
     gpioPinSetup(gpio_port_f, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "cant remember if I have to set I2C signals here"
     
 }
 
@@ -95,7 +91,7 @@ void portGGPIOInitialize (void) {
     gpioPinSetup(gpio_port_g, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     gpioPinSetup(gpio_port_g, 7, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_ENABLE);
     gpioPinSetup(gpio_port_g, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    #warning "set LCD Backlight PWM here"
+    RPG8Rbits.RPG8R = OC3_PPS_OUTPUT;                           // map OC3 to RG8 for LCD dimming
     gpioPinSetup(gpio_port_g, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     
 }

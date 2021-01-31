@@ -1,6 +1,7 @@
 
 #include "heartbeat_services.h"
 
+#include "main.h"
 #include "error_handler.h"
 #include "temperature_sensors.h"
 #include "power_monitors.h"
@@ -58,7 +59,7 @@ void heartbeatServices(void) {
         sprintf(buffer, "%s", getStringSerialNumber());
         lcdPrint(buffer);
         lcdSetCursor(0,3);
-        sprintf(buffer, "Die:%s,T:%u,FW:%s", getRevisionIDString(getRevisionID()), !TELEMETRY_CONFIG_PIN, FIRMWARE_VERSION_STR);
+        sprintf(buffer, "Die:%s,T:%u,FW:%s", getRevisionIDString(getRevisionID()), !nTELEMETRY_CONFIG_PIN, FIRMWARE_VERSION_STR);
         lcdPrint(buffer);
         
         ui_state_machine = wakeup_screen_2_state;

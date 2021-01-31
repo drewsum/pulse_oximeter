@@ -8,6 +8,7 @@
 #include "usb_uart.h"
 #include "uthash.h"
 
+#include "main.h"
 #include "terminal_control.h"
 #include "device_control.h"
 #include "cause_of_reset.h"
@@ -21,6 +22,7 @@
 #include "misc_i2c_devices.h"
 #include "lcd_dimming.h"
 #include "max30102.h"
+#include "pgood_monitor.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -183,9 +185,6 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         printf("I2C Bus Master Controller Status:\r\n");
         printI2CMasterStatus();
     }
-    else if (strcmp(rx_peripheral_name, "RTCC") == 0) {
-        printRTCCStatus();
-    }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
         sscanf(rx_peripheral_name, "Timer %u", &read_timer_number);
@@ -254,31 +253,22 @@ usb_uart_command_function_t platformStatusCommand(char * input_str) {
     
     printPGOODStatus();
     
-    if (nTOF_CONFIG_PIN == LOW) {
-        double logic_tof_temp = logicBoardGetTOF();
+    if (nETC_CONFIG_PIN == LOW) {
+        double logic_tof_temp = platformGetTOF();
         uint32_t logic_tof_temp_int = (uint32_t) floor(logic_tof_temp);
-        uint32_t logic_power_cycle_temp = logicBoardGetPowerCycles();
+        uint32_t logic_power_cycle_temp = platformGetPowerCycles();
 
         // first print stuff for logic board
         terminalTextAttributesReset();
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         
          terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("\r\nPlatform Time of Flight Data:\r\n");
+        printf("\r\nPlatform Elapsed Time Data:\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         
-        printf("    Logic Board Time of Flight is %s\r\n", getStringSecondsAsTime(logic_tof_temp_int));
-        printf("    Logic Board has power cycled %u times\r\n", logic_power_cycle_temp);
+        printf("    Platform Elapsed Time is %s\r\n", getStringSecondsAsTime(logic_tof_temp_int));
+        printf("    Platform has power cycled %u times\r\n", logic_power_cycle_temp);
 
-        // Next, print stuff for display board if it's installed
-        if (I2C_DSP_EN_PIN) {
-            double display_tof_temp = displayBoardGetTOF();
-            uint32_t display_tof_temp_int = (uint32_t) floor(display_tof_temp);
-            uint32_t display_power_cycle_temp = displayBoardGetPowerCycles();
-
-            printf("    Display Board Time of Flight is %s\r\n", getStringSecondsAsTime(display_tof_temp_int));
-            printf("    Display Board has power cycled %u times\r\n", display_power_cycle_temp);
-        }
     }
     
     terminalTextAttributesReset();
@@ -501,8 +491,8 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Host Status?",
             "Prints status of MCU host device (IDs, WDT, DMT, Prefetch, Cause of Reset, up time)", 
             hostStatusCommand);
-    usbUartAddCommand("Peripheral Status? ",
-            "\b\b<peripheral_name>: Prints status about passed peripheral. Available peripherals:\r\n"
+    usbUartAddCommand("Peripheral Status?",
+            "\b\b <peripheral_name>: Prints status of passed host peripheral. Available peripherals:\r\n"
             "       Interrupts\r\n"
             "       Clocks\r\n"
             "       PMD\r\n"
@@ -513,7 +503,6 @@ void usbUartHashTableInitialize(void) {
             "       ADC\r\n"
             "       ADC Channels\r\n"
             "       I2C Master\r\n"
-            "       I2C Slaves\r\n"
             "       Timer <x> (x = 1-9)",
             peripheralStatusCommand);
     usbUartAddCommand("Error Status?",
@@ -522,10 +511,10 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Clear Errors",
             "Clears all error handler flags",
             clearErrorsCommand);
-    usbUartAddCommand("Time of Flight?",
-            "Returns time of flight for logic board and display board (if installed)",
-            timeOfFlightCommand);
-    if (TELEMETRY_CONFIG_PIN == LOW) {
+    usbUartAddCommand("Platform Status?",
+        "Prints current state of surrounding circuitry, including PGOOD, time of flight, I2C slaves",
+        platformStatusCommand);
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
         usbUartAddCommand("Live Telemetry",
                 "Toggles live updates of system level telemetry",
                 liveTelemetryCommand);

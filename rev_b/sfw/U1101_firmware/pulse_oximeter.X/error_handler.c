@@ -37,7 +37,7 @@ void __ISR(_SYSTEM_BUS_PROTECTION_VECTOR, ipl1SRS) systemBusProtectionISR(void) 
 void __attribute__((nomips16)) _general_exception_handler(void) {
     
     // Signal to user something really bad happened
-    CPU_EXCEPTION_LED_PIN = HIGH;
+    CPU_TRAP_LED_PIN = HIGH;
     
     // Disable global interrupts
     setGlobalInterruptsState(0);
@@ -63,7 +63,7 @@ void __attribute__((nomips16)) _general_exception_handler(void) {
 void __attribute__((nomips16)) _simple_tlb_refill_exception_handler(void) {
 
     // Signal to user something really bad happened
-    CPU_EXCEPTION_LED_PIN = HIGH;
+    CPU_TRAP_LED_PIN = HIGH;
     
     // Clear watchdog to give user time to see error state
     kickTheDog();
@@ -81,7 +81,7 @@ void __attribute__((nomips16)) _simple_tlb_refill_exception_handler(void) {
 void __attribute__((nomips16)) _cache_err_exception_handler(void) {
 
 // Signal to user something really bad happened
-    CPU_EXCEPTION_LED_PIN = HIGH;
+    CPU_TRAP_LED_PIN = HIGH;
     
     // Clear watchdog to give user time to see error state
     kickTheDog();
@@ -99,7 +99,7 @@ void __attribute__((nomips16)) _cache_err_exception_handler(void) {
 void __attribute__((nomips16)) _bootstrap_exception_handler(void) {
 
 // Signal to user something really bad happened
-    CPU_EXCEPTION_LED_PIN = HIGH;
+    CPU_TRAP_LED_PIN = HIGH;
     
     // Clear watchdog to give user time to see error state
     kickTheDog();

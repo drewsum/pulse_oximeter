@@ -40,13 +40,13 @@ void PMDInitialize(void) {
     PMD3bits.IC8MD = 1;
     PMD3bits.IC9MD = 1;
     
-    // Disable all output compare modules, except module 3
+    // Disable all output compare modules, except module 3 and 6
     PMD3bits.OC1MD = 1;
     PMD3bits.OC2MD = 1;
     PMD3bits.OC3MD = 0;
     PMD3bits.OC4MD = 1;
     PMD3bits.OC5MD = 1;
-    PMD3bits.OC6MD = 1;
+    PMD3bits.OC6MD = 0;
     PMD3bits.OC7MD = 1;
     PMD3bits.OC8MD = 1;
     PMD3bits.OC9MD = 1;

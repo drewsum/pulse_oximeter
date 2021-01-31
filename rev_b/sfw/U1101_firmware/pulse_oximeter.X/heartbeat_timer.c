@@ -63,29 +63,29 @@ void heartbeatTimerInitialize(void) {
     // Set timer 2 period match to 1000
     PR2 = 200;
     
-    // Set up Output Compare 4
+    // Set up Output Compare 6
     ///////////////////////////////////
     
     // Disable Output Compare when CPU in idle mode
-    OC5CONbits.SIDL = 0;
+    OC6CONbits.SIDL = 0;
     
-    // Select Timer 2 as source for OC4
-    OC5CONbits.OCTSEL = 0;
+    // Select Timer 2 as source for OC6
+    OC6CONbits.OCTSEL = 0;
     
     // Set OC4 to 16 bit mode
-    OC5CONbits.OC32 = 0;
+    OC6CONbits.OC32 = 0;
     
     // Set default output compare clocks to timers 2 and 3
     CFGCONbits.OCACLK = 0;
     
     // Set OC4 to PWM mode, Fault pins disabled
-    OC5CONbits.OCM = 0b110;
+    OC6CONbits.OCM = 0b110;
     
     // Enable Output Compare peripheral
-    OC5CONbits.ON = 1;
+    OC6CONbits.ON = 1;
     
     // Set PWM duty cycle to 50% at boot
-    OC5RS = 0;
+    OC6RS = 0;
     
     // Start timer 2
     T2CONbits.ON = 1;
@@ -123,7 +123,7 @@ void __ISR(_TIMER_1_VECTOR, IPL6SRS) hearbeatTimerISR(void) {
         heartbeat_on_time--;
         if (heartbeat_on_time == 0) heartbeat_dir = heartbeat_inhale;
     }
-    OC5RS = heartbeat_on_time;
+    OC6RS = heartbeat_on_time;
     
     // increment heartbeat_systick
     heartbeat_systick++;
