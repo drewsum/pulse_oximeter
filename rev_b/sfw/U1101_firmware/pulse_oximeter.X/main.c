@@ -33,7 +33,7 @@
 
 // I2C
 #warning "name of this might have changed, also need to overwrite what's in there"
-#include "plib_i2c3.h"
+#include "plib_i2c.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
 #include "power_monitors.h"

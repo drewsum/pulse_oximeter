@@ -31,7 +31,6 @@
 // Port D
 #define POS1P8_PGOOD_PIN            PORTDbits.RD0
 #define POS1P8_RUN_PIN              LATDbits.LATD1
-#define ERROR_LED_PIN               LATDbits.LATD9
 #define LCD_PMP_E_PIN               LATDbits.LATD4
 #define LCD_R_W_PIN                 LATDbits.LATD5
 #define CPU_TRAP_LED_PIN            LATDbits.LATD9

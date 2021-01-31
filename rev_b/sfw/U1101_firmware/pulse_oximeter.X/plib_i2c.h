@@ -52,6 +52,8 @@
 /* This section lists the other files that are included in this file.
 */
 
+#warning "make I2C peripheral number macro configurable, using I2C5 in this project"
+
 #include "plib_i2c_master.h"
 
 // DOM-IGNORE-BEGIN
@@ -61,7 +63,7 @@
 
 #endif
         
-volatile I2C_OBJ i2c5Obj;
+volatile I2C_OBJ i2c1Obj;
         
 // DOM-IGNORE-END
 
@@ -511,4 +513,3 @@ bool I2CMaster_TransferSetup(I2C_TRANSFER_SETUP* setup, uint32_t srcClkFreq );
 // DOM-IGNORE-END
 
 #endif /* PLIB_I2CMaster_H */
-

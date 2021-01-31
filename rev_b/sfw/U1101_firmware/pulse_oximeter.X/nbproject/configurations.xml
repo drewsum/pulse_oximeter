@@ -38,11 +38,11 @@
           <itemPath>ina219_power_monitor.h</itemPath>
           <itemPath>ds1683_time_of_flight.h</itemPath>
         </logicalFolder>
-        <itemPath>plib_i2c3.h</itemPath>
-        <itemPath>plib_i2c_master.h</itemPath>
         <itemPath>temperature_sensors.h</itemPath>
         <itemPath>power_monitors.h</itemPath>
         <itemPath>misc_i2c_devices.h</itemPath>
+        <itemPath>plib_i2c_master.h</itemPath>
+        <itemPath>plib_i2c.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7" displayName="LCD" projectFiles="true">
         <itemPath>lcd_dimming.h</itemPath>
@@ -94,10 +94,10 @@
           <itemPath>ina219_power_monitor.c</itemPath>
           <itemPath>ds1683_time_of_flight.c</itemPath>
         </logicalFolder>
-        <itemPath>plib_i2c3.c</itemPath>
         <itemPath>temperature_sensors.c</itemPath>
         <itemPath>power_monitors.c</itemPath>
         <itemPath>misc_i2c_devices.c</itemPath>
+        <itemPath>plib_i2c.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f7" displayName="LCD" projectFiles="true">
         <itemPath>lcd_dimming.c</itemPath>
