@@ -51,7 +51,7 @@ void PMDInitialize(void) {
     PMD3bits.OC8MD = 1;
     PMD3bits.OC9MD = 1;
     
-    // Enable all unused hardware timers
+    // Enable all used hardware timers
     PMD4bits.T1MD = 0;
     PMD4bits.T2MD = 0;
     PMD4bits.T3MD = 1;

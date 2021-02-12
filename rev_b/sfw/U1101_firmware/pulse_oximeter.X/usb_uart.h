@@ -142,6 +142,10 @@ char * getStringSecondsAsTime(uint32_t input_seconds);
 // Returns 0 for success, 1 for failure
 uint8_t strcomp(const char * haystack, const char * needle);
 
+// this function allows for blocking when printing over UART. it returns 1
+// if the uart is currently sending characters
+uint8_t usbUartCheckIfBusy(void);
+
 #endif /* _USB_UART_H */
 
 /* *****************************************************************************

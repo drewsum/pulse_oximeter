@@ -135,64 +135,80 @@ void main(void) {
     // Setup USB UART debugging
     usbUartInitialize();
     printf("    USB UART Initialized, DMA buffer method used\n\r");
+    while(usbUartCheckIfBusy());
     
     // Setup prefetch module
     prefetchInitialize();
     printf("    CPU Instruction Prefetch Module Enabled\r\n");
+    while(usbUartCheckIfBusy());
     
     // Disable unused peripherals for power savings
     PMDInitialize();
     printf("    Unused Peripheral Modules Disabled\n\r");
+    while(usbUartCheckIfBusy());
 
     // Setup heartbeat timer
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");
+    while(usbUartCheckIfBusy());
     
     // setup watchdog timer
     watchdogTimerInitialize();
     printf("    Watchdog Timer Initialized\n\r");
+    while(usbUartCheckIfBusy());
     
     // setup I2C
     I2CMaster_Initialize();
     printf("    I2C Bus Master Initialized\r\n");
+    while(usbUartCheckIfBusy());
     
     if (nTELEMETRY_CONFIG_PIN == LOW) {
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Telemetry Configuration Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         // setup I2C slaves
         tempSensorsInitialize();
         printf("    Temperature Sensors Initialized\r\n");
+        while(usbUartCheckIfBusy());
         powerMonitorsInitialize();
         printf("    Power Monitors Initialized\r\n");
+        while(usbUartCheckIfBusy());
         // Enable ADC
         ADCInitialize();
         printf("    Analog to Digital Converter Initialized\n\r");
+        while(usbUartCheckIfBusy());
     }
     
     else {
-        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Telemetry Configuration Not Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
     if (nTELEMETRY_CONFIG_PIN == LOW) {
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Elapsed Time Configuration Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        #warning "I2C Issues"
         platformTOFInitialize();
         printf("    Platform Elapsed Time Counter Initialized\r\n");
+        while(usbUartCheckIfBusy());
     }
     
     else {
-        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Platform Elapsed Time Configuration Not Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
     lcdInitialize();
     lcdClear();
     printf("    LCD Controller Initialized\r\n");
+    while(usbUartCheckIfBusy());
     
     // setup power pushbutton
     powerCapTouchPushbuttonInitialize();
@@ -201,6 +217,7 @@ void main(void) {
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     printf("    Reset LED Disabled, boot complete\r\n");
+    while(usbUartCheckIfBusy());
     
     // Print end of boot message, reset terminal for user input
     terminalTextAttributesReset();

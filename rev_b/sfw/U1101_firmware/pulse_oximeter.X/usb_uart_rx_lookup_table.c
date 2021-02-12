@@ -72,8 +72,8 @@ usb_uart_command_function_t clearCommand(char * input_str) {
 usb_uart_command_function_t idnCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("Pulse Oximeter by Drew Maatman, 2020, FW version %s\r\n", FIRMWARE_VERSION_STR);
-    terminalTextAttributesReset();    
+    printf("Pulse Oximeter by Drew Maatman, %s, FW version %s\r\n", PROJECT_DATE_STR, FIRMWARE_VERSION_STR);
+    terminalTextAttributesReset();
 }
 
 usb_uart_command_function_t repositoryCommand(char * input_str) {
@@ -468,7 +468,6 @@ usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
 
 }
 
-#warning "add missing commands from above here"
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {

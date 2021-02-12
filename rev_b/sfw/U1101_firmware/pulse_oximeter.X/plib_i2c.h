@@ -52,8 +52,6 @@
 /* This section lists the other files that are included in this file.
 */
 
-#warning "make I2C peripheral number macro configurable, using I2C5 in this project"
-
 #include "plib_i2c_master.h"
 
 // DOM-IGNORE-BEGIN
@@ -67,7 +65,16 @@ volatile I2C_OBJ i2cMasterObj;
 
 
 // These macros set which I2C peripheral is used
-#warning "figure out how to macro config this once you actually have code running on hardware"
+#define I2C_MASTER_INT_SOURCE                   I2C5_Master_Event
+#define I2C_BUS_COL_INT_SOURCE                  I2C5_Bus_Collision_Event
+#define I2C_MASTER_BRG_REG                      I2C5BRG
+#define I2C_MASTER_CON_BITFIELD                 I2C5CONbits
+#define I2C_MASTER_CON_REG                      I2C5CON
+#define I2C_MASTER_STAT_BITFIELD                I2C5STATbits
+#define I2C_MASTER_TRN_REG                      I2C5TRN
+#define I2C_MASTER_RCV_REG                      I2C5RCV
+#define I2C_MASTER_BUS_COL_VECTOR               _I2C5_BUS_VECTOR
+#define I2C_MASTER_INT_VECTOR                   _I2C5_MASTER_VECTOR
 
 // DOM-IGNORE-END
 

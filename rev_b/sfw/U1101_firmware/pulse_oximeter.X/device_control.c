@@ -156,7 +156,7 @@ void clockInitialize(void) {
 
     // set the FRC divider to 1
     // This sets FRCDIV frequency to 8 MHz
-    // OSCCONbits.FRCDIV = 0b000;
+    OSCCONbits.FRCDIV = 0b000;
     
     // Disable external clock into primary oscillator (POSC EC) since this isn't popped
     TRISCbits.TRISC15 = TRIS_OUTPUT;
@@ -176,7 +176,7 @@ void clockInitialize(void) {
     PLLInitialize();
     
     // wait for PLL to stabilize
-    //while (CLKSTATbits.SPDIVRDY == 0);
+    while (CLKSTATbits.SPDIVRDY == 0);
     
     // Set new clock source as SPLL
     OSCCONbits.NOSC = 0b001;
@@ -211,8 +211,8 @@ void PLLInitialize(void) {
     // Set PLL multiplier to 100
     SPLLCONbits.PLLMULT = 0b1100011; // (99 in binary, 0b0000000 => PLL X 1)
     
-    // Set PLL output divider to 2
-    SPLLCONbits.PLLODIV = 0b001;
+    // Set PLL output divider to 3
+    SPLLCONbits.PLLODIV = 0b010;
     
 }
 
@@ -231,8 +231,8 @@ void REFCLK1Initialize(void) {
     // Disable REFCLK1 in Idle mode
     REFO1CONbits.SIDL = 1;
     
-    // disable output of REFCLK1 onto output pin
-    REFO1CONbits.OE = 0;
+    // enable output of REFCLK1 onto output pin
+    REFO1CONbits.OE = 1;
     
     // Disable REFCLK1 in sleep
     REFO1CONbits.RSLP = 0;
