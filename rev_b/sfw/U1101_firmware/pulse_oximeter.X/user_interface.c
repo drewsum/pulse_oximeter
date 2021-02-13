@@ -205,7 +205,10 @@ void uiDeviceSleep(void) {
     
     // stop heartbeat timer
     T1CONbits.ON = 0;
+    T2CONbits.ON = 0;
     TMR1 = 0;
+    TMR2 = 0;
+    OC6RS = 0;
     HEARTBEAT_LED_PIN = LOW;
     
     // wait for USB UART TX DMA to complete (flush TX buffer)
@@ -217,11 +220,15 @@ void uiDeviceSleep(void) {
     ADCCON1bits.SIDL = 1;
     // disable LCD PWM in sleep
     OC3CONbits.SIDL = 0;
-    T2CONbits.SIDL = 1;
+    T4CONbits.SIDL = 1;
     // enable USB UART in sleep
     U1MODEbits.SIDL = 0;
     
-    
+    // shut up heartbeat pin
+    OC6CONbits.ON = 0;
+    OC6CONbits.SIDL = 1;
+    T2CONbits.SIDL = 1;
+    OC6RS = 0;
     HEARTBEAT_LED_PIN = LOW;
     
     asm volatile ( "wait" ); // Put device into Idle mode

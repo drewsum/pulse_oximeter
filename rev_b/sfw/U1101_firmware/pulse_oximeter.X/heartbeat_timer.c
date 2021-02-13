@@ -66,17 +66,11 @@ void heartbeatTimerInitialize(void) {
     // Set up Output Compare 6
     ///////////////////////////////////
     
-    // Disable Output Compare when CPU in idle mode
-    OC6CONbits.SIDL = 0;
-    
     // Select Timer 2 as source for OC6
     OC6CONbits.OCTSEL = 0;
     
     // Set OC4 to 16 bit mode
     OC6CONbits.OC32 = 0;
-    
-    // Set default output compare clocks to timers 2 and 3
-    CFGCONbits.OCACLK = 0;
     
     // Set OC4 to PWM mode, Fault pins disabled
     OC6CONbits.OCM = 0b110;
