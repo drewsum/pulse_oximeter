@@ -362,7 +362,8 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
                 error_handler.flags.pox_sensor = 1;
                 return;
             }
-
+            
+            terminalTextAttributesReset();
             pox_daq_enable = 1;
             pox_daq_verbosity_enable = 1;
         }
