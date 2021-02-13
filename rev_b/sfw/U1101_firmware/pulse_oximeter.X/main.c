@@ -192,7 +192,6 @@ void main(void) {
         printf("    Elapsed Time Configuration Detected\r\n");
         while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-        #warning "I2C Issues"
         platformTOFInitialize();
         printf("    Platform Elapsed Time Counter Initialized\r\n");
         while(usbUartCheckIfBusy());

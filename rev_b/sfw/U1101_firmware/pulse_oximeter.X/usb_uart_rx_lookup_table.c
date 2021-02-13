@@ -468,6 +468,88 @@ usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
 
 }
 
+usb_uart_command_function_t setPoxPowerCommand(char * input_str) {
+    
+    // Snipe out received arguments
+    char read_string[32];
+    sscanf(input_str, "Set POX Power: %[^\t\n\r]", read_string);
+    
+    if (strcmp(read_string, "On") == 0) {
+     
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Turning on Pulse Oximetry Sensor\r\n");
+        
+        // enable POX sensor logic rail, LED drive voltage
+        POS1P8_RUN_PIN = HIGH;
+        uint32_t timeout = 0xFFFFFF;
+        while (POS1P8_PGOOD_PIN == LOW && timeout > 0) timeout--;
+        if (POS1P8_PGOOD_PIN == LOW) {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Failed to enable +1.8V Power Supply\r\n");
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            error_handler.flags.pos1p8_pgood = 1;
+            return;
+        }
+        else {
+            POX_I2C_ENABLE_PIN = HIGH;
+            printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
+        }
+        softwareDelay(1000);
+        POS3P3_POX_ENABLE_PIN = HIGH;
+        printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
+
+        // initialize MAX30102 pulse oximeter sensor
+        softwareDelay(100000);
+
+        maxim_max30102_reset(); //resets the MAX30102
+        while(POX_INT_PIN == HIGH);
+        maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+        if (maxim_max30102_init()) {
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Pulse Oximetry Sensor Initialized\r\n");
+            old_n_spo2 = 0.0;
+        }
+        else {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            error_handler.flags.pox_sensor = 1;
+            return;
+        }
+
+        terminalTextAttributesReset();
+        
+    }
+    
+    else if (strcmp(read_string, "Off") == 0) {
+     
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Turning off Pulse Oximetry Sensor\r\n");
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        // kill MAX30102
+        disableInterrupt(PORTB_Input_Change_Interrupt);
+        printf("    POX interrupt source disabled\r\n");
+        POS3P3_POX_ENABLE_PIN = LOW;
+        printf("    POX LED drive voltage disabled\r\n");
+        POX_I2C_ENABLE_PIN = LOW;
+        printf("    POX I2C bridge disabled\r\n");
+        POS1P8_RUN_PIN = LOW;
+        printf("    +1.8V power supply disabled\r\n");
+        terminalTextAttributesReset();
+        
+    }
+    
+    else {
+     
+        terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Please enter 'On' or 'Off'\r\n");
+        terminalTextAttributesReset();
+        
+    }
+    
+    
+}
+
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {
@@ -524,4 +606,7 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Set LCD Brightness: ",
             "\b\b<0 to 100>: Sets LCD backlight brightness",
             setLCDBrightnessCommand);
+    usbUartAddCommand("Set POX Power: ",
+            "\b\b<Power State>: Turns POX sensor on and off manually",
+            setPoxPowerCommand);
 }
