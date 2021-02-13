@@ -187,6 +187,9 @@ void clockInitialize(void) {
     // wait for switch to complete
     while (OSCCONbits.OSWEN == 1);
     
+    // set PWM to alternate clock source, datasheet table 18-1
+    CFGCONbits.OCACLK = 1;
+    
     // lock clock and PLL settings
     OSCCONbits.CLKLOCK = 1;
     

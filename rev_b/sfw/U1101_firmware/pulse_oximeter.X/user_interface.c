@@ -99,6 +99,7 @@ void uiDeviceWakeup(void) {
         lcdPrint(":(((((");
         lcdSetBrightness(100);
         error_handler.flags.pos1p8_pgood = 1;
+        terminalTextAttributesReset();
         return;
     }
     else {
@@ -134,6 +135,7 @@ void uiDeviceWakeup(void) {
         lcdPrint(":(((((");
         lcdSetBrightness(100);
         error_handler.flags.pox_sensor = 1;
+        terminalTextAttributesReset();
         return;
     }
     
@@ -218,6 +220,9 @@ void uiDeviceSleep(void) {
     T2CONbits.SIDL = 1;
     // enable USB UART in sleep
     U1MODEbits.SIDL = 0;
+    
+    
+    HEARTBEAT_LED_PIN = LOW;
     
     asm volatile ( "wait" ); // Put device into Idle mode
     

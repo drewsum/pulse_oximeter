@@ -55,7 +55,7 @@ void PMDInitialize(void) {
     PMD4bits.T1MD = 0;
     PMD4bits.T2MD = 0;
     PMD4bits.T3MD = 1;
-    PMD4bits.T4MD = 1;
+    PMD4bits.T4MD = 0;
     PMD4bits.T5MD = 1;
     PMD4bits.T6MD = 1;
     PMD4bits.T7MD = 1;
