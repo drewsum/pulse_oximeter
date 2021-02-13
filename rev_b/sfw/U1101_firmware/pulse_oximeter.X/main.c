@@ -187,7 +187,7 @@ void main(void) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
-    if (nTELEMETRY_CONFIG_PIN == LOW) {
+    if (nETC_CONFIG_PIN == LOW) {
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Elapsed Time Configuration Detected\r\n");
         while(usbUartCheckIfBusy());
