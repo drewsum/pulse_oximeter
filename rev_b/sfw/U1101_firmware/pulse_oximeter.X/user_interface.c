@@ -70,7 +70,7 @@ void uiDeviceWakeup(void) {
     lcdSetCursor(0,1);
     lcdPrint(" github.com/drewsum ");
     lcdSetCursor(0,2);
-    lcdPrint("    July of 2020    ");
+    lcdPrint("  January of 2021   ");
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
     
@@ -211,6 +211,9 @@ void uiDeviceSleep(void) {
     OC6RS = 0;
     HEARTBEAT_LED_PIN = LOW;
     
+    // turn off PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 1;
+    
     // wait for USB UART TX DMA to complete (flush TX buffer)
     while (USB_UART_TX_DMA_CON_BITFIELD.CHBUSY);
     
@@ -232,6 +235,9 @@ void uiDeviceSleep(void) {
     HEARTBEAT_LED_PIN = LOW;
     
     asm volatile ( "wait" ); // Put device into Idle mode
+    
+    // turn on PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 0;
     
     // start WDT
     kickTheDog();

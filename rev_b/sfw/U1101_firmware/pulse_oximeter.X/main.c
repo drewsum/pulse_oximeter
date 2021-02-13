@@ -248,6 +248,9 @@ void main(void) {
     TMR1 = 0;
     HEARTBEAT_LED_PIN = LOW;
     
+    // turn off PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 1;
+    
     // disable I2C in sleep
     I2C5CONbits.SIDL = 1;
     // disable ADC in sleep
@@ -259,6 +262,9 @@ void main(void) {
     U1MODEbits.SIDL = 0;
     
     asm volatile ( "wait" ); // Put device into Idle mode
+    
+    // turn on PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 0;
     
     // this code executes on a wake from sleep (power pushbutton pressed, or serial commands received)
     // start WDT
