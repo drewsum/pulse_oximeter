@@ -6,6 +6,8 @@ import sys
 import glob
 import serial
 import re
+import time
+import numpy
 
 # copied from stackoverflow since I dont know what I'm doing
 # https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
@@ -56,15 +58,67 @@ def find_pox_device():
             response = dev.readline().decode('ascii')
             response = trim_escape_codes(response)
 
+            # Close active COM port
+            dev.close()
+
             # check if response to *IDN? starts with "Pulse Oximeter"
             if (response.startswith("Pulse Oximeter")):
-                print(f"Found Pulse Oximeter on {com_port}")
-                print(f"Device response: {response}")
-            
-            dev.close()
+                return com_port
+
         except:
             print(f"Attemp failed on {com_port}")
             dev.close()
 
 if __name__ == '__main__':
-    find_pox_device()
+    
+    # Find pulse oximeter on its COM port first
+    com_port = find_pox_device()
+    if (com_port):
+        print(f"Found Pulse Oximeter on {com_port}")
+        # open a connection on this COM port at 115.2kBaud
+        dev = serial.Serial(com_port, 115200, timeout=1)
+
+        # Reset device first to start at a clean state
+        dev.write(b"Reset\r")
+
+        # poor man's "Wait for powerup"
+        time.sleep(2)
+        dev.write(b"Clear Errors\r")
+        dev.flush()
+
+        # Request a pulse oximetry session from device with sensor data stream
+        dev.write(b"POX DAQ Verbose\r")
+
+        # TODO: This will need to change to be able to exit cleanly
+        # Do this in a loop to continuously read data every five seconds
+        while True:
+            # read multiple lines from device
+            line_list = []
+            while True:
+                line = trim_escape_codes(dev.readline().decode('ascii'))
+                
+                # only care about strings that contain data
+                # POX data is returned in the form "    ir_data, red_data"
+                if line:
+                    if line.startswith("    ") and line[4].isdigit():
+                        line_list.append(line)
+                
+                if(line.startswith("Heart Rate:")):
+                    summary_line = line
+                    break
+            
+            # Strip out newlines, carriage returns and leading whitespace from each line in received data
+            stripped_line_list = []
+            for line in line_list:
+                stripped_line_list.append(line.rstrip('\r\n').lstrip())
+
+            # create lists for storing received data
+            time_list = numpy.linspace(0.0, 4.0, 100, True)
+
+            print(stripped_line_list)
+
+
+        dev.close()
+
+    else:
+        print("Could not find Pulse Oximeter")
