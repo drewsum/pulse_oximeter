@@ -93,11 +93,12 @@ if __name__ == '__main__':
     
         # create new plot to show received data
         mpl.rcParams['toolbar'] = 'None'
+        plt.style.use('dark_background')
         plt.ion()
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
-        fig = plt.gcf()
-        fig.set_size_inches(10.0, 5.0)
+        mng = plt.get_current_fig_manager()
+        mng.window.state('zoomed')
         plt.show()
 
         
@@ -146,15 +147,15 @@ if __name__ == '__main__':
 
             # plot received data
             ax.clear()
-            infrared_line, = ax.plot(time_list, infrared_data, label = "InfraRed")
-            red_line, = ax.plot(time_list, red_data, label = "Red")
+            infrared_line, = ax.plot(time_list, infrared_data, label = "InfraRed", color = 'y')
+            red_line, = ax.plot(time_list, red_data, label = "Red", color = 'r')
             plt.xlabel("Time (Seconds)")
             plt.ylabel("Least Significant Bits")
             # determine if data is valid for title
             if "SPO2 valid: 1, HR Valid: 1" in summary_line:
                 plt.title(summary_line.rstrip('\r\n'))
             else:
-                plt.title("Most Recent Pulse Oximetry Acquisition, Invalid")
+                plt.title("Most Recent Pulse Oximetry Acquisition Invalid")
 
             plt.legend(loc='lower left')
             fig.canvas.draw()
