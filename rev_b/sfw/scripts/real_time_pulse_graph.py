@@ -113,10 +113,21 @@ if __name__ == '__main__':
                 stripped_line_list.append(line.rstrip('\r\n').lstrip())
 
             # create lists for storing received data
+            infrared_data = []
+            red_data = []
+
+            # split infrared and red data into two separate lists from received data,
+            # since they are delimited with ','
+            for line in stripped_line_list:
+                line_components = line.split(',')
+                infrared_data.append(line_components[0])
+                red_data.append(line_components[1])
+
+            # create list for time data
             time_list = numpy.linspace(0.0, 4.0, 100, True)
 
-            print(stripped_line_list)
-
+            for i in range(0, len(time_list)):
+                print(f"{time_list[i]}: {infrared_data[i]}, {red_data[i]}")
 
         dev.close()
 
