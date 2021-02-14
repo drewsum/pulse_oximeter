@@ -9,6 +9,7 @@ import re
 import time
 import numpy
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 # copied from stackoverflow since I dont know what I'm doing
 # https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
@@ -91,9 +92,12 @@ if __name__ == '__main__':
         dev.write(b"POX DAQ Verbose\r")
     
         # create new plot to show received data
+        mpl.rcParams['toolbar'] = 'None'
         plt.ion()
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
+        fig = plt.gcf()
+        fig.set_size_inches(10.0, 5.0)
         plt.show()
 
         
@@ -138,14 +142,23 @@ if __name__ == '__main__':
                 red_data.append(int(line_components[1]))
 
             # print out what we've received before plotting
-            # for i in range(0, len(time_list)):
-            #     print(f"{time_list[i]}: {infrared_data[i]}, {red_data[i]}")
             print(summary_line)
 
             # plot received data
             ax.clear()
-            ax.plot(time_list, infrared_data)
+            infrared_line, = ax.plot(time_list, infrared_data, label = "InfraRed")
+            red_line, = ax.plot(time_list, red_data, label = "Red")
+            plt.xlabel("Time (Seconds)")
+            plt.ylabel("Least Significant Bits")
+            # determine if data is valid for title
+            if "SPO2 valid: 1, HR Valid: 1" in summary_line:
+                plt.title(summary_line.rstrip('\r\n'))
+            else:
+                plt.title("Most Recent Pulse Oximetry Acquisition, Invalid")
+
+            plt.legend(loc='lower left')
             fig.canvas.draw()
+
 
 
         dev.close()
