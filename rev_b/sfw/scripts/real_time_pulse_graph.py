@@ -10,6 +10,8 @@ import time
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import signal
+import sys
 
 # copied from stackoverflow since I dont know what I'm doing
 # https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
@@ -71,14 +73,31 @@ def find_pox_device():
             print(f"Attemp failed on {com_port}")
             dev.close()
 
+# https://stackoverflow.com/questions/18114560/python-catch-ctrl-c-command-prompt-really-want-to-quit-y-n-resume-executi
+def exit_gracefully(signum, frame):
+    # restore the original signal handler as otherwise evil things will happen
+    # in raw_input when CTRL+C is pressed, and our signal handler is not re-entrant
+    signal.signal(signal.SIGINT, original_sigint)
+
+    sys.exit(1)
+
+    # restore the exit gracefully handler here    
+    signal.signal(signal.SIGINT, exit_gracefully)
+
+
 if __name__ == '__main__':
     
+    original_sigint = signal.getsignal(signal.SIGINT)
+    signal.signal(signal.SIGINT, exit_gracefully)
+
     # Find pulse oximeter on its COM port first
     com_port = find_pox_device()
-    if (com_port):
-        print(f"Found Pulse Oximeter on {com_port}")
-        # open a connection on this COM port at 115.2kBaud
-        dev = serial.Serial(com_port, 115200, timeout=1)
+    if (com_port): print(f"Found Pulse Oximeter on {com_port}")
+    else: print("Could not find Pulse Oximeter")
+        
+    # open a connection on this COM port at 115.2kBaud        
+    with serial.Serial(com_port, 115200, timeout=1) as dev:
+
 
         # Reset device first to start at a clean state
         dev.write(b"Reset\r")
@@ -147,8 +166,8 @@ if __name__ == '__main__':
 
             # plot received data
             ax.clear()
-            infrared_line, = ax.plot(time_list, infrared_data, label = "InfraRed", color = 'y')
-            red_line, = ax.plot(time_list, red_data, label = "Red", color = 'r')
+            infrared_line, = ax.plot(time_list, infrared_data, label = "InfraRed", color = 'y', linewidth = 4)
+            red_line, = ax.plot(time_list, red_data, label = "Red", color = 'r', linewidth = 4)
             plt.xlabel("Time (Seconds)")
             plt.ylabel("Least Significant Bits")
             # determine if data is valid for title
@@ -159,10 +178,3 @@ if __name__ == '__main__':
 
             plt.legend(loc='lower left')
             fig.canvas.draw()
-
-
-
-        dev.close()
-
-    else:
-        print("Could not find Pulse Oximeter")
