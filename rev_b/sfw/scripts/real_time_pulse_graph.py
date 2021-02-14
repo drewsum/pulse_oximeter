@@ -8,6 +8,7 @@ import serial
 import re
 import time
 import numpy
+import matplotlib.pyplot as plt
 
 # copied from stackoverflow since I dont know what I'm doing
 # https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
@@ -88,10 +89,23 @@ if __name__ == '__main__':
 
         # Request a pulse oximetry session from device with sensor data stream
         dev.write(b"POX DAQ Verbose\r")
+    
+        # create new plot to show received data
+        plt.ion()
+        fig = plt.figure()
+        ax = fig.add_subplot(1, 1, 1)
+        plt.show()
+
+        
+        # create list for time data, generate this based on sampling rate and number of samples
+        # (device firmware is designed for 100 samples total per acquisition, at 25Hz)
+        time_list = numpy.linspace(0.0, 4.0, 100, True)
+
 
         # TODO: This will need to change to be able to exit cleanly
         # Do this in a loop to continuously read data every five seconds
         while True:
+            
             # read multiple lines from device
             line_list = []
             while True:
@@ -120,14 +134,19 @@ if __name__ == '__main__':
             # since they are delimited with ','
             for line in stripped_line_list:
                 line_components = line.split(',')
-                infrared_data.append(line_components[0])
-                red_data.append(line_components[1])
+                infrared_data.append(int(line_components[0]))
+                red_data.append(int(line_components[1]))
 
-            # create list for time data
-            time_list = numpy.linspace(0.0, 4.0, 100, True)
+            # print out what we've received before plotting
+            # for i in range(0, len(time_list)):
+            #     print(f"{time_list[i]}: {infrared_data[i]}, {red_data[i]}")
+            print(summary_line)
 
-            for i in range(0, len(time_list)):
-                print(f"{time_list[i]}: {infrared_data[i]}, {red_data[i]}")
+            # plot received data
+            ax.clear()
+            ax.plot(time_list, infrared_data)
+            fig.canvas.draw()
+
 
         dev.close()
 
