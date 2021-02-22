@@ -9,8 +9,6 @@
 #include "device_control.h"
 #include "pin_macros.h"
 
-#warning "double check PMD settings here"
-
 // This function disables unused peripherals on startup for power savings
 // THIS FUNCTION CAN ONLY BE CALLED ONCE DUE TO PMD LOCKOUT AFTER ONE WRITE SESSION
 void PMDInitialize(void) {

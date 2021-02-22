@@ -46,7 +46,7 @@ void heartbeatServices(void) {
     if (pox_daq_enable == 1 && device_on_time_counter % 5 == 0) pox_daq_request_flag = 1;
     
     // update LCD with boot messages if we need to
-    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 1) {
+    if (ui_state_machine == wakeup_screen_1_state && (device_on_time_counter - ui_power_on_time) == 2) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -59,14 +59,14 @@ void heartbeatServices(void) {
         sprintf(buffer, "%s", getStringSerialNumber());
         lcdPrint(buffer);
         lcdSetCursor(0,3);
-        sprintf(buffer, "Die:%s,T:%u,FW:%s", getRevisionIDString(getRevisionID()), !nTELEMETRY_CONFIG_PIN, FIRMWARE_VERSION_STR);
+        sprintf(buffer, "Die:%s,T%u,E%u,FW:%s", getRevisionIDString(getRevisionID()), !nTELEMETRY_CONFIG_PIN, !nETC_CONFIG_PIN, FIRMWARE_VERSION_STR);
         lcdPrint(buffer);
         
         ui_state_machine = wakeup_screen_2_state;
         
     }
     
-    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 3) {
+    if (ui_state_machine == wakeup_screen_2_state && (device_on_time_counter - ui_power_on_time) == 4) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -82,7 +82,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 8) {
+    if (ui_state_machine == wakeup_screen_3_state && (device_on_time_counter - ui_power_on_time) == 10) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -98,7 +98,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 13) {
+    if (ui_state_machine == wakeup_screen_4_state && (device_on_time_counter - ui_power_on_time) == 15) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -114,7 +114,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 18) {
+    if (ui_state_machine == wakeup_screen_5_state && (device_on_time_counter - ui_power_on_time) == 20) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -128,7 +128,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 23) {
+    if (ui_state_machine == wakeup_screen_6_state && (device_on_time_counter - ui_power_on_time) == 25) {
      
         lcdClear();
         lcdSetCursor(0,0);
@@ -144,7 +144,7 @@ void heartbeatServices(void) {
         
     }
     
-    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 28) {
+    if (ui_state_machine == wakeup_screen_7_state && (device_on_time_counter - ui_power_on_time) == 30) {
      
         lcdClear();
         lcdSetCursor(0,0);

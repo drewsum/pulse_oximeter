@@ -163,7 +163,6 @@ void clockInitialize(void) {
     POSC_EC_ENABLE_PIN = LOW;
     
     // Set new clock source as Internal FRC
-#warning "clock source is subject to change for accuracy reasons"
     OSCCONbits.NOSC = 0b000;
     
     // Initiate clock switch
@@ -205,7 +204,6 @@ void PLLInitialize(void) {
     SPLLCONbits.PLLRANGE = 0b001;
     
     // Set the input to the PLL as FRC
-    #warning "subject to change"
     SPLLCONbits.PLLICLK = 1;
     
     // Set PLL input divider to 2

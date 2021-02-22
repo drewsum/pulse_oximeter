@@ -70,7 +70,7 @@ void uiDeviceWakeup(void) {
     lcdSetCursor(0,1);
     lcdPrint(" github.com/drewsum ");
     lcdSetCursor(0,2);
-    lcdPrint("  January of 2021   ");
+    lcdPrint("  February of 2021   ");
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
     
