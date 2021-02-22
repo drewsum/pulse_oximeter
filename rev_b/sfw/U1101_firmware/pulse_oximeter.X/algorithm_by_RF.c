@@ -387,25 +387,35 @@ void poxAcquireInterruptHandler(void) {
         
         disableInterrupt(PORTB_Input_Change_Interrupt);
         
-        if (ch_spo2_valid && ch_spo2_valid) terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
-        else terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
-
+        if (ch_spo2_valid && ch_spo2_valid && !pox_daq_verbosity_enable) terminalTextAttributes(CYAN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        else if (!pox_daq_verbosity_enable) terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        
         if (pox_daq_verbosity_enable) {
+            terminalTextAttributesReset();
             uint32_t print_index;
             for (print_index = 0; print_index < BUFFER_SIZE; print_index++) {
                 printf("    %d, %d\r\n", aun_ir_buffer[print_index], aun_red_buffer[print_index]);
             }
-        }
-
-        printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
+            printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
                 n_heart_rate,
                 n_spo2,
                 ratio,
                 correl,
                 ch_spo2_valid,
                 ch_hr_valid);  
-        terminalTextAttributesReset();
-        
+        }
+
+        else {
+            printf("Heart Rate: %d, SPO2: %.3f, Ratio: %.3f, Correlation: %.3f, SPO2 valid: %d, HR Valid: %d\r\n",
+                    n_heart_rate,
+                    n_spo2,
+                    ratio,
+                    correl,
+                    ch_spo2_valid,
+                    ch_hr_valid);  
+            terminalTextAttributesReset();
+        }
+            
         // print out acquired data to LCD
         lcdClear();
         lcdSetCursor(0,0);

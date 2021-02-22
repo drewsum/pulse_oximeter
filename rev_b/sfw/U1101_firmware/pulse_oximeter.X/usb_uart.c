@@ -541,3 +541,11 @@ uint8_t strcomp(const char * haystack, const char * needle) {
     return 0;
         
 }
+
+// this function allows for blocking when printing over UART. it returns 1
+// if the uart is currently sending characters
+uint8_t usbUartCheckIfBusy(void) {
+ 
+    return USB_UART_TX_DMA_CON_BITFIELD.CHBUSY;
+    
+}

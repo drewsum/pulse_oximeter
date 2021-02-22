@@ -11,6 +11,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "main.h"
+
 // Core Drivers
 #include "configuration.h"
 #include "device_control.h"
@@ -32,8 +34,7 @@
 #include "user_interface.h"
 
 // I2C
-#warning "name of this might have changed"
-#include "plib_i2c3.h"
+#include "plib_i2c.h"
 #include "plib_i2c_master.h"
 #include "temperature_sensors.h"
 #include "power_monitors.h"
@@ -55,8 +56,9 @@
 #include "lcd_dimming.h"
 #include "lcd.h"
 
-void main(void) {
 
+void main(void) {
+    
     // Save the cause of the most recent device reset
     // This also checks for configuration errors
     reset_cause = getResetCause();
@@ -69,8 +71,8 @@ void main(void) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
     printf("Pulse Oximeter\r\n");
-    printf("Firmware Version %s\r\n", FIRMWARE_VERSION_STR);
-    printf("Created by Drew Maatman, 2020\r\n");
+    printf("Host Firmware Version: %s, Platform Hardware Revision: %s\r\n", FIRMWARE_VERSION_STR, PLATFORM_REVISION_STR);
+    printf("Created by Drew Maatman, %s\r\n", PROJECT_DATE_STR);
     terminalTextAttributesReset();
     
      // Print cause of reset
@@ -99,7 +101,7 @@ void main(void) {
         clearErrorHandler();
     }
     live_telemetry_enable = 0;
-    live_telemetry_request = 0;
+    live_telemetry_print_request = 0;
     
     printf("\r\nCause of most recent device reset: %s\r\n\r\n", getResetCauseString(reset_cause));
     terminalTextAttributesReset();
@@ -133,53 +135,79 @@ void main(void) {
     // Setup USB UART debugging
     usbUartInitialize();
     printf("    USB UART Initialized, DMA buffer method used\n\r");
+    while(usbUartCheckIfBusy());
     
     // Setup prefetch module
     prefetchInitialize();
     printf("    CPU Instruction Prefetch Module Enabled\r\n");
+    while(usbUartCheckIfBusy());
     
     // Disable unused peripherals for power savings
     PMDInitialize();
     printf("    Unused Peripheral Modules Disabled\n\r");
+    while(usbUartCheckIfBusy());
 
     // Setup heartbeat timer
     heartbeatTimerInitialize();
     printf("    Heartbeat Timer Initialized\n\r");
+    while(usbUartCheckIfBusy());
     
     // setup watchdog timer
     watchdogTimerInitialize();
     printf("    Watchdog Timer Initialized\n\r");
+    while(usbUartCheckIfBusy());
     
     // setup I2C
     I2CMaster_Initialize();
     printf("    I2C Bus Master Initialized\r\n");
+    while(usbUartCheckIfBusy());
     
-    if (TELEMETRY_CONFIG_PIN == LOW) {
-        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Telemetry Configuration Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         // setup I2C slaves
         tempSensorsInitialize();
         printf("    Temperature Sensors Initialized\r\n");
+        while(usbUartCheckIfBusy());
         powerMonitorsInitialize();
         printf("    Power Monitors Initialized\r\n");
+        while(usbUartCheckIfBusy());
         // Enable ADC
         ADCInitialize();
         printf("    Analog to Digital Converter Initialized\n\r");
+        while(usbUartCheckIfBusy());
     }
     
     else {
-        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
         printf("    Telemetry Configuration Not Detected\r\n");
+        while(usbUartCheckIfBusy());
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     }
     
-    systemTOFInitialize();
-    printf("    Time of Flight Counter Initialized\r\n");
+    if (nETC_CONFIG_PIN == LOW) {
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("    Elapsed Time Configuration Detected\r\n");
+        while(usbUartCheckIfBusy());
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        platformTOFInitialize();
+        printf("    Platform Elapsed Time Counter Initialized\r\n");
+        while(usbUartCheckIfBusy());
+    }
+    
+    else {
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("    Platform Elapsed Time Configuration Not Detected\r\n");
+        while(usbUartCheckIfBusy());
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+    }
     
     lcdInitialize();
     lcdClear();
     printf("    LCD Controller Initialized\r\n");
+    while(usbUartCheckIfBusy());
     
     // setup power pushbutton
     powerCapTouchPushbuttonInitialize();
@@ -188,6 +216,7 @@ void main(void) {
     RESET_LED_PIN = LOW;
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
     printf("    Reset LED Disabled, boot complete\r\n");
+    while(usbUartCheckIfBusy());
     
     // Print end of boot message, reset terminal for user input
     terminalTextAttributesReset();
@@ -219,6 +248,9 @@ void main(void) {
     TMR1 = 0;
     HEARTBEAT_LED_PIN = LOW;
     
+    // turn off PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 1;
+    
     // disable I2C in sleep
     I2C5CONbits.SIDL = 1;
     // disable ADC in sleep
@@ -230,6 +262,9 @@ void main(void) {
     U1MODEbits.SIDL = 0;
     
     asm volatile ( "wait" ); // Put device into Idle mode
+    
+    // turn on PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 0;
     
     // this code executes on a wake from sleep (power pushbutton pressed, or serial commands received)
     // start WDT
@@ -267,7 +302,7 @@ void main(void) {
             }
         }
         
-        if (live_telemetry_request && live_telemetry_enable) {
+        if (live_telemetry_print_request && live_telemetry_enable) {
 
             // Clear the terminal
             //terminalClearScreen();
@@ -283,7 +318,7 @@ void main(void) {
             printf("Call 'Live Telemetry' command to disable\033[K\n\r");
             terminalTextAttributesReset();
             
-            live_telemetry_request = 0;
+            live_telemetry_print_request = 0;
             
         }
         

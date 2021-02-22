@@ -22,20 +22,20 @@
 #include <xc.h>
 #include <time.h>
 
-#include "plib_i2c3.h"
+#include "plib_i2c.h"
 
 #include "ds1683_time_of_flight.h"
 
 #define SYSTEM_TOF_ADDR      0x6B
 
 // this function initializes the logic board TOF counter
-void systemTOFInitialize(void);
+void platformTOFInitialize(void);
 
 // this function returns time of flight in seconds (w/ 0.25 second granularity) for logic board from I2C time of flight counter
-double systemGetTOF(void);
+double platformGetTOF(void);
 
 // this function returns the number of power cycles for the logic board from I2C time of flight counter
-uint32_t systemGetPowerCycles(void);
+uint32_t platformGetPowerCycles(void);
 
 // this function prints config status for misc I2C devices
 void miscI2CDevicesPrintStatus(void);

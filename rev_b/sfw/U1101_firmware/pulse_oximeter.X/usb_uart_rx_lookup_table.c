@@ -8,6 +8,7 @@
 #include "usb_uart.h"
 #include "uthash.h"
 
+#include "main.h"
 #include "terminal_control.h"
 #include "device_control.h"
 #include "cause_of_reset.h"
@@ -21,6 +22,7 @@
 #include "misc_i2c_devices.h"
 #include "lcd_dimming.h"
 #include "max30102.h"
+#include "pgood_monitor.h"
 
 usb_uart_command_function_t helpCommandFunction(char * input_str) {
 
@@ -70,8 +72,8 @@ usb_uart_command_function_t clearCommand(char * input_str) {
 usb_uart_command_function_t idnCommand(char * input_str) {
     terminalTextAttributesReset();
     terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
-    printf("Pulse Oximeter by Drew Maatman, 2020, FW version %s\r\n", FIRMWARE_VERSION_STR);
-    terminalTextAttributesReset();    
+    printf("Pulse Oximeter by Drew Maatman, %s, FW version %s\r\n", PROJECT_DATE_STR, FIRMWARE_VERSION_STR);
+    terminalTextAttributesReset();
 }
 
 usb_uart_command_function_t repositoryCommand(char * input_str) {
@@ -183,9 +185,6 @@ usb_uart_command_function_t peripheralStatusCommand(char * input_str) {
         printf("I2C Bus Master Controller Status:\r\n");
         printI2CMasterStatus();
     }
-    else if (strcmp(rx_peripheral_name, "RTCC") == 0) {
-        printRTCCStatus();
-    }
     else if (strcomp(rx_peripheral_name, "Timer ") == 0) {
         uint32_t read_timer_number;
         sscanf(rx_peripheral_name, "Timer %u", &read_timer_number);
@@ -254,31 +253,22 @@ usb_uart_command_function_t platformStatusCommand(char * input_str) {
     
     printPGOODStatus();
     
-    if (nTOF_CONFIG_PIN == LOW) {
-        double logic_tof_temp = logicBoardGetTOF();
+    if (nETC_CONFIG_PIN == LOW) {
+        double logic_tof_temp = platformGetTOF();
         uint32_t logic_tof_temp_int = (uint32_t) floor(logic_tof_temp);
-        uint32_t logic_power_cycle_temp = logicBoardGetPowerCycles();
+        uint32_t logic_power_cycle_temp = platformGetPowerCycles();
 
         // first print stuff for logic board
         terminalTextAttributesReset();
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         
          terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, BOLD_FONT);
-        printf("\r\nPlatform Time of Flight Data:\r\n");
+        printf("\r\nPlatform Elapsed Time Data:\r\n");
         terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
         
-        printf("    Logic Board Time of Flight is %s\r\n", getStringSecondsAsTime(logic_tof_temp_int));
-        printf("    Logic Board has power cycled %u times\r\n", logic_power_cycle_temp);
+        printf("    Platform Elapsed Time is %s\r\n", getStringSecondsAsTime(logic_tof_temp_int));
+        printf("    Platform has power cycled %u times\r\n", logic_power_cycle_temp);
 
-        // Next, print stuff for display board if it's installed
-        if (I2C_DSP_EN_PIN) {
-            double display_tof_temp = displayBoardGetTOF();
-            uint32_t display_tof_temp_int = (uint32_t) floor(display_tof_temp);
-            uint32_t display_power_cycle_temp = displayBoardGetPowerCycles();
-
-            printf("    Display Board Time of Flight is %s\r\n", getStringSecondsAsTime(display_tof_temp_int));
-            printf("    Display Board has power cycled %u times\r\n", display_power_cycle_temp);
-        }
     }
     
     terminalTextAttributesReset();
@@ -372,7 +362,8 @@ usb_uart_command_function_t poxDaqCommand(char * input_str) {
                 error_handler.flags.pox_sensor = 1;
                 return;
             }
-
+            
+            terminalTextAttributesReset();
             pox_daq_enable = 1;
             pox_daq_verbosity_enable = 1;
         }
@@ -478,7 +469,88 @@ usb_uart_command_function_t setLCDBrightnessCommand(char * input_str) {
 
 }
 
-#warning "add missing commands from above here"
+usb_uart_command_function_t setPoxPowerCommand(char * input_str) {
+    
+    // Snipe out received arguments
+    char read_string[32];
+    sscanf(input_str, "Set POX Power: %[^\t\n\r]", read_string);
+    
+    if (strcmp(read_string, "On") == 0) {
+     
+        terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Turning on Pulse Oximetry Sensor\r\n");
+        
+        // enable POX sensor logic rail, LED drive voltage
+        POS1P8_RUN_PIN = HIGH;
+        uint32_t timeout = 0xFFFFFF;
+        while (POS1P8_PGOOD_PIN == LOW && timeout > 0) timeout--;
+        if (POS1P8_PGOOD_PIN == LOW) {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Failed to enable +1.8V Power Supply\r\n");
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            error_handler.flags.pos1p8_pgood = 1;
+            return;
+        }
+        else {
+            POX_I2C_ENABLE_PIN = HIGH;
+            printf("    +1.8V Power Supply Enabled, Pulse Oximetry I2C Bus Enabled\r\n");
+        }
+        softwareDelay(1000);
+        POS3P3_POX_ENABLE_PIN = HIGH;
+        printf("    Pulse Oximetry LED Drive Voltage Enabled\r\n");
+
+        // initialize MAX30102 pulse oximeter sensor
+        softwareDelay(100000);
+
+        maxim_max30102_reset(); //resets the MAX30102
+        while(POX_INT_PIN == HIGH);
+        maxim_max30102_read_reg(MAX30102_REG_INTR_STATUS_1,&uch_dummy, &error_handler.flags.pox_sensor);  //Reads/clears the interrupt status register
+        if (maxim_max30102_init()) {
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Pulse Oximetry Sensor Initialized\r\n");
+            old_n_spo2 = 0.0;
+        }
+        else {
+            terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+            printf("    Failed to Initialize Pulse Oximetry Sensor\r\n");
+            terminalTextAttributes(GREEN_COLOR, BLACK_COLOR, NORMAL_FONT);
+            error_handler.flags.pox_sensor = 1;
+            return;
+        }
+
+        terminalTextAttributesReset();
+        
+    }
+    
+    else if (strcmp(read_string, "Off") == 0) {
+     
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, BOLD_FONT);
+        printf("Turning off Pulse Oximetry Sensor\r\n");
+        terminalTextAttributes(RED_COLOR, BLACK_COLOR, NORMAL_FONT);
+        // kill MAX30102
+        disableInterrupt(PORTB_Input_Change_Interrupt);
+        printf("    POX interrupt source disabled\r\n");
+        POS3P3_POX_ENABLE_PIN = LOW;
+        printf("    POX LED drive voltage disabled\r\n");
+        POX_I2C_ENABLE_PIN = LOW;
+        printf("    POX I2C bridge disabled\r\n");
+        POS1P8_RUN_PIN = LOW;
+        printf("    +1.8V power supply disabled\r\n");
+        terminalTextAttributesReset();
+        
+    }
+    
+    else {
+     
+        terminalTextAttributes(YELLOW_COLOR, BLACK_COLOR, NORMAL_FONT);
+        printf("Please enter 'On' or 'Off'\r\n");
+        terminalTextAttributesReset();
+        
+    }
+    
+    
+}
+
 // This function must be called to set up the usb_uart_commands hash table
 // Entries into this hash table are "usb_uart serial commands"
 void usbUartHashTableInitialize(void) {
@@ -501,8 +573,8 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Host Status?",
             "Prints status of MCU host device (IDs, WDT, DMT, Prefetch, Cause of Reset, up time)", 
             hostStatusCommand);
-    usbUartAddCommand("Peripheral Status? ",
-            "\b\b<peripheral_name>: Prints status about passed peripheral. Available peripherals:\r\n"
+    usbUartAddCommand("Peripheral Status?",
+            "\b\b <peripheral_name>: Prints status of passed host peripheral. Available peripherals:\r\n"
             "       Interrupts\r\n"
             "       Clocks\r\n"
             "       PMD\r\n"
@@ -513,7 +585,6 @@ void usbUartHashTableInitialize(void) {
             "       ADC\r\n"
             "       ADC Channels\r\n"
             "       I2C Master\r\n"
-            "       I2C Slaves\r\n"
             "       Timer <x> (x = 1-9)",
             peripheralStatusCommand);
     usbUartAddCommand("Error Status?",
@@ -522,10 +593,10 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Clear Errors",
             "Clears all error handler flags",
             clearErrorsCommand);
-    usbUartAddCommand("Time of Flight?",
-            "Returns time of flight for logic board and display board (if installed)",
-            timeOfFlightCommand);
-    if (TELEMETRY_CONFIG_PIN == LOW) {
+    usbUartAddCommand("Platform Status?",
+        "Prints current state of surrounding circuitry, including PGOOD, time of flight, I2C slaves",
+        platformStatusCommand);
+    if (nTELEMETRY_CONFIG_PIN == LOW) {
         usbUartAddCommand("Live Telemetry",
                 "Toggles live updates of system level telemetry",
                 liveTelemetryCommand);
@@ -536,4 +607,7 @@ void usbUartHashTableInitialize(void) {
     usbUartAddCommand("Set LCD Brightness: ",
             "\b\b<0 to 100>: Sets LCD backlight brightness",
             setLCDBrightnessCommand);
+    usbUartAddCommand("Set POX Power: ",
+            "\b\b<Power State>: Turns POX sensor on and off manually",
+            setPoxPowerCommand);
 }

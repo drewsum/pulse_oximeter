@@ -9,8 +9,6 @@
 #include "device_control.h"
 #include "pin_macros.h"
 
-#warning "double check PMD settings here"
-
 // This function disables unused peripherals on startup for power savings
 // THIS FUNCTION CAN ONLY BE CALLED ONCE DUE TO PMD LOCKOUT AFTER ONE WRITE SESSION
 void PMDInitialize(void) {
@@ -40,22 +38,22 @@ void PMDInitialize(void) {
     PMD3bits.IC8MD = 1;
     PMD3bits.IC9MD = 1;
     
-    // Disable all output compare modules, except module 3
+    // Disable all output compare modules, except module 3 and 6
     PMD3bits.OC1MD = 1;
     PMD3bits.OC2MD = 1;
     PMD3bits.OC3MD = 0;
     PMD3bits.OC4MD = 1;
     PMD3bits.OC5MD = 1;
-    PMD3bits.OC6MD = 1;
+    PMD3bits.OC6MD = 0;
     PMD3bits.OC7MD = 1;
     PMD3bits.OC8MD = 1;
     PMD3bits.OC9MD = 1;
     
-    // Enable all unused hardware timers
+    // Enable all used hardware timers
     PMD4bits.T1MD = 0;
     PMD4bits.T2MD = 0;
     PMD4bits.T3MD = 1;
-    PMD4bits.T4MD = 1;
+    PMD4bits.T4MD = 0;
     PMD4bits.T5MD = 1;
     PMD4bits.T6MD = 1;
     PMD4bits.T7MD = 1;

@@ -14,4 +14,5 @@ device_control.h  \
 usb_uart.h  \
  usb_uart_rx_lookup_table.h  \
 uthash.h  \
-heartbeat_services.h 
+heartbeat_services.h  \
+ heartbeat_timer.h 

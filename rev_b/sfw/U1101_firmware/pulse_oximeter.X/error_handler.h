@@ -51,26 +51,20 @@ volatile __attribute__((coherent))  uint8_t update_error_leds_flag;
         uint8_t DMT_timeout;
         uint8_t vdd_brownout;
         uint8_t i2c_bus_collision;
+        uint8_t ADC_configuration_error;
+        uint8_t ADC_reference_fault;
         uint8_t pos12_temp;
         uint8_t pos3p3_temp;
-        uint8_t pos5_temp;
-        uint8_t pos1p2_vff_temp;
-        uint8_t pos60_van_temp;
-        uint8_t dsply_temp;
+        uint8_t pos1p8_temp;
         uint8_t usb_temp;
         uint8_t amb_temp;
         uint8_t pos12_mon;
         uint8_t pos3p3_mon;
-        uint8_t pos5_mon;
-        uint8_t pos1p2_vff_mon;
-        uint8_t pos60_van_mon;
+        uint8_t pos1p8_mon;
         uint8_t usb_mon;
-        uint8_t backup_rtc;
-        uint8_t ADC_configuration_error;
-        uint8_t ADC_reference_fault;
-        uint8_t dsply_io;
-        uint8_t logic_tof;
-        uint8_t dsply_tof;
+        uint8_t time_of_flight;
+        uint8_t pox_sensor;
+        uint8_t pos1p8_pgood;
         
     } flags;
 
@@ -96,28 +90,23 @@ const char *  error_handler_flag_names[] = {
     "Deadman Timer Timeout",
     "MCU VDD Brownout",
     "I2C Bus Collision",
-    "+12V Temperature Sensor",
-    "+3.3V Temperature Sensor",
-    "+5V Temperature Sensor",
-    "+1.2VFF Temperature Sensor",
-    "+60VAN Temperature Sensor",
-    "Display Temperature Sensor",
-    "USB Port Temperature Sensor",
-    "Ambient Temperature Sensor",
+    "ADC configuration error",
+    "ADC reference fault",
+    "+12V Temp Sensor",
+    "+3.3V Temp Sensor",
+    "+1.8V Temp Sensor",
+    "USB Temp Sensor",
+    "Ambient Temp Sensor",
     "+12V Power Monitor",
     "+3.3V Power Monitor",
-    "+5V Power Monitor",
-    "+1.2VFF Power Monitor",
-    "+60VAN Power Monitor",
+    "+1.8V Power Monitor",
     "USB Power Monitor",
-    "Backup RTC",
-    "ADC Configuration Error",
-    "ADC Reference Fault",
-    "Display GPIO Expander",
-    "Logic Time of Flight",
-    "Display Time of Flight"
+    "Time of Flight Counter",
+    "Pulse Oximetry Sensor",
+    "+1.8V Power Good"
     
 };
+
 
 // This function initializes the error handler structure to detect fault conditions
 void errorHandlerInitialize(void);

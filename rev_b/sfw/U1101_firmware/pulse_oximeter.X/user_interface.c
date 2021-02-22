@@ -70,7 +70,7 @@ void uiDeviceWakeup(void) {
     lcdSetCursor(0,1);
     lcdPrint(" github.com/drewsum ");
     lcdSetCursor(0,2);
-    lcdPrint("    July of 2020    ");
+    lcdPrint("  February of 2021   ");
     lcdSetCursor(0,3);
     lcdPrint("    Preparing...    ");
     
@@ -99,6 +99,7 @@ void uiDeviceWakeup(void) {
         lcdPrint(":(((((");
         lcdSetBrightness(100);
         error_handler.flags.pos1p8_pgood = 1;
+        terminalTextAttributesReset();
         return;
     }
     else {
@@ -134,6 +135,7 @@ void uiDeviceWakeup(void) {
         lcdPrint(":(((((");
         lcdSetBrightness(100);
         error_handler.flags.pox_sensor = 1;
+        terminalTextAttributesReset();
         return;
     }
     
@@ -203,8 +205,14 @@ void uiDeviceSleep(void) {
     
     // stop heartbeat timer
     T1CONbits.ON = 0;
+    T2CONbits.ON = 0;
     TMR1 = 0;
+    TMR2 = 0;
+    OC6RS = 0;
     HEARTBEAT_LED_PIN = LOW;
+    
+    // turn off PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 1;
     
     // wait for USB UART TX DMA to complete (flush TX buffer)
     while (USB_UART_TX_DMA_CON_BITFIELD.CHBUSY);
@@ -215,11 +223,21 @@ void uiDeviceSleep(void) {
     ADCCON1bits.SIDL = 1;
     // disable LCD PWM in sleep
     OC3CONbits.SIDL = 0;
-    T2CONbits.SIDL = 1;
+    T4CONbits.SIDL = 1;
     // enable USB UART in sleep
     U1MODEbits.SIDL = 0;
     
+    // shut up heartbeat pin
+    OC6CONbits.ON = 0;
+    OC6CONbits.SIDL = 1;
+    T2CONbits.SIDL = 1;
+    OC6RS = 0;
+    HEARTBEAT_LED_PIN = LOW;
+    
     asm volatile ( "wait" ); // Put device into Idle mode
+    
+    // turn on PGOOD LEDs
+    PGOOD_LED_SHDN_PIN = 0;
     
     // start WDT
     kickTheDog();

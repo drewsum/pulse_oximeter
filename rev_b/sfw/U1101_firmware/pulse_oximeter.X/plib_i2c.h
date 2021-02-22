@@ -61,8 +61,21 @@
 
 #endif
         
-volatile I2C_OBJ i2c5Obj;
-        
+volatile I2C_OBJ i2cMasterObj;
+
+
+// These macros set which I2C peripheral is used
+#define I2C_MASTER_INT_SOURCE                   I2C5_Master_Event
+#define I2C_BUS_COL_INT_SOURCE                  I2C5_Bus_Collision_Event
+#define I2C_MASTER_BRG_REG                      I2C5BRG
+#define I2C_MASTER_CON_BITFIELD                 I2C5CONbits
+#define I2C_MASTER_CON_REG                      I2C5CON
+#define I2C_MASTER_STAT_BITFIELD                I2C5STATbits
+#define I2C_MASTER_TRN_REG                      I2C5TRN
+#define I2C_MASTER_RCV_REG                      I2C5RCV
+#define I2C_MASTER_BUS_COL_VECTOR               _I2C5_BUS_VECTOR
+#define I2C_MASTER_INT_VECTOR                   _I2C5_MASTER_VECTOR
+
 // DOM-IGNORE-END
 
 // *****************************************************************************
@@ -511,4 +524,3 @@ bool I2CMaster_TransferSetup(I2C_TRANSFER_SETUP* setup, uint32_t srcClkFreq );
 // DOM-IGNORE-END
 
 #endif /* PLIB_I2CMaster_H */
-

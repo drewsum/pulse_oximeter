@@ -156,20 +156,14 @@ void clockInitialize(void) {
 
     // set the FRC divider to 1
     // This sets FRCDIV frequency to 8 MHz
-    // OSCCONbits.FRCDIV = 0b000;
+    OSCCONbits.FRCDIV = 0b000;
     
-    // Enable external clock into primary oscillator (POSC EC)
+    // Disable external clock into primary oscillator (POSC EC) since this isn't popped
     TRISCbits.TRISC15 = TRIS_OUTPUT;
-    MCU_POSC_ENABLE_PIN = HIGH;
+    POSC_EC_ENABLE_PIN = LOW;
     
-    // wait for POSC EC to be ready
-    //while (CLKSTATbits.POSCRDY == 0);
-    
-    // wait for PLL to stabilize
-    //while (CLKSTATbits.SPDIVRDY == 0);
-    
-    // Set new clock source as POSC EC
-    OSCCONbits.NOSC = 0b010;
+    // Set new clock source as Internal FRC
+    OSCCONbits.NOSC = 0b000;
     
     // Initiate clock switch
     OSCCONbits.OSWEN = 1;
@@ -181,7 +175,7 @@ void clockInitialize(void) {
     PLLInitialize();
     
     // wait for PLL to stabilize
-    //while (CLKSTATbits.SPDIVRDY == 0);
+    while (CLKSTATbits.SPDIVRDY == 0);
     
     // Set new clock source as SPLL
     OSCCONbits.NOSC = 0b001;
@@ -191,6 +185,9 @@ void clockInitialize(void) {
     
     // wait for switch to complete
     while (OSCCONbits.OSWEN == 1);
+    
+    // set PWM to alternate clock source, datasheet table 18-1
+    CFGCONbits.OCACLK = 1;
     
     // lock clock and PLL settings
     OSCCONbits.CLKLOCK = 1;
@@ -206,8 +203,8 @@ void PLLInitialize(void) {
     // Set PLL input range as 5-10 MHz
     SPLLCONbits.PLLRANGE = 0b001;
     
-    // Set the input to the PLL as POSC
-    SPLLCONbits.PLLICLK = 0;
+    // Set the input to the PLL as FRC
+    SPLLCONbits.PLLICLK = 1;
     
     // Set PLL input divider to 2
     SPLLCONbits.PLLIDIV = 0b001;
@@ -215,8 +212,8 @@ void PLLInitialize(void) {
     // Set PLL multiplier to 100
     SPLLCONbits.PLLMULT = 0b1100011; // (99 in binary, 0b0000000 => PLL X 1)
     
-    // Set PLL output divider to 2
-    SPLLCONbits.PLLODIV = 0b001;
+    // Set PLL output divider to 3
+    SPLLCONbits.PLLODIV = 0b010;
     
 }
 
@@ -235,8 +232,8 @@ void REFCLK1Initialize(void) {
     // Disable REFCLK1 in Idle mode
     REFO1CONbits.SIDL = 1;
     
-    // disable output of REFCLK1 onto output pin
-    REFO1CONbits.OE = 0;
+    // enable output of REFCLK1 onto output pin
+    REFO1CONbits.OE = 1;
     
     // Disable REFCLK1 in sleep
     REFO1CONbits.RSLP = 0;

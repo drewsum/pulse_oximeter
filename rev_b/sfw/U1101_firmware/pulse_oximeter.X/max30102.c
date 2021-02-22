@@ -61,7 +61,7 @@
 *******************************************************************************
 */
 #include "max30102.h"
-#include "plib_i2c3.h"
+#include "plib_i2c.h"
 #include "algorithm_by_RF.h"
 #include "error_handler.h"
 
@@ -88,7 +88,7 @@ bool maxim_max30102_write_reg(uint8_t uch_addr, uint8_t uch_data, volatile uint8
     if(!I2CMaster_Write(MAX30102_I2C_WRITE_ADDR, output_data_array, 2)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
 
     // return exit status
     if (*device_error_handler_flag) return false;
@@ -114,7 +114,7 @@ bool maxim_max30102_read_reg(uint8_t uch_addr, uint8_t *puch_data, volatile uint
     if(!I2CMaster_WriteRead(MAX30102_I2C_READ_ADDR, data_reg_pointer, 1, temp, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     
     // copy read result to read data pointer
     *puch_data=temp[0];
@@ -216,7 +216,7 @@ bool maxim_max30102_read_fifo(uint32_t *pun_red_led, uint32_t *pun_ir_led, volat
     if(!I2CMaster_WriteRead(MAX30102_I2C_READ_ADDR, data_reg_pointer, 1, temp, 6)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
 
     // align data from FIFO
     *pun_red_led = ((uint32_t) temp[0] << 16) | ((uint32_t) temp[1] << 8) | ((uint32_t) temp[2]);
@@ -256,7 +256,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_a_full = (read_bytes[0] >> 7) & 0b1;
     uint8_t read_ppg_rdy = (read_bytes[0] >> 6) & 0b1;
     uint8_t read_alc_ovf = (read_bytes[0] >> 5) & 0b1;
@@ -267,7 +267,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_die_temp_rdy = (read_bytes[0] >> 1) & 0b1;
     
     // Read INT ENABLE 1 REG
@@ -275,7 +275,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_a_full_en = (read_bytes[0] >> 7) & 0b1;
     uint8_t read_ppg_rdy_en = (read_bytes[0] >> 6) & 0b1;
     uint8_t read_alc_ovf_en = (read_bytes[0] >> 5) & 0b1;
@@ -285,7 +285,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_die_temp_rdy_en = (read_bytes[0] >> 1) & 0b1;
     
     // Read FIFO_WR_PTR
@@ -293,7 +293,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_fifo_wr_ptr = read_bytes[0];
     
     // Read FIFO_OVF_CTR
@@ -301,7 +301,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_fifo_ovf_ctr = read_bytes[0];
     
     // Read FIFO_RD_PTR
@@ -309,7 +309,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_fifo_rd_ptr = read_bytes[0];
     
     // Read FIFO_CFG
@@ -317,7 +317,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_smp_ave = (read_bytes[0] >> 5) & 0b111;
     uint8_t read_fifo_roll_over_en = (read_bytes[0] >> 4) & 0b1;
     uint8_t read_fifo_a_full = (read_bytes[0]) & 0b1111;
@@ -327,7 +327,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_shdn = (read_bytes[0] >> 7) & 0b1;
     uint8_t read_reset = (read_bytes[0] >> 6) & 0b1;
     uint8_t read_mode = (read_bytes[0]) & 0b111;
@@ -337,7 +337,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_spo2_adc_rge = (read_bytes[0] >> 5) & 0b11;
     uint8_t read_spo2_sr = (read_bytes[0] >> 2) & 0b111;
     uint8_t read_led_pw = (read_bytes[0]) & 0b11;
@@ -347,7 +347,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_led_pa1 = read_bytes[0];
     
     // Read LED PA2
@@ -355,7 +355,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_led_pa2 = read_bytes[0];
     
     // Read LED ctrl reg1
@@ -363,7 +363,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_slot2 = (read_bytes[0] >> 4) & 0b111;
     uint8_t read_slot1 = (read_bytes[0]) & 0b111;
     
@@ -372,7 +372,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_slot4 = (read_bytes[0] >> 4) & 0b111;
     uint8_t read_slot3 = (read_bytes[0]) & 0b111;
     
@@ -381,7 +381,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_rev_id = read_bytes[0];
     
     // Read dev ID
@@ -389,7 +389,7 @@ void MAX30102printStatus(uint8_t input_address, volatile uint8_t *device_error_h
     if(!I2CMaster_WriteRead(input_address, data_reg_pointer, 1, read_bytes, 1)) {
         *device_error_handler_flag = 1;
     }
-    while(i2c5Obj.state != I2C_STATE_IDLE);
+    while(i2cMasterObj.state != I2C_STATE_IDLE);
     uint8_t read_part_id = read_bytes[0];
     
     

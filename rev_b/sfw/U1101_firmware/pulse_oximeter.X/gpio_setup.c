@@ -1,10 +1,103 @@
 
 #include <xc.h>
 
-#warning "fix gpio setup"
-
 #include "gpio_setup.h"
 
+// initializes port A GPIO pins
+void portAGPIOInitialize (void) {
+    
+    // no port A on this PIC SKU
+    Nop();
+    
+}
+
+// initializes port B GPIO pins
+void portBGPIOInitialize (void) {
+    
+    gpioPinSetup(gpio_port_b, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 2, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 3, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    INT4Rbits.INT4R = RPB3_PPS_INPUT;
+    gpioPinSetup(gpio_port_b, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 10, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 11, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 12, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 13, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 14, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_b, 15, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+// initializes port C GPIO pins
+void portCGPIOInitialize (void) {
+
+    gpioPinSetup(gpio_port_c, 13, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPC13Rbits.RPC13R = REFCLKO1_PPS_OUTPUT;        // map REFCLKO1 to RC13
+    gpioPinSetup(gpio_port_c, 14, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_c, 15, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+// initializes port D GPIO pins
+void portDGPIOInitialize (void) {
+    
+    gpioPinSetup(gpio_port_d, 0, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 2, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    U1RXRbits.U1RXR = RPD2_PPS_INPUT;           // Assign U1RX to RD2
+    gpioPinSetup(gpio_port_d, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPD3Rbits.RPD3R = U1TX_PPS_OUTPUT;           // Assign U1TX to RD3
+    gpioPinSetup(gpio_port_d, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 10, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_d, 11, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+// initializes port E GPIO pins
+void portEGPIOInitialize (void) {
+    
+    gpioPinSetup(gpio_port_e, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_e, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+// initializes port F GPIO pins
+void portFGPIOInitialize (void) {
+    
+    gpioPinSetup(gpio_port_f, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_f, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPF1Rbits.RPF1R = OC6_PPS_OUTPUT;                           // map OC6 PWM output to RF1 (for heartbeat LED)
+    gpioPinSetup(gpio_port_f, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+// initializes port G GPIO pins
+void portGGPIOInitialize (void) {
+    
+    gpioPinSetup(gpio_port_g, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    gpioPinSetup(gpio_port_g, 7, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_ENABLE);
+    gpioPinSetup(gpio_port_g, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    RPG8Rbits.RPG8R = OC3_PPS_OUTPUT;                           // map OC3 to RG8 for LCD dimming
+    gpioPinSetup(gpio_port_g, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
+    
+}
+
+
+// don't change these
 // this function allows for a more convenient way to setup pins
 void gpioPinSetup(port_name_t port_name, 
     uint8_t pin_number,
@@ -221,123 +314,5 @@ void gpioInitialize (void) {
     
     // Lock PPS
     PPSLock();
-    
-}
-
-// initializes port A GPIO pins
-void portAGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_a, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 3, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 4, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 9, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 10, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 14, TRIS_INPUT, LAT_LOW, ODC_ENABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_a, 15, TRIS_INPUT, LAT_LOW, ODC_ENABLE, ANALOG_DISABLE);
-    
-}
-
-// initializes port B GPIO pins
-void portBGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_b, 0, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 1, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 8, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    INT2Rbits.INT2R  = RPB8_PPS_INPUT;      // map INT2 to RB8
-    gpioPinSetup(gpio_port_b, 9, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 10, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 11, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_b, 12, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_ENABLE);
-    
-}
-
-// initializes port C GPIO pins
-void portCGPIOInitialize (void) {
-
-    gpioPinSetup(gpio_port_c, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_c, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_c, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_c, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_c, 13, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_c, 15, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    
-}
-
-// initializes port D GPIO pins
-void portDGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_d, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 10, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 11, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 12, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 13, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_d, 14, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    RPD14Rbits.RPD14R = U3TX_PPS_OUTPUT;    // assign UART3 TX to RD14
-    gpioPinSetup(gpio_port_d, 15, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    U3RXRbits.U3RXR = RPD15_PPS_INPUT;      // assign UART3 RX to RD15
-    
-}
-
-// initializes port E GPIO pins
-void portEGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_e, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 2, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 4, TRIS_OUTPUT, LAT_HIGH, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 5, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_e, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    
-}
-
-// initializes port F GPIO pins
-void portFGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_f, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 2, TRIS_OUTPUT, LAT_HIGH, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 3, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 4, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 5, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_f, 12, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    RPF12Rbits.RPF12R = OC5_PPS_OUTPUT;     // Assign OC5 to RF12
-    gpioPinSetup(gpio_port_f, 13, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    
-}
-
-// initializes port G GPIO pins
-void portGGPIOInitialize (void) {
-    
-    gpioPinSetup(gpio_port_g, 0, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 1, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 6, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 7, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 8, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 9, TRIS_OUTPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 12, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 13, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
-    gpioPinSetup(gpio_port_g, 14, TRIS_INPUT, LAT_LOW, ODC_DISABLE, ANALOG_DISABLE);
     
 }
